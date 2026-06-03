@@ -640,10 +640,7 @@
 }
 
 .art-relief-sequence-dialog {
-    width: min(640px, calc(100vw - 2rem));
-    max-height: min(80vh, 720px);
-    overflow-y: auto;
-    padding-right: 1rem;
+    width: min(760px, calc(100vw - 2rem));
 }
 
 .welcome-sequence-backdrop {
@@ -698,7 +695,7 @@
 .art-relief-popup-image {
     display: block;
     width: 100%;
-    max-height: 42vh;
+    max-height: 58vh;
     margin: 0 0 1rem;
     border-radius: 14px;
     object-fit: contain;
