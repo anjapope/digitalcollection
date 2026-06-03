@@ -27,10 +27,10 @@ permalink: /pages/vestibule.html
       <button class="door-sign door-sign-art" type="button" data-collection-sign="art">Art</button>
       <button class="door-sign door-sign-local" type="button" data-collection-sign="local">Local</button>
       <button class="door-sign door-sign-attic" type="button" data-collection-sign="attic">Attic</button>
-      <a class="house-doorway house-doorway-left" href="/pages/rooms/natural-history.html" aria-label="Enter the Natural History room"></a>
-      <a class="house-doorway house-doorway-left-inner" href="/pages/rooms/art.html" aria-label="Enter the Art room"></a>
-      <a class="house-doorway house-doorway-right-inner" href="/pages/rooms/local.html" aria-label="Enter the Local room"></a>
-      <a class="house-doorway house-doorway-right-front" href="/pages/rooms/attic.html" aria-label="Enter the Attic room"></a>
+      <a class="house-doorway house-doorway-left" href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter the Natural History room"></a>
+      <a class="house-doorway house-doorway-left-inner" href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Enter the Art room"></a>
+      <a class="house-doorway house-doorway-right-inner" href="{{ '/pages/rooms/local.html' | relative_url }}" aria-label="Enter the Local room"></a>
+      <a class="house-doorway house-doorway-right-front" href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter the Attic room"></a>
       <div class="house-sconce house-sconce-left"></div>
       <div class="house-sconce house-sconce-right"></div>
       <div class="house-portrait house-portrait-left"></div>
