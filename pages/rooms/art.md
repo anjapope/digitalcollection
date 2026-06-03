@@ -1,7 +1,7 @@
 ---
 title: "Art Room"
 layout: vestibule
-permalink: digitalcollection/pages/rooms/art.html
+permalink: /pages/rooms/art.html
 ---
 
 <section class="atrium-page collection-room-art-hall">
