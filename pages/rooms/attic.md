@@ -1,7 +1,7 @@
 ---
 title: "Attic Room"
 layout: vestibule
-permalink: digitalcollection/pages/rooms/attic.html
+permalink: /pages/rooms/attic.html
 ---
 
 <section class="atrium-page collection-room-attic-hall">
