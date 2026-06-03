@@ -1,7 +1,7 @@
 ---
 title: "Attic Room"
 layout: vestibule
-permalink: /pages/rooms/attic.html
+permalink: digitalcollection/pages/rooms/attic.html
 ---
 
 <section class="atrium-page collection-room-attic-hall">
@@ -9,8 +9,8 @@ permalink: /pages/rooms/attic.html
 
   <div class="house-scene">
     <div class="house-backdrop attic-hall">
-      <a class="room-cornice-link room-cornice-link-left" href="/pages/vestibule.html">Back to Hall</a>
-      <a class="room-cornice-link room-cornice-link-right" href="/pages/pathways-overview.html">Pathways Overview</a>
+      <a class="room-cornice-link room-cornice-link-left" href="digitalcollection/pages/vestibule.html">Back to Hall</a>
+      <a class="room-cornice-link room-cornice-link-right" href="digitalcollection/pages/pathways-overview.html">Pathways Overview</a>
       <div class="attic-rafters" aria-hidden="true">
         <span class="attic-beam attic-beam-left"></span>
         <span class="attic-beam attic-beam-right"></span>
