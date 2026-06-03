@@ -10,8 +10,8 @@ permalink: /pages/rooms/local.html
   <div class="house-scene">
     <div class="house-backdrop local-hall">
       <div class="house-cornice"></div>
-      <a class="room-cornice-link room-cornice-link-left" href="/pages/vestibule.html">Back to Hall</a>
-      <a class="room-cornice-link room-cornice-link-right" href="/pages/pathways-overview.html">Pathways Overview</a>
+      <a class="room-cornice-link room-cornice-link-left" href="/digitalcollection/pages/vestibule.html">Back to Hall</a>
+      <a class="room-cornice-link room-cornice-link-right" href="/digitalcollection/pages/pathways-overview.html">Pathways Overview</a>
       <div class="house-medallion"></div>
       <div class="house-chandelier">
         <span class="chandelier-chain"></span>
