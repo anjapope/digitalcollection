@@ -1,40 +1,34 @@
 ##########
-# collectionbuilder-csv
-# Jekyll Digital Collection Generator
-# https://github.com/CollectionBuilder/collectionbuilder-csv
-##########
-
-##########
 # URL VARIABLES
 #
 # site domain, full URL to the production location of your collection
-url: 
+url: https://anjapope.github.io/digitalcollection/ 
 # path to location on the domain if necessary e.g. /digital/hjccc
 baseurl: 
 # location of code, the full url to your github repository
-source-code: https://github.com/CollectionBuilder/collectionbuilder-csv
+source-code: https://github.com/anjapope/digitalcollection
 
 ##########
 # SITE SETTINGS
 #
 # title of site appears in banner
-title: CollectionBuilder CSV
+title: ArchIvory Digital Exhibition
 # tagline, a short phrase that will appear throughout the site in the top banner
-tagline: Digital Collection Magic with Static Web Technologies
+tagline: The ArchIvory Digital Exhibition provides a window into the unique connections that bind human societies together across time and space through the lens of their interactions with the natural world, elephants, and ivory artifacts.
 # description appears in meta tags and other locations
 # this description might appear in search result lists, keep around 160 characters max
-description: "CollectionBuilder-CSV is a template for creating digital collection exhibits using static web technology."
+description: "Curated by the Archivory team at Indiana University, this digital exhibition explores the intricate relationships between human societies and elephants through the lens of ivory artifacts. The ArchIvory Digital Exhibition provides a window into the unique connections that bind human societies together across time and space through the lens of their interactions with the natural world, elephants, and ivory artifacts."
 # keywords, a short list of subjects describing the collection, separated by semicolon, to appear in rich markup
-keywords: idaho; history; inland northwest
+keywords: indiana; africa;  history; elephants; ivory; artifacts; material culture; natural history; human-animal relationships
 # creator of the digital collection, to appear in meta tags; we typically use our GitHub usernames but feel free to just use your name
-author: CollectionBuilder
+author: ArchIvory 
 
 ##########
 # COLLECTION SETTINGS
 #
 # Set the metadata for your collection (the name of the CSV file in your _data directory that describes the objects in your collection) 
 # Use the filename of your CSV **without** the ".csv" extension! E.g. _data/demo-metadata.csv --> "demo-metadata"
-metadata: demo-compoundobjects-metadata 
+metadata: demo-metadata
 # page generation settings [optional!]
 # [optional: only used if you need to tweak CB defaults or generate from more than one data file]
 # page_gen:
@@ -50,11 +44,11 @@ metadata: demo-compoundobjects-metadata
 #
 # Enter name and link for your organization (replacing the name and links below)
 # These values will be used in attribution and data 
-organization-name: "Center for Digital Inquiry and Learning (CDIL)"
-organization-link: https://cdil.lib.uidaho.edu/
+organization-name: "ArchIvory"
+organization-link: https://www.archivory.org/
 # Add logo image links if you would like them to appear in banner and footer. Delete or leave blank to remove logos.
-organization-logo-banner: https://www.lib.uidaho.edu/collectionbuilder/cdil-black.png
-organization-logo-nav: https://www.lib.uidaho.edu/collectionbuilder/cdil-white.png
+organization-logo-banner: /assets/img/Archivory Logo.png
+organization-logo-nav: /assets/img/Archivory Logo.png
 
 ##########
 # ROBOTS EXCLUDE
@@ -77,3 +71,20 @@ exclude: [docs/, Rakefile, rakelib/, README.md, LICENSE, CITATION.cff, CODE_OF_C
 # compress CSS output
 sass:
   style: compressed
+
+##########
+# COLLECTIONS FOR NARRATIVE PATHWAYS
+#
+collections:
+  attic:
+    output: true
+    permalink: /attic/:name/
+  naturalhistory:
+    output: true
+    permalink: /naturalhistory/:name/
+  localhistory:
+    output: true
+    permalink: /localhistory/:name/
+  artmuseum:
+    output: true
+    permalink: /artmuseum/:name/

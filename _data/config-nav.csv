@@ -1,5 +1,6 @@
 display_name,stub,dropdown_parent
 Home,/,
+Pathways Overview,/pages/pathways-overview.html,
 Browse,/browse.html,
 Subjects,/subjects.html,
 Locations,/locations.html,

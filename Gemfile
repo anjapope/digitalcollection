@@ -18,3 +18,5 @@ unless Gem.win_platform?
   gem 'image_optim'
   gem 'image_optim_pack'
 end
+
+gem "http_parser.rb", "~> 0.8.1"

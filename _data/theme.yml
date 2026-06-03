@@ -8,7 +8,7 @@
 #
 # featured image is used in home page banner and in meta markup to represent the collection
 # use either an objectid (from an item in this collect), a relative location of an image in this repo, or a full url to an image elsewhere
-featured-image: demo_033
+featured-image: /assets/img/barberini ivory.jpg # example of relative path to image in this repo
 featured-image-alt-text: # add alt text if using url for featured-image (objectid will be automatic from metadata)
 # optional: add extra padding around collection title for a larger image feature. 
 home-title-y-padding: 10em # the margin from the top your title portion will appear.
@@ -63,8 +63,8 @@ map-cluster-radius: 25 # size of clusters, from ~ 10 to 80
 # TIMELINE PAGE
 #
 # set either year-navigation or year-nav-increment to generate a year nav dropdown
-year-navigation: #"1900;1905;1910;1915;1920" # manually set years to appear in dropdown nav
-year-nav-increment: 5 # set increments to auto gen nav years
+year-navigation: "100;200;300;400;500;600;700;800;900;1000;1100;1200;1300;1400;1500;1600;1700;1800;1850;1860;1870;1880;1890;1900;1910;1920;1930;1940;1950;1960;1970;1980;1989" # manually set years to appear in dropdown nav
+#year-nav-increment: 5 # set increments to auto gen nav years
 
 ##########
 # DATA 

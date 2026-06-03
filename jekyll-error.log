@@ -1,0 +1,48 @@
+Configuration file: /Users/andrewpope/digital collection/digitalcollection-1/_config.yml
+            Source: /Users/andrewpope/digital collection/digitalcollection-1
+       Destination: /Users/andrewpope/digital collection/digitalcollection-1/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+                    done in 1.083 seconds.
+ Auto-regeneration: enabled for '/Users/andrewpope/digital collection/digitalcollection-1'
+bundler: failed to load command: jekyll (/Users/andrewpope/.rbenv/versions/3.2.2/bin/jekyll)
+/Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/3.2.0/socket.rb:205:in `bind': Address already in use - bind(2) for 127.0.0.1:4000 (Errno::EADDRINUSE)
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/3.2.0/socket.rb:205:in `listen'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/3.2.0/socket.rb:768:in `block in tcp_server_sockets'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/3.2.0/socket.rb:231:in `each'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/3.2.0/socket.rb:231:in `foreach'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/3.2.0/socket.rb:766:in `tcp_server_sockets'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/utils.rb:60:in `create_listeners'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:130:in `listen'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/server.rb:111:in `initialize'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/webrick-1.9.2/lib/webrick/httpserver.rb:47:in `initialize'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/jekyll-4.3.4/lib/jekyll/commands/serve.rb:218:in `new'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/jekyll-4.3.4/lib/jekyll/commands/serve.rb:218:in `start_up_webrick'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/jekyll-4.3.4/lib/jekyll/commands/serve.rb:102:in `process'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/jekyll-4.3.4/lib/jekyll/command.rb:91:in `block in process_with_graceful_fail'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/jekyll-4.3.4/lib/jekyll/command.rb:91:in `each'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/jekyll-4.3.4/lib/jekyll/command.rb:91:in `process_with_graceful_fail'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/jekyll-4.3.4/lib/jekyll/commands/serve.rb:86:in `block (2 levels) in init_with_program'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `block in execute'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `each'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `execute'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/mercenary-0.4.0/lib/mercenary/program.rb:44:in `go'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/mercenary-0.4.0/lib/mercenary.rb:21:in `program'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/jekyll-4.3.4/exe/jekyll:15:in `<top (required)>'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/bin/jekyll:25:in `load'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/bin/jekyll:25:in `<top (required)>'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/cli/exec.rb:58:in `load'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/cli/exec.rb:58:in `kernel_load'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/cli/exec.rb:23:in `run'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/cli.rb:486:in `exec'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/vendor/thor/lib/thor.rb:392:in `dispatch'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/cli.rb:31:in `dispatch'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/vendor/thor/lib/thor/base.rb:485:in `start'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/cli.rb:25:in `start'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/exe/bundle:48:in `block in <top (required)>'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/lib/bundler/friendly_errors.rb:120:in `with_friendly_errors'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/bundler-2.3.25/exe/bundle:36:in `<top (required)>'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/bin/bundle:25:in `load'
+	from /Users/andrewpope/.rbenv/versions/3.2.2/bin/bundle:25:in `<main>'
