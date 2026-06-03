@@ -10,8 +10,8 @@ permalink: /pages/rooms/natural-history.html
   <div class="house-scene">
     <div class="house-backdrop natural-history-hall">
       <div class="house-cornice"></div>
-      <a class="room-cornice-link room-cornice-link-left" href="/pages/vestibule.html">Back to Hall</a>
-      <a class="room-cornice-link room-cornice-link-right" href="/pages/pathways-overview.html">Pathways Overview</a>
+      <a class="room-cornice-link room-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
+      <a class="room-cornice-link room-cornice-link-right" href="{{ '/pages/pathways-overview.html' | relative_url }}">Pathways Overview</a>
       <div class="house-medallion"></div>
       <div class="house-chandelier">
         <span class="chandelier-chain"></span>
@@ -38,7 +38,7 @@ permalink: /pages/rooms/natural-history.html
       </div>
 
       <div class="natural-history-wall-links">
-        <a class="natural-history-wall-link natural-history-wall-link-clock" href="/pages/rooms/natural-history-timeline.html" aria-label="Open the timeline">
+        <a class="natural-history-wall-link natural-history-wall-link-clock" href="{{ '/pages/rooms/natural-history-timeline.html' | relative_url }}" aria-label="Open the timeline">
           <span class="natural-history-icon natural-history-icon-clock" aria-hidden="true">
             <span class="clock-face"></span>
             <span class="clock-hand clock-hand-hour"></span>
@@ -47,7 +47,7 @@ permalink: /pages/rooms/natural-history.html
           <span class="natural-history-wall-link-label">Timeline</span>
         </a>
 
-        <a class="natural-history-wall-link natural-history-wall-link-map" href="/map.html" aria-label="Open the map">
+        <a class="natural-history-wall-link natural-history-wall-link-map" href="{{ '/map.html' | relative_url }}" aria-label="Open the map">
           <span class="natural-history-icon natural-history-icon-map" aria-hidden="true">
             <span class="map-globe"></span>
             <span class="map-ring map-ring-vertical"></span>
