@@ -10,8 +10,8 @@ permalink: /pages/rooms/natural-history-timeline.html
   <div class="house-scene">
     <div class="house-backdrop natural-history-hall natural-history-timeline-hall">
       <div class="house-cornice"></div>
-      <a class="room-cornice-link room-cornice-link-left" href="/digitalcollection/pages/rooms/natural-history.html">Back to Natural History</a>
-      <a class="room-cornice-link room-cornice-link-right" href="/digitalcollection/pages/vestibule.html">Back to Hall</a>
+      <a class="room-cornice-link room-cornice-link-left" href="/pages/rooms/natural-history.html">Back to Natural History</a>
+      <a class="room-cornice-link room-cornice-link-right" href="/pages/vestibule.html">Back to Hall</a>
       <div class="house-medallion"></div>
       <div class="house-chandelier">
         <span class="chandelier-chain"></span>
@@ -42,7 +42,7 @@ permalink: /pages/rooms/natural-history-timeline.html
               <li>Their movement, feeding, and browsing helped spread grasses and shape grazing ecosystems.</li>
               <li>They did not just inhabit those environments; they helped make them.</li>
             </ul>
-            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="/digitalcollection/map.html?location=-2.8,36.0&amp;zoom=5&amp;event=Proboscideans%20in%20the%20Cenozoic&amp;description=This%20map%20point%20uses%20East%20Africa%20as%20a%20representative%20landscape%20for%20thinking%20about%20proboscidean%20ecology%20and%20deep-time%20environmental%20change.">View this timeframe on the map</a></p>
+            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="/map.html?location=-2.8,36.0&amp;zoom=5&amp;event=Proboscideans%20in%20the%20Cenozoic&amp;description=This%20map%20point%20uses%20East%20Africa%20as%20a%20representative%20landscape%20for%20thinking%20about%20proboscidean%20ecology%20and%20deep-time%20environmental%20change.">View this timeframe on the map</a></p>
           </article>
 
           <article class="natural-history-timeline-popup" id="timeline-panel-1" data-timeline-panel="1" style="--timeline-position: 25%;">
@@ -53,7 +53,7 @@ permalink: /pages/rooms/natural-history-timeline.html
               <li>Climate change mattered, but human hunting pressure was a major driver of their collapse.</li>
               <li>Their disappearance reduced both biodiversity and the ecological engineering they once provided.</li>
             </ul>
-            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="/digitalcollection/map.html?location=67.0,161.0&amp;zoom=4&amp;event=Ancient%20proboscidean%20extinctions&amp;description=This%20map%20point%20uses%20the%20Arctic%20north%20and%20Beringian%20world%20as%20a%20representative%20place%20to%20think%20about%20the%20late%20survival%20and%20disappearance%20of%20ancient%20proboscideans.">View this timeframe on the map</a></p>
+            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="/map.html?location=67.0,161.0&amp;zoom=4&amp;event=Ancient%20proboscidean%20extinctions&amp;description=This%20map%20point%20uses%20the%20Arctic%20north%20and%20Beringian%20world%20as%20a%20representative%20place%20to%20think%20about%20the%20late%20survival%20and%20disappearance%20of%20ancient%20proboscideans.">View this timeframe on the map</a></p>
           </article>
 
           <article class="natural-history-timeline-popup" id="timeline-panel-2" data-timeline-panel="2" style="--timeline-position: 50%;">
@@ -64,7 +64,7 @@ permalink: /pages/rooms/natural-history-timeline.html
               <li>At the same time, elephants still ranged far more widely than today.</li>
               <li>They could still be found across northern China, Mesopotamia, and northern Africa.</li>
             </ul>
-            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="/digitalcollection/map.html?location=70.97,-179.5&amp;zoom=5&amp;event=Wrangel%20Island%20around%202000%20BC&amp;description=This%20map%20point%20centers%20Wrangel%20Island%2C%20where%20the%20last%20mammoths%20survived%20into%20the%20second%20millennium%20BC.">View this timeframe on the map</a></p>
+            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="/map.html?location=70.97,-179.5&amp;zoom=5&amp;event=Wrangel%20Island%20around%202000%20BC&amp;description=This%20map%20point%20centers%20Wrangel%20Island%2C%20where%20the%20last%20mammoths%20survived%20into%20the%20second%20millennium%20BC.">View this timeframe on the map</a></p>
           </article>
 
           <article class="natural-history-timeline-popup" id="timeline-panel-3" data-timeline-panel="3" style="--timeline-position: 75%;">
@@ -75,7 +75,7 @@ permalink: /pages/rooms/natural-history-timeline.html
               <li>Elephants were drawn more directly into expanding imperial and commercial systems.</li>
               <li>Ivory circulation accelerated, while violence in the landscapes of extraction deepened.</li>
             </ul>
-            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="/digitalcollection/map.html?location=6.45,-1.58&amp;zoom=5&amp;event=West%20Africa%20around%201600%20AD&amp;description=This%20map%20point%20uses%20the%20Gulf%20of%20Guinea%20region%20to%20mark%20the%20intensifying%20pressure%20that%20Atlantic%20trade%20placed%20on%20West%20African%20elephant%20populations.">View this timeframe on the map</a></p>
+            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="/map.html?location=6.45,-1.58&amp;zoom=5&amp;event=West%20Africa%20around%201600%20AD&amp;description=This%20map%20point%20uses%20the%20Gulf%20of%20Guinea%20region%20to%20mark%20the%20intensifying%20pressure%20that%20Atlantic%20trade%20placed%20on%20West%20African%20elephant%20populations.">View this timeframe on the map</a></p>
           </article>
 
           <article class="natural-history-timeline-popup" id="timeline-panel-4" data-timeline-panel="4" style="--timeline-position: 100%;">
@@ -86,7 +86,7 @@ permalink: /pages/rooms/natural-history-timeline.html
               <li>Demand concentrated violence and extraction in specific regions and transport routes.</li>
               <li>Modern elephant populations entered an era of intensified commercial pressure.</li>
             </ul>
-            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="/digitalcollection/map.html?location=-6.16,39.19&amp;zoom=6&amp;event=Zanzibar%20and%20the%20nineteenth-century%20ivory%20trade&amp;description=This%20map%20point%20centers%20Zanzibar%2C%20a%20key%20nineteenth-century%20hub%20in%20the%20East%20African%20ivory%20trade.">View this timeframe on the map</a></p>
+            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="/map.html?location=-6.16,39.19&amp;zoom=6&amp;event=Zanzibar%20and%20the%20nineteenth-century%20ivory%20trade&amp;description=This%20map%20point%20centers%20Zanzibar%2C%20a%20key%20nineteenth-century%20hub%20in%20the%20East%20African%20ivory%20trade.">View this timeframe on the map</a></p>
           </article>
 
           <div class="natural-history-timeline-spine" aria-hidden="true"></div>

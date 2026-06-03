@@ -10,8 +10,8 @@ permalink: /pages/rooms/art.html
   <div class="house-scene">
     <div class="house-backdrop art-hall">
       <div class="house-cornice"></div>
-      <a class="art-cornice-link art-cornice-link-left" href="/digitalcollection/pages/vestibule.html">Back to Hall</a>
-      <a class="art-cornice-link art-cornice-link-right" href="/digitalcollection/pages/pathways-overview.html">Pathways Overview</a>
+      <a class="art-cornice-link art-cornice-link-left" href="/pages/vestibule.html">Back to Hall</a>
+      <a class="art-cornice-link art-cornice-link-right" href="/pages/pathways-overview.html">Pathways Overview</a>
       <div class="house-medallion"></div>
       <div class="house-chandelier">
         <span class="chandelier-chain"></span>
@@ -67,7 +67,7 @@ permalink: /pages/rooms/art.html
         <button class="welcome-sequence-close" type="button" aria-label="Close relief information" data-art-relief-close>×</button>
         <p class="welcome-sequence-step">Art Object</p>
         <h2 class="welcome-sequence-title" id="art-relief-title">Ivory Relief</h2>
-        <img class="art-relief-popup-image" src="/digitalcollection/assets/img/Barberini%20Ivory.jpg" alt="Large view of the Barberini Ivory relief" />
+        <img class="art-relief-popup-image" src="/assets/img/barberini%20ivory.jpg" alt="Large view of the Barberini Ivory relief" />
         <p class="welcome-sequence-message" id="art-relief-message">Artisans of Late Antiquity created highly detailed relief sculptures from ivory, including this piece- the Barberini Ivory- from 6th century Constantinople. Now held in the Louvre, it depicts the emperor (likely Justinian) achieving victory over his barbarian foes. While it is the only such extant piece that celebrates secular power, the presence of angels in the background reveal the supremacy of ecclesiastical authority.</p>
         <div class="welcome-sequence-actions">
           <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-relief-close">Close</button>
