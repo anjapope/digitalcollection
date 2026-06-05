@@ -11,6 +11,7 @@ permalink: /pages/rooms/art.html
     <div class="house-backdrop art-hall">
       <div class="house-cornice"></div>
       <a class="art-cornice-link art-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
+      <a class="art-cornice-link art-cornice-link-center" href="{{ '/pages/rooms/archive.html' | relative_url }}">Archive Court</a>
       <a class="art-cornice-link art-cornice-link-right" href="{{ '/pages/pathways-overview.html' | relative_url }}">Pathways Overview</a>
       <div class="house-medallion"></div>
       <div class="house-chandelier">
@@ -53,12 +54,10 @@ permalink: /pages/rooms/art.html
         <div class="art-gallery-frame art-gallery-frame-right"><span>Debate</span></div>
       </div>
 
-      <button class="art-relief-stand art-relief-trigger" type="button" aria-haspopup="dialog" aria-controls="art-relief-sequence" aria-label="Open relief information">
-        <div class="art-relief-panel">
-          <span class="art-relief-surface"></span>
-        </div>
-        <div class="art-relief-pedestal"></div>
-        <div class="art-relief-base"></div>
+      <button class="art-kiosk art-kiosk-trigger" type="button" aria-haspopup="dialog" aria-controls="art-kiosk-sequence" aria-label="Open global ivory database information kiosk">
+        <span class="art-kiosk-screen" aria-hidden="true"></span>
+        <span class="art-kiosk-neck" aria-hidden="true"></span>
+        <span class="art-kiosk-stand-base" aria-hidden="true"></span>
       </button>
 
       <div class="house-rug"></div>
@@ -86,8 +85,54 @@ permalink: /pages/rooms/art.html
         <h2 class="welcome-sequence-title" id="art-sconce-title">Roman Wall Sconce</h2>
         <img class="art-sconce-popup-image" src="{{ '/assets/img/RomanWallSconce%20-%2003-06-2026%2014-41-38.jpeg' | relative_url }}" alt="Large view of the Roman wall sconce" />
         <p class="welcome-sequence-message">This Roman wall sconce is located at the Eskenazi Museum of Art at Indiana University. Listed as likely ivory, this piece has characteristics that are more reflective of bone. The bubbling structures seen on the underside and the dull coloring provide strong visual cues for this hypothesis, and similar finds at the Louvre are reported to be bone as well. Further testing is required.</p>
+        <div class="art-sconce-thumbnails">
+          <button class="art-sconce-thumbnail-btn art-sconce-bubbles-trigger" type="button" aria-haspopup="dialog" aria-controls="art-sconce-bubbles-sequence" aria-label="View bubbling structures detail">
+            <img class="art-sconce-thumbnail" src="{{ '/assets/img/sconcebubbles.jpeg' | relative_url }}" alt="Thumbnail of bubbling structures" />
+          </button>
+          <button class="art-sconce-thumbnail-btn art-sconce-measured-trigger" type="button" aria-haspopup="dialog" aria-controls="art-sconce-measured-sequence" aria-label="View measurement detail">
+            <img class="art-sconce-thumbnail" src="{{ '/assets/img/SconceMeasured.jpeg' | relative_url }}" alt="Thumbnail of measurement detail" />
+          </button>
+        </div>
         <div class="welcome-sequence-actions">
           <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-sconce-close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="collection-sequence art-kiosk-sequence" id="art-kiosk-sequence" hidden>
+      <div class="welcome-sequence-backdrop" data-art-kiosk-close></div>
+      <div class="welcome-sequence-dialog collection-sequence-dialog art-kiosk-sequence-dialog" role="dialog" aria-modal="true" aria-labelledby="art-kiosk-title">
+        <button class="welcome-sequence-close" type="button" aria-label="Close kiosk information" data-art-kiosk-close>×</button>
+        <p class="welcome-sequence-step">Interactive Kiosk</p>
+        <h2 class="welcome-sequence-title" id="art-kiosk-title">Global Ivory Objects Database</h2>
+        <p class="welcome-sequence-message">Our data science team is developing an interactive database connecting data from approximately 80,000 ivory objects across museums worldwide.</p>
+        <p class="welcome-sequence-message">This kiosk will link to the live database portal for comparative research, object tracking, and material analysis as soon as it is released.</p>
+        <div class="welcome-sequence-actions">
+          <a class="welcome-sequence-button welcome-sequence-button-primary art-kiosk-link" href="https://example.org/ivory-database" target="_blank" rel="noopener noreferrer">Open Database Portal</a>
+          <button class="welcome-sequence-button" type="button" id="art-kiosk-close">Close</button>
+        </div>
+      </div>
+    </div>
+    <div class="collection-sequence art-sconce-bubbles-sequence" id="art-sconce-bubbles-sequence" hidden>
+      <div class="welcome-sequence-backdrop" data-art-sconce-bubbles-close></div>
+      <div class="welcome-sequence-dialog collection-sequence-dialog art-sconce-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="art-sconce-bubbles-title">
+        <button class="welcome-sequence-close" type="button" aria-label="Close bubbles detail" data-art-sconce-bubbles-close>×</button>
+        <h2 class="welcome-sequence-title" id="art-sconce-bubbles-title">Bubbling Structures</h2>
+        <img src="{{ '/assets/img/sconcebubbles.jpeg' | relative_url }}" alt="Detail of bubbling structures on sconce" class="art-sconce-detail-image" />
+        <div class="welcome-sequence-actions">
+          <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-sconce-bubbles-close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="collection-sequence art-sconce-measured-sequence" id="art-sconce-measured-sequence" hidden>
+      <div class="welcome-sequence-backdrop" data-art-sconce-measured-close></div>
+      <div class="welcome-sequence-dialog collection-sequence-dialog art-sconce-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="art-sconce-measured-title">
+        <button class="welcome-sequence-close" type="button" aria-label="Close measurement detail" data-art-sconce-measured-close>×</button>
+        <h2 class="welcome-sequence-title" id="art-sconce-measured-title">Measurement Detail</h2>
+        <img src="{{ '/assets/img/SconceMeasured.jpeg' | relative_url }}" alt="Measurement detail of sconce" class="art-sconce-detail-image" />
+        <div class="welcome-sequence-actions">
+          <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-sconce-measured-close">Close</button>
         </div>
       </div>
     </div>
@@ -145,6 +190,27 @@ permalink: /pages/rooms/art.html
       overlayId: 'art-sconce-sequence',
       closeId: 'art-sconce-close',
       closeSelector: '[data-art-sconce-close]'
+    });
+
+    setupSequence({
+      triggerSelector: '.art-kiosk-trigger',
+      overlayId: 'art-kiosk-sequence',
+      closeId: 'art-kiosk-close',
+      closeSelector: '[data-art-kiosk-close]'
+    });
+
+    setupSequence({
+      triggerSelector: '.art-sconce-bubbles-trigger',
+      overlayId: 'art-sconce-bubbles-sequence',
+      closeId: 'art-sconce-bubbles-close',
+      closeSelector: '[data-art-sconce-bubbles-close]'
+    });
+
+    setupSequence({
+      triggerSelector: '.art-sconce-measured-trigger',
+      overlayId: 'art-sconce-measured-sequence',
+      closeId: 'art-sconce-measured-close',
+      closeSelector: '[data-art-sconce-measured-close]'
     });
   })();
 </script>
