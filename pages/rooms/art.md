@@ -30,10 +30,13 @@ permalink: /pages/rooms/art.html
         <span class="artwork-mat"></span>
         <span class="artwork-surface artwork-surface-study"></span>
       </div>
-      <div class="art-wall-frame art-wall-frame-right" aria-hidden="true">
+      <button class="art-sconce-frame art-sconce-trigger" type="button" aria-haspopup="dialog" aria-controls="art-sconce-sequence" aria-label="Open Roman wall sconce information">
+        <img src="{{ '/assets/img/RomanWallSconce_cutout.png' | relative_url }}" alt="" />
+      </button>
+      <button class="art-wall-frame art-wall-frame-right art-wall-frame-trigger art-relief-trigger" type="button" aria-haspopup="dialog" aria-controls="art-relief-sequence" aria-label="Open Barberini Ivory information">
         <span class="artwork-mat"></span>
         <span class="artwork-surface artwork-surface-ivory"></span>
-      </div>
+      </button>
 
       <div class="art-room-plaque">
         <p class="collection-room-kicker">Collection Room</p>
@@ -67,10 +70,24 @@ permalink: /pages/rooms/art.html
         <button class="welcome-sequence-close" type="button" aria-label="Close relief information" data-art-relief-close>×</button>
         <p class="welcome-sequence-step">Art Object</p>
         <h2 class="welcome-sequence-title" id="art-relief-title">Ivory Relief</h2>
-        <img class="art-relief-popup-image" src="{{ '/assets/img/barberini%20ivory.jpg' | relative_url }}" alt="Large view of the Barberini Ivory relief" />
+        <img class="art-relief-popup-image" src="{{ '/assets/img/barberini%20ivory1.jpg' | relative_url }}" alt="Large view of the Barberini Ivory relief" />
         <p class="welcome-sequence-message" id="art-relief-message">Artisans of Late Antiquity created highly detailed relief sculptures from ivory, including this piece- the Barberini Ivory- from 6th century Constantinople. Now held in the Louvre, it depicts the emperor (likely Justinian) achieving victory over his barbarian foes. While it is the only such extant piece that celebrates secular power, the presence of angels in the background reveal the supremacy of ecclesiastical authority.</p>
         <div class="welcome-sequence-actions">
           <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-relief-close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="collection-sequence art-sconce-sequence" id="art-sconce-sequence" hidden>
+      <div class="welcome-sequence-backdrop" data-art-sconce-close></div>
+      <div class="welcome-sequence-dialog collection-sequence-dialog art-sconce-sequence-dialog" role="dialog" aria-modal="true" aria-labelledby="art-sconce-title">
+        <button class="welcome-sequence-close" type="button" aria-label="Close Roman wall sconce information" data-art-sconce-close>×</button>
+        <p class="welcome-sequence-step">Art Object</p>
+        <h2 class="welcome-sequence-title" id="art-sconce-title">Roman Wall Sconce</h2>
+        <img class="art-sconce-popup-image" src="{{ '/assets/img/RomanWallSconce%20-%2003-06-2026%2014-41-38.jpeg' | relative_url }}" alt="Large view of the Roman wall sconce" />
+        <p class="welcome-sequence-message">This Roman wall sconce is located at the Eskenazi Museum of Art at Indiana University. Listed as likely ivory, this piece has characteristics that are more reflective of bone. The bubbling structures seen on the underside and the dull coloring provide strong visual cues for this hypothesis, and similar finds at the Louvre are reported to be bone as well. Further testing is required.</p>
+        <div class="welcome-sequence-actions">
+          <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-sconce-close">Close</button>
         </div>
       </div>
     </div>
@@ -79,32 +96,55 @@ permalink: /pages/rooms/art.html
 
 <script>
   (() => {
-    const trigger = document.querySelector('.art-relief-trigger');
-    const overlay = document.getElementById('art-relief-sequence');
-    const close = document.getElementById('art-relief-close');
-    const closeButtons = document.querySelectorAll('[data-art-relief-close]');
+    function setupSequence({ triggerSelector, overlayId, closeId, closeSelector }) {
+      const triggers = document.querySelectorAll(triggerSelector);
+      const overlay = document.getElementById(overlayId);
+      const close = document.getElementById(closeId);
 
-    if (!trigger || !overlay || !close) return;
+      if (!triggers.length || !overlay || !close) return;
 
-    function openRelief() {
-      overlay.hidden = false;
-      document.body.classList.add('welcome-sequence-open');
-      close.focus();
+      const closeButtons = overlay.querySelectorAll(closeSelector);
+      let activeTrigger = triggers[0];
+
+      function openSequence(event) {
+        if (event?.currentTarget) {
+          activeTrigger = event.currentTarget;
+        }
+        overlay.hidden = false;
+        document.body.classList.add('welcome-sequence-open');
+        close.focus();
+      }
+
+      function closeSequence() {
+        overlay.hidden = true;
+        document.body.classList.remove('welcome-sequence-open');
+        if (activeTrigger) {
+          activeTrigger.focus();
+        }
+      }
+
+      triggers.forEach((trigger) => trigger.addEventListener('click', openSequence));
+      close.addEventListener('click', closeSequence);
+      closeButtons.forEach((button) => button.addEventListener('click', closeSequence));
+
+      document.addEventListener('keydown', (event) => {
+        if (overlay.hidden) return;
+        if (event.key === 'Escape') closeSequence();
+      });
     }
 
-    function closeRelief() {
-      overlay.hidden = true;
-      document.body.classList.remove('welcome-sequence-open');
-      trigger.focus();
-    }
+    setupSequence({
+      triggerSelector: '.art-relief-trigger',
+      overlayId: 'art-relief-sequence',
+      closeId: 'art-relief-close',
+      closeSelector: '[data-art-relief-close]'
+    });
 
-    trigger.addEventListener('click', openRelief);
-    close.addEventListener('click', closeRelief);
-    closeButtons.forEach((button) => button.addEventListener('click', closeRelief));
-
-    document.addEventListener('keydown', (event) => {
-      if (overlay.hidden) return;
-      if (event.key === 'Escape') closeRelief();
+    setupSequence({
+      triggerSelector: '.art-sconce-trigger',
+      overlayId: 'art-sconce-sequence',
+      closeId: 'art-sconce-close',
+      closeSelector: '[data-art-sconce-close]'
     });
   })();
 </script>

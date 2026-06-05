@@ -22,13 +22,6 @@ item-meta: true
 
         {{ content }}
 
-                <div class="mt-4">
-                    <a href="{{ '/pages/pathways-overview.html' | relative_url }}" class="btn btn-outline-primary btn-sm me-2">Back to Main Menu</a>
-                    {% if page.pathway %}
-                        <a href="{{ page.pathway | prepend: '/' | append: '/' | relative_url }}" class="btn btn-outline-secondary btn-sm">Back to {{ page.pathway | capitalize }} Home</a>
-                    {% endif %}
-                </div>
-
         </div>
 
         <div class="col-12 col-md-10" id="metadata">

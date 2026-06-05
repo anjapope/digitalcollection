@@ -34,11 +34,8 @@
     /* check for url parameters and setup initial view options */ 
     let url = new URL(window.location);
     const locationSearchParams = url.searchParams.get('location');
-    const zoomSearchParams = url.searchParams.get('zoom');
-    const customEventTitle = url.searchParams.get('event');
-    const customEventDescription = url.searchParams.get('description');
     var mapCenter = locationSearchParams ? locationSearchParams.split(',') : [{{ site.data.theme.latitude | default: 46.727485 }}, {{ site.data.theme.longitude | default: -117.014185 }}];
-    var mapZoom = zoomSearchParams ? Number(zoomSearchParams) : locationSearchParams ? 16 : {{ site.data.theme.zoom-level | default: 5 }};
+    var mapZoom = locationSearchParams ? 16 : {{ site.data.theme.zoom-level | default: 5 }};
     var markerFilter = url.searchParams.get('marker') ? url.searchParams.get('marker') : "";
 
     /* init map */
@@ -201,16 +198,6 @@
             }
         });
         {% endif %}
-    }
-
-    /* show custom event marker if supplied in URL query */
-    if (locationSearchParams !== null && customEventTitle) {
-        const eventPopup = `
-            <h2 class="h4">${customEventTitle}</h2>
-            ${customEventDescription ? `<p>${customEventDescription}</p>` : ""}
-            <div class="text-center"><a class="btn btn-light" href="{{ '/pages/rooms/natural-history-timeline.html' | relative_url }}">Back to Timeline</a></div>
-        `;
-        L.marker(mapCenter, { alt: customEventTitle }).addTo(map).bindPopup(eventPopup).openPopup();
     }
 
 })();

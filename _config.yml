@@ -71,20 +71,3 @@ exclude: [docs/, Rakefile, rakelib/, README.md, LICENSE, CITATION.cff, CODE_OF_C
 # compress CSS output
 sass:
   style: compressed
-
-##########
-# COLLECTIONS FOR NARRATIVE PATHWAYS
-#
-collections:
-  attic:
-    output: true
-    permalink: /attic/:name/
-  naturalhistory:
-    output: true
-    permalink: /naturalhistory/:name/
-  localhistory:
-    output: true
-    permalink: /localhistory/:name/
-  artmuseum:
-    output: true
-    permalink: /artmuseum/:name/
