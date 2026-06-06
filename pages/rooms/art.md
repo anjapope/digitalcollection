@@ -10,8 +10,8 @@ permalink: /pages/rooms/art.html
   <div class="house-scene">
     <div class="house-backdrop art-hall">
       <div class="house-cornice"></div>
-      <a class="art-cornice-link art-cornice-link-left" href="/pages/vestibule.html">Back to Hall</a>
-      <a class="art-cornice-link art-cornice-link-right" href="/pages/pathways-overview.html">Pathways Overview</a>
+      <a class="art-cornice-link art-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
+      <a class="art-cornice-link art-cornice-link-right" href="{{ '/pages/pathways-overview.html' | relative_url }}">Pathways Overview</a>
       <div class="house-medallion"></div>
       <div class="house-chandelier">
         <span class="chandelier-chain"></span>
@@ -29,18 +29,18 @@ permalink: /pages/rooms/art.html
       <div class="art-wall-frame art-wall-frame-left" aria-hidden="true">
         <span class="artwork-mat"></span>
         <span class="artwork-surface artwork-surface-study">
-          <img class="artwork-image-left" src="/assets/img/Susanna%20and%20the%20Elders-2.jpeg" alt="Susanna and the Elders" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" tabindex="0" />
+          <img class="artwork-image-left" src="{{ '/assets/img/Susanna and the Elders-2.jpeg' | relative_url }}" alt="Susanna and the Elders" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" tabindex="0" />
         </span>
       </div>
       <div class="art-wall-frame art-wall-frame-right" aria-hidden="true">
         <span class="artwork-mat"></span>
         <span class="artwork-surface artwork-surface-ivory">
-          <img class="artwork-image" src="/assets/img/barberini%20ivory1.jpg" alt="Barberini Ivory (detail)" style="width:100%;height:100%;object-fit:contain;display:block;cursor:pointer;" tabindex="0" />
+          <img class="artwork-image" src="{{ '/assets/img/barberini ivory1.jpg' | relative_url }}" alt="Barberini Ivory (detail)" style="width:100%;height:100%;object-fit:contain;display:block;cursor:pointer;" tabindex="0" />
         </span>
       </div>
 
       <button class="art-wall-sconce-display art-sconce-trigger" type="button" aria-haspopup="dialog" aria-controls="art-sconce-sequence" aria-label="Open Roman wall sconce information" style="position:absolute; right:11.8%; top:25.6rem; width:38px; z-index:8; padding:0.12rem; border-radius:6px; background:transparent; border:2px solid rgba(181,137,84,0.95); box-shadow:inset 0 0 0 1px rgba(255,231,194,0.45), 0 4px 8px rgba(0,0,0,0.35); cursor:pointer;">
-        <img class="art-wall-sconce-image" src="/assets/img/RomanWallSconce%20-%2003-06-2026%2014-41-38.jpeg" alt="Roman wall sconce on display" style="display:block; width:100%; height:auto; object-fit:contain; border-radius:4px; background:transparent;" />
+        <img class="art-wall-sconce-image" src="{{ '/assets/img/RomanWallSconce - 03-06-2026 14-41-38.jpeg' | relative_url }}" alt="Roman wall sconce on display" style="display:block; width:100%; height:auto; object-fit:contain; border-radius:4px; background:transparent;" />
       </button>
 
       <a class="art-access-window art-access-window-left" href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Go to the Natural History room from the left side">
@@ -77,7 +77,7 @@ permalink: /pages/rooms/art.html
         <button class="welcome-sequence-close" type="button" aria-label="Close relief information" data-art-relief-close>×</button>
         <p class="welcome-sequence-step">Art Object</p>
         <h2 class="welcome-sequence-title" id="art-relief-title">Ivory Relief</h2>
-        <img class="art-relief-popup-image" src="/assets/img/barberini%20ivory1.jpg" alt="Large view of the Barberini Ivory relief" />
+        <img class="art-relief-popup-image" src="{{ '/assets/img/barberini ivory1.jpg' | relative_url }}" alt="Large view of the Barberini Ivory relief" />
         <p class="welcome-sequence-message" id="art-relief-message">Artisans in Late Antiquity excelled at carved reliefs made from ivory. This 6th-century image from Constantinople, now held in the Louvre, features the emperor (likely Justinian) achieving victory over his barbarian foes. It is the only extant item from this period that celebrates secular power, but the angels above the scene foreground the unseen supremacy of ecclesiastical authority.</p>
         <div class="welcome-sequence-actions">
           <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-relief-close">Close</button>
@@ -91,15 +91,15 @@ permalink: /pages/rooms/art.html
         <button class="welcome-sequence-close" type="button" aria-label="Close Roman wall sconce information" data-art-sconce-close>×</button>
         <p class="welcome-sequence-step">Art Object</p>
         <h2 class="welcome-sequence-title" id="art-sconce-title">Roman Wall Sconce</h2>
-        <img class="art-sconce-popup-image" src="/assets/img/RomanWallSconce%20-%2003-06-2026%2014-41-38.jpeg" alt="Roman wall sconce detail" />
+        <img class="art-sconce-popup-image" src="{{ '/assets/img/RomanWallSconce - 03-06-2026 14-41-38.jpeg' | relative_url }}" alt="Roman wall sconce detail" />
         <p class="welcome-sequence-message" id="art-sconce-message">This object is held at the Eskenazi Museum of Art at Indiana University. It has been listed as possibly being ivory, but our team believes it is some other bone material based on visual analysis, including its dull coloring and the bubble pattern on the underside.</p>
         <div class="art-sconce-evidence-grid">
-          <button class="art-sconce-evidence-button" type="button" data-art-sconce-evidence="/assets/img/sconcebubbles.jpeg" data-art-sconce-alt="Bubble pattern visible on underside of the Roman wall sconce">
-            <img src="/assets/img/sconcebubbles.jpeg" alt="Bubble pattern on underside" />
+          <button class="art-sconce-evidence-button" type="button" data-art-sconce-evidence="{{ '/assets/img/sconcebubbles.jpeg' | relative_url }}" data-art-sconce-alt="Bubble pattern visible on underside of the Roman wall sconce">
+            <img src="{{ '/assets/img/sconcebubbles.jpeg' | relative_url }}" alt="Bubble pattern on underside" />
             <span>Underside bubble pattern</span>
           </button>
-          <button class="art-sconce-evidence-button" type="button" data-art-sconce-evidence="/assets/img/SconceMeasured.jpeg" data-art-sconce-alt="Measured reference image of the Roman wall sconce">
-            <img src="/assets/img/SconceMeasured.jpeg" alt="Measured Roman wall sconce" />
+          <button class="art-sconce-evidence-button" type="button" data-art-sconce-evidence="{{ '/assets/img/SconceMeasured.jpeg' | relative_url }}" data-art-sconce-alt="Measured reference image of the Roman wall sconce">
+            <img src="{{ '/assets/img/SconceMeasured.jpeg' | relative_url }}" alt="Measured Roman wall sconce" />
             <span>Measured reference</span>
           </button>
         </div>
@@ -124,7 +124,7 @@ permalink: /pages/rooms/art.html
         <button class="welcome-sequence-close" type="button" aria-label="Close Susanna and the Elders information" data-art-susanna-close>×</button>
         <p class="welcome-sequence-step">Art Object</p>
         <h2 class="welcome-sequence-title" id="art-susanna-title">Susanna and the Elders</h2>
-        <img class="art-susanna-popup-image" src="/assets/img/Susanna%20and%20the%20Elders-2.jpeg" alt="Sculpture of Susanna and the Elders" />
+        <img class="art-susanna-popup-image" src="{{ '/assets/img/Susanna and the Elders-2.jpeg' | relative_url }}" alt="Sculpture of Susanna and the Elders" />
         <p class="welcome-sequence-message" id="art-susanna-message">This sculpture depicts the biblical story of Susanna being spied upon by two lecherous elders. Created by Flemish sculptor named Van Bossuit, the work captures a dramatic moment of vulnerability and transgression. The artist's skilled carving reveals the tension and emotion of the narrative through careful attention to pose, gesture, and composition, exploring themes of power, shame, and divine justice.</p>
         <div class="welcome-sequence-actions">
           <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-susanna-close">Close</button>

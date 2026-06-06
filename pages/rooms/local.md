@@ -10,8 +10,8 @@ permalink: /pages/rooms/local.html
   <div class="house-scene">
     <div class="house-backdrop local-hall">
       <div class="house-cornice"></div>
-      <a class="room-cornice-link room-cornice-link-left" href="/pages/vestibule.html">Back to Hall</a>
-      <a class="room-cornice-link room-cornice-link-right" href="/pages/pathways-overview.html">Pathways Overview</a>
+      <a class="room-cornice-link room-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
+      <a class="room-cornice-link room-cornice-link-right" href="{{ '/pages/pathways-overview.html' | relative_url }}">Pathways Overview</a>
 
       <button class="local-attic-sign" type="button" aria-haspopup="dialog" aria-controls="local-attic-sequence" aria-label="Open attic access information">
         <span class="local-attic-sign-chain local-attic-sign-chain-left" aria-hidden="true"></span>
