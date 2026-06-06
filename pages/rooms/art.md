@@ -10,9 +10,8 @@ permalink: /pages/rooms/art.html
   <div class="house-scene">
     <div class="house-backdrop art-hall">
       <div class="house-cornice"></div>
-      <a class="art-cornice-link art-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
-      <a class="art-cornice-link art-cornice-link-center" href="{{ '/pages/rooms/archive.html' | relative_url }}">Archive Court</a>
-      <a class="art-cornice-link art-cornice-link-right" href="{{ '/pages/pathways-overview.html' | relative_url }}">Pathways Overview</a>
+      <a class="art-cornice-link art-cornice-link-left" href="/pages/vestibule.html">Back to Hall</a>
+      <a class="art-cornice-link art-cornice-link-right" href="/pages/pathways-overview.html">Pathways Overview</a>
       <div class="house-medallion"></div>
       <div class="house-chandelier">
         <span class="chandelier-chain"></span>
@@ -29,15 +28,30 @@ permalink: /pages/rooms/art.html
 
       <div class="art-wall-frame art-wall-frame-left" aria-hidden="true">
         <span class="artwork-mat"></span>
-        <span class="artwork-surface artwork-surface-study"></span>
+        <span class="artwork-surface artwork-surface-study">
+          <img class="artwork-image-left" src="/assets/img/Susanna%20and%20the%20Elders-2.jpeg" alt="Susanna and the Elders" style="width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;" tabindex="0" />
+        </span>
       </div>
-      <button class="art-sconce-frame art-sconce-trigger" type="button" aria-haspopup="dialog" aria-controls="art-sconce-sequence" aria-label="Open Roman wall sconce information">
-        <img src="{{ '/assets/img/RomanWallSconce_cutout.png' | relative_url }}" alt="" />
-      </button>
-      <button class="art-wall-frame art-wall-frame-right art-wall-frame-trigger art-relief-trigger" type="button" aria-haspopup="dialog" aria-controls="art-relief-sequence" aria-label="Open Barberini Ivory information">
+      <div class="art-wall-frame art-wall-frame-right" aria-hidden="true">
         <span class="artwork-mat"></span>
-        <span class="artwork-surface artwork-surface-ivory"></span>
+        <span class="artwork-surface artwork-surface-ivory">
+          <img class="artwork-image" src="/assets/img/barberini%20ivory1.jpg" alt="Barberini Ivory (detail)" style="width:100%;height:100%;object-fit:contain;display:block;cursor:pointer;" tabindex="0" />
+        </span>
+      </div>
+
+      <button class="art-wall-sconce-display art-sconce-trigger" type="button" aria-haspopup="dialog" aria-controls="art-sconce-sequence" aria-label="Open Roman wall sconce information" style="position:absolute; right:11.8%; top:25.6rem; width:38px; z-index:8; padding:0.12rem; border-radius:6px; background:transparent; border:2px solid rgba(181,137,84,0.95); box-shadow:inset 0 0 0 1px rgba(255,231,194,0.45), 0 4px 8px rgba(0,0,0,0.35); cursor:pointer;">
+        <img class="art-wall-sconce-image" src="/assets/img/RomanWallSconce%20-%2003-06-2026%2014-41-38.jpeg" alt="Roman wall sconce on display" style="display:block; width:100%; height:auto; object-fit:contain; border-radius:4px; background:transparent;" />
       </button>
+
+      <a class="art-access-window art-access-window-left" href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Go to the Natural History room from the left side">
+        <span class="art-access-window-glass" aria-hidden="true"></span>
+        <span class="art-access-window-label">← Natural</span>
+      </a>
+
+      <a class="art-access-window art-access-window-right" href="{{ '/pages/rooms/local.html' | relative_url }}" aria-label="Go to the Local History room">
+        <span class="art-access-window-glass" aria-hidden="true"></span>
+        <span class="art-access-window-label">Local →</span>
+      </a>
 
       <div class="art-room-plaque">
         <p class="collection-room-kicker">Collection Room</p>
@@ -54,12 +68,6 @@ permalink: /pages/rooms/art.html
         <div class="art-gallery-frame art-gallery-frame-right"><span>Debate</span></div>
       </div>
 
-      <button class="art-kiosk art-kiosk-trigger" type="button" aria-haspopup="dialog" aria-controls="art-kiosk-sequence" aria-label="Open global ivory database information kiosk">
-        <span class="art-kiosk-screen" aria-hidden="true"></span>
-        <span class="art-kiosk-neck" aria-hidden="true"></span>
-        <span class="art-kiosk-stand-base" aria-hidden="true"></span>
-      </button>
-
       <div class="house-rug"></div>
     </div>
 
@@ -69,8 +77,8 @@ permalink: /pages/rooms/art.html
         <button class="welcome-sequence-close" type="button" aria-label="Close relief information" data-art-relief-close>×</button>
         <p class="welcome-sequence-step">Art Object</p>
         <h2 class="welcome-sequence-title" id="art-relief-title">Ivory Relief</h2>
-        <img class="art-relief-popup-image" src="{{ '/assets/img/barberini%20ivory1.jpg' | relative_url }}" alt="Large view of the Barberini Ivory relief" />
-        <p class="welcome-sequence-message" id="art-relief-message">Artisans of Late Antiquity created highly detailed relief sculptures from ivory, including this piece- the Barberini Ivory- from 6th century Constantinople. Now held in the Louvre, it depicts the emperor (likely Justinian) achieving victory over his barbarian foes. While it is the only such extant piece that celebrates secular power, the presence of angels in the background reveal the supremacy of ecclesiastical authority.</p>
+        <img class="art-relief-popup-image" src="/assets/img/barberini%20ivory1.jpg" alt="Large view of the Barberini Ivory relief" />
+        <p class="welcome-sequence-message" id="art-relief-message">Artisans in Late Antiquity excelled at carved reliefs made from ivory. This 6th-century image from Constantinople, now held in the Louvre, features the emperor (likely Justinian) achieving victory over his barbarian foes. It is the only extant item from this period that celebrates secular power, but the angels above the scene foreground the unseen supremacy of ecclesiastical authority.</p>
         <div class="welcome-sequence-actions">
           <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-relief-close">Close</button>
         </div>
@@ -83,14 +91,16 @@ permalink: /pages/rooms/art.html
         <button class="welcome-sequence-close" type="button" aria-label="Close Roman wall sconce information" data-art-sconce-close>×</button>
         <p class="welcome-sequence-step">Art Object</p>
         <h2 class="welcome-sequence-title" id="art-sconce-title">Roman Wall Sconce</h2>
-        <img class="art-sconce-popup-image" src="{{ '/assets/img/RomanWallSconce%20-%2003-06-2026%2014-41-38.jpeg' | relative_url }}" alt="Large view of the Roman wall sconce" />
-        <p class="welcome-sequence-message">This Roman wall sconce is located at the Eskenazi Museum of Art at Indiana University. Listed as likely ivory, this piece has characteristics that are more reflective of bone. The bubbling structures seen on the underside and the dull coloring provide strong visual cues for this hypothesis, and similar finds at the Louvre are reported to be bone as well. Further testing is required.</p>
-        <div class="art-sconce-thumbnails">
-          <button class="art-sconce-thumbnail-btn art-sconce-bubbles-trigger" type="button" aria-haspopup="dialog" aria-controls="art-sconce-bubbles-sequence" aria-label="View bubbling structures detail">
-            <img class="art-sconce-thumbnail" src="{{ '/assets/img/sconcebubbles.jpeg' | relative_url }}" alt="Thumbnail of bubbling structures" />
+        <img class="art-sconce-popup-image" src="/assets/img/RomanWallSconce%20-%2003-06-2026%2014-41-38.jpeg" alt="Roman wall sconce detail" />
+        <p class="welcome-sequence-message" id="art-sconce-message">This object is held at the Eskenazi Museum of Art at Indiana University. It has been listed as possibly being ivory, but our team believes it is some other bone material based on visual analysis, including its dull coloring and the bubble pattern on the underside.</p>
+        <div class="art-sconce-evidence-grid">
+          <button class="art-sconce-evidence-button" type="button" data-art-sconce-evidence="/assets/img/sconcebubbles.jpeg" data-art-sconce-alt="Bubble pattern visible on underside of the Roman wall sconce">
+            <img src="/assets/img/sconcebubbles.jpeg" alt="Bubble pattern on underside" />
+            <span>Underside bubble pattern</span>
           </button>
-          <button class="art-sconce-thumbnail-btn art-sconce-measured-trigger" type="button" aria-haspopup="dialog" aria-controls="art-sconce-measured-sequence" aria-label="View measurement detail">
-            <img class="art-sconce-thumbnail" src="{{ '/assets/img/SconceMeasured.jpeg' | relative_url }}" alt="Thumbnail of measurement detail" />
+          <button class="art-sconce-evidence-button" type="button" data-art-sconce-evidence="/assets/img/SconceMeasured.jpeg" data-art-sconce-alt="Measured reference image of the Roman wall sconce">
+            <img src="/assets/img/SconceMeasured.jpeg" alt="Measured Roman wall sconce" />
+            <span>Measured reference</span>
           </button>
         </div>
         <div class="welcome-sequence-actions">
@@ -99,40 +109,25 @@ permalink: /pages/rooms/art.html
       </div>
     </div>
 
-    <div class="collection-sequence art-kiosk-sequence" id="art-kiosk-sequence" hidden>
-      <div class="welcome-sequence-backdrop" data-art-kiosk-close></div>
-      <div class="welcome-sequence-dialog collection-sequence-dialog art-kiosk-sequence-dialog" role="dialog" aria-modal="true" aria-labelledby="art-kiosk-title">
-        <button class="welcome-sequence-close" type="button" aria-label="Close kiosk information" data-art-kiosk-close>×</button>
-        <p class="welcome-sequence-step">Interactive Kiosk</p>
-        <h2 class="welcome-sequence-title" id="art-kiosk-title">Global Ivory Objects Database</h2>
-        <p class="welcome-sequence-message">Our data science team is developing an interactive database connecting data from approximately 80,000 ivory objects across museums worldwide.</p>
-        <p class="welcome-sequence-message">This kiosk will link to the live database portal for comparative research, object tracking, and material analysis as soon as it is released.</p>
-        <div class="welcome-sequence-actions">
-          <a class="welcome-sequence-button welcome-sequence-button-primary art-kiosk-link" href="https://example.org/ivory-database" target="_blank" rel="noopener noreferrer">Open Database Portal</a>
-          <button class="welcome-sequence-button" type="button" id="art-kiosk-close">Close</button>
-        </div>
-      </div>
-    </div>
-    <div class="collection-sequence art-sconce-bubbles-sequence" id="art-sconce-bubbles-sequence" hidden>
-      <div class="welcome-sequence-backdrop" data-art-sconce-bubbles-close></div>
-      <div class="welcome-sequence-dialog collection-sequence-dialog art-sconce-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="art-sconce-bubbles-title">
-        <button class="welcome-sequence-close" type="button" aria-label="Close bubbles detail" data-art-sconce-bubbles-close>×</button>
-        <h2 class="welcome-sequence-title" id="art-sconce-bubbles-title">Bubbling Structures</h2>
-        <img src="{{ '/assets/img/sconcebubbles.jpeg' | relative_url }}" alt="Detail of bubbling structures on sconce" class="art-sconce-detail-image" />
-        <div class="welcome-sequence-actions">
-          <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-sconce-bubbles-close">Close</button>
-        </div>
+    <div class="collection-sequence art-sconce-lightbox" id="art-sconce-lightbox" hidden>
+      <div class="welcome-sequence-backdrop" data-art-sconce-lightbox-close></div>
+      <div class="welcome-sequence-dialog art-sconce-lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="art-sconce-lightbox-title">
+        <button class="welcome-sequence-close" type="button" aria-label="Close evidence image" data-art-sconce-lightbox-close>×</button>
+        <h3 class="welcome-sequence-title" id="art-sconce-lightbox-title">Evidence Image</h3>
+        <img class="art-sconce-lightbox-image" id="art-sconce-lightbox-image" src="" alt="" />
       </div>
     </div>
 
-    <div class="collection-sequence art-sconce-measured-sequence" id="art-sconce-measured-sequence" hidden>
-      <div class="welcome-sequence-backdrop" data-art-sconce-measured-close></div>
-      <div class="welcome-sequence-dialog collection-sequence-dialog art-sconce-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="art-sconce-measured-title">
-        <button class="welcome-sequence-close" type="button" aria-label="Close measurement detail" data-art-sconce-measured-close>×</button>
-        <h2 class="welcome-sequence-title" id="art-sconce-measured-title">Measurement Detail</h2>
-        <img src="{{ '/assets/img/SconceMeasured.jpeg' | relative_url }}" alt="Measurement detail of sconce" class="art-sconce-detail-image" />
+    <div class="collection-sequence art-susanna-sequence" id="art-susanna-sequence" hidden>
+      <div class="welcome-sequence-backdrop" data-art-susanna-close></div>
+      <div class="welcome-sequence-dialog collection-sequence-dialog art-susanna-sequence-dialog" role="dialog" aria-modal="true" aria-labelledby="art-susanna-title">
+        <button class="welcome-sequence-close" type="button" aria-label="Close Susanna and the Elders information" data-art-susanna-close>×</button>
+        <p class="welcome-sequence-step">Art Object</p>
+        <h2 class="welcome-sequence-title" id="art-susanna-title">Susanna and the Elders</h2>
+        <img class="art-susanna-popup-image" src="/assets/img/Susanna%20and%20the%20Elders-2.jpeg" alt="Sculpture of Susanna and the Elders" />
+        <p class="welcome-sequence-message" id="art-susanna-message">This sculpture depicts the biblical story of Susanna being spied upon by two lecherous elders. Created by Flemish sculptor named Van Bossuit, the work captures a dramatic moment of vulnerability and transgression. The artist's skilled carving reveals the tension and emotion of the narrative through careful attention to pose, gesture, and composition, exploring themes of power, shame, and divine justice.</p>
         <div class="welcome-sequence-actions">
-          <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-sconce-measured-close">Close</button>
+          <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-susanna-close">Close</button>
         </div>
       </div>
     </div>
@@ -141,76 +136,141 @@ permalink: /pages/rooms/art.html
 
 <script>
   (() => {
-    function setupSequence({ triggerSelector, overlayId, closeId, closeSelector }) {
-      const triggers = document.querySelectorAll(triggerSelector);
-      const overlay = document.getElementById(overlayId);
-      const close = document.getElementById(closeId);
+    const trigger = document.querySelector('.art-relief-trigger');
+    const overlay = document.getElementById('art-relief-sequence');
+    const close = document.getElementById('art-relief-close');
+    const closeButtons = document.querySelectorAll('[data-art-relief-close]');
+    const artworkImage = document.querySelector('.artwork-image');
 
-      if (!triggers.length || !overlay || !close) return;
+    if (!overlay || !close || (!trigger && !artworkImage)) return;
 
-      const closeButtons = overlay.querySelectorAll(closeSelector);
-      let activeTrigger = triggers[0];
-
-      function openSequence(event) {
-        if (event?.currentTarget) {
-          activeTrigger = event.currentTarget;
-        }
-        overlay.hidden = false;
-        document.body.classList.add('welcome-sequence-open');
-        close.focus();
-      }
-
-      function closeSequence() {
-        overlay.hidden = true;
-        document.body.classList.remove('welcome-sequence-open');
-        if (activeTrigger) {
-          activeTrigger.focus();
-        }
-      }
-
-      triggers.forEach((trigger) => trigger.addEventListener('click', openSequence));
-      close.addEventListener('click', closeSequence);
-      closeButtons.forEach((button) => button.addEventListener('click', closeSequence));
-
-      document.addEventListener('keydown', (event) => {
-        if (overlay.hidden) return;
-        if (event.key === 'Escape') closeSequence();
-      });
+    function openRelief() {
+      overlay.hidden = false;
+      document.body.classList.add('welcome-sequence-open');
+      close.focus();
     }
 
-    setupSequence({
-      triggerSelector: '.art-relief-trigger',
-      overlayId: 'art-relief-sequence',
-      closeId: 'art-relief-close',
-      closeSelector: '[data-art-relief-close]'
+    function closeRelief() {
+      overlay.hidden = true;
+      document.body.classList.remove('welcome-sequence-open');
+      if (artworkImage) {
+        artworkImage.focus();
+      } else if (trigger) {
+        trigger.focus();
+      }
+    }
+
+    if (trigger) {
+      trigger.addEventListener('click', openRelief);
+    }
+    if (artworkImage) {
+      artworkImage.addEventListener('click', openRelief);
+      artworkImage.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openRelief(); }
+      });
+    }
+    close.addEventListener('click', closeRelief);
+    closeButtons.forEach((button) => button.addEventListener('click', closeRelief));
+
+    document.addEventListener('keydown', (event) => {
+      if (overlay.hidden) return;
+      if (event.key === 'Escape') closeRelief();
+    });
+  })();
+
+  (() => {
+    const trigger = document.querySelector('.art-sconce-trigger');
+    const overlay = document.getElementById('art-sconce-sequence');
+    const close = document.getElementById('art-sconce-close');
+    const closeButtons = document.querySelectorAll('[data-art-sconce-close]');
+    const evidenceButtons = document.querySelectorAll('.art-sconce-evidence-button');
+    const lightbox = document.getElementById('art-sconce-lightbox');
+    const lightboxImage = document.getElementById('art-sconce-lightbox-image');
+    const lightboxCloseButtons = document.querySelectorAll('[data-art-sconce-lightbox-close]');
+
+    if (!trigger || !overlay || !close || !lightbox || !lightboxImage) return;
+
+    function openSconce() {
+      overlay.hidden = false;
+      document.body.classList.add('welcome-sequence-open');
+      close.focus();
+    }
+
+    function closeSconce() {
+      overlay.hidden = true;
+      document.body.classList.remove('welcome-sequence-open');
+      trigger.focus();
+    }
+
+    function openLightbox(src, alt) {
+      lightboxImage.src = src;
+      lightboxImage.alt = alt;
+      lightbox.hidden = false;
+      document.body.classList.add('welcome-sequence-open');
+    }
+
+    function closeLightbox() {
+      lightbox.hidden = true;
+      lightboxImage.src = '';
+      lightboxImage.alt = '';
+      if (overlay.hidden) {
+        document.body.classList.remove('welcome-sequence-open');
+      }
+    }
+
+    trigger.addEventListener('click', openSconce);
+    close.addEventListener('click', closeSconce);
+    closeButtons.forEach((button) => button.addEventListener('click', closeSconce));
+
+    evidenceButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        openLightbox(button.dataset.artSconceEvidence, button.dataset.artSconceAlt || 'Evidence image');
+      });
     });
 
-    setupSequence({
-      triggerSelector: '.art-sconce-trigger',
-      overlayId: 'art-sconce-sequence',
-      closeId: 'art-sconce-close',
-      closeSelector: '[data-art-sconce-close]'
-    });
+    lightboxCloseButtons.forEach((button) => button.addEventListener('click', closeLightbox));
 
-    setupSequence({
-      triggerSelector: '.art-kiosk-trigger',
-      overlayId: 'art-kiosk-sequence',
-      closeId: 'art-kiosk-close',
-      closeSelector: '[data-art-kiosk-close]'
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox.hidden && event.key === 'Escape') {
+        closeLightbox();
+        return;
+      }
+      if (!overlay.hidden && event.key === 'Escape') {
+        closeSconce();
+      }
     });
+  })();
 
-    setupSequence({
-      triggerSelector: '.art-sconce-bubbles-trigger',
-      overlayId: 'art-sconce-bubbles-sequence',
-      closeId: 'art-sconce-bubbles-close',
-      closeSelector: '[data-art-sconce-bubbles-close]'
+  (() => {
+    const artworkImage = document.querySelector('.artwork-image-left');
+    const overlay = document.getElementById('art-susanna-sequence');
+    const close = document.getElementById('art-susanna-close');
+    const closeButtons = document.querySelectorAll('[data-art-susanna-close]');
+
+    if (!overlay || !close || !artworkImage) return;
+
+    function openSusanna() {
+      overlay.hidden = false;
+      document.body.classList.add('welcome-sequence-open');
+      close.focus();
+    }
+
+    function closeSusanna() {
+      overlay.hidden = true;
+      document.body.classList.remove('welcome-sequence-open');
+      artworkImage.focus();
+    }
+
+    artworkImage.addEventListener('click', openSusanna);
+    artworkImage.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSusanna(); }
     });
+    close.addEventListener('click', closeSusanna);
+    closeButtons.forEach((button) => button.addEventListener('click', closeSusanna));
 
-    setupSequence({
-      triggerSelector: '.art-sconce-measured-trigger',
-      overlayId: 'art-sconce-measured-sequence',
-      closeId: 'art-sconce-measured-close',
-      closeSelector: '[data-art-sconce-measured-close]'
+    document.addEventListener('keydown', (event) => {
+      if (overlay.hidden) return;
+      if (event.key === 'Escape') closeSusanna();
     });
   })();
 </script>

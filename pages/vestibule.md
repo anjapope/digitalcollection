@@ -23,12 +23,12 @@ permalink: /pages/vestibule.html
         <span class="chandelier-crystal chandelier-crystal-center"></span>
         <span class="chandelier-crystal chandelier-crystal-right"></span>
       </div>
-      <a class="room-cornice-link room-cornice-link-center" href="{{ '/pages/rooms/archive.html' | relative_url }}">Archive Court</a>
+      
       <button class="door-sign door-sign-natural-history" type="button" data-collection-sign="natural-history">Natural History</button>
       <button class="door-sign door-sign-art" type="button" data-collection-sign="art">Art</button>
       <button class="door-sign door-sign-local" type="button" data-collection-sign="local">Local</button>
       <button class="door-sign door-sign-attic" type="button" data-collection-sign="attic">Attic</button>
-      <button class="door-sign door-sign-lab" type="button" data-collection-sign="lab">Lab</button>
+      
       <a class="house-doorway house-doorway-left" href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter the Natural History room"></a>
       <a class="house-doorway house-doorway-left-inner" href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Enter the Art room"></a>
       <a class="house-doorway house-doorway-right-inner" href="{{ '/pages/rooms/local.html' | relative_url }}" aria-label="Enter the Local room"></a>
@@ -40,6 +40,14 @@ permalink: /pages/vestibule.html
       <button class="house-console welcome-mantle" type="button" aria-haspopup="dialog" aria-controls="welcome-sequence" aria-label="Open welcome messages">
         <span class="welcome-mantle-label">Welcome</span>
       </button>
+      <a class="floor-library-sign" href="{{ '/pages/rooms/library.html' | relative_url }}" aria-label="Go to Library room">
+        <span class="floor-library-sign-arrow" aria-hidden="true">←</span>
+        <span class="floor-library-sign-text">Library</span>
+      </a>
+      <a class="floor-lab-sign" href="{{ '/pages/rooms/lab.html' | relative_url }}" aria-label="Go to Lab room">
+        <span class="floor-lab-sign-text">Lab</span>
+        <span class="floor-lab-sign-arrow" aria-hidden="true">→</span>
+      </a>
       <div class="house-rug"></div>
     </div>
 
@@ -65,7 +73,7 @@ permalink: /pages/vestibule.html
         <h2 class="welcome-sequence-title" id="collection-sequence-title">Collection</h2>
         <p class="welcome-sequence-message" id="collection-sequence-message"></p>
         <div class="welcome-sequence-actions">
-          <a class="welcome-sequence-button welcome-sequence-button-secondary" id="collection-go-to-lab" href="{{ '/pages/rooms/lab.html' | relative_url }}" hidden>Go to Lab</a>
+          
           <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="collection-close">Close</button>
         </div>
       </div>
@@ -175,10 +183,7 @@ permalink: /pages/vestibule.html
         title: 'Attic',
         text: 'This pathway approaches ivory through storage, inheritance, rediscovery, and memory, treating the attic as a space where forgotten objects gather new meanings.'
       },
-      lab: {
-        title: 'Lab',
-        text: 'The Lab is where we do testing. This pathway focuses on analysis, microscopy, and technical methods used to distinguish ivory, bone, and related materials across collections.'
-      }
+      
     };
 
     const signButtons = document.querySelectorAll('[data-collection-sign]');
@@ -186,11 +191,11 @@ permalink: /pages/vestibule.html
     const title = document.getElementById('collection-sequence-title');
     const message = document.getElementById('collection-sequence-message');
     const close = document.getElementById('collection-close');
-    const goToLab = document.getElementById('collection-go-to-lab');
+    
     const closeButtons = document.querySelectorAll('[data-collection-close]');
     let activeTrigger = null;
 
-    if (!signButtons.length || !overlay || !title || !message || !close || !goToLab) return;
+    if (!signButtons.length || !overlay || !title || !message || !close) return;
 
     function openCollection(key, trigger) {
       const item = collectionContent[key];
@@ -198,7 +203,7 @@ permalink: /pages/vestibule.html
       activeTrigger = trigger;
       title.textContent = item.title;
       message.textContent = item.text;
-      goToLab.hidden = key !== 'lab';
+      
       overlay.hidden = false;
       document.body.classList.add('welcome-sequence-open');
       close.focus();

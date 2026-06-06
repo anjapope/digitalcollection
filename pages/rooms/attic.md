@@ -9,9 +9,8 @@ permalink: /pages/rooms/attic.html
 
   <div class="house-scene">
     <div class="house-backdrop attic-hall">
-      <a class="room-cornice-link room-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
-      <a class="room-cornice-link room-cornice-link-center" href="{{ '/pages/rooms/archive.html' | relative_url }}">Archive Court</a>
-      <a class="room-cornice-link room-cornice-link-right" href="{{ '/pages/pathways-overview.html' | relative_url }}">Pathways Overview</a>
+      <a class="room-cornice-link room-cornice-link-left" href="/pages/vestibule.html">Back to Hall</a>
+      <a class="room-cornice-link room-cornice-link-right" href="/pages/pathways-overview.html">Pathways Overview</a>
       <div class="attic-rafters" aria-hidden="true">
         <span class="attic-beam attic-beam-left"></span>
         <span class="attic-beam attic-beam-right"></span>
@@ -52,15 +51,6 @@ permalink: /pages/rooms/attic.html
         <p class="collection-room-lead">A room for inheritance, rediscovery, storage, and the overlooked objects whose meanings change when they are found again.</p>
       </div>
 
-      <a class="attic-lab-hatch" href="{{ '/pages/rooms/lab.html' | relative_url }}" aria-label="Descend to the Lab">
-        <span class="attic-lab-opening" aria-hidden="true"></span>
-        <span class="attic-lab-stair attic-lab-stair-1" aria-hidden="true"></span>
-        <span class="attic-lab-stair attic-lab-stair-2" aria-hidden="true"></span>
-        <span class="attic-lab-stair attic-lab-stair-3" aria-hidden="true"></span>
-        <span class="attic-lab-glow" aria-hidden="true"></span>
-        <span class="attic-lab-hatch-label">To Lab</span>
-      </a>
-
       <div class="attic-reading-nook" aria-hidden="true">
         <div class="attic-floor-shadow"></div>
         <div class="attic-standing-lamp">
@@ -90,6 +80,20 @@ permalink: /pages/rooms/attic.html
           </span>
         </div>
       </div>
+
+      <a class="attic-floor-hatch attic-floor-hatch-lab" href="{{ '/pages/rooms/lab.html' | relative_url }}" aria-label="Go down through hatch to the Lab">
+        <span class="attic-floor-hatch-frame"></span>
+        <span class="attic-floor-hatch-door"></span>
+        <span class="attic-floor-hatch-ring"></span>
+        <span class="attic-floor-hatch-label">Lab ↓</span>
+      </a>
+
+      <a class="attic-floor-hatch attic-floor-hatch-local" href="{{ '/pages/rooms/local.html' | relative_url }}" aria-label="Go down through hatch to the Local History room">
+        <span class="attic-floor-hatch-frame"></span>
+        <span class="attic-floor-hatch-door"></span>
+        <span class="attic-floor-hatch-ring"></span>
+        <span class="attic-floor-hatch-label">Local ↓</span>
+      </a>
 
       <div class="house-rug"></div>
     </div>

@@ -63,8 +63,8 @@ map-cluster-radius: 25 # size of clusters, from ~ 10 to 80
 # TIMELINE PAGE
 #
 # set either year-navigation or year-nav-increment to generate a year nav dropdown
-year-navigation: #"1900;1905;1910;1915;1920" # manually set years to appear in dropdown nav
-year-nav-increment: 5 # set increments to auto gen nav years
+year-navigation: "100;200;300;400;500;600;700;800;900;1000;1100;1200;1300;1400;1500;1600;1700;1800;1850;1860;1870;1880;1890;1900;1910;1920;1930;1940;1950;1960;1970;1980;1989" # manually set years to appear in dropdown. Make sure they cover the range of your collection or pages.
+#year-nav-increment: 5 # set increments to auto gen nav years
 
 ##########
 # DATA 
@@ -84,7 +84,7 @@ metadata-facets-fields: "subject,creator,format"
 map-child-objects: true # true / false - if true, and if child item has latitude and longitude, child objects will be displayed on map
 timeline-child-objects: true # true / false - if true, and if child object has date, child objects will appear as thumbnails on timeline page
 data-child-objects: false # true / false - if true, child objects will appear linked in table on data page
-browse-child-objects: false # true / false - if true, child objects will appear on browse page and child objects' metadata will populate cloud pages like Subjects page and Locations page, as well as featured terms boxes on the home page
+browse-child-objects: false # true / false - if true, child objects will appear on browse page and child objects' metadata will populate cloud pages like Subjects page and Locations page, as well as show up in the Search page
 search-child-objects: true # true / false - if true, child objects will appear on on search page along with parent objects
 
 

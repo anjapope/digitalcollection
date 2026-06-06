@@ -2,9 +2,9 @@
 # URL VARIABLES
 #
 # site domain, full URL to the production location of your collection
-url: https://anjapope.github.io
+url: https://anjapope.github.io/digitalcollection/ 
 # path to location on the domain if necessary e.g. /digital/hjccc
-baseurl: /digitalcollection
+baseurl: 
 # location of code, the full url to your github repository
 source-code: https://github.com/anjapope/digitalcollection
 
@@ -71,3 +71,20 @@ exclude: [docs/, Rakefile, rakelib/, README.md, LICENSE, CITATION.cff, CODE_OF_C
 # compress CSS output
 sass:
   style: compressed
+
+##########
+# COLLECTIONS FOR NARRATIVE PATHWAYS
+#
+collections:
+  attic:
+    output: true
+    permalink: /attic/:name/
+  naturalhistory:
+    output: true
+    permalink: /naturalhistory/:name/
+  localhistory:
+    output: true
+    permalink: /localhistory/:name/
+  artmuseum:
+    output: true
+    permalink: /artmuseum/:name/
