@@ -12,7 +12,7 @@ Welcome to the Art Museum pathway. Experience the artistry, creativity, and cont
 {% endfor %}
 
 <div style="margin-top:2em; text-align:center;">
-	<a href="/" style="
+	<a href="{{ '/' | relative_url }}" style="
 	  display: inline-block;
 	  background: #111;
 	  color: #fff !important;
