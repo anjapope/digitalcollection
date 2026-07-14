@@ -4,7 +4,7 @@ pathway: artmuseum
 related_entries:
   - attic: "forgotten-trunk"
   - naturalhistory: "elephant-biology"
-  - localhistory: "town-auction"
+  - historicalsociety: "town-auction"
 ---
 
 <div style="text-align:center; margin: 2em 0;">
@@ -18,4 +18,4 @@ related_entries:
 
 [Elephant biology](../_naturalhistory/elephant-biology.md)
 
-[Ivory at the town auction](../_localhistory/town-auction.md)
+[Ivory at the town auction](../_historicalsociety/town-auction.md)

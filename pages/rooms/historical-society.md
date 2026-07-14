@@ -1,11 +1,11 @@
 ---
-title: "Local Room"
+title: "Historical Society Room"
 layout: vestibule
-permalink: /pages/rooms/local.html
+permalink: /pages/rooms/historical-society.html
 ---
 
 <section class="atrium-page collection-room-local-hall">
-  <h1 class="visually-hidden">Local room</h1>
+  <h1 class="visually-hidden">Historical Society room</h1>
 
   <div class="house-scene">
     <div class="house-backdrop local-hall">
@@ -44,7 +44,7 @@ permalink: /pages/rooms/local.html
 
       <div class="local-room-plaque">
         <p class="collection-room-kicker">Collection Room</p>
-        <h2>Local</h2>
+        <h2>Historical Society</h2>
         <p class="collection-room-lead">A room for community memory, collecting practices, and the local lives of ivory objects in homes, institutions, and regional histories.</p>
       </div>
 

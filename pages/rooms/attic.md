@@ -88,7 +88,7 @@ permalink: /pages/rooms/attic.html
         <span class="attic-floor-hatch-label">Lab ↓</span>
       </a>
 
-      <a class="attic-floor-hatch attic-floor-hatch-local" href="{{ '/pages/rooms/local.html' | relative_url }}" aria-label="Go down through hatch to the Local History room">
+      <a class="attic-floor-hatch attic-floor-hatch-local" href="{{ '/pages/rooms/historical-society.html' | relative_url }}" aria-label="Go down through hatch to the Historical Society room">
         <span class="attic-floor-hatch-frame"></span>
         <span class="attic-floor-hatch-door"></span>
         <span class="attic-floor-hatch-ring"></span>

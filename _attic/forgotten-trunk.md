@@ -4,7 +4,7 @@ pathway: attic
 related_entries:
   - naturalhistory: "elephant-biology"
   - artmuseum: "ivory-carving"
-  - localhistory: "town-auction"
+  - historicalsociety: "town-auction"
 ---
 
 
@@ -19,4 +19,4 @@ related_entries:
 
 [See how ivory is carved](../_artmuseum/ivory-carving.md)
 
-[Discover its journey at the town auction](../_localhistory/town-auction.md)
+[Discover its journey at the town auction](../_historicalsociety/town-auction.md)

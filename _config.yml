@@ -82,9 +82,9 @@ collections:
   naturalhistory:
     output: true
     permalink: /naturalhistory/:name/
-  localhistory:
+  historicalsociety:
     output: true
-    permalink: /localhistory/:name/
+    permalink: /historicalsociety/:name/
   artmuseum:
     output: true
     permalink: /artmuseum/:name/

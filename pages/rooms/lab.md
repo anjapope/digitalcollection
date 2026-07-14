@@ -35,6 +35,13 @@ permalink: /pages/rooms/lab.html
         <div class="lab-beaker lab-beaker-b"></div>
       </div>
 
+      <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Lab room links">
+        <a xlink:href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter the Natural History Museum" target="_self">
+          <polygon class="art-room-hotspot" points="555,286 665,286 665,609 555,609" />
+          <text class="art-room-hotspot-label" x="610" y="587" text-anchor="middle">Natural History</text>
+        </a>
+      </svg>
+
       <div class="art-room-plaque">
         <p class="collection-room-kicker">Collection Room</p>
         <h2>Lab</h2>

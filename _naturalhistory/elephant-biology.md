@@ -4,7 +4,7 @@ pathway: naturalhistory
 related_entries:
   - attic: "forgotten-trunk"
   - artmuseum: "ivory-carving"
-  - localhistory: "town-auction"
+  - historicalsociety: "town-auction"
 ---
 
 
@@ -19,4 +19,4 @@ related_entries:
 
 [Ivory carving in art](../_artmuseum/ivory-carving.md)
 
-[Ivory at the town auction](../_localhistory/town-auction.md)
+[Ivory at the town auction](../_historicalsociety/town-auction.md)

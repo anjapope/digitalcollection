@@ -5,9 +5,11 @@ permalink: /pages/vestibule.html
 ---
 
 <section class="atrium-page">
-  <h1 class="visually-hidden">Victorian house vestibule layout</h1>
+  <h1 class="visually-hidden">Romanesque forum atrium layout</h1>
   <div class="house-scene">
     <div class="house-backdrop">
+      <div class="forum-colonnade forum-colonnade-left" aria-hidden="true"></div>
+      <div class="forum-colonnade forum-colonnade-right" aria-hidden="true"></div>
       <div class="house-cornice"></div>
       <div class="house-paneling"></div>
       <div class="house-medallion"></div>
@@ -23,16 +25,26 @@ permalink: /pages/vestibule.html
         <span class="chandelier-crystal chandelier-crystal-center"></span>
         <span class="chandelier-crystal chandelier-crystal-right"></span>
       </div>
+
+      <svg class="vestibule-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Vestibule room links">
+        <a class="vestibule-arch-overlay-group vestibule-arch-overlay-group-left" xlink:href="{{ '/pages/rooms/historical-society.html' | relative_url }}" aria-label="Enter Historical Society room" target="_self">
+          <polygon class="vestibule-hotspot vestibule-arch-overlay vestibule-arch-overlay-left" points="158,276 296,276 296,590 158,590" />
+          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="227" y="565" text-anchor="middle">Historical Society</text>
+        </a>
+        <a class="vestibule-arch-overlay-group vestibule-arch-overlay-group-right" xlink:href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter Attic room" target="_self">
+          <polygon class="vestibule-hotspot vestibule-arch-overlay vestibule-arch-overlay-right" points="704,276 842,276 842,590 704,590" />
+          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="773" y="565" text-anchor="middle">Attic</text>
+        </a>
+        <a xlink:href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter The Natural History Museum" target="_self">
+          <polygon class="vestibule-hotspot" points="341,276 479,276 479,590 341,590" />
+          <text class="vestibule-hotspot-label" x="410" y="565" text-anchor="middle" style="font-size:14px;">Natural History</text>
+        </a>
+        <a xlink:href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Enter the Art Museum" target="_self">
+          <polygon class="vestibule-hotspot" points="522,276 660,276 660,590 522,590" />
+          <text class="vestibule-hotspot-label" x="591" y="565" text-anchor="middle">Art Museum</text>
+        </a>
+      </svg>
       
-      <button class="door-sign door-sign-natural-history" type="button" data-collection-sign="natural-history">Natural History</button>
-      <button class="door-sign door-sign-art" type="button" data-collection-sign="art">Art</button>
-      <button class="door-sign door-sign-local" type="button" data-collection-sign="local">Local</button>
-      <button class="door-sign door-sign-attic" type="button" data-collection-sign="attic">Attic</button>
-      
-      <a class="house-doorway house-doorway-left" href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter the Natural History room"></a>
-      <a class="house-doorway house-doorway-left-inner" href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Enter the Art room"></a>
-      <a class="house-doorway house-doorway-right-inner" href="{{ '/pages/rooms/local.html' | relative_url }}" aria-label="Enter the Local room"></a>
-      <a class="house-doorway house-doorway-right-front" href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter the Attic room"></a>
       <div class="house-sconce house-sconce-left"></div>
       <div class="house-sconce house-sconce-right"></div>
       <div class="house-portrait house-portrait-left"></div>
@@ -168,7 +180,7 @@ permalink: /pages/vestibule.html
   (() => {
     const collectionContent = {
       'natural-history': {
-        title: 'Natural History',
+        title: 'The Natural History Museum',
         text: 'This pathway explores elephants, ivory as a biological material, and the scientific and environmental histories that shape how these objects are understood.'
       },
       art: {

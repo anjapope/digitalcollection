@@ -1,6 +1,6 @@
 ---
 title: "New Harmony Fan"
-pathway: localhistory
+pathway: historicalsociety
 related_entries:
   - attic: "forgotten-trunk"
   - artmuseum: "ivory-carving"
@@ -8,7 +8,7 @@ related_entries:
 ---
 
 <div style="text-align:center; margin: 2em 0;">
-  <img src="/assets/img/localhistory/ivory_fan.jpg" alt="19th-century ivory fan from New Harmony, Indiana" style="max-width: 400px; width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 2px 2px 8px #eee;">
+  <img src="/assets/img/historicalsociety/ivory_fan.jpg" alt="19th-century ivory fan from New Harmony, Indiana" style="max-width: 400px; width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 2px 2px 8px #eee;">
   <div style="font-size: 0.95em; color: #555; margin-top: 0.5em;">Ivory fan, Working Men's Institute, New Harmony, Indiana</div>
 </div>
 

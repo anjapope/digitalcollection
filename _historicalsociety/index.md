@@ -1,13 +1,13 @@
 ---
-title: "Local History Center Room"
+title: "Historical Society Room"
 layout: page
 ---
 
-# The Local History Center
+# Historical Society
 
-Welcome to the Local History Center pathway. Discover how ivory objects shaped and were shaped by local communities.
+Welcome to the Historical Society pathway. Discover how ivory objects shaped and were shaped by local communities.
 
-{% for entry in site.localhistory %}
+{% for entry in site.historicalsociety %}
 - [{{ entry.title }}]({{ entry.url }})
 {% endfor %}
 

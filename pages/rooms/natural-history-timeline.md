@@ -10,7 +10,7 @@ permalink: /pages/rooms/natural-history-timeline.html
   <div class="house-scene">
     <div class="house-backdrop natural-history-hall natural-history-timeline-hall">
       <div class="house-cornice"></div>
-      <a class="room-cornice-link room-cornice-link-left" href="{{ '/pages/rooms/natural-history.html' | relative_url }}">Back to Natural History</a>
+      <a class="room-cornice-link room-cornice-link-left" href="{{ '/pages/rooms/natural-history.html' | relative_url }}">Back to The Natural History Museum</a>
       <a class="room-cornice-link room-cornice-link-right" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
       <div class="house-medallion"></div>
       <div class="house-chandelier">
@@ -32,9 +32,10 @@ permalink: /pages/rooms/natural-history-timeline.html
         <p class="collection-room-lead">A focused timeline tracing the ecological power of proboscideans, the extinction of their ancient relatives, and the historical pressures placed on modern elephants.</p>
       </div>
 
-      <div class="natural-history-timeline-exhibit" data-timeline-exhibit>
+      <div class="natural-history-timeline-exhibit is-dismissed" data-timeline-exhibit>
         <div class="natural-history-timeline-stage" data-timeline-stage>
-          <article class="natural-history-timeline-popup is-active" id="timeline-panel-0" data-timeline-panel="0" style="--timeline-position: 0%;">
+          <article class="natural-history-timeline-popup" id="timeline-panel-0" data-timeline-panel="0" style="--timeline-position: 0%;">
+            <button class="natural-history-timeline-popup-close" type="button" aria-label="Close info">✕</button>
             <p class="natural-history-timeline-date">Cenozoic</p>
             <h3>The rise of proboscideans</h3>
             <ul>
@@ -46,6 +47,7 @@ permalink: /pages/rooms/natural-history-timeline.html
           </article>
 
           <article class="natural-history-timeline-popup" id="timeline-panel-1" data-timeline-panel="1" style="--timeline-position: 25%;">
+            <button class="natural-history-timeline-popup-close" type="button" aria-label="Close info">✕</button>
             <p class="natural-history-timeline-date">Late prehistory</p>
             <h3>The extinction of ancient proboscideans</h3>
             <ul>
@@ -57,6 +59,7 @@ permalink: /pages/rooms/natural-history-timeline.html
           </article>
 
           <article class="natural-history-timeline-popup" id="timeline-panel-2" data-timeline-panel="2" style="--timeline-position: 50%;">
+            <button class="natural-history-timeline-popup-close" type="button" aria-label="Close info">✕</button>
             <p class="natural-history-timeline-date">2000 BC</p>
             <h3>A turning point</h3>
             <ul>
@@ -68,6 +71,7 @@ permalink: /pages/rooms/natural-history-timeline.html
           </article>
 
           <article class="natural-history-timeline-popup" id="timeline-panel-3" data-timeline-panel="3" style="--timeline-position: 75%;">
+            <button class="natural-history-timeline-popup-close" type="button" aria-label="Close info">✕</button>
             <p class="natural-history-timeline-date">1600 AD</p>
             <h3>Trade intensifies</h3>
             <ul>
@@ -79,6 +83,7 @@ permalink: /pages/rooms/natural-history-timeline.html
           </article>
 
           <article class="natural-history-timeline-popup" id="timeline-panel-4" data-timeline-panel="4" style="--timeline-position: 100%;">
+            <button class="natural-history-timeline-popup-close" type="button" aria-label="Close info">✕</button>
             <p class="natural-history-timeline-date">1850–1900</p>
             <h3>East African ivory hubs</h3>
             <ul>
@@ -88,37 +93,24 @@ permalink: /pages/rooms/natural-history-timeline.html
             </ul>
             <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="{{ '/map.html?location=-6.16,39.19&amp;zoom=6&amp;event=Zanzibar%20and%20the%20nineteenth-century%20ivory%20trade&amp;description=This%20map%20point%20centers%20Zanzibar%2C%20a%20key%20nineteenth-century%20hub%20in%20the%20East%20African%20ivory%20trade.' | relative_url }}">View this timeframe on the map</a></p>
           </article>
-
-          <div class="natural-history-timeline-spine" aria-hidden="true"></div>
-          <div class="natural-history-timeline-progress" aria-hidden="true" data-timeline-progress></div>
-
-          <div class="natural-history-timeline-stops" aria-label="Timeline stops">
-            <button class="natural-history-timeline-stop is-active" type="button" data-timeline-index="0" data-timeline-progress="0" aria-controls="timeline-panel-0" aria-pressed="true">
-              <span class="natural-history-timeline-stop-dot" aria-hidden="true"></span>
-              <span class="natural-history-timeline-stop-label">Cenozoic</span>
-            </button>
-            <button class="natural-history-timeline-stop" type="button" data-timeline-index="1" data-timeline-progress="25" aria-controls="timeline-panel-1" aria-pressed="false">
-              <span class="natural-history-timeline-stop-dot" aria-hidden="true"></span>
-              <span class="natural-history-timeline-stop-label">Extinctions</span>
-            </button>
-            <button class="natural-history-timeline-stop" type="button" data-timeline-index="2" data-timeline-progress="50" aria-controls="timeline-panel-2" aria-pressed="false">
-              <span class="natural-history-timeline-stop-dot" aria-hidden="true"></span>
-              <span class="natural-history-timeline-stop-label">2000 BC</span>
-            </button>
-            <button class="natural-history-timeline-stop" type="button" data-timeline-index="3" data-timeline-progress="75" aria-controls="timeline-panel-3" aria-pressed="false">
-              <span class="natural-history-timeline-stop-dot" aria-hidden="true"></span>
-              <span class="natural-history-timeline-stop-label">1600 AD</span>
-            </button>
-            <button class="natural-history-timeline-stop" type="button" data-timeline-index="4" data-timeline-progress="100" aria-controls="timeline-panel-4" aria-pressed="false">
-              <span class="natural-history-timeline-stop-dot" aria-hidden="true"></span>
-              <span class="natural-history-timeline-stop-label">1850–1900</span>
-            </button>
-          </div>
         </div>
 
         <div class="natural-history-timeline-slider-wrap">
-          <label class="natural-history-timeline-slider-label" for="natural-history-timeline-slider">Slide through the elephant history timeline</label>
-          <input class="natural-history-timeline-slider" id="natural-history-timeline-slider" type="range" min="0" max="4" step="1" value="0" data-timeline-slider>
+          <input class="natural-history-timeline-slider" id="natural-history-timeline-slider" type="range" min="0" max="4" step="1" value="0" data-timeline-slider list="timeline-stops-list">
+          <datalist id="timeline-stops-list">
+            <option value="0"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+          </datalist>
+          <div class="natural-history-timeline-tick-labels" aria-hidden="true">
+            <span>Cenozoic</span>
+            <span>Extinctions</span>
+            <span>2000 BC</span>
+            <span>1600 AD</span>
+            <span>1850–1900</span>
+          </div>
         </div>
       </div>
 
@@ -133,36 +125,27 @@ permalink: /pages/rooms/natural-history-timeline.html
     if (!exhibit) return;
 
     const slider = exhibit.querySelector('[data-timeline-slider]');
-    const progress = exhibit.querySelector('[data-timeline-progress]');
-    const stops = Array.from(exhibit.querySelectorAll('[data-timeline-index]'));
     const panels = Array.from(exhibit.querySelectorAll('[data-timeline-panel]'));
 
-    if (!slider || !progress || !stops.length || !panels.length) return;
+    if (!slider || !panels.length) return;
 
     function setActive(index) {
       const nextIndex = Math.max(0, Math.min(index, panels.length - 1));
       slider.value = String(nextIndex);
-
-      stops.forEach((stop, stopIndex) => {
-        const isActive = stopIndex === nextIndex;
-        stop.classList.toggle('is-active', isActive);
-        stop.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-      });
-
-      panels.forEach((panel, panelIndex) => {
-        panel.classList.toggle('is-active', panelIndex === nextIndex);
-      });
-
-      const activeStop = stops[nextIndex];
-      progress.style.width = `${activeStop.dataset.timelineProgress || 0}%`;
+      exhibit.classList.remove('is-dismissed');
+      panels.forEach((panel, i) => panel.classList.toggle('is-active', i === nextIndex));
     }
 
     slider.addEventListener('input', () => setActive(Number(slider.value)));
 
-    stops.forEach((stop) => {
-      stop.addEventListener('click', () => setActive(Number(stop.dataset.timelineIndex)));
+    // Close buttons dismiss the open panel without changing the slider
+    const closeButtons = exhibit.querySelectorAll('.natural-history-timeline-popup-close');
+    closeButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        panels.forEach((panel) => panel.classList.remove('is-active'));
+        exhibit.classList.add('is-dismissed');
+      });
     });
 
-    setActive(Number(slider.value));
   })();
 </script>

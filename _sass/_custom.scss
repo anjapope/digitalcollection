@@ -18,8 +18,8 @@
     overflow: hidden;
     min-height: 100vh;
     background:
-        radial-gradient(circle at 50% 10%, rgba(255, 239, 202, 0.26), transparent 18%),
-        linear-gradient(180deg, #6f3f37 0%, #523027 20%, #301d18 55%, #20120f 100%);
+        radial-gradient(circle at 50% 4%, rgba(255, 252, 244, 0.55), rgba(255, 252, 244, 0.08) 36%, transparent 58%),
+        linear-gradient(180deg, #ece5d6 0%, #d8cfbd 32%, #c1b39d 66%, #ab9d88 100%);
     color: #f7f1e8;
 }
 
@@ -33,9 +33,8 @@
 
 .atrium-page::before {
     background:
-        linear-gradient(90deg, rgba(255, 236, 209, 0.1) 0, rgba(255, 236, 209, 0.1) 2px, transparent 2px, transparent 14%),
-        linear-gradient(180deg, rgba(255, 244, 229, 0.08), transparent 26%, rgba(0, 0, 0, 0.12) 100%);
-    opacity: 0.45;
+        linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02) 35%, rgba(72, 54, 41, 0.1) 100%);
+    opacity: 0.72;
 }
 
 .house-scene {
@@ -49,448 +48,84 @@
     inset: 1.5rem;
     overflow: hidden;
     border-radius: 32px;
-    background:
-        linear-gradient(180deg, rgba(255, 231, 196, 0.08), transparent 18%),
-        linear-gradient(180deg, #91463f 0%, #833d37 36%, #763530 64%, #652c27 100%);
+    background: url('/assets/img/ArchIvory Vestibule.png') center top / 100% 100% no-repeat;
     box-shadow: inset 0 0 0 1px rgba(255, 232, 201, 0.12), 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.atrium-page .house-scene {
+    padding: 0;
+}
+
+.atrium-page .house-backdrop {
+    inset: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .house-backdrop::before {
     content: "";
     position: absolute;
     inset: 0;
-    background:
-        repeating-linear-gradient(90deg, rgba(255, 228, 204, 0.1) 0 2px, transparent 2px 56px),
-        repeating-linear-gradient(180deg, rgba(255, 228, 204, 0.1) 0 2px, transparent 2px 24px),
-        linear-gradient(180deg, rgba(255, 241, 220, 0.08), transparent 18%, rgba(0, 0, 0, 0.12) 72%, rgba(0, 0, 0, 0.24) 100%);
-    opacity: 0.72;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 42%, rgba(61, 44, 33, 0.06) 100%);
+    opacity: 0.26;
+    pointer-events: none;
 }
 
-.house-backdrop::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 28%;
-    background:
-        linear-gradient(180deg, rgba(51, 30, 22, 0) 0%, rgba(51, 30, 22, 0.2) 6%, rgba(43, 24, 18, 0.92) 8%, rgba(70, 43, 31, 0.96) 100%),
-        repeating-linear-gradient(90deg, #563526 0 42px, #704734 42px 84px);
-    box-shadow: inset 0 16px 26px rgba(0, 0, 0, 0.24);
-}
-
-.house-cornice {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 84px;
-    background:
-        linear-gradient(180deg, rgba(250, 227, 191, 0.18), rgba(86, 47, 35, 0) 80%),
-        linear-gradient(180deg, #8d5d43 0, #73503f 24px, #4f3428 24px, #3c281f 100%);
-    box-shadow: inset 0 -8px 12px rgba(0, 0, 0, 0.14);
-}
-
-.house-paneling {
+.atrium-page .house-backdrop::after {
     display: none;
 }
 
-.house-wall {
-    display: none;
-}
-
-.house-medallion {
+.forum-colonnade {
     position: absolute;
-    top: 4.5rem;
-    left: 50%;
-    width: 140px;
-    height: 140px;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(247, 226, 192, 0.5) 0 18%, rgba(191, 142, 105, 0.38) 18% 34%, rgba(90, 56, 40, 0.18) 34% 100%);
-}
-
-.house-sconce {
-    position: absolute;
-    top: 9.5rem;
-    width: 40px;
-    height: 112px;
-}
-
-.house-sconce::before {
-    content: "";
-    position: absolute;
-    top: 18px;
-    left: 50%;
-    width: 28px;
-    height: 58px;
-    transform: translateX(-50%);
-    border-radius: 14px 14px 8px 8px;
-    background: linear-gradient(180deg, rgba(255, 233, 184, 0.92), rgba(220, 154, 81, 0.22));
-    box-shadow: 0 0 34px rgba(255, 207, 128, 0.32);
-}
-
-.house-sconce::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 8px;
-    height: 46px;
-    transform: translateX(-50%);
-    background: linear-gradient(180deg, #d6b07f, #6b4331);
-    border-radius: 6px;
-}
-
-.house-sconce-left {
-    left: 12%;
-}
-
-.house-sconce-right {
-    right: 13%;
-}
-
-.house-portrait {
-    position: absolute;
-    top: 10.8rem;
-    width: 110px;
-    height: 150px;
-    border: 8px solid #a87b4e;
-    background:
-        radial-gradient(circle at 50% 28%, rgba(230, 206, 170, 0.38), transparent 24%),
-        linear-gradient(180deg, #4f3124 0%, #2b1b15 100%);
-    box-shadow: inset 0 0 0 3px rgba(250, 228, 189, 0.22), 0 18px 24px rgba(0, 0, 0, 0.18);
-}
-
-.house-portrait::before {
-    content: "";
-    position: absolute;
-    inset: 14px;
-    background:
-        radial-gradient(circle at 50% 30%, rgba(223, 183, 144, 0.82) 0 16%, transparent 17%),
-        radial-gradient(circle at 50% 62%, rgba(92, 52, 37, 0.84) 0 28%, transparent 29%),
-        linear-gradient(180deg, rgba(131, 88, 63, 0.72), rgba(51, 31, 24, 0.92));
-}
-
-.house-portrait-left {
-    left: 7%;
-}
-
-.house-portrait-right {
-    right: 8%;
-}
-
-.house-chandelier {
-    position: absolute;
-    top: 4.6rem;
-    left: 50%;
-    width: 220px;
-    height: 220px;
-    transform: translateX(-50%);
-    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18));
-}
-
-.house-chandelier::before {
-    content: "";
-    position: absolute;
-    top: -22px;
-    left: 50%;
-    width: 18px;
-    height: 18px;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #f8e6b7, #b48746 72%, #7a5327 100%);
-}
-
-.house-chandelier::after {
-    content: "";
-    position: absolute;
-    top: 64px;
-    left: 50%;
-    width: 170px;
-    height: 82px;
-    transform: translateX(-50%);
-    border-radius: 0 0 100px 100px;
-    border: 5px solid rgba(213, 179, 121, 0.92);
-    border-top: 0;
-    box-shadow:
-        0 0 28px rgba(255, 224, 171, 0.18),
-        inset 0 -8px 10px rgba(255, 240, 212, 0.08);
-}
-
-.chandelier-chain {
-    position: absolute;
-    top: -52px;
-    left: 50%;
-    width: 6px;
-    height: 86px;
-    transform: translateX(-50%);
-    background: linear-gradient(180deg, #f0dfb2, #936536);
-    border-radius: 999px;
-    box-shadow: 0 0 0 2px rgba(95, 62, 27, 0.08);
-}
-
-.chandelier-stem {
-    position: absolute;
-    top: 22px;
-    left: 50%;
-    width: 16px;
-    height: 88px;
-    transform: translateX(-50%);
-    border-radius: 999px;
-    background: linear-gradient(180deg, #f6e6be, #a8773c 58%, #7a5328 100%);
-}
-
-.chandelier-bowl {
-    position: absolute;
-    top: 88px;
-    left: 50%;
-    width: 56px;
-    height: 30px;
-    transform: translateX(-50%);
-    border-radius: 0 0 28px 28px;
-    background: linear-gradient(180deg, #efd7a3, #ac7a3d 62%, #744d25 100%);
-    box-shadow: inset 0 4px 8px rgba(255, 247, 227, 0.28);
-}
-
-.chandelier-arm {
-    position: absolute;
-    top: 84px;
-    width: 82px;
-    height: 54px;
-    border-bottom: 5px solid #c89b58;
-    border-radius: 0 0 82px 82px;
-}
-
-.chandelier-arm::before {
-    content: "";
-    position: absolute;
-    top: 32px;
-    width: 14px;
-    height: 24px;
-    border-radius: 8px 8px 4px 4px;
-    background: linear-gradient(180deg, #f5e4bc, #b78647 68%, #805628 100%);
-}
-
-.chandelier-arm::after {
-    content: "";
-    position: absolute;
-    top: 18px;
-    width: 18px;
-    height: 22px;
-    border-radius: 50% 50% 45% 45%;
-    background: radial-gradient(circle at 50% 35%, rgba(255, 245, 210, 0.98), rgba(255, 215, 126, 0.78) 58%, rgba(255, 195, 94, 0.12) 100%);
-    box-shadow: 0 0 18px rgba(255, 219, 144, 0.35);
-}
-
-.chandelier-arm-left {
-    left: 24px;
-    transform: rotate(8deg);
-}
-
-.chandelier-arm-left::before,
-.chandelier-arm-left::after {
-    left: -2px;
-}
-
-.chandelier-arm-right {
-    right: 24px;
-    transform: scaleX(-1) rotate(8deg);
-}
-
-.chandelier-arm-right::before,
-.chandelier-arm-right::after {
-    left: -2px;
-}
-
-.chandelier-arm-center-left,
-.chandelier-arm-center-right {
-    top: 92px;
-    width: 58px;
-    height: 34px;
-    border-bottom-width: 4px;
-}
-
-.chandelier-arm-center-left {
-    left: 54px;
-    transform: rotate(4deg);
-}
-
-.chandelier-arm-center-right {
-    right: 54px;
-    transform: scaleX(-1) rotate(4deg);
-}
-
-.chandelier-arm-center-left::before,
-.chandelier-arm-center-left::after,
-.chandelier-arm-center-right::before,
-.chandelier-arm-center-right::after {
-    left: -1px;
-}
-
-.chandelier-crystal {
-    position: absolute;
-    bottom: 42px;
-    width: 12px;
-    height: 28px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(200, 225, 245, 0.45));
-    clip-path: polygon(50% 0, 100% 36%, 72% 100%, 28% 100%, 0 36%);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
-}
-
-.chandelier-crystal-left {
-    left: 68px;
-}
-
-.chandelier-crystal-center {
-    left: 50%;
-    height: 38px;
-    transform: translateX(-50%);
-}
-
-.chandelier-crystal-right {
-    right: 68px;
-}
-
-.door-sign {
-    position: absolute;
-    bottom: calc(28% + clamp(250px, 32vh, 340px) + 2px);
-    border: 0;
-    padding: 0.45rem 0.85rem;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #f0dfb7, #caa36a);
-    color: #4f301f;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    box-shadow:
-        inset 0 0 0 1px rgba(116, 73, 33, 0.22),
-        0 8px 18px rgba(0, 0, 0, 0.16);
+    top: 4%;
+    bottom: 17%;
+    width: 18%;
+    pointer-events: none;
     z-index: 3;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-}
-
-.door-sign:hover,
-.door-sign:focus-visible {
-    transform: translateY(-1px);
-    box-shadow:
-        inset 0 0 0 1px rgba(116, 73, 33, 0.22),
-        0 10px 18px rgba(0, 0, 0, 0.18);
-    filter: brightness(1.02);
-    outline: none;
-}
-
-.door-sign-natural-history {
-    left: 9.75%;
-    width: 16%;
-    min-width: 130px;
-    max-width: 190px;
-    text-align: center;
-}
-
-.door-sign-art {
-    left: 32.75%;
-    width: 16%;
-    min-width: 130px;
-    max-width: 190px;
-    text-align: center;
-}
-
-.door-sign-local {
-    left: 55.75%;
-    width: 16%;
-    min-width: 130px;
-    max-width: 190px;
-    text-align: center;
-}
-
-.door-sign-attic {
-    left: 78.75%;
-    width: 16%;
-    min-width: 130px;
-    max-width: 190px;
-    text-align: center;
-}
-
-.house-doorway {
-    position: absolute;
-    width: 16%;
-    min-width: 130px;
-    max-width: 190px;
-    height: clamp(250px, 32vh, 340px);
-    bottom: 28%;
-    border-radius: 120px 120px 0 0;
     background:
-        linear-gradient(90deg, rgba(255, 225, 179, 0.1), transparent 14%, transparent 86%, rgba(0, 0, 0, 0.12)),
-        linear-gradient(180deg, #875a42 0%, #704634 48%, #593629 100%);
-    box-shadow:
-        inset 0 0 0 8px rgba(95, 60, 43, 0.95),
-        inset 0 0 0 16px rgba(203, 160, 112, 0.22),
-        inset 0 -10px 18px rgba(28, 15, 12, 0.24),
-        0 12px 30px rgba(0, 0, 0, 0.18);
-    z-index: 2;
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-}
-
-.house-doorway:hover,
-.house-doorway:focus-visible {
-    transform: translateY(-2px);
-    box-shadow:
-        inset 0 0 0 8px rgba(95, 60, 43, 0.95),
-        inset 0 0 0 16px rgba(203, 160, 112, 0.22),
-        inset 0 -10px 18px rgba(28, 15, 12, 0.24),
-        0 18px 34px rgba(0, 0, 0, 0.22);
-    filter: brightness(1.03);
-    outline: none;
-}
-
-.house-doorway::before {
-    content: "";
-    position: absolute;
-    inset: 22px 20px 0;
-    border-radius: 92px 92px 0 0;
-    background:
-        linear-gradient(90deg, rgba(255, 221, 177, 0.09), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.12)),
-        linear-gradient(180deg, #9a6b50 0%, #7d523c 52%, #653f30 100%);
-    box-shadow:
-        inset 0 0 0 2px rgba(66, 40, 29, 0.42),
-        inset 0 0 0 10px rgba(210, 173, 124, 0.08);
-}
-
-.house-doorway::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 34px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #f5db9f, #9c6f2d 70%, #6e491a 100%);
-}
-
-.house-doorway-left .door-panel,
-.house-doorway-left-inner .door-panel,
-.house-doorway-right-inner .door-panel,
-.house-doorway-right-front .door-panel {
+        repeating-linear-gradient(
+            to right,
+            rgba(251, 245, 232, 0.5) 0 2px,
+            rgba(228, 216, 194, 0.64) 2px 11%,
+            rgba(173, 154, 129, 0.66) 11% 14%,
+            rgba(227, 214, 191, 0.64) 14% 23%,
+            rgba(251, 245, 232, 0.52) 23% 25%
+        ),
+        linear-gradient(180deg, rgba(255, 252, 246, 0.66), rgba(195, 175, 147, 0.6) 70%, rgba(133, 114, 92, 0.7) 100%);
+    box-shadow: inset 0 0 0 1px rgba(255, 248, 236, 0.35), 0 18px 34px rgba(0, 0, 0, 0.2);
     display: none;
 }
 
-.house-doorway-left,
-.house-doorway-left-inner,
-.house-doorway-right-inner,
-.house-doorway-right-front {
-    overflow: hidden;
+.forum-colonnade::before,
+.forum-colonnade::after {
+    content: "";
+    position: absolute;
+    left: -6%;
+    right: -6%;
+    height: 8%;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255, 251, 242, 0.72), rgba(184, 163, 137, 0.64));
+    box-shadow: inset 0 0 0 1px rgba(244, 232, 210, 0.55), 0 8px 14px rgba(0, 0, 0, 0.12);
 }
 
-.house-doorway-left {
-    left: 9.75%;
+.forum-colonnade::before {
+    top: -2%;
 }
 
-.house-doorway-left-inner {
-    left: 32.75%;
+.forum-colonnade::after {
+    bottom: -2%;
+}
+
+.forum-colonnade-left {
+    left: -2%;
+    transform: none;
+    transform-origin: left center;
+}
+
+.forum-colonnade-right {
+    right: -2%;
+    transform: none;
+    transform-origin: right center;
 }
 
 .house-doorway-left::before {
@@ -548,12 +183,194 @@
     top: 50%;
 }
 
+// ── Artwork-backed vestibule hotspots ─────────────────────────────────────────
+// The full artwork now supplies the wall/arch visuals, so the old doorway
+// controls are hidden and only the written labels in the artwork remain
+// clickable.
+
+.door-sign,
+.house-doorway {
+    display: none;
+}
+
+.house-doorway::before,
+.house-doorway::after,
+.house-doorway-left::before,
+.house-doorway-left-inner::before,
+.house-doorway-right-inner::before,
+.house-doorway-right-front::before,
+.house-doorway-left::after,
+.house-doorway-left-inner::after,
+.house-doorway-right-inner::after,
+.house-doorway-right-front::after {
+    content: none;
+}
+
+.vestibule-label-link {
+    position: absolute;
+    top: 11%;
+    z-index: 6;
+    display: none;
+    height: 11%;
+    border-radius: 16px;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0);
+    transition: box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.vestibule-label-link:hover,
+.vestibule-label-link:focus-visible {
+    background: rgba(246, 229, 195, 0.08);
+    box-shadow: inset 0 0 0 2px rgba(246, 229, 195, 0.28);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.vestibule-label-link-historical {
+    display: none;
+}
+
+.vestibule-hotspot-map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.vestibule-hotspots {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.vestibule-hotspot {
+    fill: #f6e5c3;
+    fill-opacity: 0;
+    stroke: #f6e5c3;
+    stroke-opacity: 0;
+    stroke-width: 4;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    cursor: pointer;
+    transition: stroke-opacity 0.18s ease, fill-opacity 0.18s ease;
+    pointer-events: auto;
+    filter: drop-shadow(0 0 6px rgba(246, 229, 195, 0.38));
+}
+
+.vestibule-hotspots polygon.vestibule-hotspot {
+    pointer-events: auto;
+}
+
+.vestibule-arch-overlay {
+    fill: rgba(246, 229, 195, 0.14);
+    stroke: rgba(246, 229, 195, 0.62);
+    stroke-width: 4;
+    stroke-opacity: 0;
+    fill-opacity: 0;
+    pointer-events: auto;
+    transition: stroke-opacity 0.18s ease, fill-opacity 0.18s ease;
+}
+
+.vestibule-arch-overlay:hover {
+    stroke-opacity: 1;
+    fill-opacity: 0.22;
+}
+
+.vestibule-hotspot-label.vestibule-arch-overlay-label {
+    opacity: 0;
+    pointer-events: none;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+}
+
+.vestibule-arch-overlay-group:hover .vestibule-arch-overlay {
+    stroke-opacity: 1;
+    fill-opacity: 0.22;
+}
+
+.vestibule-arch-overlay-group:hover .vestibule-hotspot-label.vestibule-arch-overlay-label {
+    opacity: 1;
+}
+
+.vestibule-arch-overlay-group:focus-visible .vestibule-arch-overlay {
+    stroke-opacity: 1;
+    fill-opacity: 0.22;
+}
+
+.vestibule-arch-overlay-group:focus-visible .vestibule-hotspot-label.vestibule-arch-overlay-label {
+    opacity: 1;
+}
+
+.vestibule-hotspot-label {
+    fill: #f7f0e3;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    pointer-events: none;
+}
+
+.vestibule-hotspots a:hover .vestibule-hotspot,
+.vestibule-hotspots a:focus-visible .vestibule-hotspot {
+    fill-opacity: 0.22;
+    stroke-opacity: 1;
+}
+
+.vestibule-hotspots a:hover .vestibule-hotspot-label,
+.vestibule-hotspots a:focus-visible .vestibule-hotspot-label {
+    opacity: 1;
+}
+
+.vestibule-doorway-link {
+    position: absolute;
+    z-index: 6;
+    display: block;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+.vestibule-doorway-link-natural-history {
+    left: 31.75%;
+    bottom: 26%;
+    width: 18%;
+    height: 280px;
+}
+
+.vestibule-doorway-link:hover,
+.vestibule-doorway-link:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px rgba(246, 229, 195, 0.28);
+    background: rgba(246, 229, 195, 0.08);
+}
+
+.vestibule-label-link-natural-history {
+    left: 28.5%;
+    width: 17%;
+}
+
+.vestibule-label-link-art-history {
+    left: 52.75%;
+    width: 17%;
+}
+
+.vestibule-label-link-attic {
+    left: 78.5%;
+    width: 12%;
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 .floor-lab-sign {
     position: absolute;
     right: 7.5%;
     bottom: 14.5%;
     z-index: 4;
-    display: inline-flex;
+    display: none;
     align-items: center;
     gap: 0.45rem;
     padding: 0.5rem 0.75rem;
@@ -571,7 +388,7 @@
     left: 7.5%;
     bottom: 14.5%;
     z-index: 4;
-    display: inline-flex;
+    display: none;
     align-items: center;
     gap: 0.45rem;
     padding: 0.5rem 0.75rem;
@@ -650,7 +467,8 @@
 
 .house-console {
     position: absolute;
-    top: 22rem;
+    top: auto;
+    bottom: 5%;
     left: 50%;
     width: 180px;
     height: 86px;
@@ -688,6 +506,7 @@
 
 .welcome-mantle {
     z-index: 3;
+    display: none;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -1032,6 +851,13 @@
     line-height: 1.8;
 }
 
+.art-room-plaque,
+.local-room-plaque,
+.attic-room-plaque,
+.natural-history-room-plaque {
+    display: none !important;
+}
+
 .collection-room-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.7fr);
@@ -1120,6 +946,9 @@
     position: relative;
     background:
         linear-gradient(180deg, rgba(255, 240, 217, 0.08), transparent 16%),
+        linear-gradient(180deg, rgba(58, 28, 24, 0.18), rgba(58, 28, 24, 0.18)),
+        repeating-linear-gradient(90deg, #8d433d 0 44px, #7d3a34 44px 88px),
+        repeating-linear-gradient(180deg, transparent 0 22px, rgba(64, 29, 25, 0.72) 22px 24px),
         linear-gradient(180deg, #8d433d 0%, #7b3934 34%, #6a302d 60%, #3a211d 100%);
 }
 
@@ -1128,10 +957,10 @@
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(90deg, rgba(255, 230, 204, 0.08) 0 2px, transparent 2px 64px),
-        linear-gradient(180deg, rgba(255, 230, 204, 0.08) 0 2px, transparent 2px 28px),
+        linear-gradient(90deg, rgba(255, 230, 204, 0.06) 0 2px, transparent 2px 44px),
+        linear-gradient(180deg, transparent 0 23px, rgba(255, 230, 204, 0.1) 23px 24px),
         linear-gradient(180deg, rgba(255, 244, 227, 0.06), transparent 18%, rgba(0, 0, 0, 0.14) 76%, rgba(0, 0, 0, 0.22) 100%);
-    opacity: 0.8;
+    opacity: 0.65;
     pointer-events: none;
 }
 
@@ -1146,8 +975,10 @@
 .natural-history-far-wall,
 .natural-history-ceiling {
     background:
-        linear-gradient(90deg, rgba(255, 229, 204, 0.09) 0 2px, transparent 2px 58px),
-        linear-gradient(180deg, rgba(255, 229, 204, 0.09) 0 2px, transparent 2px 26px),
+        linear-gradient(90deg, rgba(255, 229, 204, 0.08) 0 2px, transparent 2px 44px),
+        linear-gradient(180deg, transparent 0 23px, rgba(255, 229, 204, 0.11) 23px 24px),
+        repeating-linear-gradient(90deg, #964841 0 44px, #813a35 44px 88px),
+        repeating-linear-gradient(180deg, transparent 0 22px, rgba(88, 40, 35, 0.64) 22px 24px),
         linear-gradient(180deg, #964841 0%, #813a35 38%, #6a2f2c 100%);
     box-shadow: inset 0 0 0 1px rgba(255, 225, 196, 0.12);
 }
@@ -1225,107 +1056,6 @@
     max-width: 34rem;
 }
 
-.natural-history-wall-links {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.natural-history-wall-link {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: #f8f0e6;
-    text-decoration: none;
-}
-
-.natural-history-wall-link:hover,
-.natural-history-wall-link:focus-visible {
-    transform: translateY(-2px);
-    text-decoration: none;
-    outline: none;
-}
-
-.natural-history-icon {
-    position: relative;
-    display: block;
-    width: 92px;
-    height: 92px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 245, 228, 0.96), rgba(220, 195, 154, 0.92) 60%, rgba(149, 106, 62, 0.96) 100%);
-    box-shadow:
-        inset 0 0 0 4px rgba(120, 79, 45, 0.28),
-        0 14px 24px rgba(0, 0, 0, 0.16);
-}
-
-.natural-history-wall-link-label {
-    padding: 0.3rem 0.7rem;
-    border-radius: 999px;
-    background: rgba(48, 29, 24, 0.5);
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.clock-face {
-    position: absolute;
-    inset: 16px;
-    border-radius: 50%;
-    border: 3px solid rgba(97, 64, 40, 0.6);
-    background: rgba(255, 251, 243, 0.78);
-}
-
-.clock-hand {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 4px;
-    border-radius: 999px;
-    background: #6e4a33;
-    transform-origin: bottom center;
-}
-
-.clock-hand-hour {
-    height: 18px;
-    transform: translate(-50%, -100%) rotate(25deg);
-}
-
-.clock-hand-minute {
-    height: 26px;
-    transform: translate(-50%, -100%) rotate(120deg);
-}
-
-.map-globe {
-    position: absolute;
-    inset: 18px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #9bc4b7, #4d7b73 70%, #375e58 100%);
-}
-
-.map-ring {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    border-radius: 50%;
-    border: 3px solid rgba(244, 232, 205, 0.75);
-    transform: translate(-50%, -50%);
-}
-
-.map-ring-vertical {
-    width: 28px;
-    height: 54px;
-}
-
-.map-ring-horizontal {
-    width: 56px;
-    height: 22px;
-}
 
 .natural-history-floor {
     left: 50%;
@@ -1359,17 +1089,11 @@
 
 .natural-history-hall {
     isolation: isolate;
+    background: url('/assets/img/Natural History Museum Interior1.png') center top / 100% 100% no-repeat;
 }
 
 .natural-history-hall::before {
     opacity: 0.82;
-}
-
-.natural-history-hall::after,
-.art-hall::after,
-.local-hall::after {
-    height: 40%;
-    box-shadow: inset 0 18px 30px rgba(0, 0, 0, 0.24);
 }
 
 .natural-history-room-plaque {
@@ -1405,48 +1129,97 @@
     line-height: 1.7;
 }
 
-.natural-history-hall .natural-history-wall-links {
-    position: absolute;
-    top: 21.75rem;
-    right: calc(13% - 102px);
-    left: auto;
-    z-index: 3;
-    display: flex;
-    width: max-content;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1.15rem;
-    margin-top: 0;
-    transform: none;
-}
-
-.natural-history-hall .natural-history-wall-link {
-    gap: 0.65rem;
-}
-
-.natural-history-hall .natural-history-wall-link-label {
-    background: rgba(48, 29, 24, 0.72);
-    box-shadow: inset 0 0 0 1px rgba(255, 225, 196, 0.1);
-}
-
 .natural-history-timeline-hall::after {
     height: 44%;
+}
+
+.natural-history-hotspots {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+}
+
+.natural-history-hotspot {
+    fill: #f6e5c3;
+    fill-opacity: 0;
+    stroke: #f6e5c3;
+    stroke-opacity: 0;
+    stroke-width: 4;
+    cursor: pointer;
+    transition: stroke-opacity 0.18s ease, fill-opacity 0.18s ease;
+    pointer-events: auto;
+}
+
+.natural-history-hotspot-timeline {
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-width: 6;
+}
+
+.natural-history-hotspot-doorway {
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-width: 6;
+    filter: drop-shadow(0 0 6px rgba(246, 229, 195, 0.30));
+}
+
+.natural-history-hotspots polygon.natural-history-hotspot {
+    pointer-events: auto;
+    filter: drop-shadow(0 0 6px rgba(246, 229, 195, 0.38));
+}
+
+.natural-history-hotspot-label {
+    fill: #f7f0e3;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    pointer-events: none;
+}
+
+.natural-history-hotspot-label-small {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    stroke: rgba(28, 16, 12, 0.9);
+    stroke-width: 0.9px;
+    paint-order: stroke fill;
+}
+
+.natural-history-hotspots a:hover .natural-history-hotspot,
+.natural-history-hotspots a:focus-visible .natural-history-hotspot {
+    fill-opacity: 0.22;
+    stroke-opacity: 1;
+}
+
+.natural-history-hotspots a:hover .natural-history-hotspot-label,
+.natural-history-hotspots a:focus-visible .natural-history-hotspot-label {
+    opacity: 1;
 }
 
 .natural-history-timeline-plaque {
     width: min(720px, 82%);
 }
-
 .natural-history-timeline-exhibit {
     position: absolute;
     top: 21rem;
     left: 50%;
     z-index: 3;
     width: min(1120px, 92%);
-    min-height: 470px;
-    padding: 0 0.5rem;
+    min-height: 600px;
+    padding: 0 0.5rem 7.5rem;
     transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.natural-history-timeline-exhibit-inline {
+    z-index: 9;
 }
 
 .natural-history-timeline-intro {
@@ -1457,30 +1230,32 @@
     line-height: 1.6;
 }
 
-.natural-history-timeline-stage {
-    position: relative;
-    min-height: 360px;
-}
-
 .natural-history-timeline-spine,
 .natural-history-timeline-progress {
     position: absolute;
     top: 16.9rem;
     left: 7%;
-    height: 6px;
+    height: 8px;
     border-radius: 999px;
+    z-index: 5;
 }
 
 .natural-history-timeline-spine {
     right: 35%;
-    background: linear-gradient(90deg, rgba(244, 223, 180, 0.95), rgba(150, 106, 58, 0.9));
-    box-shadow: 0 0 22px rgba(255, 222, 160, 0.18);
+    background: linear-gradient(90deg, rgba(244, 223, 180, 1), rgba(200, 150, 90, 0.95));
+    box-shadow:
+        0 0 28px rgba(255, 230, 180, 0.32),
+        0 0 14px rgba(255, 240, 210, 0.24),
+        inset 0 1px 2px rgba(255, 248, 232, 0.28);
 }
 
 .natural-history-timeline-progress {
     width: 0;
-    background: linear-gradient(90deg, #fff1cb, #dfac63 70%, #95602c 100%);
-    box-shadow: 0 0 18px rgba(255, 231, 177, 0.28);
+    background: linear-gradient(90deg, #fffaf0, #ffd97f 50%, #d4a557 90%, #9d6d31 100%);
+    box-shadow:
+        0 0 24px rgba(255, 240, 200, 0.38),
+        0 0 12px rgba(255, 220, 160, 0.32),
+        inset 0 1px 2px rgba(255, 252, 240, 0.32);
     transition: width 220ms ease;
 }
 
@@ -1585,6 +1360,11 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     align-items: start;
+    z-index: 5;
+    padding: 0.8rem 0;
+    background: linear-gradient(180deg, rgba(60, 35, 28, 0.35), rgba(50, 30, 25, 0.25));
+    border-radius: 16px;
+    backdrop-filter: blur(3px);
 }
 
 .natural-history-timeline-stop {
@@ -1603,11 +1383,14 @@
 }
 
 .natural-history-timeline-stop-dot {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #fff3d5, #d6a65e 70%, #8f5c28 100%);
-    box-shadow: 0 0 0 6px rgba(33, 19, 15, 0.44);
+    background: radial-gradient(circle at 35% 35%, #fffcf0, #e8c577 65%, #b8843f 90%, #7d5a1f 100%);
+    box-shadow:
+        0 0 0 8px rgba(40, 22, 16, 0.58),
+        0 0 16px rgba(255, 230, 180, 0.26),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.18);
     transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
@@ -1618,25 +1401,25 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: inherit;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.32);
+    transition: color 220ms ease, text-shadow 220ms ease;
 }
 
 .natural-history-timeline-stop.is-active,
 .natural-history-timeline-stop:hover,
 .natural-history-timeline-stop:focus-visible {
-    color: #fff4e7;
+    color: #fffef9;
 }
 
 .natural-history-timeline-stop.is-active .natural-history-timeline-stop-dot,
 .natural-history-timeline-stop:hover .natural-history-timeline-stop-dot,
 .natural-history-timeline-stop:focus-visible .natural-history-timeline-stop-dot {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 7px rgba(52, 29, 21, 0.55), 0 0 24px rgba(255, 223, 167, 0.24);
-}
-
-.natural-history-timeline-slider-wrap {
-    width: min(700px, 60%);
-    margin: 0 auto 0 7%;
-    padding-top: 3rem;
+    transform: scale(1.18);
+    box-shadow:
+        0 0 0 10px rgba(60, 32, 22, 0.68),
+        0 0 28px rgba(255, 235, 200, 0.36),
+        0 0 14px rgba(255, 210, 140, 0.22),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.24);
 }
 
 .natural-history-timeline-slider-label {
@@ -1675,6 +1458,83 @@
     background: radial-gradient(circle at 35% 35%, #fff7df, #e2b86c 68%, #8c5825 100%);
     box-shadow: 0 0 0 5px rgba(33, 19, 15, 0.5);
     cursor: pointer;
+}
+
+/* Timeline Page Layout */
+.natural-history-timeline-page .room-cornice-link {
+    display: none !important;
+}
+
+.natural-history-timeline-popup-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.8rem;
+    z-index: 10;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff4e7;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 180ms ease, transform 180ms ease;
+}
+
+.natural-history-timeline-popup-close:hover,
+.natural-history-timeline-popup-close:focus-visible {
+    background: rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+    outline: none;
+}
+
+.natural-history-timeline-stage {
+    flex: 1;
+    position: relative;
+    min-height: 320px;
+}
+
+.natural-history-timeline-slider-wrap {
+    position: absolute;
+    left: 7%;
+    bottom: 1.5rem;
+    width: min(700px, 60%);
+    margin: 0;
+    padding: 1rem 1rem 0.75rem;
+    border-top: 1px solid rgba(244, 220, 186, 0.15);
+    z-index: 6;
+}
+
+.natural-history-timeline-exhibit.is-dismissed .natural-history-timeline-slider-wrap {
+    display: none;
+}
+
+.natural-history-timeline-tick-labels {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 0.75rem;
+    color: rgba(255, 244, 231, 0.78);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.natural-history-timeline-tick-labels span {
+    text-align: center;
+}
+
+.natural-history-timeline-tick-labels span:first-child {
+    text-align: left;
+}
+
+.natural-history-timeline-tick-labels span:last-child {
+    text-align: right;
 }
 
 .natural-history-hall-panel {
@@ -1796,7 +1656,7 @@
     text-decoration: none;
     text-transform: uppercase;
     box-shadow: inset 0 0 0 1px rgba(116, 73, 33, 0.18);
-    z-index: 4;
+    z-index: 12;
 }
 
 .art-cornice-link:hover,
@@ -1890,10 +1750,69 @@
         linear-gradient(180deg, #5f2430 0%, #41202b 50%, #24151a 100%);
 }
 
+.art-room-hotspots {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+}
+
+.art-room-hotspot {
+    fill: #f6e5c3;
+    fill-opacity: 0;
+    stroke: #f6e5c3;
+    stroke-opacity: 0;
+    stroke-width: 4;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    cursor: pointer;
+    transition: stroke-opacity 0.18s ease, fill-opacity 0.18s ease;
+    pointer-events: auto;
+    filter: drop-shadow(0 0 6px rgba(246, 229, 195, 0.38));
+}
+
+.art-room-hotspots polygon.art-room-hotspot {
+    pointer-events: auto;
+}
+
+.art-room-hotspot-label {
+    fill: #f7f0e3;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    pointer-events: none;
+}
+
+.art-room-hotspots a:hover .art-room-hotspot,
+.art-room-hotspots a:focus-visible .art-room-hotspot {
+    fill-opacity: 0.22;
+    stroke-opacity: 1;
+}
+
+.art-room-hotspots a:hover .art-room-hotspot-label,
+.art-room-hotspots a:focus-visible .art-room-hotspot-label {
+    opacity: 1;
+}
+
 .art-hall {
-    background:
-        linear-gradient(180deg, rgba(255, 241, 216, 0.08), transparent 18%),
-        linear-gradient(180deg, #7a2d3a 0%, #632835 38%, #4e1f29 64%, #33161d 100%);
+    isolation: isolate;
+    background: url('/assets/img/Art Museum Interior.png') center top / 100% 100% no-repeat;
+}
+
+.gallery-hall {
+    isolation: isolate;
+    background: url('/assets/img/GalleryInterior1.png') center top / 100% 100% no-repeat;
+}
+
+.gallery-hall .art-room-hotspot-label {
+    font-size: 7px;
+    letter-spacing: 0.02em;
+    text-transform: none;
 }
 
 .art-hall .house-sconce {
@@ -2280,7 +2199,7 @@
 
 .art-wall-frame {
     position: absolute;
-    top: 13.2rem;
+    top: 19.2rem;
     z-index: 3;
     width: 128px;
     height: 174px;
@@ -2292,6 +2211,7 @@
         inset 0 0 0 3px rgba(255, 239, 211, 0.24),
         inset 0 0 0 12px rgba(95, 52, 24, 0.32),
         0 14px 24px rgba(0, 0, 0, 0.18);
+    opacity: 0.94;
 }
 
 .art-wall-frame-left {
@@ -2589,8 +2509,13 @@
 
 .local-hall {
     background:
-        linear-gradient(180deg, rgba(237, 241, 217, 0.08), transparent 18%),
-        linear-gradient(180deg, #666043 0%, #575238 38%, #45412d 64%, #2a281d 100%);
+        repeating-linear-gradient(90deg, rgba(195, 188, 175, 0.75) 0 2px, transparent 2px 110px),
+        repeating-linear-gradient(180deg, rgba(195, 188, 175, 0.75) 0 2px, transparent 2px 110px),
+        repeating-linear-gradient(90deg, #f5f0e8 0 55px, #ebe5db 55px 110px),
+        linear-gradient(180deg, #703f2e 0%, #553124 100%);
+    background-size: 100% 62%, 100% 62%, 110px 62%, 100% 100%;
+    background-position: top left, top left, top left, top left;
+    background-repeat: no-repeat, no-repeat, repeat-x, no-repeat;
 }
 
 .local-history-display {
@@ -2768,7 +2693,7 @@
 .natural-side-sign {
     position: absolute;
     top: 24.8rem;
-    z-index: 7;
+    z-index: 9;
     padding: 0.28rem 0.58rem;
     border-radius: 999px;
     text-decoration: none;
@@ -2898,8 +2823,13 @@
 
 .attic-hall {
     background:
-        linear-gradient(180deg, rgba(240, 232, 214, 0.06), transparent 18%),
-        linear-gradient(180deg, #56423c 0%, #473631 38%, #352923 64%, #211a18 100%);
+        repeating-linear-gradient(90deg, rgba(195, 188, 175, 0.75) 0 2px, transparent 2px 110px),
+        repeating-linear-gradient(180deg, rgba(195, 188, 175, 0.75) 0 2px, transparent 2px 110px),
+        repeating-linear-gradient(90deg, #f5f0e8 0 55px, #ebe5db 55px 110px),
+        linear-gradient(180deg, #703f2e 0%, #553124 100%);
+    background-size: 100% 62%, 100% 62%, 110px 62%, 100% 100%;
+    background-position: top left, top left, top left, top left;
+    background-repeat: no-repeat, no-repeat, repeat-x, no-repeat;
 }
 
 .attic-hall .house-rug {
@@ -3495,12 +3425,9 @@
 
     .natural-history-timeline-slider-wrap {
         width: min(560px, 58%);
-    }
-
-    .natural-history-hall .natural-history-wall-links {
-        top: 23.5rem;
-        right: calc(13% - 88px);
-        gap: 0.9rem;
+        left: 7%;
+        bottom: 1.2rem;
+        margin-top: 0;
     }
 
     .natural-history-hall-panel {
@@ -3666,16 +3593,6 @@
         display: none;
     }
 
-    .natural-history-wall-links {
-        margin-top: 1rem;
-        gap: 0.8rem;
-    }
-
-    .natural-history-icon {
-        width: 78px;
-        height: 78px;
-    }
-
     .natural-history-panel-left {
         margin-top: 26rem;
     }
@@ -3697,13 +3614,23 @@
 .house-rug {
     position: absolute;
     left: 50%;
-    bottom: 6%;
-    width: min(820px, 72vw);
-    height: 180px;
+    bottom: 1.5%;
+    width: min(1100px, 86vw);
+    height: 176px;
     transform: translateX(-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(148, 48, 28, 0.82) 0 24%, rgba(101, 28, 18, 0.9) 24% 48%, rgba(205, 162, 111, 0.7) 48% 54%, rgba(87, 35, 23, 0.92) 54% 100%);
-    box-shadow: 0 30px 36px rgba(0, 0, 0, 0.26);
+    border-radius: 42% 42% 40% 40%;
+    background:
+        radial-gradient(ellipse at 50% 8%, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0) 42%),
+        repeating-linear-gradient(90deg, #a49784 0 34px, #938674 34px 68px),
+        repeating-linear-gradient(180deg, transparent 0 22px, rgba(74, 62, 50, 0.4) 22px 24px),
+        repeating-linear-gradient(135deg, rgba(70, 58, 47, 0.15) 0 1px, transparent 1px 30px),
+        repeating-linear-gradient(45deg, rgba(70, 58, 47, 0.12) 0 1px, transparent 1px 30px),
+        linear-gradient(180deg, #a89a86 0%, #8e7f6a 56%, #756551 100%);
+    box-shadow: 0 28px 38px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 250, 239, 0.24);
+}
+
+.atrium-page .house-rug {
+    display: none;
 }
 
 .atrium-shell,
@@ -4208,6 +4135,24 @@
         bottom: 13.5%;
     }
 
+    .vestibule-label-link {
+        top: 10.25%;
+        height: 10%;
+    }
+
+    .vestibule-doorway-link-natural-history {
+        left: 32.75%;
+        bottom: 27.5%;
+        width: 18vw;
+        height: 230px;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .vestibule-label-link-historical {
+        display: none;
+    }
+
 }
 
 @media (max-width: 767.98px) {
@@ -4257,6 +4202,40 @@
     .house-doorway-left-inner { left: 31.75%; }
     .house-doorway-right-inner { left: 54.75%; }
     .house-doorway-right-front { left: 77.75%; width: 18vw; }
+
+    .vestibule-doorway-link-natural-history {
+        left: 31.75%;
+        bottom: 28%;
+        width: 18vw;
+        height: 230px;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .vestibule-label-link {
+        top: 8.75%;
+        height: 8.5%;
+        border-radius: 10px;
+    }
+
+    .vestibule-label-link-historical {
+        display: none;
+    }
+
+    .vestibule-label-link-natural-history {
+        left: 27%;
+        width: 18.5%;
+    }
+
+    .vestibule-label-link-art-history {
+        left: 52%;
+        width: 18%;
+    }
+
+    .vestibule-label-link-attic {
+        left: 78%;
+        width: 13%;
+    }
 
     .house-console,
     .house-medallion,
@@ -4341,15 +4320,6 @@
         line-height: 1.6;
     }
 
-    .natural-history-hall .natural-history-wall-links {
-        top: 13.5rem;
-        left: 50%;
-        right: auto;
-        justify-content: center;
-        gap: 0.8rem;
-        transform: translateX(-50%);
-    }
-
     .natural-history-timeline-exhibit {
         position: relative;
         top: auto;
@@ -4431,13 +4401,17 @@
     }
 
     .natural-history-timeline-slider-wrap {
+        position: relative;
+        left: auto;
+        bottom: auto;
         width: calc(100% - 0.5rem);
+        margin: 0.75rem auto 0;
         padding-top: 1.1rem;
     }
 
-    .natural-history-hall .natural-history-icon {
-        width: 80px;
-        height: 80px;
+    .natural-history-timeline-tick-labels {
+        font-size: 0.6rem;
+        letter-spacing: 0.04em;
     }
 
     .natural-history-hall-panel {

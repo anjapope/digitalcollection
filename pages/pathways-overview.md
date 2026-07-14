@@ -11,7 +11,7 @@ Explore the story of ivory through four interconnected pathways. Click a pathway
 
 - [Attic](/attic/index)
 - [Natural History Museum](/naturalhistory/index)
-- [Local History Center](/localhistory/index)
+- [Historical Society](/historicalsociety/index)
 - [Art Museum](/artmuseum/index)
 
 _This overview will expand as more rooms and links are added._
