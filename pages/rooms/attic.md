@@ -11,20 +11,6 @@ permalink: /pages/rooms/attic.html
     <div class="house-backdrop attic-hall">
       <a class="room-cornice-link room-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
       <a class="room-cornice-link room-cornice-link-right" href="{{ '/pages/pathways-overview.html' | relative_url }}">Pathways Overview</a>
-      <div class="attic-rafters" aria-hidden="true">
-        <span class="attic-beam attic-beam-left"></span>
-        <span class="attic-beam attic-beam-right"></span>
-        <span class="attic-ridge-beam"></span>
-        <span class="attic-far-beam attic-far-beam-left"></span>
-        <span class="attic-far-beam attic-far-beam-right"></span>
-        <span class="attic-far-ridge-beam"></span>
-        <span class="attic-joist attic-joist-left"></span>
-        <span class="attic-joist attic-joist-center"></span>
-        <span class="attic-joist attic-joist-right"></span>
-      </div>
-      <div class="attic-cobweb attic-cobweb-left" aria-hidden="true"></div>
-      <div class="attic-cobweb attic-cobweb-right" aria-hidden="true"></div>
-      <div class="attic-cobweb attic-cobweb-center" aria-hidden="true"></div>
       <div class="house-cornice"></div>
       <div class="house-medallion"></div>
       <div class="house-chandelier">
@@ -50,50 +36,6 @@ permalink: /pages/rooms/attic.html
         <h2>Attic</h2>
         <p class="collection-room-lead">A room for inheritance, rediscovery, storage, and the overlooked objects whose meanings change when they are found again.</p>
       </div>
-
-      <div class="attic-reading-nook" aria-hidden="true">
-        <div class="attic-floor-shadow"></div>
-        <div class="attic-standing-lamp">
-          <span class="attic-lamp-shade"></span>
-          <span class="attic-lamp-pole"></span>
-          <span class="attic-lamp-base"></span>
-        </div>
-        <div class="attic-chair">
-          <span class="attic-chair-back"></span>
-          <span class="attic-chair-seat"></span>
-          <span class="attic-chair-arm attic-chair-arm-left"></span>
-          <span class="attic-chair-arm attic-chair-arm-right"></span>
-          <span class="attic-chair-leg attic-chair-leg-front-left"></span>
-          <span class="attic-chair-leg attic-chair-leg-front-right"></span>
-          <span class="attic-chair-leg attic-chair-leg-back-left"></span>
-          <span class="attic-chair-leg attic-chair-leg-back-right"></span>
-        </div>
-        <div class="attic-stool">
-          <span class="attic-stool-top"></span>
-          <span class="attic-stool-leg attic-stool-leg-left"></span>
-          <span class="attic-stool-leg attic-stool-leg-right"></span>
-          <span class="attic-lace-kit">
-            <span class="attic-lace-pillow"></span>
-            <span class="attic-lace-bobbin attic-lace-bobbin-left"></span>
-            <span class="attic-lace-bobbin attic-lace-bobbin-center"></span>
-            <span class="attic-lace-bobbin attic-lace-bobbin-right"></span>
-          </span>
-        </div>
-      </div>
-
-      <a class="attic-floor-hatch attic-floor-hatch-lab" href="{{ '/pages/rooms/lab.html' | relative_url }}" aria-label="Go down through hatch to the Lab">
-        <span class="attic-floor-hatch-frame"></span>
-        <span class="attic-floor-hatch-door"></span>
-        <span class="attic-floor-hatch-ring"></span>
-        <span class="attic-floor-hatch-label">Lab ↓</span>
-      </a>
-
-      <a class="attic-floor-hatch attic-floor-hatch-local" href="{{ '/pages/rooms/historical-society.html' | relative_url }}" aria-label="Go down through hatch to the Historical Society room">
-        <span class="attic-floor-hatch-frame"></span>
-        <span class="attic-floor-hatch-door"></span>
-        <span class="attic-floor-hatch-ring"></span>
-        <span class="attic-floor-hatch-label">Local ↓</span>
-      </a>
 
       <div class="house-rug"></div>
     </div>

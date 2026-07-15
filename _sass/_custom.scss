@@ -1089,7 +1089,7 @@
 
 .natural-history-hall {
     isolation: isolate;
-    background: url('../img/Natural History Museum Interior1.png') center top / 100% 100% no-repeat;
+    background: url('../img/Natural History Museum Interior12.jpg') center top / 100% 100% no-repeat;
 }
 
 .natural-history-hall::before {
@@ -1801,7 +1801,7 @@
 
 .art-hall {
     isolation: isolate;
-    background: url('../img/Art Museum Interior.png') center top / 100% 100% no-repeat;
+    background: url('../img/Art Museum Interior-12.jpg') center top / 100% 100% no-repeat;
 }
 
 .gallery-hall {
@@ -2508,188 +2508,9 @@
 }
 
 .local-hall {
-    background:
-        repeating-linear-gradient(90deg, rgba(195, 188, 175, 0.75) 0 2px, transparent 2px 110px),
-        repeating-linear-gradient(180deg, rgba(195, 188, 175, 0.75) 0 2px, transparent 2px 110px),
-        repeating-linear-gradient(90deg, #f5f0e8 0 55px, #ebe5db 55px 110px),
-        linear-gradient(180deg, #703f2e 0%, #553124 100%);
-    background-size: 100% 62%, 100% 62%, 110px 62%, 100% 100%;
-    background-position: top left, top left, top left, top left;
-    background-repeat: no-repeat, no-repeat, repeat-x, no-repeat;
+    background: url('../img/Historical Society Interior 12.jpg') center top / 100% 100% no-repeat;
 }
 
-.local-history-display {
-    position: absolute;
-    top: 21.4rem;
-    left: 50%;
-    z-index: 3;
-    width: min(470px, 50%);
-    transform: translateX(-50%);
-}
-
-.local-history-board {
-    position: relative;
-    min-height: 220px;
-    border-radius: 22px;
-    background:
-        linear-gradient(180deg, rgba(255, 245, 230, 0.08), transparent 24%),
-        repeating-linear-gradient(90deg, #725a39 0 24px, #7d6340 24px 48px),
-        linear-gradient(180deg, #8a6e47 0%, #6f5738 100%);
-    box-shadow:
-        inset 0 0 0 8px rgba(68, 48, 28, 0.78),
-        0 16px 28px rgba(0, 0, 0, 0.2);
-}
-
-.local-history-board::before {
-    content: "";
-    position: absolute;
-    inset: 22px 26px;
-    border-radius: 16px;
-    background:
-        radial-gradient(circle at 24% 28%, rgba(108, 132, 115, 0.36), transparent 14%),
-        radial-gradient(circle at 72% 58%, rgba(108, 132, 115, 0.26), transparent 18%),
-        linear-gradient(180deg, #b79b72 0%, #a98c63 100%);
-    box-shadow: inset 0 0 0 1px rgba(94, 70, 45, 0.22);
-}
-
-.local-note {
-    position: absolute;
-    z-index: 1;
-    width: 122px;
-    min-height: 82px;
-    padding: 0.9rem 0.7rem;
-    border-radius: 6px;
-    background: linear-gradient(180deg, #f1e1b8, #ddca9a);
-    color: #4f3c21;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
-}
-
-.local-note::before {
-    content: "";
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    width: 14px;
-    height: 14px;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #d55945, #8e2c20 70%);
-}
-
-.local-note-left {
-    top: 26px;
-    left: 30px;
-    transform: rotate(-5deg);
-}
-
-.local-note-center {
-    top: 58px;
-    left: 50%;
-    transform: translateX(-50%) rotate(2deg);
-}
-
-.local-note-right {
-    top: 34px;
-    right: 28px;
-    transform: rotate(6deg);
-}
-
-.local-filing-cabinet {
-    position: absolute;
-    bottom: 30%;
-    width: 86px;
-    height: 132px;
-    z-index: 2;
-    border-radius: 8px;
-    background:
-        linear-gradient(180deg, rgba(229, 238, 233, 0.26), rgba(35, 44, 40, 0.22) 100%),
-        linear-gradient(180deg, #8a9a92 0%, #74857d 52%, #5f6f68 100%);
-    box-shadow:
-        inset 0 0 0 2px rgba(215, 228, 222, 0.22),
-        inset 0 -1px 0 rgba(45, 57, 52, 0.46),
-        0 10px 18px rgba(0, 0, 0, 0.2);
-}
-
-.local-filing-cabinet::before,
-.local-filing-cabinet::after {
-    content: "";
-    position: absolute;
-    left: 10px;
-    right: 10px;
-    height: 1px;
-    background: rgba(45, 57, 52, 0.42);
-}
-
-.local-filing-cabinet::before {
-    top: 44px;
-}
-
-.local-filing-cabinet::after {
-    top: 88px;
-}
-
-.local-filing-cabinet-left {
-    left: 11%;
-}
-
-.local-filing-cabinet-right {
-    right: 11%;
-}
-
-.local-service-desk {
-    position: absolute;
-    left: 50%;
-    bottom: 28%;
-    width: min(320px, 36%);
-    height: 120px;
-    transform: translateX(-50%);
-    z-index: 3;
-}
-
-.local-service-desk-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 18px;
-    border-radius: 8px;
-    background: linear-gradient(180deg, #a27a51, #7b5a3b 100%);
-    box-shadow: inset 0 0 0 1px rgba(235, 203, 164, 0.24);
-}
-
-.local-service-desk-front {
-    position: absolute;
-    top: 16px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 0 0 12px 12px;
-    background:
-        linear-gradient(180deg, rgba(247, 228, 201, 0.08), transparent 24%),
-        repeating-linear-gradient(90deg, #7a5738 0 20px, #6b4b30 20px 40px),
-        linear-gradient(180deg, #7d5a3b 0%, #64482f 100%);
-    box-shadow:
-        inset 0 0 0 1px rgba(94, 66, 43, 0.24),
-        0 12px 18px rgba(0, 0, 0, 0.2);
-}
-
-.local-service-desk-window {
-    position: absolute;
-    top: 34px;
-    left: 50%;
-    width: min(200px, 78%);
-    height: 34px;
-    transform: translateX(-50%);
-    border-radius: 8px;
-    background: linear-gradient(180deg, rgba(231, 239, 235, 0.26), rgba(190, 206, 199, 0.28));
-    box-shadow: inset 0 0 0 1px rgba(73, 89, 82, 0.22);
-}
-
-.local-side-sign,
 .natural-side-sign {
     position: absolute;
     top: 24.8rem;
@@ -2703,16 +2524,10 @@
         0 8px 14px rgba(0, 0, 0, 0.2);
 }
 
-.local-side-sign-left {
-    left: 3.9%;
-}
-
-.local-side-sign-right,
 .natural-side-sign-right {
     right: 3.9%;
 }
 
-.local-side-sign-label,
 .natural-side-sign-label {
     display: block;
     color: #4f2f1e;
@@ -2722,8 +2537,6 @@
     text-transform: uppercase;
 }
 
-.local-side-sign:hover,
-.local-side-sign:focus-visible,
 .natural-side-sign:hover,
 .natural-side-sign:focus-visible {
     transform: translateY(-1px);
@@ -2822,14 +2635,7 @@
 }
 
 .attic-hall {
-    background:
-        repeating-linear-gradient(90deg, rgba(195, 188, 175, 0.75) 0 2px, transparent 2px 110px),
-        repeating-linear-gradient(180deg, rgba(195, 188, 175, 0.75) 0 2px, transparent 2px 110px),
-        repeating-linear-gradient(90deg, #f5f0e8 0 55px, #ebe5db 55px 110px),
-        linear-gradient(180deg, #703f2e 0%, #553124 100%);
-    background-size: 100% 62%, 100% 62%, 110px 62%, 100% 100%;
-    background-position: top left, top left, top left, top left;
-    background-repeat: no-repeat, no-repeat, repeat-x, no-repeat;
+    background: url('../img/attic interior 12.png') center top / 100% 100% no-repeat;
 }
 
 .attic-hall .house-rug {
@@ -2844,535 +2650,12 @@
     box-shadow: inset 0 18px 30px rgba(0, 0, 0, 0.26);
 }
 
-.attic-rafters {
-    position: absolute;
-    inset: 0 0 auto;
-    height: 12.5rem;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.attic-beam {
-    position: absolute;
-    top: 2.4rem;
-    width: 42%;
-    height: 26px;
-    transform-origin: center center;
-    border-radius: 18px;
-    background:
-        linear-gradient(180deg, rgba(255, 236, 206, 0.12), rgba(0, 0, 0, 0.18)),
-        repeating-linear-gradient(90deg, #6d503b 0 22px, #76573f 22px 44px),
-        linear-gradient(180deg, #816147 0%, #5c4332 68%, #3d2a21 100%);
-    box-shadow:
-        inset 0 -6px 10px rgba(0, 0, 0, 0.22),
-        0 8px 18px rgba(0, 0, 0, 0.18);
-}
-
-.attic-beam::after {
-    content: "";
-    position: absolute;
-    inset: 4px 10px;
-    border-radius: inherit;
-    box-shadow: inset 0 0 0 1px rgba(255, 231, 198, 0.08);
-}
-
-.attic-beam-left {
-    left: -7%;
-    transform: rotate(28deg);
-}
-
-.attic-beam-right {
-    right: -7%;
-    transform: rotate(-28deg);
-}
-
-.attic-ridge-beam {
-    position: absolute;
-    top: 1.25rem;
-    left: 50%;
-    width: 148px;
-    height: 24px;
-    transform: translateX(-50%);
-    border-radius: 12px;
-    background:
-        linear-gradient(180deg, rgba(255, 236, 206, 0.12), rgba(0, 0, 0, 0.18)),
-        repeating-linear-gradient(90deg, #72523d 0 20px, #7c5b42 20px 40px),
-        linear-gradient(180deg, #89674b, #5a4030 70%, #3a291f 100%);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 230, 197, 0.08),
-        0 6px 12px rgba(0, 0, 0, 0.16);
-}
-
-.attic-far-beam {
-    position: absolute;
-    top: 3.15rem;
-    width: 31%;
-    height: 18px;
-    border-radius: 14px;
-    background:
-        linear-gradient(180deg, rgba(255, 236, 206, 0.1), rgba(0, 0, 0, 0.16)),
-        repeating-linear-gradient(90deg, #6a4c39 0 18px, #74523d 18px 36px),
-        linear-gradient(180deg, #7e5e44 0%, #563d2e 70%, #37261d 100%);
-    box-shadow:
-        inset 0 -4px 7px rgba(0, 0, 0, 0.18),
-        0 5px 10px rgba(0, 0, 0, 0.14);
-    transform-origin: center center;
-    z-index: 0;
-}
-
-.attic-far-beam::after {
-    content: "";
-    position: absolute;
-    inset: 3px 8px;
-    border-radius: inherit;
-    box-shadow: inset 0 0 0 1px rgba(255, 231, 198, 0.06);
-}
-
-.attic-far-beam-left {
-    left: 23.5%;
-    transform: rotate(42deg);
-}
-
-.attic-far-beam-right {
-    right: 23.5%;
-    transform: rotate(-42deg);
-}
-
-.attic-far-ridge-beam {
-    position: absolute;
-    top: 7.35rem;
-    left: 50%;
-    width: 92px;
-    height: 16px;
-    transform: translateX(-50%);
-    border-radius: 10px;
-    background:
-        linear-gradient(180deg, rgba(255, 236, 206, 0.1), rgba(0, 0, 0, 0.16)),
-        repeating-linear-gradient(90deg, #6f503b 0 16px, #7a5941 16px 32px),
-        linear-gradient(180deg, #7c5c44 0%, #533b2d 70%, #35251d 100%);
-    box-shadow:
-        inset 0 0 0 1px rgba(255, 230, 197, 0.06),
-        0 4px 10px rgba(0, 0, 0, 0.12);
-    z-index: 0;
-}
-
-.attic-joist {
-    position: absolute;
-    left: 50%;
-    width: min(420px, 52%);
-    height: 18px;
-    transform: translateX(-50%);
-    border-radius: 10px;
-    background:
-        linear-gradient(180deg, rgba(255, 236, 206, 0.09), rgba(0, 0, 0, 0.16)),
-        repeating-linear-gradient(90deg, #664a37 0 18px, #714f39 18px 36px),
-        linear-gradient(180deg, #7d5e45 0%, #563d2e 70%, #38271e 100%);
-    box-shadow:
-        inset 0 -4px 8px rgba(0, 0, 0, 0.2),
-        0 6px 12px rgba(0, 0, 0, 0.14);
-}
-
-.attic-joist-left {
-    top: 4.9rem;
-}
-
-.attic-joist-center {
-    top: 7rem;
-    width: min(500px, 60%);
-}
-
-.attic-joist-right {
-    top: 9.1rem;
-    width: min(580px, 68%);
-}
-
-.attic-cobweb {
-    position: absolute;
-    width: 150px;
-    height: 110px;
-    z-index: 3;
-    opacity: 0.48;
-    pointer-events: none;
-    background:
-        radial-gradient(circle at 0 0, transparent 0 34px, rgba(226, 224, 220, 0.32) 34px 36px, transparent 36px),
-        linear-gradient(35deg, transparent 0 48%, rgba(226, 224, 220, 0.4) 48% 49%, transparent 49% 100%),
-        linear-gradient(65deg, transparent 0 48%, rgba(226, 224, 220, 0.38) 48% 49%, transparent 49% 100%),
-        linear-gradient(90deg, transparent 0 49%, rgba(226, 224, 220, 0.32) 49% 50%, transparent 50% 100%),
-        repeating-radial-gradient(circle at 0 0, transparent 0 14px, rgba(226, 224, 220, 0.18) 14px 15px, transparent 15px 28px);
-}
-
-.attic-cobweb-left {
-    top: 5.5rem;
-    left: 1.5rem;
-}
-
-.attic-cobweb-right {
-    top: 5.2rem;
-    right: 1.2rem;
-    transform: scaleX(-1);
-}
-
-.attic-cobweb-center {
-    top: 7.25rem;
-    left: 50%;
-    width: 120px;
-    height: 84px;
-    transform: translateX(-50%);
-    opacity: 0.3;
-}
-
-.attic-hall .house-chandelier,
-.attic-hall .house-sconce,
-.attic-hall .house-portrait {
-    opacity: 0.72;
-    filter: saturate(0.72) brightness(0.86);
-}
-
-.attic-reading-nook {
-    position: absolute;
-    top: 20.75rem;
-    left: 50%;
-    z-index: 3;
-    width: min(430px, 40%);
-    height: 190px;
-    transform: translateX(-50%);
-}
-
-.attic-floor-hatch {
-    position: absolute;
-    left: 50%;
-    bottom: 14.5%;
-    width: 168px;
-    height: 104px;
-    z-index: 12;
-    display: block;
-    text-decoration: none;
-    transform: none;
-}
-
-.attic-floor-hatch-frame {
-    position: absolute;
-    inset: 0;
-    border-radius: 14px;
-    background:
-        linear-gradient(180deg, rgba(255, 235, 207, 0.14), rgba(0, 0, 0, 0.22)),
-        repeating-linear-gradient(90deg, #8a583a 0 20px, #74482f 20px 40px),
-        linear-gradient(180deg, #956041 0%, #693f2b 100%);
-    box-shadow:
-        inset 0 0 0 4px rgba(55, 31, 22, 0.78),
-        0 12px 24px rgba(0, 0, 0, 0.3);
-}
-
-.attic-floor-hatch-door {
-    position: absolute;
-    inset: 12px 14px 20px 14px;
-    border-radius: 10px;
-    background:
-        linear-gradient(180deg, rgba(22, 12, 9, 0.28), rgba(0, 0, 0, 0.62)),
-        radial-gradient(circle at 50% 50%, rgba(15, 9, 7, 0.96), rgba(4, 3, 2, 1));
-    box-shadow: inset 0 0 0 1px rgba(122, 81, 55, 0.24);
-}
-
-.attic-floor-hatch-ring {
-    position: absolute;
-    left: 50%;
-    top: 41px;
-    width: 20px;
-    height: 20px;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    border: 3px solid #caa36a;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.28);
-}
-
-.attic-floor-hatch-label {
-    position: absolute;
-    left: 50%;
-    bottom: -1.25rem;
-    transform: translateX(-50%);
-    padding: 0.2rem 0.45rem;
-    border-radius: 999px;
-    background: rgba(240, 223, 183, 0.96);
-    color: #4b301f;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
-}
-
-.attic-floor-hatch:hover,
-.attic-floor-hatch:focus-visible {
-    outline: 2px solid rgba(244, 224, 187, 0.9);
-    outline-offset: 2px;
-}
-
-.attic-floor-hatch:hover .attic-floor-hatch-label,
-.attic-floor-hatch:focus-visible .attic-floor-hatch-label {
-    filter: brightness(1.04);
-}
-
-.attic-floor-hatch-lab {
-    left: auto;
-    right: 6%;
-    bottom: 15.6%;
-    width: 158px;
-    height: 100px;
-    transform: none;
-}
-
-.attic-floor-hatch-local {
-    left: 6%;
-    right: auto;
-    bottom: 15.4%;
-    width: 152px;
-    height: 98px;
-    transform: none;
-}
-
-.attic-floor-hatch-lab:hover,
-.attic-floor-hatch-lab:focus-visible {
-    transform: translateY(-1px);
-}
-
-.attic-floor-hatch-local:hover,
-.attic-floor-hatch-local:focus-visible {
-    transform: translateY(-1px);
-}
-
-.attic-floor-hatch-lab .attic-floor-hatch-frame {
-    box-shadow:
-        inset 0 0 0 4px rgba(55, 31, 22, 0.78),
-        0 12px 24px rgba(0, 0, 0, 0.3),
-        0 0 0 2px rgba(240, 223, 183, 0.36);
-}
-
-.attic-floor-hatch-local .attic-floor-hatch-frame {
-    box-shadow:
-        inset 0 0 0 4px rgba(55, 31, 22, 0.78),
-        0 12px 24px rgba(0, 0, 0, 0.3),
-        0 0 0 2px rgba(216, 191, 145, 0.28);
-}
-
 .attic-hall-panel {
     bottom: 24%;
 }
 
 .attic-return {
     bottom: 26%;
-}
-
-.attic-floor-shadow {
-    position: absolute;
-    left: 50%;
-    bottom: 10px;
-    width: 86%;
-    height: 42px;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(29, 18, 14, 0.42) 0%, rgba(29, 18, 14, 0.08) 70%, transparent 100%);
-}
-
-.attic-standing-lamp {
-    position: absolute;
-    left: 26px;
-    bottom: 18px;
-    width: 82px;
-    height: 144px;
-}
-
-.attic-lamp-shade {
-    position: absolute;
-    top: 0;
-    left: 10px;
-    width: 60px;
-    height: 34px;
-    border-radius: 12px 12px 18px 18px;
-    background: linear-gradient(180deg, #d9be8e, #9f784c 72%, #6d4d30 100%);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
-}
-
-.attic-lamp-pole {
-    position: absolute;
-    left: 39px;
-    top: 28px;
-    width: 6px;
-    height: 94px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #b99362, #6d4d30 100%);
-}
-
-.attic-lamp-base {
-    position: absolute;
-    left: 18px;
-    bottom: 0;
-    width: 48px;
-    height: 12px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #8b6541, #4b3324 100%);
-}
-
-.attic-chair {
-    position: absolute;
-    left: 118px;
-    bottom: 18px;
-    width: 126px;
-    height: 120px;
-}
-
-.attic-chair-back,
-.attic-chair-seat {
-    position: absolute;
-    border-radius: 18px;
-    background: linear-gradient(180deg, #8d674d, #5b4030 62%, #392821 100%);
-    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.18);
-}
-
-.attic-chair-back {
-    left: 18px;
-    bottom: 48px;
-    width: 90px;
-    height: 64px;
-    border-radius: 22px 22px 16px 16px;
-}
-
-.attic-chair-seat {
-    left: 12px;
-    bottom: 28px;
-    width: 96px;
-    height: 30px;
-    border-radius: 16px;
-}
-
-.attic-chair-back::after,
-.attic-chair-seat::after {
-    content: "";
-    position: absolute;
-    inset: 8px;
-    border-radius: inherit;
-    background: linear-gradient(180deg, rgba(221, 196, 165, 0.9), rgba(173, 138, 101, 0.78));
-    box-shadow: inset 0 0 0 1px rgba(98, 66, 41, 0.18);
-}
-
-.attic-chair-arm {
-    position: absolute;
-    bottom: 38px;
-    width: 14px;
-    height: 42px;
-    border-radius: 12px;
-    background: linear-gradient(180deg, #6b4c36, #35241a 100%);
-}
-
-.attic-chair-arm-left {
-    left: 6px;
-}
-
-.attic-chair-arm-right {
-    right: 18px;
-}
-
-.attic-chair-leg {
-    position: absolute;
-    bottom: 0;
-    width: 8px;
-    height: 34px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #6b4c36, #35241a 100%);
-}
-
-.attic-chair-leg-front-left {
-    left: 18px;
-}
-
-.attic-chair-leg-front-right {
-    right: 28px;
-}
-
-.attic-chair-leg-back-left {
-    left: 28px;
-    height: 28px;
-}
-
-.attic-chair-leg-back-right {
-    right: 38px;
-    height: 28px;
-}
-
-.attic-stool {
-    position: absolute;
-    left: 268px;
-    bottom: 18px;
-    width: 84px;
-    height: 88px;
-}
-
-.attic-stool-top {
-    position: absolute;
-    top: 12px;
-    left: 0;
-    width: 72px;
-    height: 16px;
-    border-radius: 50%;
-    background: linear-gradient(180deg, #936a49, #583d2b 100%);
-}
-
-.attic-stool-leg {
-    position: absolute;
-    top: 24px;
-    width: 8px;
-    height: 52px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #7c5b41, #3f2b1f 100%);
-}
-
-.attic-stool-leg-left {
-    left: 18px;
-}
-
-.attic-stool-leg-right {
-    right: 22px;
-}
-
-.attic-lace-kit {
-    position: absolute;
-    top: 0;
-    left: 10px;
-    width: 54px;
-    height: 26px;
-}
-
-.attic-lace-pillow {
-    position: absolute;
-    left: 10px;
-    top: 4px;
-    width: 34px;
-    height: 16px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #e2d2b8, #b59a77 100%);
-    box-shadow: inset 0 0 0 1px rgba(92, 63, 37, 0.18);
-}
-
-.attic-lace-bobbin {
-    position: absolute;
-    top: 0;
-    width: 8px;
-    height: 24px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #bb9668, #6b4a31 100%);
-}
-
-.attic-lace-bobbin-left {
-    left: 0;
-    transform: rotate(-18deg);
-}
-
-.attic-lace-bobbin-center {
-    left: 22px;
-}
-
-.attic-lace-bobbin-right {
-    right: 0;
-    transform: rotate(18deg);
 }
 
 @media (max-width: 991.98px) {
@@ -3454,7 +2737,6 @@
     }
 
     .art-gallery-display,
-    .local-history-display,
     .attic-reading-nook {
         width: min(520px, 58%);
     }
@@ -4482,7 +3764,6 @@
     }
 
     .art-gallery-display,
-    .local-history-display,
     .attic-reading-nook {
         top: 14.5rem;
         width: calc(100% - 3rem);
@@ -4548,24 +3829,8 @@
         padding: 0.24rem 0.5rem;
     }
 
-    .local-side-sign-left {
-        left: 2.8%;
-    }
-
-    .local-side-sign-right,
     .natural-side-sign-right {
         right: 2.8%;
-    }
-
-    .local-history-board {
-        min-height: 180px;
-    }
-
-    .local-note {
-        width: 92px;
-        min-height: 68px;
-        padding: 0.8rem 0.45rem;
-        font-size: 0.66rem;
     }
 
     .attic-reading-nook {
