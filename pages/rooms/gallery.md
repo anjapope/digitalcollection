@@ -28,6 +28,8 @@ permalink: /pages/rooms/gallery.html
 
       <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Gallery room links">
         <a xlink:href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Exit to the Art Museum" target="_self">
+          <polygon class="art-room-hotspot" points="829,322 899,295 899,640 829,603" />
+          <text class="art-room-hotspot-label" x="864" text-anchor="middle" font-size="9"><tspan x="864" y="534">Art</tspan><tspan x="864" dy="13">Museum</tspan></text>
         </a>
       </svg>
 
