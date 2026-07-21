@@ -26,16 +26,15 @@ permalink: /pages/rooms/gallery.html
         <span class="chandelier-crystal chandelier-crystal-right"></span>
       </div>
 
-      <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Gallery room links">
-          <a xlink:href="{{ '/pages/rooms/conservators-office.html' | relative_url }}" aria-label="Enter the Conservator's Office" target="_self">
-          <polygon class="art-room-hotspot" points="873,402 933,389 933,678 873,645" />
-            <text class="art-room-hotspot-label" x="903" text-anchor="middle" font-size="8"><tspan x="903" y="536">Conservator's</tspan><tspan x="903" dy="12">Office</tspan></text>
+      <svg class="art-room-hotspots art-room-hotspots-compact" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Gallery room links">
+        <a class="art-sconce-trigger" aria-label="View the Roman Wall Sconce" target="_self">
+          <polygon class="art-room-hotspot" points="326,397 354,397 354,437 326,437" />
+        </a>
+        <a xlink:href="{{ '/pages/rooms/conservators-office.html' | relative_url }}" aria-label="Enter the Conservator's Office" target="_self">
+          <polygon class="art-room-hotspot" points="873,352 933,339 933,613 873,585" />
+          <text class="art-room-hotspot-label" x="903" text-anchor="middle" font-size="8"><tspan x="903" y="496">Conservator's</tspan><tspan x="903" dy="12">Office</tspan></text>
         </a>
       </svg>
-
-      <button class="art-wall-sconce-display art-sconce-trigger" type="button" aria-haspopup="dialog" aria-controls="art-sconce-sequence" aria-label="Open Roman wall sconce information" style="position:absolute; right:11.8%; top:25.6rem; width:38px; height:45.6px; z-index:8; padding:0.12rem; border-radius:6px; background:transparent; border:2px solid rgba(181,137,84,0.95); box-shadow:inset 0 0 0 1px rgba(255,231,194,0.45), 0 4px 8px rgba(0,0,0,0.35); cursor:pointer;">
-        <img class="art-wall-sconce-image" src="{{ '/assets/img/RomanWallSconce - 03-06-2026 14-41-38.jpeg' | relative_url | replace: ' ', '%20' }}" alt="Roman wall sconce on display" style="display:block; width:100%; height:100%; object-fit:contain; border-radius:4px; background:transparent;" />
-      </button>
 
       <div class="art-room-plaque">
         <p class="collection-room-kicker">Collection Room</p>

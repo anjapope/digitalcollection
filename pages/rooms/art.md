@@ -36,7 +36,7 @@ permalink: /pages/rooms/art.html
             <text class="art-room-hotspot-label" x="90" y="625" text-anchor="middle">Natural History</text>
         </a>
         <a class="art-table-overlay-trigger" xlink:href="#" aria-label="Open IU Eskenazi ivories information" target="_self">
-          <polygon class="art-room-hotspot" points="483,607 734,607 790,684 468,693" />
+          <polygon class="art-room-hotspot" points="483,607 731,604 797,681 468,687" />
           <text class="art-room-hotspot-label" x="580" y="657" text-anchor="middle">Eskenazi Ivories</text>
         </a>
       </svg>
