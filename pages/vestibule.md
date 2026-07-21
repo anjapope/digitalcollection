@@ -28,20 +28,23 @@ permalink: /pages/vestibule.html
 
       <svg class="vestibule-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Vestibule room links">
         <a class="vestibule-arch-overlay-group vestibule-arch-overlay-group-left" xlink:href="{{ '/pages/rooms/historical-society.html' | relative_url }}" aria-label="Enter Historical Society room" target="_self">
-          <polygon class="vestibule-hotspot vestibule-arch-overlay vestibule-arch-overlay-left" points="158,276 296,276 296,590 158,590" />
-          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="227" y="565" text-anchor="middle">Historical Society</text>
+          <polygon class="vestibule-hotspot vestibule-arch-overlay vestibule-arch-overlay-left" points="245,435 335,435 335,671 245,671" />
+          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="290" text-anchor="middle"><tspan x="290" y="634">Historical</tspan><tspan x="290" dy="12">Society</tspan></text>
         </a>
         <a class="vestibule-arch-overlay-group vestibule-arch-overlay-group-right" xlink:href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter Attic room" target="_self">
-          <polygon class="vestibule-hotspot vestibule-arch-overlay vestibule-arch-overlay-right" points="704,276 842,276 842,590 704,590" />
-          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="773" y="565" text-anchor="middle">Attic</text>
+          <polygon class="vestibule-hotspot vestibule-arch-overlay vestibule-arch-overlay-right" points="665,435 755,435 755,671 665,671" />
+          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="710" y="646" text-anchor="middle">Attic</text>
         </a>
         <a xlink:href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter The Natural History Museum" target="_self">
-          <polygon class="vestibule-hotspot" points="341,276 479,276 479,590 341,590" />
-          <text class="vestibule-hotspot-label" x="410" y="565" text-anchor="middle" style="font-size:14px;">Natural History</text>
+          <polygon class="vestibule-hotspot" points="385,435 475,435 475,671 385,671" />
+          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="430" text-anchor="middle"><tspan x="430" y="634">Natural</tspan><tspan x="430" dy="12">History</tspan></text>
         </a>
         <a xlink:href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Enter the Art Museum" target="_self">
-          <polygon class="vestibule-hotspot" points="522,276 660,276 660,590 522,590" />
-          <text class="vestibule-hotspot-label" x="591" y="565" text-anchor="middle">Art Museum</text>
+          <polygon class="vestibule-hotspot" points="523,435 612,435 612,671 523,671" />
+          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="568" text-anchor="middle"><tspan x="568" y="634">Art</tspan><tspan x="568" dy="12">Museum</tspan></text>
+        </a>
+        <a class="vestibule-welcome-trigger" xlink:href="#" aria-label="Open welcome instructions" target="_self">
+          <polygon class="vestibule-hotspot" points="123,606 220,597 228,739 132,759" />
         </a>
       </svg>
       
@@ -114,7 +117,7 @@ permalink: /pages/vestibule.html
       }
     ];
 
-    const trigger = document.querySelector('.welcome-mantle');
+    const triggers = document.querySelectorAll('.welcome-mantle, .vestibule-welcome-trigger');
     const overlay = document.getElementById('welcome-sequence');
     const title = document.getElementById('welcome-sequence-title');
     const message = document.getElementById('welcome-sequence-message');
@@ -123,9 +126,10 @@ permalink: /pages/vestibule.html
     const prev = document.getElementById('welcome-prev');
     const closeButtons = document.querySelectorAll('[data-welcome-close]');
 
-    if (!trigger || !overlay || !title || !message || !step || !next || !prev) return;
+    if (!triggers.length || !overlay || !title || !message || !step || !next || !prev) return;
 
     let currentIndex = 0;
+    let activeTrigger = null;
 
     function renderMessage() {
       const item = messages[currentIndex];
@@ -136,7 +140,8 @@ permalink: /pages/vestibule.html
       next.textContent = currentIndex === messages.length - 1 ? 'Finish' : 'Next';
     }
 
-    function openSequence() {
+    function openSequence(triggerElement) {
+      activeTrigger = triggerElement || null;
       currentIndex = 0;
       renderMessage();
       overlay.hidden = false;
@@ -147,10 +152,19 @@ permalink: /pages/vestibule.html
     function closeSequence() {
       overlay.hidden = true;
       document.body.classList.remove('welcome-sequence-open');
-      trigger.focus();
+      if (activeTrigger) {
+        activeTrigger.focus();
+      }
     }
 
-    trigger.addEventListener('click', openSequence);
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        if (trigger.tagName.toLowerCase() === 'a') {
+          event.preventDefault();
+        }
+        openSequence(trigger);
+      });
+    });
 
     next.addEventListener('click', () => {
       if (currentIndex === messages.length - 1) {

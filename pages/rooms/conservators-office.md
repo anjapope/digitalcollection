@@ -26,6 +26,17 @@ permalink: /pages/rooms/conservators-office.html
         <span class="chandelier-crystal chandelier-crystal-right"></span>
       </div>
 
+      <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Conservator's Office room links">
+        <a xlink:href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter the Attic" target="_self">
+          <polygon class="art-room-hotspot" points="523,109 718,118 635,197 485,191" />
+          <text class="art-room-hotspot-label" x="610" text-anchor="middle" font-size="9"><tspan x="610" y="154">Attic</tspan></text>
+        </a>
+        <a xlink:href="{{ '/pages/rooms/gallery.html' | relative_url }}" aria-label="Enter the Gallery" target="_self">
+          <polygon class="art-room-hotspot" points="835,325 955,292 955,845 835,760" />
+          <text class="art-room-hotspot-label" x="895" text-anchor="middle" font-size="8"><tspan x="895" y="620">Gallery</tspan></text>
+        </a>
+      </svg>
+
       <div class="art-room-plaque">
         <p class="collection-room-kicker">Collection Room</p>
         <h2>Conservator's Office</h2>

@@ -28,8 +28,8 @@ permalink: /pages/rooms/gallery.html
 
       <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Gallery room links">
           <a xlink:href="{{ '/pages/rooms/conservators-office.html' | relative_url }}" aria-label="Enter the Conservator's Office" target="_self">
-          <polygon class="art-room-hotspot" points="829,322 899,295 899,640 829,603" />
-            <text class="art-room-hotspot-label" x="864" text-anchor="middle" font-size="8"><tspan x="864" y="528">Conservator's</tspan><tspan x="864" dy="12">Office</tspan></text>
+          <polygon class="art-room-hotspot" points="873,402 933,389 933,678 873,645" />
+            <text class="art-room-hotspot-label" x="903" text-anchor="middle" font-size="8"><tspan x="903" y="536">Conservator's</tspan><tspan x="903" dy="12">Office</tspan></text>
         </a>
       </svg>
 

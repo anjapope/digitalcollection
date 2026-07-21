@@ -28,12 +28,16 @@ permalink: /pages/rooms/art.html
 
       <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Art room links">
         <a xlink:href="{{ '/pages/rooms/gallery.html' | relative_url }}" aria-label="Enter the Gallery" target="_self">
-          <polygon class="art-room-hotspot" points="335,286 445,286 445,609 335,609" />
-          <text class="art-room-hotspot-label" x="390" y="587" text-anchor="middle">Enter Gallery</text>
+          <polygon class="art-room-hotspot" points="315,286 418,286 418,613 315,613" />
+          <text class="art-room-hotspot-label" x="367" y="570" text-anchor="middle">Enter Gallery</text>
         </a>
         <a xlink:href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter the Natural History Museum" target="_self">
-            <polygon class="art-room-hotspot" points="35,261 145,286 145,609 35,634" />
-            <text class="art-room-hotspot-label" x="90" y="587" text-anchor="middle">Natural History</text>
+          <polygon class="art-room-hotspot" points="35,238 145,270 145,720 35,788" />
+            <text class="art-room-hotspot-label" x="90" y="625" text-anchor="middle">Natural History</text>
+        </a>
+        <a class="art-table-overlay-trigger" xlink:href="#" aria-label="Open IU Eskenazi ivories information" target="_self">
+          <polygon class="art-room-hotspot" points="483,607 734,607 790,684 468,693" />
+          <text class="art-room-hotspot-label" x="580" y="657" text-anchor="middle">Eskenazi Ivories</text>
         </a>
       </svg>
 
@@ -47,3 +51,52 @@ permalink: /pages/rooms/art.html
     </div>
   </div>
 </section>
+
+<div class="collection-sequence art-table-sequence" id="art-table-sequence" hidden>
+  <div class="welcome-sequence-backdrop" data-art-table-close></div>
+  <div class="welcome-sequence-dialog collection-sequence-dialog" role="dialog" aria-modal="true" aria-labelledby="art-table-title">
+    <button class="welcome-sequence-close" type="button" aria-label="Close ivories information" data-art-table-close>×</button>
+    <p class="welcome-sequence-step">Art Object Research</p>
+    <h2 class="welcome-sequence-title" id="art-table-title">IU Eskenazi Museum Ivories</h2>
+    <img src="{{ '/assets/img/UVIvories.jpg' | relative_url }}" alt="Ivory objects at the IU Eskenazi Museum of Art" style="display:block; width:100%; max-width:420px; margin:0.5rem auto 1rem; border-radius:8px;" />
+    <p class="welcome-sequence-message">These ivories are held at the IU Eskenazi Museum of Art. Our team has performed tests on them to better understand their materials and historical context.</p>
+    <div class="welcome-sequence-actions">
+      <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="art-table-close">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const trigger = document.querySelector('.art-table-overlay-trigger');
+    const overlay = document.getElementById('art-table-sequence');
+    const closeButton = document.getElementById('art-table-close');
+    const closeButtons = document.querySelectorAll('[data-art-table-close]');
+
+    if (!trigger || !overlay || !closeButton) return;
+
+    function openSequence() {
+      overlay.hidden = false;
+      document.body.classList.add('welcome-sequence-open');
+      closeButton.focus();
+    }
+
+    function closeSequence() {
+      overlay.hidden = true;
+      document.body.classList.remove('welcome-sequence-open');
+      trigger.focus();
+    }
+
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      openSequence();
+    });
+    closeButton.addEventListener('click', closeSequence);
+    closeButtons.forEach((button) => button.addEventListener('click', closeSequence));
+
+    document.addEventListener('keydown', (event) => {
+      if (overlay.hidden) return;
+      if (event.key === 'Escape') closeSequence();
+    });
+  })();
+</script>

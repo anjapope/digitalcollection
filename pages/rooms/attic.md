@@ -31,6 +31,13 @@ permalink: /pages/rooms/attic.html
       <div class="house-portrait house-portrait-left"></div>
       <div class="house-portrait house-portrait-right"></div>
 
+      <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Attic room links">
+        <a xlink:href="{{ '/pages/rooms/conservators-office.html' | relative_url }}" aria-label="Descend to the Conservator's Office" target="_self">
+          <polygon class="art-room-hotspot" points="779,802 899,802 919,946 768,946" />
+          <text class="art-room-hotspot-label" x="846" text-anchor="middle" font-size="8"><tspan x="846" y="860">Conservator's</tspan><tspan x="846" dy="12">Office</tspan></text>
+        </a>
+      </svg>
+
       <div class="attic-room-plaque">
         <p class="collection-room-kicker">Collection Room</p>
         <h2>Attic</h2>
