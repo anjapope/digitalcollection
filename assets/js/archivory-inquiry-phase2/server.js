@@ -1,0 +1,20 @@
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
+import inquiryRouter from "./api/inquiry.js";
+import { corsOptions } from "./lib/cors.js";
+const app = express();
+app.disable("x-powered-by");
+app.set("trust proxy", 1);
+app.use(cors(corsOptions()));
+app.use(express.json({ limit: "20kb" }));
+app.get("/health", (_req, res) => res.json({ status: "ok", service: "archivory-inquiry" }));
+app.use("/api/inquiry", inquiryRouter);
+app.use((err, req, res, _next) => {
+  console.error("ArchIvory inquiry error:", { path: req.path, name: err?.name, message: err?.message });
+  if (err?.message?.includes("CORS")) return res.status(403).json({ error: "Origin not allowed." });
+  if (err?.status === 429) return res.status(429).json({ error: "The inquiry service is busy. Please try again shortly." });
+  return res.status(500).json({ error: "The inquiry terminal could not complete that request." });
+});
+const port = Number(process.env.PORT || 3000);
+app.listen(port, "0.0.0.0", () => console.log(`ArchIvory inquiry service listening on 0.0.0.0:${port}`));

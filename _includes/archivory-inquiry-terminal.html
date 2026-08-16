@@ -1,0 +1,119 @@
+<div
+  id="archivory-inquiry"
+  class="aiq-shell"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="aiq-title"
+  aria-hidden="true"
+>
+  <div class="aiq-backdrop" data-aiq-close></div>
+
+  <section class="aiq-terminal" tabindex="-1">
+    <header class="aiq-header">
+      <div>
+        <p class="aiq-kicker">Natural History Room</p>
+        <h2 id="aiq-title">Ivory Inquiry Terminal</h2>
+        <p class="aiq-subtitle">Ask questions. Earn points. Think historically.</p>
+      </div>
+      <button class="aiq-icon-button" type="button" data-aiq-close aria-label="Close inquiry terminal">×</button>
+    </header>
+
+    <div class="aiq-body">
+      <nav class="aiq-rail" aria-label="Inquiry terminal sections">
+        <button type="button" class="is-active" data-aiq-view="ask">Ask</button>
+        <button type="button" data-aiq-view="history">History</button>
+        <button type="button" data-aiq-view="saved">Saved</button>
+        <button type="button" data-aiq-view="help">Help</button>
+      </nav>
+
+      <main class="aiq-main">
+        <section data-aiq-panel="ask">
+          <form id="aiq-form" class="aiq-question-form">
+            <label for="aiq-question">Ask a question</label>
+            <textarea
+              id="aiq-question"
+              rows="4"
+              maxlength="500"
+              placeholder="Type your question here..."
+              required
+            ></textarea>
+
+            <div class="aiq-question-footer">
+              <p>Try asking about origins, uses, people, trade, science, time, place, evidence, or change.</p>
+              <button class="aiq-primary" type="submit">Submit question</button>
+            </div>
+          </form>
+
+          <div id="aiq-status" class="aiq-status" aria-live="polite"></div>
+
+          <section id="aiq-output" class="aiq-output" hidden>
+            <article>
+              <h3>Answer</h3>
+              <div data-aiq-answer></div>
+            </article>
+
+            <article>
+              <h3>How you're asking</h3>
+              <div data-aiq-analysis></div>
+              <p class="aiq-question-type"><strong>Question type:</strong> <span data-aiq-question-type></span></p>
+            </article>
+
+            <article>
+              <h3>A stronger question</h3>
+              <div data-aiq-stronger></div>
+              <button class="aiq-secondary" type="button" data-aiq-use-refinement>
+                Use this question
+              </button>
+            </article>
+
+            <article>
+              <h3>Questions to pursue</h3>
+              <ul data-aiq-followups></ul>
+            </article>
+
+            <article class="aiq-evidence">
+              <h3>Think like a historian</h3>
+              <p data-aiq-evidence></p>
+            </article>
+
+            <article class="aiq-module-card" data-aiq-module-card hidden>
+              <h3>Continue in the room</h3>
+              <p data-aiq-module-label></p>
+              <button class="aiq-secondary" type="button" data-aiq-open-module>
+                Explore this exhibit
+              </button>
+            </article>
+          </section>
+        </section>
+
+        <section data-aiq-panel="history" hidden>
+          <h3>Inquiry history</h3>
+          <p>Your questions from this visit will appear here in a later iteration.</p>
+        </section>
+
+        <section data-aiq-panel="saved" hidden>
+          <h3>Saved questions</h3>
+          <p>Question saving is reserved for a later iteration.</p>
+        </section>
+
+        <section data-aiq-panel="help" hidden>
+          <h3>How to use the terminal</h3>
+          <p>
+            Ask something you genuinely want to know. The terminal will answer briefly, identify
+            the historical structure of the question, and suggest ways to pursue the inquiry.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <footer class="aiq-footer">
+      <div class="aiq-score">
+        <span aria-hidden="true">P</span>
+        <strong data-aiq-score-display>+15</strong>
+        <span>for asking a question</span>
+      </div>
+      <p>Curiosity drives discovery.</p>
+      <button class="aiq-secondary" type="button" data-aiq-close>Close terminal</button>
+    </footer>
+  </section>
+</div>

@@ -1,0 +1,30 @@
+{
+  "service": "archivory-inquiry",
+  "version": "0.2.0",
+  "limits": {
+    "questionCharacters": 500,
+    "knowledgeCharactersPerRequest": 16000
+  },
+  "modules": {
+    "bone-identification": {
+      "label": "Bone Identification Station",
+      "knowledgeFile": "bone-identification.md",
+      "keywords": ["bone", "ivory", "material", "identify", "identification", "schreger", "tooth", "tusk", "specimen"]
+    },
+    "elephant-species": {
+      "label": "Extant Elephant Species Statuettes",
+      "knowledgeFile": "elephant-species.md",
+      "keywords": ["species", "elephant", "savanna", "forest", "asian", "african", "loxodonta", "elephas", "ears", "trunk"]
+    },
+    "proboscidean-timeline": {
+      "label": "Proboscidean Timeline",
+      "knowledgeFile": "proboscidean-evolution.md",
+      "keywords": ["proboscidean", "evolution", "evolve", "fossil", "geologic", "geological", "miocene", "pleistocene", "million years", "extinct", "mammoth", "mastodon"]
+    },
+    "habitation-map": {
+      "label": "Habitation Map",
+      "knowledgeFile": "paleogeography.md",
+      "keywords": ["map", "range", "habitat", "distribution", "migration", "dispersal", "continent", "geography", "where", "zone"]
+    }
+  }
+}

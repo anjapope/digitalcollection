@@ -1,0 +1,20 @@
+{
+  "name": "archivory-inquiry-backend",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "ArchIvory Natural History Room inquiry terminal backend",
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "openai": "^5.16.0",
+    "zod": "^3.25.0"
+  }
+}

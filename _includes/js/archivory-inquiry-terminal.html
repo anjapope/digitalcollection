@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="{{ '/assets/js/archivory-inquiry-terminal-prototype/frontend/inquiry-terminal.css' | relative_url }}">
+<script>
+  window.ARCHIVORY_INQUIRY_API_URL =
+    window.ARCHIVORY_INQUIRY_API_URL ||
+    "http://localhost:3000/api/inquiry";
+</script>
+<script src="{{ '/assets/js/archivory-inquiry-terminal-prototype/frontend/inquiry-terminal.js' | relative_url }}"></script>
+<script>
+  (() => {
+    const hotspot = document.querySelector('[data-hotspot="inquiry-tusk"]');
+    const timelineTrigger = document.querySelector('[data-open-room-timeline]');
+    const moduleHandlers = {
+      'bone-identification': () => {
+        window.location.href = "{{ '/naturalhistory/indiana-state-museum-tusk/' | relative_url }}";
+      },
+      'elephant-species': () => {
+        window.location.href = "{{ '/naturalhistory/elephant-biology/' | relative_url }}";
+      },
+      'proboscidean-timeline': () => {
+        if (timelineTrigger) timelineTrigger.click();
+      },
+      'habitation-map': () => {
+        window.location.href = "{{ '/map.html' | relative_url }}";
+      }
+    };
+
+    if (hotspot) {
+      hotspot.setAttribute('role', 'button');
+      hotspot.setAttribute('aria-controls', 'archivory-inquiry');
+      hotspot.setAttribute('aria-haspopup', 'dialog');
+
+      const activate = (event) => {
+        event.preventDefault();
+        if (window.ArchIvoryInquiry && typeof window.ArchIvoryInquiry.open === 'function') {
+          window.ArchIvoryInquiry.open();
+        }
+      };
+
+      hotspot.addEventListener('click', activate);
+      hotspot.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          activate(event);
+        }
+      });
+    }
+
+    window.addEventListener('archivory:award-points', (event) => {
+      console.log('POINT EVENT', event.detail);
+    });
+
+    window.addEventListener('archivory:open-module', (event) => {
+      console.log('MODULE EVENT', event.detail);
+      const moduleId = event?.detail?.moduleId;
+      const handler = moduleHandlers[moduleId];
+      if (handler) {
+        handler();
+      }
+    });
+  })();
+</script>

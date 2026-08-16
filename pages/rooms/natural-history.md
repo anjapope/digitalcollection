@@ -2,6 +2,7 @@
 title: "The Natural History Museum"
 layout: vestibule
 permalink: /pages/rooms/natural-history.html
+custom-foot: js/archivory-inquiry-terminal.html
 ---
 
 <section class="atrium-page collection-room-natural-history">
@@ -38,9 +39,15 @@ permalink: /pages/rooms/natural-history.html
       </div>
 
       <svg class="natural-history-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Natural History room links">
-        <a xlink:href="{{ '/map.html' | relative_url }}" aria-label="Open the map" target="_self">
+        <a xlink:href="{{ '/map.html' | relative_url }}" aria-label="Open the map" target="_self" data-notebook-id="natural-history-map" data-notebook-title="Proboscidean world map" data-notebook-type="evidence" data-notebook-points="5" data-notebook-description="A spatial evidence tool for tracking ivory histories, elephant ranges, and trade geographies.">
           <rect class="natural-history-hotspot natural-history-hotspot-map" x="631" y="223" width="103" height="218" rx="14" ry="14" />
           <text class="natural-history-hotspot-label" x="682" y="343" text-anchor="middle">Map</text>
+        </a>
+
+        <a xlink:href="#" href="#" aria-label="Open the Ivory Inquiry Terminal" target="_self" data-hotspot="inquiry-tusk" data-notebook-id="natural-history-tusk" data-notebook-title="Ivory Inquiry Terminal" data-notebook-type="tool" data-notebook-points="10" data-notebook-description="Use the inquiry terminal to ask evidence-based questions about the tusk and the natural history of ivory.">
+          <rect class="natural-history-hotspot-hitarea" x="240" y="426" width="520" height="258" rx="18" ry="18" />
+          <polygon class="natural-history-hotspot natural-history-hotspot-tusk" points="240,426 760,426 760,684 240,684" />
+          <text class="natural-history-hotspot-label natural-history-hotspot-label-small natural-history-hotspot-label-tusk" x="500" text-anchor="middle"><tspan x="500" y="555">Ask a</tspan><tspan x="500" dy="18">Question</tspan></text>
         </a>
 
         <a href="{{ '/pages/rooms/historical-society.html' | relative_url }}" aria-label="Go to the Historical Society room" target="_self">
@@ -52,7 +59,7 @@ permalink: /pages/rooms/natural-history.html
           <polygon class="natural-history-hotspot natural-history-hotspot-doorway" points="814,197 915,157 915,695 809,599" />
         </a>
 
-        <a href="#" aria-label="Open the timeline" data-open-room-timeline>
+        <a href="#" aria-label="Open the timeline" data-open-room-timeline data-notebook-id="natural-history-timeline" data-notebook-title="Natural history evidence timeline" data-notebook-type="evidence" data-notebook-points="8" data-notebook-description="A layered timeline linking extinction, habitat change, and expanding ivory extraction.">
           <polygon class="natural-history-hotspot natural-history-hotspot-timeline" points="945,298 996,294 996,516 945,496" />
           <text class="natural-history-hotspot-label natural-history-hotspot-label-small" x="971" y="500" text-anchor="middle" transform="rotate(18 971 500)">Timeline</text>
         </a>
@@ -143,6 +150,8 @@ permalink: /pages/rooms/natural-history.html
     </div>
   </div>
 </section>
+
+{% include archivory-inquiry-terminal.html %}
 
 <script>
   (() => {

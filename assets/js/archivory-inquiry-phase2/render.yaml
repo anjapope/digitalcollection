@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: archivory-inquiry
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5.6
+      - key: ALLOWED_ORIGINS
+        value: https://anjapope.github.io
