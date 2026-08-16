@@ -1,0 +1,21 @@
+{
+  "points": {
+    "askQuestion": 15,
+    "refineQuestion": 10,
+    "answerModuleQuestion": 5,
+    "exploreRelatedModule": 5
+  },
+  "features": {
+    "suggestRelatedModules": true,
+    "identifyQuestionType": true,
+    "suggestRefinement": true,
+    "askEvidenceQuestion": true,
+    "saveQuestionHistory": false
+  },
+  "modules": {
+    "bone-identification": "Bone Identification Station",
+    "elephant-species": "Extant Elephant Species Statuettes",
+    "proboscidean-timeline": "Proboscidean Timeline",
+    "habitation-map": "Habitation Map"
+  }
+}

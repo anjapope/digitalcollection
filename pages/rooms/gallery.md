@@ -27,7 +27,7 @@ permalink: /pages/rooms/gallery.html
       </div>
 
       <svg class="art-room-hotspots art-room-hotspots-compact" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Gallery room links">
-        <a class="art-sconce-trigger" aria-label="View the Roman Wall Sconce" target="_self">
+        <a class="art-sconce-trigger" aria-label="View the Roman Wall Sconce" target="_self" data-notebook-id="gallery-roman-wall-sconce" data-notebook-title="Roman Wall Sconce evidence case" data-notebook-type="evidence" data-notebook-points="12" data-notebook-description="Visual clues from the object and its underside suggest a bone material rather than ivory.">
           <polygon class="art-room-hotspot" points="326,397 354,397 354,437 326,437" />
         </a>
         <a xlink:href="{{ '/pages/rooms/conservators-office.html' | relative_url }}" aria-label="Enter the Conservator's Office" target="_self">

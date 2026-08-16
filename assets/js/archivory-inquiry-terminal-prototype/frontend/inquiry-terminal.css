@@ -1,0 +1,307 @@
+/* ArchIvory Inquiry Terminal Prototype
+   No framework dependency. Values are intentionally centralized as CSS variables.
+*/
+:root {
+  --aiq-ink: #2d2419;
+  --aiq-ink-soft: #5f513f;
+  --aiq-paper: #efe1bd;
+  --aiq-paper-light: #f8efd7;
+  --aiq-brass: #9a722e;
+  --aiq-brass-light: #d0ae62;
+  --aiq-wood: #4a2f1d;
+  --aiq-wood-deep: #26170f;
+  --aiq-line: rgba(65, 48, 31, 0.42);
+  --aiq-shadow: rgba(16, 10, 6, 0.48);
+}
+
+.aiq-shell[aria-hidden="true"] {
+  display: none;
+}
+
+.aiq-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--aiq-ink);
+}
+
+.aiq-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 21, 17, 0.74);
+  backdrop-filter: blur(2px);
+}
+
+.aiq-terminal {
+  position: relative;
+  width: min(1080px, 96vw);
+  max-height: min(840px, 92vh);
+  overflow: auto;
+  background:
+    linear-gradient(rgba(255,255,255,.08), rgba(0,0,0,.035)),
+    var(--aiq-paper);
+  border: 8px solid var(--aiq-wood);
+  outline: 2px solid var(--aiq-brass-light);
+  box-shadow:
+    0 0 0 6px var(--aiq-wood-deep),
+    0 24px 80px var(--aiq-shadow);
+}
+
+.aiq-header,
+.aiq-footer {
+  background: linear-gradient(180deg, #5b3b25, #382315);
+  color: var(--aiq-paper-light);
+  padding: 1rem 1.25rem;
+  border-color: var(--aiq-brass);
+}
+
+.aiq-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  border-bottom: 3px solid var(--aiq-brass);
+}
+
+.aiq-header h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+
+.aiq-kicker,
+.aiq-subtitle {
+  margin: .15rem 0;
+}
+
+.aiq-kicker {
+  color: var(--aiq-brass-light);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .72rem;
+}
+
+.aiq-icon-button {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--aiq-brass-light);
+  background: var(--aiq-wood-deep);
+  color: var(--aiq-paper-light);
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.aiq-body {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  min-height: 480px;
+}
+
+.aiq-rail {
+  padding: .75rem;
+  background: linear-gradient(90deg, #342115, #51331f);
+  border-right: 3px solid var(--aiq-brass);
+}
+
+.aiq-rail button {
+  width: 100%;
+  margin-bottom: .65rem;
+  padding: .85rem .4rem;
+  border: 1px solid var(--aiq-brass);
+  background: #2f2016;
+  color: var(--aiq-paper-light);
+  font-family: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.aiq-rail button.is-active {
+  background: var(--aiq-paper);
+  color: var(--aiq-ink);
+}
+
+.aiq-main {
+  padding: 1.25rem;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(80,59,34,.025), rgba(80,59,34,.025) 1px, transparent 1px, transparent 4px);
+}
+
+.aiq-question-form {
+  padding: 1rem;
+  border: 2px solid var(--aiq-brass);
+  background: rgba(255,255,255,.2);
+}
+
+.aiq-question-form label {
+  display: block;
+  margin-bottom: .55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.aiq-question-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  resize: vertical;
+  padding: 1rem;
+  border: 1px solid var(--aiq-line);
+  background: var(--aiq-paper-light);
+  color: var(--aiq-ink);
+  font: 1rem/1.45 Georgia, "Times New Roman", serif;
+}
+
+.aiq-question-footer {
+  margin-top: .7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.aiq-question-footer p {
+  margin: 0;
+  color: var(--aiq-ink-soft);
+  font-size: .9rem;
+}
+
+.aiq-primary,
+.aiq-secondary {
+  border: 1px solid var(--aiq-brass-light);
+  padding: .7rem .95rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: .035em;
+  cursor: pointer;
+}
+
+.aiq-primary {
+  background: var(--aiq-wood-deep);
+  color: var(--aiq-paper-light);
+}
+
+.aiq-secondary {
+  background: var(--aiq-paper-light);
+  color: var(--aiq-ink);
+  border-color: var(--aiq-brass);
+}
+
+.aiq-status {
+  min-height: 1.4rem;
+  margin: .8rem 0;
+  color: var(--aiq-ink-soft);
+}
+
+.aiq-output {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 2px solid var(--aiq-line);
+  background: rgba(255,255,255,.18);
+}
+
+.aiq-output article {
+  padding: 1rem;
+  border-right: 1px solid var(--aiq-line);
+  border-bottom: 1px solid var(--aiq-line);
+}
+
+.aiq-output h3 {
+  margin: 0 0 .6rem;
+  text-transform: uppercase;
+  font-size: .95rem;
+  letter-spacing: .04em;
+}
+
+.aiq-output p,
+.aiq-output li {
+  line-height: 1.5;
+}
+
+.aiq-output ul {
+  padding-left: 1.25rem;
+}
+
+.aiq-evidence,
+.aiq-module-card {
+  grid-column: 1 / -1;
+}
+
+.aiq-module-card {
+  background: rgba(154, 114, 46, .09);
+}
+
+.aiq-footer {
+  border-top: 3px solid var(--aiq-brass);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.aiq-footer p {
+  margin: 0;
+  font-style: italic;
+}
+
+.aiq-score {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+.aiq-score > span:first-child {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--aiq-brass-light);
+  border-radius: 50%;
+}
+
+@media (max-width: 760px) {
+  .aiq-shell {
+    padding: .5rem;
+  }
+
+  .aiq-body {
+    grid-template-columns: 1fr;
+  }
+
+  .aiq-rail {
+    display: flex;
+    gap: .35rem;
+    overflow-x: auto;
+    border-right: 0;
+    border-bottom: 3px solid var(--aiq-brass);
+  }
+
+  .aiq-rail button {
+    min-width: 100px;
+    margin: 0;
+  }
+
+  .aiq-output {
+    grid-template-columns: 1fr;
+  }
+
+  .aiq-question-footer,
+  .aiq-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aiq-shell *,
+  .aiq-shell *::before,
+  .aiq-shell *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

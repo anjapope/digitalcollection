@@ -17,9 +17,11 @@
     }
   </style>
 </head>
-<body class="vestibule-layout">
+<body class="vestibule-layout" data-page-title="{{ page.title | escape }}" data-page-url="{{ page.url | relative_url }}">
   <main id="maincontent" role="main">
     {{ content }}
   </main>
+  {% include exhibition-notebook.html %}
+  {% include foot.html %}
 </body>
 </html>

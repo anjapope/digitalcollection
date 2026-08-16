@@ -1,0 +1,11 @@
+{
+  "answer": "string",
+  "questionType": "string",
+  "analysis": "string",
+  "strongerQuestion": "string",
+  "followUps": [
+    "string"
+  ],
+  "evidencePrompt": "string",
+  "suggestedModule": "bone-identification | elephant-species | proboscidean-timeline | habitation-map | null"
+}

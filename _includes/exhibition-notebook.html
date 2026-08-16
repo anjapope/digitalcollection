@@ -1,0 +1,496 @@
+<button class="exhibition-notebook-toggle" type="button" aria-haspopup="dialog" aria-controls="exhibition-notebook-panel" aria-expanded="false" hidden>
+  <span class="exhibition-notebook-toggle-label">Field Notebook</span>
+  <span class="exhibition-notebook-toggle-badge" data-notebook-points-badge>0 pts</span>
+</button>
+
+<div class="exhibition-notebook-shell" data-exhibition-notebook-root hidden>
+  <button class="exhibition-notebook-backdrop" type="button" aria-label="Close notebook" data-notebook-close></button>
+  <aside class="exhibition-notebook-panel" id="exhibition-notebook-panel" role="dialog" aria-modal="true" aria-labelledby="exhibition-notebook-title" aria-describedby="exhibition-notebook-summary">
+    <div class="exhibition-notebook-header">
+      <div>
+        <p class="exhibition-notebook-kicker">Evidence Tracker</p>
+        <h2 class="exhibition-notebook-title" id="exhibition-notebook-title">Field Notebook</h2>
+        <p class="exhibition-notebook-summary" id="exhibition-notebook-summary">Track points, save observations, and review the evidence you have unlocked across the exhibition.</p>
+      </div>
+      <button class="exhibition-notebook-close" type="button" aria-label="Close notebook" data-notebook-close>×</button>
+    </div>
+
+    <div class="exhibition-notebook-status-grid">
+      <section class="exhibition-notebook-card exhibition-notebook-card-points" aria-live="polite">
+        <p class="exhibition-notebook-card-label">Current Score</p>
+        <p class="exhibition-notebook-points" data-notebook-points>0</p>
+        <p class="exhibition-notebook-tier" data-notebook-tier>Novice Curator</p>
+      </section>
+
+      <section class="exhibition-notebook-card">
+        <div class="exhibition-notebook-progress-copy">
+          <p class="exhibition-notebook-card-label">Curation Access</p>
+          <p class="exhibition-notebook-progress-text" data-notebook-progress-text>Collect evidence to unlock more objects.</p>
+        </div>
+        <div class="exhibition-notebook-progress-track" aria-hidden="true">
+          <span class="exhibition-notebook-progress-fill" data-notebook-progress-fill></span>
+        </div>
+      </section>
+    </div>
+
+    <div class="exhibition-notebook-body">
+      <section class="exhibition-notebook-column exhibition-notebook-column-notes">
+        <div class="exhibition-notebook-section-heading">
+          <h3>Observations</h3>
+          <p>Type a note, save it, and return to it later as you build your exhibition ideas.</p>
+        </div>
+        <label class="visually-hidden" for="exhibition-notebook-note-title">Note title</label>
+        <input id="exhibition-notebook-note-title" class="exhibition-notebook-note-title" data-notebook-note-title type="text" maxlength="120" placeholder="Give this note a short title" />
+        <label class="visually-hidden" for="exhibition-notebook-notes">Observations</label>
+        <textarea id="exhibition-notebook-notes" class="exhibition-notebook-notes" data-notebook-notes placeholder="What details stand out? Which objects belong together? What evidence feels persuasive?"></textarea>
+        <div class="exhibition-notebook-note-actions">
+          <button class="exhibition-notebook-save-note" type="button" data-notebook-save-note>Save note</button>
+          <p class="exhibition-notebook-note-status" data-notebook-note-status aria-live="polite">Saved notes will appear below.</p>
+        </div>
+        <div class="exhibition-notebook-saved-notes-wrap">
+          <h4 class="exhibition-notebook-saved-notes-title">Saved notes</h4>
+          <ul class="exhibition-notebook-saved-notes" data-notebook-saved-notes></ul>
+          <p class="exhibition-notebook-empty" data-notebook-notes-empty>No saved notes yet.</p>
+        </div>
+
+        <div class="exhibition-notebook-mobile-import">
+          <div>
+            <p class="exhibition-notebook-card-label">Mobile evidence import</p>
+            <p class="exhibition-notebook-import-text">A sync point for evidence from the mobile app can plug into this notebook later.</p>
+          </div>
+          <button class="exhibition-notebook-import-button" type="button" disabled aria-disabled="true">Import Coming Soon</button>
+        </div>
+      </section>
+
+      <section class="exhibition-notebook-column exhibition-notebook-column-inventory">
+        <div class="exhibition-notebook-section-heading">
+          <h3>Inventory</h3>
+          <p>Each overlay you open is logged here. Point-awarding discoveries only count once.</p>
+        </div>
+        <ul class="exhibition-notebook-inventory" data-notebook-inventory></ul>
+        <p class="exhibition-notebook-empty" data-notebook-empty>Open an overlay to start collecting evidence.</p>
+      </section>
+    </div>
+
+    <div class="exhibition-notebook-footer">
+      <p class="exhibition-notebook-room-hint" data-notebook-room-hint></p>
+      <button class="exhibition-notebook-reset" type="button" data-notebook-reset>Reset notebook</button>
+    </div>
+  </aside>
+</div>
+
+<script>
+  (() => {
+    const STORAGE_KEY = 'archivory-exhibition-notebook';
+    const NOTEBOOK_TIERS = [
+      { label: 'Novice Curator', min: 0, next: 10 },
+      { label: 'Collection Assistant', min: 10, next: 25 },
+      { label: 'Associate Curator', min: 25, next: 45 },
+      { label: 'Chief Curator', min: 45, next: null }
+    ];
+
+    const pageTitle = document.body.dataset.pageTitle || document.title || 'Exhibition';
+    const pageUrl = document.body.dataset.pageUrl || window.location.pathname;
+    const toggle = document.querySelector('.exhibition-notebook-toggle');
+    const shell = document.querySelector('[data-exhibition-notebook-root]');
+    const closeButtons = document.querySelectorAll('[data-notebook-close]');
+    const pointsBadge = document.querySelector('[data-notebook-points-badge]');
+    const pointsNode = document.querySelector('[data-notebook-points]');
+    const tierNode = document.querySelector('[data-notebook-tier]');
+    const progressTextNode = document.querySelector('[data-notebook-progress-text]');
+    const progressFillNode = document.querySelector('[data-notebook-progress-fill]');
+    const inventoryNode = document.querySelector('[data-notebook-inventory]');
+    const emptyNode = document.querySelector('[data-notebook-empty]');
+    const noteTitleNode = document.querySelector('[data-notebook-note-title]');
+    const notesNode = document.querySelector('[data-notebook-notes]');
+    const saveNoteButton = document.querySelector('[data-notebook-save-note]');
+    const noteStatusNode = document.querySelector('[data-notebook-note-status]');
+    const savedNotesNode = document.querySelector('[data-notebook-saved-notes]');
+    const savedNotesEmptyNode = document.querySelector('[data-notebook-notes-empty]');
+    const resetButton = document.querySelector('[data-notebook-reset]');
+    const roomHintNode = document.querySelector('[data-notebook-room-hint]');
+
+    if (!toggle || !shell || !pointsBadge || !pointsNode || !tierNode || !progressTextNode || !progressFillNode || !inventoryNode || !emptyNode || !noteTitleNode || !notesNode || !saveNoteButton || !noteStatusNode || !savedNotesNode || !savedNotesEmptyNode || !resetButton || !roomHintNode) {
+      return;
+    }
+
+    function isReloadNavigation() {
+      const navigationEntries = window.performance && typeof window.performance.getEntriesByType === 'function'
+        ? window.performance.getEntriesByType('navigation')
+        : [];
+
+      if (navigationEntries.length && navigationEntries[0] && navigationEntries[0].type) {
+        return navigationEntries[0].type === 'reload';
+      }
+
+      return Boolean(window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+    }
+
+    if (isReloadNavigation()) {
+      try {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } catch (error) {
+        // Ignore storage cleanup errors.
+      }
+    }
+
+    function createDefaultState() {
+      return {
+        version: 1,
+        activated: false,
+        noteTitleDraft: '',
+        noteDraft: '',
+        savedNotes: [],
+        entries: {},
+        points: 0,
+        updatedAt: null
+      };
+    }
+
+    function loadState() {
+      try {
+        const raw = window.localStorage.getItem(STORAGE_KEY);
+        if (!raw) return createDefaultState();
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== 'object') return createDefaultState();
+        return {
+          version: 1,
+          activated: Boolean(parsed.activated),
+          noteTitleDraft: typeof parsed.noteTitleDraft === 'string' ? parsed.noteTitleDraft : '',
+          noteDraft: typeof parsed.noteDraft === 'string' ? parsed.noteDraft : '',
+          savedNotes: Array.isArray(parsed.savedNotes) ? parsed.savedNotes.filter((item) => item && typeof item.text === 'string').map((item) => ({
+            ...item,
+            title: typeof item.title === 'string' && item.title.trim() ? item.title : 'Untitled note'
+          })) : [],
+          entries: parsed.entries && typeof parsed.entries === 'object' ? parsed.entries : {},
+          points: Number.isFinite(parsed.points) ? parsed.points : 0,
+          updatedAt: parsed.updatedAt || null
+        };
+      } catch (error) {
+        return createDefaultState();
+      }
+    }
+
+    let state = loadState();
+  let expandedSavedNoteId = null;
+
+    function saveState() {
+      state.updatedAt = new Date().toISOString();
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (error) {
+        // Ignore storage errors and keep the in-memory state available for the session.
+      }
+    }
+
+    function getTier(points) {
+      for (let index = NOTEBOOK_TIERS.length - 1; index >= 0; index -= 1) {
+        if (points >= NOTEBOOK_TIERS[index].min) {
+          return NOTEBOOK_TIERS[index];
+        }
+      }
+      return NOTEBOOK_TIERS[0];
+    }
+
+    function formatDate(value) {
+      if (!value) return '';
+      try {
+        return new Date(value).toLocaleString();
+      } catch (error) {
+        return '';
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function progressCopy(points) {
+      const tier = getTier(points);
+      if (tier.next === null) {
+        return {
+          text: 'Top-tier object access unlocked. You are ready to assemble an ambitious final display in the Conservator\'s Office.',
+          width: '100%'
+        };
+      }
+
+      const span = Math.max(1, tier.next - tier.min);
+      const remaining = Math.max(0, tier.next - points);
+      const progress = Math.min(100, Math.max(0, ((points - tier.min) / span) * 100));
+      return {
+        text: remaining === 0
+          ? 'New object tier unlocked.'
+          : `${remaining} more point${remaining === 1 ? '' : 's'} until ${NOTEBOOK_TIERS.find((candidate) => candidate.min === tier.next)?.label || 'the next tier'}.`,
+        width: `${progress}%`
+      };
+    }
+
+    function sortedEntries() {
+      return Object.values(state.entries).sort((left, right) => {
+        const leftTime = left.lastSeen ? new Date(left.lastSeen).getTime() : 0;
+        const rightTime = right.lastSeen ? new Date(right.lastSeen).getTime() : 0;
+        return rightTime - leftTime;
+      });
+    }
+
+    function sortedSavedNotes() {
+      return [...state.savedNotes].sort((left, right) => {
+        const leftTime = left.savedAt ? new Date(left.savedAt).getTime() : 0;
+        const rightTime = right.savedAt ? new Date(right.savedAt).getTime() : 0;
+        return rightTime - leftTime;
+      });
+    }
+
+    function renderInventory() {
+      const entries = sortedEntries();
+      emptyNode.hidden = entries.length > 0;
+      inventoryNode.innerHTML = entries.map((entry) => {
+        const pointsLabel = entry.points > 0
+          ? `+${entry.points} pt${entry.points === 1 ? '' : 's'}`
+          : 'Logged';
+        const visitLabel = entry.visits > 1 ? `<span class="exhibition-notebook-visit-count">${entry.visits} visits</span>` : '';
+        const timeLabel = formatDate(entry.lastSeen);
+        return `
+          <li class="exhibition-notebook-entry">
+            <div class="exhibition-notebook-entry-head">
+              <h4>${escapeHtml(entry.title)}</h4>
+              <span class="exhibition-notebook-entry-points">${escapeHtml(pointsLabel)}</span>
+            </div>
+            <p class="exhibition-notebook-entry-meta">${escapeHtml(entry.room || 'Exhibition')} · ${escapeHtml(entry.type || 'overlay')}</p>
+            ${entry.description ? `<p class="exhibition-notebook-entry-description">${escapeHtml(entry.description)}</p>` : ''}
+            <div class="exhibition-notebook-entry-foot">
+              <span>${escapeHtml(timeLabel)}</span>
+              ${visitLabel}
+            </div>
+          </li>
+        `;
+      }).join('');
+    }
+
+    function renderSavedNotes() {
+      const notes = sortedSavedNotes();
+      savedNotesEmptyNode.hidden = notes.length > 0;
+      if (expandedSavedNoteId && !notes.some((note) => note.id === expandedSavedNoteId)) {
+        expandedSavedNoteId = null;
+      }
+      savedNotesNode.innerHTML = notes.map((note) => `
+        <li class="exhibition-notebook-saved-note">
+          <button class="exhibition-notebook-saved-note-trigger" type="button" data-notebook-saved-note-trigger="${escapeHtml(note.id)}" aria-expanded="${expandedSavedNoteId === note.id ? 'true' : 'false'}">
+            <span class="exhibition-notebook-saved-note-trigger-title">${escapeHtml(note.title)}</span>
+            <span class="exhibition-notebook-saved-note-trigger-meta">${escapeHtml(formatDate(note.savedAt))}</span>
+          </button>
+          <div class="exhibition-notebook-saved-note-body" ${expandedSavedNoteId === note.id ? '' : 'hidden'}>
+            <p class="exhibition-notebook-saved-note-text">${escapeHtml(note.text)}</p>
+            <div class="exhibition-notebook-entry-foot exhibition-notebook-saved-note-foot">
+              <span>${escapeHtml(note.room || 'Exhibition')}</span>
+            </div>
+          </div>
+        </li>
+      `).join('');
+
+      savedNotesNode.querySelectorAll('[data-notebook-saved-note-trigger]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const noteId = button.getAttribute('data-notebook-saved-note-trigger');
+          expandedSavedNoteId = expandedSavedNoteId === noteId ? null : noteId;
+          renderSavedNotes();
+        });
+      });
+    }
+
+    function render() {
+      const points = Number(state.points) || 0;
+      const tier = getTier(points);
+      const progress = progressCopy(points);
+      toggle.hidden = !state.activated;
+      pointsBadge.textContent = `${points} pts`;
+      pointsNode.textContent = String(points);
+      tierNode.textContent = tier.label;
+      progressTextNode.textContent = progress.text;
+      progressFillNode.style.width = progress.width;
+      noteTitleNode.value = state.noteTitleDraft || '';
+      notesNode.value = state.noteDraft || '';
+      noteStatusNode.textContent = state.savedNotes.length ? 'Your saved notes are listed below.' : 'Saved notes will appear below.';
+      roomHintNode.textContent = pageTitle === "Conservator's Office"
+        ? 'You are in the Conservator\'s Office. Review your evidence here before building the final exhibition terminal workflow.'
+        : 'Return to the Conservator\'s Office when you are ready to turn this notebook into a final curated display.';
+      renderInventory();
+      renderSavedNotes();
+    }
+
+    function activateNotebook() {
+      if (state.activated) return;
+      state.activated = true;
+      saveState();
+      render();
+    }
+
+    function normalizeTitle(target) {
+      const fallbackText = (target.textContent || '').replace(/\s+/g, ' ').trim();
+      return target.dataset.notebookTitle || target.getAttribute('aria-label') || fallbackText || 'Untitled interaction';
+    }
+
+    function buildEntryDetails(target) {
+      const href = target.getAttribute('href') || target.getAttribute('xlink:href') || '';
+      const title = normalizeTitle(target);
+      return {
+        id: target.dataset.notebookId || `${pageUrl}::${href || title}`,
+        title,
+        room: target.dataset.notebookRoom || pageTitle,
+        type: target.dataset.notebookType || (target.closest('svg') ? 'overlay' : 'interaction'),
+        description: target.dataset.notebookDescription || '',
+        points: Number.parseInt(target.dataset.notebookPoints || '0', 10) || 0,
+        url: href || pageUrl
+      };
+    }
+
+    function recordInteraction(details) {
+      if (!state.activated) return;
+      if (!details || !details.id) return;
+      const existing = state.entries[details.id];
+      const timestamp = new Date().toISOString();
+      if (existing) {
+        state.entries[details.id] = {
+          ...existing,
+          ...details,
+          visits: (existing.visits || 1) + 1,
+          lastSeen: timestamp,
+          firstSeen: existing.firstSeen || timestamp,
+          pointsAwarded: existing.pointsAwarded || details.points > 0
+        };
+      } else {
+        state.entries[details.id] = {
+          ...details,
+          visits: 1,
+          firstSeen: timestamp,
+          lastSeen: timestamp,
+          pointsAwarded: details.points > 0
+        };
+        state.points += details.points;
+      }
+      saveState();
+      render();
+    }
+
+    function findNotebookTarget(eventTarget) {
+      if (!eventTarget || typeof eventTarget.closest !== 'function') return null;
+      const directTarget = eventTarget.closest('[data-notebook-item]');
+      if (directTarget) return directTarget;
+
+      const anchor = eventTarget.closest('a');
+      if (anchor && anchor.closest('svg')) {
+        return anchor;
+      }
+      return null;
+    }
+
+    function openNotebook() {
+      if (!state.activated) return;
+      shell.hidden = false;
+      document.body.classList.add('exhibition-notebook-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      noteTitleNode.focus();
+    }
+
+    function closeNotebook() {
+      shell.hidden = true;
+      document.body.classList.remove('exhibition-notebook-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', () => {
+      if (shell.hidden) {
+        openNotebook();
+      } else {
+        closeNotebook();
+      }
+    });
+
+    closeButtons.forEach((button) => button.addEventListener('click', closeNotebook));
+
+    noteTitleNode.addEventListener('input', () => {
+      state.noteTitleDraft = noteTitleNode.value;
+      saveState();
+    });
+
+    notesNode.addEventListener('input', () => {
+      state.noteDraft = notesNode.value;
+      saveState();
+    });
+
+    saveNoteButton.addEventListener('click', () => {
+      const title = noteTitleNode.value.trim();
+      const text = notesNode.value.trim();
+      if (!title) {
+        noteStatusNode.textContent = 'Add a title before saving the note.';
+        noteTitleNode.focus();
+        return;
+      }
+      if (!text) {
+        noteStatusNode.textContent = 'Type a note before saving it.';
+        notesNode.focus();
+        return;
+      }
+
+      state.savedNotes = [
+        {
+          id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+          title,
+          text,
+          savedAt: new Date().toISOString(),
+          room: pageTitle
+        },
+        ...state.savedNotes
+      ];
+      expandedSavedNoteId = state.savedNotes[0].id;
+      state.noteTitleDraft = '';
+      state.noteDraft = '';
+      saveState();
+      noteStatusNode.textContent = 'Note saved.';
+      render();
+      noteTitleNode.focus();
+    });
+
+    resetButton.addEventListener('click', () => {
+      const confirmed = window.confirm('Reset the field notebook, points, and inventory for a new playthrough?');
+      if (!confirmed) return;
+      closeNotebook();
+      state = createDefaultState();
+      saveState();
+      render();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !shell.hidden) {
+        closeNotebook();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      const target = findNotebookTarget(event.target);
+      if (!target) return;
+      recordInteraction(buildEntryDetails(target));
+    }, true);
+
+    window.archIvoryNotebook = {
+      activate() {
+        activateNotebook();
+      },
+      open: openNotebook,
+      close: closeNotebook,
+      record(details) {
+        recordInteraction(details);
+      },
+      getState() {
+        return JSON.parse(JSON.stringify(state));
+      }
+    };
+
+    render();
+  })();
+</script>

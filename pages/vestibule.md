@@ -70,11 +70,12 @@ permalink: /pages/vestibule.html
       <div class="welcome-sequence-backdrop" data-welcome-close></div>
       <div class="welcome-sequence-dialog" role="dialog" aria-modal="true" aria-labelledby="welcome-sequence-title">
         <button class="welcome-sequence-close" type="button" aria-label="Close welcome messages" data-welcome-close>×</button>
-        <p class="welcome-sequence-step" id="welcome-sequence-step">1 of 4</p>
+        <p class="welcome-sequence-step" id="welcome-sequence-step">1 of 5</p>
         <h2 class="welcome-sequence-title" id="welcome-sequence-title">Welcome</h2>
         <p class="welcome-sequence-message" id="welcome-sequence-message"></p>
         <div class="welcome-sequence-actions">
           <button class="welcome-sequence-button welcome-sequence-button-secondary" type="button" id="welcome-prev">Back</button>
+          <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="welcome-checkin" hidden>Check in</button>
           <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="welcome-next">Next</button>
         </div>
       </div>
@@ -104,6 +105,10 @@ permalink: /pages/vestibule.html
         text: 'Welcome to ArchIvory. This hall is your point of orientation before you choose a room to enter.'
       },
       {
+        title: 'Registration Desk',
+        text: 'If you would like to participate, check in here at the vestibule registration desk. That will activate your Field Notebook and keep it available in the bottom-right corner as you move through the exhibition.'
+      },
+      {
         title: 'How to move through the house',
         text: 'Each doorway leads to a different pathway. You may begin anywhere and return here whenever you want to change direction.'
       },
@@ -124,19 +129,30 @@ permalink: /pages/vestibule.html
     const step = document.getElementById('welcome-sequence-step');
     const next = document.getElementById('welcome-next');
     const prev = document.getElementById('welcome-prev');
+    const checkIn = document.getElementById('welcome-checkin');
     const closeButtons = document.querySelectorAll('[data-welcome-close]');
 
-    if (!triggers.length || !overlay || !title || !message || !step || !next || !prev) return;
+    if (!triggers.length || !overlay || !title || !message || !step || !next || !prev || !checkIn) return;
 
     let currentIndex = 0;
     let activeTrigger = null;
 
+    function isNotebookActivated() {
+      if (!window.archIvoryNotebook || typeof window.archIvoryNotebook.getState !== 'function') return false;
+      return Boolean(window.archIvoryNotebook.getState()?.activated);
+    }
+
     function renderMessage() {
       const item = messages[currentIndex];
       title.textContent = item.title;
-      message.textContent = item.text;
+      if (currentIndex === 1 && isNotebookActivated()) {
+        message.textContent = 'You are checked in. Your Field Notebook is active, and its button will remain available in the bottom-right corner as you move through the exhibition.';
+      } else {
+        message.textContent = item.text;
+      }
       step.textContent = `${currentIndex + 1} of ${messages.length}`;
       prev.disabled = currentIndex === 0;
+      checkIn.hidden = currentIndex !== 1 || isNotebookActivated();
       next.textContent = currentIndex === messages.length - 1 ? 'Finish' : 'Next';
     }
 
@@ -164,6 +180,14 @@ permalink: /pages/vestibule.html
         }
         openSequence(trigger);
       });
+    });
+
+    checkIn.addEventListener('click', () => {
+      if (window.archIvoryNotebook && typeof window.archIvoryNotebook.activate === 'function') {
+        window.archIvoryNotebook.activate();
+      }
+      renderMessage();
+      next.focus();
     });
 
     next.addEventListener('click', () => {
