@@ -29,6 +29,7 @@
   const status = shell.querySelector("#aiq-status");
   const output = shell.querySelector("#aiq-output");
   const scoreDisplay = shell.querySelector("[data-aiq-score-display]");
+  const refinementCard = shell.querySelector("[data-aiq-refinement-card]");
 
   let lastFocusedElement = null;
   let currentResponse = null;
@@ -98,8 +99,15 @@
     shell.querySelector("[data-aiq-answer]").textContent = response.answer;
     shell.querySelector("[data-aiq-analysis]").textContent = response.analysis;
     shell.querySelector("[data-aiq-question-type]").textContent = response.questionType;
-    shell.querySelector("[data-aiq-stronger]").textContent = response.strongerQuestion;
     shell.querySelector("[data-aiq-evidence]").textContent = response.evidencePrompt;
+
+    if (response.refinementNeeded && response.strongerQuestion) {
+      refinementCard.hidden = false;
+      shell.querySelector("[data-aiq-stronger]").textContent = response.strongerQuestion;
+    } else {
+      refinementCard.hidden = true;
+      shell.querySelector("[data-aiq-stronger]").textContent = "";
+    }
 
     const followups = shell.querySelector("[data-aiq-followups]");
     followups.replaceChildren();
@@ -152,7 +160,7 @@
   });
 
   shell.querySelector("[data-aiq-use-refinement]").addEventListener("click", () => {
-    if (!currentResponse) return;
+    if (!currentResponse?.strongerQuestion) return;
     textarea.value = currentResponse.strongerQuestion;
     textarea.focus();
     status.textContent = `Question refined. +${CONFIG.pointsForRefinement} inquiry points.`;
