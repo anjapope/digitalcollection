@@ -73,6 +73,10 @@
   }
 
   async function getInquiryResponse(question) {
+    if (!INQUIRY_API_URL) {
+      throw new Error("The inquiry backend is not configured for this site.");
+    }
+
     const response = await fetch(INQUIRY_API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -94,18 +98,20 @@
   }
 
   function renderResponse(response) {
+    const submittedQuestion = textarea.value.trim();
     currentResponse = response;
 
+    shell.querySelector("[data-aiq-current-question]").textContent = submittedQuestion;
     shell.querySelector("[data-aiq-answer]").textContent = response.answer;
     shell.querySelector("[data-aiq-analysis]").textContent = response.analysis;
     shell.querySelector("[data-aiq-question-type]").textContent = response.questionType;
     shell.querySelector("[data-aiq-evidence]").textContent = response.evidencePrompt;
 
-    if (response.refinementNeeded && response.strongerQuestion) {
+    if (refinementCard && response.refinementNeeded && response.strongerQuestion) {
       refinementCard.hidden = false;
       shell.querySelector("[data-aiq-stronger]").textContent = response.strongerQuestion;
     } else {
-      refinementCard.hidden = true;
+      if (refinementCard) refinementCard.hidden = true;
       shell.querySelector("[data-aiq-stronger]").textContent = "";
     }
 
@@ -137,6 +143,7 @@
       delete moduleCard.dataset.moduleId;
     }
 
+    window.ArchIvoryClassificationUX?.render(response);
     output.hidden = false;
   }
 
@@ -146,6 +153,7 @@
     if (!question) return;
 
     status.textContent = "Consulting the inquiry terminal…";
+    window.ArchIvoryClassificationUX?.reset();
     output.hidden = true;
 
     try {

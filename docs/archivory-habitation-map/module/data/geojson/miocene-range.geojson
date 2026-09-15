@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Placeholder reconstructed range",
+        "placeholder": true
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -15,
+              -10
+            ],
+            [
+              85,
+              -10
+            ],
+            [
+              100,
+              50
+            ],
+            [
+              0,
+              55
+            ],
+            [
+              -15,
+              -10
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

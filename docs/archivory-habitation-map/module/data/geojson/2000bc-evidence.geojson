@@ -1,0 +1,53 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Wrangel Island placeholder",
+        "date": "",
+        "evidenceType": "",
+        "note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          179,
+          71
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Mesopotamia placeholder",
+        "date": "",
+        "evidenceType": "",
+        "note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44,
+          33
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Northern China placeholder",
+        "date": "",
+        "evidenceType": "",
+        "note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          115,
+          35
+        ]
+      }
+    }
+  ]
+}

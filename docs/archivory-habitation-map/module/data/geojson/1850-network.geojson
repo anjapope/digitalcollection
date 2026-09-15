@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Placeholder historical network",
+        "placeholder": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            32,
+            -10
+          ],
+          [
+            39,
+            -6
+          ],
+          [
+            55,
+            10
+          ]
+        ]
+      }
+    }
+  ]
+}

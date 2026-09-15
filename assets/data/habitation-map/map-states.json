@@ -1,0 +1,83 @@
+{
+  "moduleId": "proboscidean-habitation-map",
+  "defaultMode": "combined",
+  "states": {
+    "early-africa": {
+      "label": "Early Proboscideans",
+      "displayDate": "ca. 60–34 million years ago",
+      "summary": "Early proboscideans are presently represented here as an Africa-centered reconstruction.",
+      "center": [24, 5],
+      "zoom": 2.2,
+      "evidenceSource": "early-africa-evidence.geojson",
+      "rangeSource": "early-africa-range.geojson",
+      "networkSource": null,
+      "question": "What does the evidence directly show, and what has the reconstruction added?"
+    },
+    "miocene-range": {
+      "label": "Miocene Dispersal",
+      "displayDate": "ca. 23–5.3 million years ago",
+      "summary": "Miocene proboscidean distributions are shown as a reconstruction from fossil and geographic evidence.",
+      "center": [35, 25],
+      "zoom": 1.8,
+      "evidenceSource": "miocene-evidence.geojson",
+      "rangeSource": "miocene-range.geojson",
+      "networkSource": null,
+      "question": "How much of the reconstructed range is directly supported by evidence points?"
+    },
+    "pleistocene-range": {
+      "label": "Pleistocene Diversity",
+      "displayDate": "ca. 2.6 million–11,700 years ago",
+      "summary": "The Pleistocene view emphasizes the much broader recent diversity and distribution of proboscideans.",
+      "center": [20, 35],
+      "zoom": 1.55,
+      "evidenceSource": "pleistocene-evidence.geojson",
+      "rangeSource": "pleistocene-range.geojson",
+      "networkSource": null,
+      "question": "What assumptions would be misleading if we used modern elephant ranges to imagine the Pleistocene?"
+    },
+    "late-extinction": {
+      "label": "Late Proboscidean Extinctions",
+      "displayDate": "Late Pleistocene–Holocene",
+      "summary": "This state is designed to compare surviving evidence with shrinking reconstructed distributions.",
+      "center": [15, 45],
+      "zoom": 1.55,
+      "evidenceSource": "late-extinction-evidence.geojson",
+      "rangeSource": "late-extinction-range.geojson",
+      "networkSource": null,
+      "question": "What evidence would distinguish range contraction from gaps in the surviving record?"
+    },
+    "elephant-range-2000bc": {
+      "label": "2000 BC",
+      "displayDate": "ca. 2000 BC",
+      "summary": "This view introduces historically recent elephant distributions and the persistence of isolated mammoth populations.",
+      "center": [45, 25],
+      "zoom": 1.55,
+      "evidenceSource": "2000bc-evidence.geojson",
+      "rangeSource": "2000bc-range.geojson",
+      "networkSource": null,
+      "question": "How does this wider distribution complicate modern assumptions about where elephants naturally belong?"
+    },
+    "west-africa-1600": {
+      "label": "1600 AD",
+      "displayDate": "ca. 1600 AD",
+      "summary": "The map now combines elephant distribution with the beginnings of historically documented extraction and commercial networks.",
+      "center": [-3, 9],
+      "zoom": 3,
+      "evidenceSource": "1600-evidence.geojson",
+      "rangeSource": "1600-range.geojson",
+      "networkSource": "1600-network.geojson",
+      "question": "Does the spatial evidence support a direct relationship between trade growth and elephant population pressure?"
+    },
+    "east-africa-ivory-1850": {
+      "label": "1850–1900",
+      "displayDate": "1850–1900",
+      "summary": "The East African view distinguishes elephant habitat from extraction zones, trade corridors, and commercial centers.",
+      "center": [39, -6],
+      "zoom": 3,
+      "evidenceSource": "1850-evidence.geojson",
+      "rangeSource": "1850-range.geojson",
+      "networkSource": "1850-network.geojson",
+      "question": "Does the map show Zanzibar as an ivory-producing region, or as a node in a larger commodity network?"
+    }
+  }
+}

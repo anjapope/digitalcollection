@@ -1,0 +1,53 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Placeholder North American locality",
+        "date": "",
+        "evidenceType": "",
+        "note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100,
+          40
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Placeholder Eurasian locality",
+        "date": "",
+        "evidenceType": "",
+        "note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40,
+          50
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Placeholder African locality",
+        "date": "",
+        "evidenceType": "",
+        "note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25,
+          0
+        ]
+      }
+    }
+  ]
+}

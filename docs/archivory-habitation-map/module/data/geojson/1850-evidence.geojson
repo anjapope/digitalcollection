@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Zanzibar",
+        "date": "1850\u20131900",
+        "evidenceType": "Historical",
+        "note": "Commercial node placeholder; replace with vetted evidence."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.2,
+          -6.2
+        ]
+      }
+    }
+  ]
+}

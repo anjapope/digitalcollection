@@ -48,7 +48,7 @@
     inset: 1.5rem;
     overflow: hidden;
     border-radius: 32px;
-    background: url('../img/ArchIvory Vestibule 12.png') center top / 100% 100% no-repeat;
+    background: url('../img/Vestibule12.png') center top / 100% 100% no-repeat;
     box-shadow: inset 0 0 0 1px rgba(255, 232, 201, 0.12), 0 24px 80px rgba(0, 0, 0, 0.35);
 }
 
@@ -968,33 +968,47 @@
 }
 
 .welcome-mantle {
-    z-index: 3;
-    display: none;
+    left: 10.5%;
+    bottom: 24%;
+    width: 132px;
+    height: 58px;
+    transform: none;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    border-radius: 12px;
+    border: 1px solid rgba(98, 55, 30, 0.5);
+    background: linear-gradient(180deg, rgba(222, 187, 133, 0.98), rgba(170, 118, 69, 0.98));
+    box-shadow: 0 14px 22px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(255, 241, 217, 0.26);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.welcome-mantle::before,
+.welcome-mantle::after {
+    display: none;
 }
 
 .welcome-mantle:hover,
 .welcome-mantle:focus-visible {
-    transform: translateX(-50%) translateY(-2px);
+    transform: translateY(-2px);
     box-shadow: 0 22px 34px rgba(0, 0, 0, 0.24);
     outline: none;
 }
 
 .welcome-mantle-label {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0.35rem 0.95rem;
-    border-radius: 999px;
-    background: rgba(241, 224, 192, 0.92);
+    position: static;
+    transform: none;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
     color: #4f301f;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    box-shadow: inset 0 0 0 1px rgba(116, 73, 33, 0.18);
+    text-shadow: 0 1px 0 rgba(255, 245, 226, 0.6);
 }
 
 .welcome-sequence[hidden] {
@@ -1703,6 +1717,8 @@
     width: min(720px, 82%);
 }
 .natural-history-timeline-exhibit {
+    --nh-timeline-drag-x: 0px;
+    --nh-timeline-drag-y: 0px;
     position: absolute;
     top: 21rem;
     left: 50%;
@@ -1710,7 +1726,7 @@
     width: min(1120px, 92%);
     min-height: 600px;
     padding: 0 0.5rem 7.5rem;
-    transform: translateX(-50%);
+    transform: translate(calc(-50% + var(--nh-timeline-drag-x)), var(--nh-timeline-drag-y));
     display: flex;
     flex-direction: column;
 }
@@ -1725,6 +1741,40 @@
 
 .natural-history-timeline-exhibit-inline {
     z-index: 9;
+}
+
+.natural-history-timeline-module-shell {
+    padding: 2.25rem 0.5rem 1rem;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 180ms ease, visibility 180ms ease;
+}
+
+.natural-history-timeline-module-shell.is-dismissed {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.natural-history-timeline-module-shell .apt-module {
+    margin: 0;
+}
+
+.natural-history-timeline-module-shell .apt-instrument {
+    backdrop-filter: blur(2px);
+}
+
+.natural-history-timeline-module-shell-draggable {
+    cursor: grab;
+}
+
+.natural-history-timeline-module-shell-draggable.is-dragging,
+.natural-history-timeline-module-shell-draggable.is-dragging * {
+    cursor: grabbing !important;
+}
+
+.natural-history-timeline-module-close {
+    top: 0.85rem;
+    right: 1rem;
 }
 
 .natural-history-timeline-intro {
@@ -4052,6 +4102,14 @@
     .house-chandelier,
     .house-cornice {
         display: none;
+    }
+
+    .welcome-mantle {
+        display: flex;
+        left: 7%;
+        bottom: 22%;
+        width: 108px;
+        height: 48px;
     }
 
     .welcome-sequence-dialog {

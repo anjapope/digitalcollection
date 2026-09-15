@@ -27,24 +27,21 @@ permalink: /pages/vestibule.html
       </div>
 
       <svg class="vestibule-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Vestibule room links">
-        <a class="vestibule-arch-overlay-group vestibule-arch-overlay-group-left" xlink:href="{{ '/pages/rooms/historical-society.html' | relative_url }}" aria-label="Enter Historical Society room" target="_self">
-          <polygon class="vestibule-hotspot vestibule-arch-overlay vestibule-arch-overlay-left" points="245,435 335,435 335,671 245,671" />
-          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="290" text-anchor="middle"><tspan x="290" y="634">Historical</tspan><tspan x="290" dy="12">Society</tspan></text>
+        <a class="vestibule-arch-overlay-group" xlink:href="{{ '/pages/rooms/historical-society.html' | relative_url }}" aria-label="Enter Historical Society room" target="_self">
+          <polygon class="vestibule-hotspot vestibule-arch-overlay" points="118,582 230,568 230,831 118,892" />
+          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="174" text-anchor="middle"><tspan x="174" y="755">Historical</tspan><tspan x="174" dy="12">Society</tspan></text>
         </a>
-        <a class="vestibule-arch-overlay-group vestibule-arch-overlay-group-right" xlink:href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter Attic room" target="_self">
-          <polygon class="vestibule-hotspot vestibule-arch-overlay vestibule-arch-overlay-right" points="665,435 755,435 755,671 665,671" />
-          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="710" y="646" text-anchor="middle">Attic</text>
+        <a class="vestibule-arch-overlay-group" xlink:href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Enter the Art Museum" target="_self">
+          <polygon class="vestibule-hotspot vestibule-arch-overlay" points="360,205 438,244 438,483 360,483" />
+          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="399" text-anchor="middle"><tspan x="399" y="440">Art</tspan><tspan x="399" dy="12">Museum</tspan></text>
         </a>
-        <a xlink:href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter The Natural History Museum" target="_self">
-          <polygon class="vestibule-hotspot" points="385,435 475,435 475,671 385,671" />
-          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="430" text-anchor="middle"><tspan x="430" y="634">Natural</tspan><tspan x="430" dy="12">History</tspan></text>
+        <a class="vestibule-arch-overlay-group" xlink:href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter Attic room" target="_self">
+          <polygon class="vestibule-hotspot vestibule-arch-overlay" points="660,110 745,84 745,309 660,322" />
+          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="700" y="293" text-anchor="middle">Attic</text>
         </a>
-        <a xlink:href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Enter the Art Museum" target="_self">
-          <polygon class="vestibule-hotspot" points="523,435 612,435 612,671 523,671" />
-          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="568" text-anchor="middle"><tspan x="568" y="634">Art</tspan><tspan x="568" dy="12">Museum</tspan></text>
-        </a>
-        <a class="vestibule-welcome-trigger" xlink:href="#" aria-label="Open welcome instructions" target="_self">
-          <polygon class="vestibule-hotspot" points="123,606 220,597 228,739 132,759" />
+        <a class="vestibule-arch-overlay-group" xlink:href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter The Natural History Museum" target="_self">
+          <polygon class="vestibule-hotspot vestibule-arch-overlay" points="712,417 808,413 808,671 712,657" />
+          <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="763" text-anchor="middle"><tspan x="763" y="614">Natural</tspan><tspan x="763" dy="12">History</tspan></text>
         </a>
       </svg>
       

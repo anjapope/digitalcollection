@@ -1,0 +1,54 @@
+<section id="archivory-proboscidean-timeline" class="apt-module" aria-labelledby="apt-title">
+  <header class="apt-header">
+    <p class="apt-kicker">Natural History Room</p>
+    <h2 id="apt-title">Proboscideans Through Deep Time</h2>
+    <p class="apt-intro" data-apt-intro></p>
+  </header>
+  <div class="apt-instrument" role="region" aria-label="Interactive proboscidean timeline">
+    <div class="apt-scale" aria-hidden="true"><span>Deep Time</span><span>Recent Past</span></div>
+    <div class="apt-track-wrap">
+      <div class="apt-era-band" data-apt-eras></div>
+      <article class="apt-era-popout" data-apt-era-popout hidden aria-live="polite">
+        <button type="button" class="apt-era-popout-close" data-apt-era-close aria-label="Close period details">×</button>
+        <p class="apt-era-popout-kicker">Period overview</p>
+        <h4 data-apt-era-title></h4>
+        <p class="apt-era-popout-timeframe" data-apt-era-timeframe></p>
+        <p class="apt-era-popout-description" data-apt-era-description></p>
+        <div class="apt-era-popout-subperiods">
+          <h5>Subperiods</h5>
+          <ul data-apt-era-subperiods></ul>
+        </div>
+      </article>
+      <div class="apt-track" data-apt-track></div>
+    </div>
+    <div class="apt-state-panel">
+      <div class="apt-state-meta"><p data-apt-date></p><p data-apt-era></p></div>
+      <h3 data-apt-label></h3>
+      <p class="apt-summary" data-apt-summary></p>
+      <div class="apt-detail-grid">
+        <div class="apt-species-block">
+          <h4>Proboscideans in view</h4>
+          <ul data-apt-species></ul>
+        </div>
+        <div class="apt-dispersal-block">
+          <h4>Range / dispersal</h4>
+          <p class="apt-interpretation" data-apt-interpretation></p>
+        </div>
+      </div>
+      <div class="apt-question-card">
+        <p class="apt-question-label">Investigate</p>
+        <p data-apt-question></p>
+        <button type="button" class="apt-question-button" data-apt-question-action>Answer this question</button>
+      </div>
+      <div class="apt-actions">
+        <button type="button" class="apt-map-button" data-apt-map-action>View habitation map</button>
+        <button type="button" data-apt-prev>Previous</button>
+        <button type="button" data-apt-next>Next</button>
+      </div>
+    </div>
+    <div class="apt-map-workspace" data-apt-workspace="map" hidden>
+      {% include habitation-map.html %}
+    </div>
+  </div>
+  <p class="apt-status" data-apt-status aria-live="polite"></p>
+</section>

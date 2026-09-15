@@ -1,0 +1,135 @@
+{
+  "moduleId": "proboscidean-timeline",
+  "title": "Proboscideans Through Deep Time",
+  "intro": "Move across deep time to explore how proboscideans changed, dispersed, and declined\u2014and how surviving elephant populations came under increasing human pressure.",
+  "states": [
+    {
+      "id": "early-proboscideans",
+      "label": "Early Proboscideans",
+      "displayDate": "ca. 60\u201334 million years ago",
+      "era": "Paleocene\u2013Eocene",
+      "summary": "Early proboscideans emerged in Africa and began diversifying into a range of forms adapted to different environments.",
+      "interpretation": "This state emphasizes origin and diversification. Visitors should distinguish the broader proboscidean order from the much later appearance of modern elephants.",
+      "mapState": "early-africa",
+      "species": [
+        "Early African proboscideans"
+      ],
+      "questionIds": [
+        "nh-time-01"
+      ],
+      "question": "Why is it misleading to ask when 'elephants' first appeared without distinguishing modern elephants from earlier proboscideans?",
+      "points": 5
+    },
+    {
+      "id": "miocene-dispersal",
+      "label": "Miocene Dispersal",
+      "displayDate": "ca. 23\u20135.3 million years ago",
+      "era": "Miocene",
+      "summary": "Proboscideans expanded beyond Africa and diversified across Eurasia and other regions.",
+      "interpretation": "Movement across continents makes geography part of evolutionary history. Range maps should be treated as reconstructions based on fossil localities, not perfectly known boundaries.",
+      "mapState": "miocene-range",
+      "species": [
+        "Gomphotheres",
+        "Deinotheres",
+        "Early elephantids"
+      ],
+      "questionIds": [
+        "nh-time-02"
+      ],
+      "question": "What kinds of evidence would allow researchers to reconstruct the geographic spread of proboscideans during the Miocene?",
+      "points": 5
+    },
+    {
+      "id": "pleistocene-diversity",
+      "label": "Pleistocene Diversity",
+      "displayDate": "ca. 2.6 million\u201311,700 years ago",
+      "era": "Pleistocene",
+      "summary": "Mammoths, mastodons, and other proboscideans occupied wide regions alongside the ancestors and relatives of modern elephants.",
+      "interpretation": "The late Pleistocene shows that recent proboscidean diversity was once much greater than the three living elephant species suggest.",
+      "mapState": "pleistocene-range",
+      "species": [
+        "Mammoths",
+        "Mastodons",
+        "Elephantids"
+      ],
+      "questionIds": [
+        "nh-time-03"
+      ],
+      "question": "What does Pleistocene diversity suggest about using the modern distribution of elephants to imagine the past?",
+      "points": 5
+    },
+    {
+      "id": "late-extinctions",
+      "label": "Late Proboscidean Extinctions",
+      "displayDate": "Late Pleistocene\u2013Holocene",
+      "era": "Late Pleistocene\u2013Holocene",
+      "summary": "Many proboscidean lineages disappeared as climate changed and human hunting pressure increased.",
+      "interpretation": "Extinction should not be presented as monocausal. Climate, habitat change, human pressure, and regional variation must be weighed against one another.",
+      "mapState": "late-extinction",
+      "species": [
+        "Late mammoths",
+        "Regional elephant populations"
+      ],
+      "questionIds": [
+        "nh-time-04"
+      ],
+      "question": "How would you distinguish evidence for climate-driven extinction from evidence for human hunting pressure?",
+      "points": 5
+    },
+    {
+      "id": "2000-bc",
+      "label": "2000 BC",
+      "displayDate": "ca. 2000 BC",
+      "era": "Holocene",
+      "summary": "The last mammoths survived on Wrangel Island into the second millennium BC, while elephants still occupied a much wider geographic range than they do today.",
+      "interpretation": "This state marks the transition from deep-time extinction into historical questions about shrinking elephant ranges and human societies.",
+      "mapState": "elephant-range-2000bc",
+      "species": [
+        "Asian elephants",
+        "African elephants",
+        "Last mammoth populations"
+      ],
+      "questionIds": [
+        "nh-time-05"
+      ],
+      "question": "How does the wider elephant range around 2000 BC complicate modern assumptions about where elephants 'belong'?",
+      "points": 5
+    },
+    {
+      "id": "1600-ad",
+      "label": "1600 AD",
+      "displayDate": "ca. 1600 AD",
+      "era": "Early Modern",
+      "summary": "Expanding Atlantic commercial systems intensified extraction of ivory from parts of West Africa.",
+      "interpretation": "The timeline now moves fully into historical systems of trade, labor, violence, consumption, and environmental pressure.",
+      "mapState": "west-africa-1600",
+      "species": [
+        "African forest elephants",
+        "African savanna elephants"
+      ],
+      "questionIds": [
+        "nh-time-06"
+      ],
+      "question": "What evidence would be needed to connect growth in Atlantic commerce to changing elephant populations in West Africa?",
+      "points": 5
+    },
+    {
+      "id": "1850-1900",
+      "label": "1850\u20131900",
+      "displayDate": "1850\u20131900",
+      "era": "Nineteenth Century",
+      "summary": "Zanzibar and East Africa became major centers in global ivory trading networks during the nineteenth century.",
+      "interpretation": "This state connects elephant range contraction to commercial networks, material demand, transport systems, and imperial expansion.",
+      "mapState": "east-africa-ivory-1850",
+      "species": [
+        "African savanna elephants",
+        "African forest elephants"
+      ],
+      "questionIds": [
+        "nh-time-07"
+      ],
+      "question": "How could historians connect ivory trade records to evidence of changing elephant populations in East Africa?",
+      "points": 5
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Placeholder African locality",
+        "date": "",
+        "evidenceType": "",
+        "note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [30, 20]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Placeholder Eurasian locality",
+        "date": "",
+        "evidenceType": "",
+        "note": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [45, 35]
+      }
+    }
+  ]
+}

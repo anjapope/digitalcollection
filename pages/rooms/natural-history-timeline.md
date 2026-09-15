@@ -2,6 +2,7 @@
 title: "Natural History Timeline"
 layout: vestibule
 permalink: /pages/rooms/natural-history-timeline.html
+custom-foot: js/archivory-inquiry-terminal.html
 ---
 
 <section class="atrium-page natural-history-timeline-page">
@@ -32,86 +33,8 @@ permalink: /pages/rooms/natural-history-timeline.html
         <p class="collection-room-lead">A focused timeline tracing the ecological power of proboscideans, the extinction of their ancient relatives, and the historical pressures placed on modern elephants.</p>
       </div>
 
-      <div class="natural-history-timeline-exhibit is-dismissed" data-timeline-exhibit>
-        <div class="natural-history-timeline-stage" data-timeline-stage>
-          <article class="natural-history-timeline-popup" id="timeline-panel-0" data-timeline-panel="0" style="--timeline-position: 0%;">
-            <button class="natural-history-timeline-popup-close" type="button" aria-label="Close info">✕</button>
-            <p class="natural-history-timeline-date">Cenozoic</p>
-            <h3>The rise of proboscideans</h3>
-            <ul>
-              <li>Proboscideans became one of the defining large herbivore groups of the Cenozoic.</li>
-              <li>Their movement, feeding, and browsing helped spread grasses and shape grazing ecosystems.</li>
-              <li>They did not just inhabit those environments; they helped make them.</li>
-            </ul>
-            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="{{ '/map.html?location=-2.8,36.0&amp;zoom=5&amp;event=Proboscideans%20in%20the%20Cenozoic&amp;description=This%20map%20point%20uses%20East%20Africa%20as%20a%20representative%20landscape%20for%20thinking%20about%20proboscidean%20ecology%20and%20deep-time%20environmental%20change.' | relative_url }}">View this timeframe on the map</a></p>
-          </article>
-
-          <article class="natural-history-timeline-popup" id="timeline-panel-1" data-timeline-panel="1" style="--timeline-position: 25%;">
-            <button class="natural-history-timeline-popup-close" type="button" aria-label="Close info">✕</button>
-            <p class="natural-history-timeline-date">Late prehistory</p>
-            <h3>The extinction of ancient proboscideans</h3>
-            <ul>
-              <li>Ancient proboscideans declined through repeated extinction events over long stretches of time.</li>
-              <li>Climate change mattered, but human hunting pressure was a major driver of their collapse.</li>
-              <li>Their disappearance reduced both biodiversity and the ecological engineering they once provided.</li>
-            </ul>
-            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="{{ '/map.html?location=67.0,161.0&amp;zoom=4&amp;event=Ancient%20proboscidean%20extinctions&amp;description=This%20map%20point%20uses%20the%20Arctic%20north%20and%20Beringian%20world%20as%20a%20representative%20place%20to%20think%20about%20the%20late%20survival%20and%20disappearance%20of%20ancient%20proboscideans.' | relative_url }}">View this timeframe on the map</a></p>
-          </article>
-
-          <article class="natural-history-timeline-popup" id="timeline-panel-2" data-timeline-panel="2" style="--timeline-position: 50%;">
-            <button class="natural-history-timeline-popup-close" type="button" aria-label="Close info">✕</button>
-            <p class="natural-history-timeline-date">2000 BC</p>
-            <h3>A turning point</h3>
-            <ul>
-              <li>The final mammoths disappeared on Wrangel Island around 2000 BC.</li>
-              <li>At the same time, elephants still ranged far more widely than today.</li>
-              <li>They could still be found across northern China, Mesopotamia, and northern Africa.</li>
-            </ul>
-            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="{{ '/map.html?location=70.97,-179.5&amp;zoom=5&amp;event=Wrangel%20Island%20around%202000%20BC&amp;description=This%20map%20point%20centers%20Wrangel%20Island%2C%20where%20the%20last%20mammoths%20survived%20into%20the%20second%20millennium%20BC.' | relative_url }}">View this timeframe on the map</a></p>
-          </article>
-
-          <article class="natural-history-timeline-popup" id="timeline-panel-3" data-timeline-panel="3" style="--timeline-position: 75%;">
-            <button class="natural-history-timeline-popup-close" type="button" aria-label="Close info">✕</button>
-            <p class="natural-history-timeline-date">1600 AD</p>
-            <h3>Trade intensifies</h3>
-            <ul>
-              <li>The Atlantic ivory and slave trades intensified pressure on West African elephant populations.</li>
-              <li>Elephants were drawn more directly into expanding imperial and commercial systems.</li>
-              <li>Ivory circulation accelerated, while violence in the landscapes of extraction deepened.</li>
-            </ul>
-            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="{{ '/map.html?location=6.45,-1.58&amp;zoom=5&amp;event=West%20Africa%20around%201600%20AD&amp;description=This%20map%20point%20uses%20the%20Gulf%20of%20Guinea%20region%20to%20mark%20the%20intensifying%20pressure%20that%20Atlantic%20trade%20placed%20on%20West%20African%20elephant%20populations.' | relative_url }}">View this timeframe on the map</a></p>
-          </article>
-
-          <article class="natural-history-timeline-popup" id="timeline-panel-4" data-timeline-panel="4" style="--timeline-position: 100%;">
-            <button class="natural-history-timeline-popup-close" type="button" aria-label="Close info">✕</button>
-            <p class="natural-history-timeline-date">1850–1900</p>
-            <h3>East African ivory hubs</h3>
-            <ul>
-              <li>Zanzibar and East Africa became major centers of the ivory trade in the nineteenth century.</li>
-              <li>Demand concentrated violence and extraction in specific regions and transport routes.</li>
-              <li>Modern elephant populations entered an era of intensified commercial pressure.</li>
-            </ul>
-            <p class="natural-history-timeline-popup-actions"><a class="natural-history-timeline-map-link" href="{{ '/map.html?location=-6.16,39.19&amp;zoom=6&amp;event=Zanzibar%20and%20the%20nineteenth-century%20ivory%20trade&amp;description=This%20map%20point%20centers%20Zanzibar%2C%20a%20key%20nineteenth-century%20hub%20in%20the%20East%20African%20ivory%20trade.' | relative_url }}">View this timeframe on the map</a></p>
-          </article>
-        </div>
-
-        <div class="natural-history-timeline-slider-wrap">
-          <input class="natural-history-timeline-slider" id="natural-history-timeline-slider" type="range" min="0" max="4" step="1" value="0" data-timeline-slider list="timeline-stops-list">
-          <datalist id="timeline-stops-list">
-            <option value="0"></option>
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-            <option value="4"></option>
-          </datalist>
-          <div class="natural-history-timeline-tick-labels" aria-hidden="true">
-            <span>Cenozoic</span>
-            <span>Extinctions</span>
-            <span>2000 BC</span>
-            <span>1600 AD</span>
-            <span>1850–1900</span>
-          </div>
-        </div>
+      <div class="natural-history-timeline-exhibit natural-history-timeline-module-shell">
+        {% include proboscidean-timeline.html %}
       </div>
 
       <div class="house-rug"></div>
@@ -119,33 +42,4 @@ permalink: /pages/rooms/natural-history-timeline.html
   </div>
 </section>
 
-<script>
-  (() => {
-    const exhibit = document.querySelector('[data-timeline-exhibit]');
-    if (!exhibit) return;
-
-    const slider = exhibit.querySelector('[data-timeline-slider]');
-    const panels = Array.from(exhibit.querySelectorAll('[data-timeline-panel]'));
-
-    if (!slider || !panels.length) return;
-
-    function setActive(index) {
-      const nextIndex = Math.max(0, Math.min(index, panels.length - 1));
-      slider.value = String(nextIndex);
-      exhibit.classList.remove('is-dismissed');
-      panels.forEach((panel, i) => panel.classList.toggle('is-active', i === nextIndex));
-    }
-
-    slider.addEventListener('input', () => setActive(Number(slider.value)));
-
-    // Close buttons dismiss the open panel without changing the slider
-    const closeButtons = exhibit.querySelectorAll('.natural-history-timeline-popup-close');
-    closeButtons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        panels.forEach((panel) => panel.classList.remove('is-active'));
-        exhibit.classList.add('is-dismissed');
-      });
-    });
-
-  })();
-</script>
+{% include archivory-inquiry-terminal.html %}

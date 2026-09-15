@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Wrangel Island placeholder",
+        "date": "Holocene",
+        "evidenceType": "Paleontological",
+        "note": "Replace with vetted site data."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [179, 71]
+      }
+    }
+  ]
+}

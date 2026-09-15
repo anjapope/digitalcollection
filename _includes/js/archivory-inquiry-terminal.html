@@ -1,14 +1,37 @@
 <link rel="stylesheet" href="{{ '/assets/js/archivory-inquiry-terminal-prototype/frontend/inquiry-terminal.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/js/archivory-inquiry-terminal-prototype/frontend/classification-assessment.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/proboscidean-timeline.css' | relative_url }}">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="{{ '/assets/css/habitation-map.css' | relative_url }}">
 <script>
-  window.ARCHIVORY_INQUIRY_API_URL =
-    window.ARCHIVORY_INQUIRY_API_URL ||
-    "http://localhost:3000/api/inquiry";
+  (() => {
+    const configuredApiUrl = '{{ site.inquiry_api_url | escape }}';
+    const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+    window.ARCHIVORY_INQUIRY_API_URL =
+      window.ARCHIVORY_INQUIRY_API_URL ||
+      configuredApiUrl ||
+      (isLocalHost ? "http://localhost:3000/api/inquiry" : null);
+    window.ARCHIVORY_TIMELINE_DATA_URL =
+      window.ARCHIVORY_TIMELINE_DATA_URL ||
+      "{{ '/assets/data/proboscidean-timeline.json' | relative_url }}";
+    window.ARCHIVORY_MAP_STATES_URL =
+      window.ARCHIVORY_MAP_STATES_URL ||
+      "{{ '/assets/data/habitation-map/map-states.json' | relative_url }}";
+    window.ARCHIVORY_MAP_GEOJSON_BASE_URL =
+      window.ARCHIVORY_MAP_GEOJSON_BASE_URL ||
+      "{{ '/assets/data/habitation-map/geojson/' | relative_url }}";
+  })();
 </script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="{{ '/assets/js/archivory-inquiry-terminal-prototype/frontend/inquiry-terminal.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/archivory-inquiry-terminal-prototype/frontend/classification-assessment.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/proboscidean-timeline.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/habitation-map.js' | relative_url }}"></script>
 <script>
   (() => {
     const hotspot = document.querySelector('[data-hotspot="inquiry-tusk"]');
     const timelineTrigger = document.querySelector('[data-open-room-timeline]');
+    const roomTimelineExhibit = document.querySelector('[data-room-timeline-exhibit]');
     const moduleHandlers = {
       'bone-identification': () => {
         window.location.href = "{{ '/naturalhistory/indiana-state-museum-tusk/' | relative_url }}";
@@ -20,7 +43,23 @@
         if (timelineTrigger) timelineTrigger.click();
       },
       'habitation-map': () => {
-        window.location.href = "{{ '/map.html' | relative_url }}";
+        if (timelineTrigger) timelineTrigger.click();
+        requestAnimationFrame(() => {
+          const currentState = window.ArchIvoryTimeline && typeof window.ArchIvoryTimeline.getState === 'function'
+            ? window.ArchIvoryTimeline.getState()
+            : null;
+          const mapState = currentState?.mapState || 'early-africa';
+          if (window.ArchIvoryHabitationMap && typeof window.ArchIvoryHabitationMap.open === 'function') {
+            window.ArchIvoryHabitationMap.open(mapState);
+          } else {
+            window.dispatchEvent(new CustomEvent('archivory:open-map-state', {
+              detail: {
+                source: 'room-module-handler',
+                mapState
+              }
+            }));
+          }
+        });
       }
     };
 
@@ -45,6 +84,12 @@
       });
     }
 
+    const dismissRoomTimeline = () => {
+      if (roomTimelineExhibit) {
+        roomTimelineExhibit.classList.add('is-dismissed');
+      }
+    };
+
     window.addEventListener('archivory:award-points', (event) => {
       console.log('POINT EVENT', event.detail);
     });
@@ -55,6 +100,30 @@
       const handler = moduleHandlers[moduleId];
       if (handler) {
         handler();
+      }
+    });
+
+    window.addEventListener('archivory:timeline-state-change', (event) => {
+      console.log('TIMELINE STATE EVENT', event.detail);
+    });
+
+    window.addEventListener('archivory:open-map-state', (event) => {
+      console.log('MAP STATE EVENT', event.detail);
+    });
+
+    window.addEventListener('archivory:open-question', (event) => {
+      console.log('QUESTION EVENT', event.detail);
+      const question = event?.detail?.question;
+      dismissRoomTimeline();
+      if (window.ArchIvoryInquiry && typeof window.ArchIvoryInquiry.open === 'function') {
+        window.ArchIvoryInquiry.open();
+        requestAnimationFrame(() => {
+          const textarea = document.querySelector('#aiq-question');
+          if (textarea && question) {
+            textarea.value = question;
+            textarea.focus();
+          }
+        });
       }
     });
   })();

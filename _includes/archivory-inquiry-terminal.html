@@ -48,6 +48,50 @@
 
           <section id="aiq-output" class="aiq-output" hidden>
             <article>
+              <h3>Your question</h3>
+              <div data-aiq-current-question></div>
+            </article>
+
+            <section class="aic-assessment" data-aic-assessment hidden aria-labelledby="aic-heading">
+              <div class="aic-assessment-header">
+                <div>
+                  <p class="aic-kicker">Inquiry Assessment</p>
+                  <h3 id="aic-heading">How this question fits the exhibit</h3>
+                </div>
+                <span class="aic-bin-badge" data-aic-bin-label></span>
+              </div>
+              <div class="aic-grid-wrap">
+                <div class="aic-quadrant" role="img" aria-label="Relevance and answerability quadrant">
+                  <div class="aic-cell" data-aic-cell="relevant_answerable"><strong>Relevant</strong><span>Answerable</span></div>
+                  <div class="aic-cell" data-aic-cell="not_relevant_answerable"><strong>Not Relevant</strong><span>Answerable</span></div>
+                  <div class="aic-cell" data-aic-cell="relevant_not_answerable"><strong>Relevant</strong><span>Not Answerable</span></div>
+                  <div class="aic-cell" data-aic-cell="not_relevant_not_answerable"><strong>Not Relevant</strong><span>Not Answerable</span></div>
+                </div>
+                <div class="aic-diagnostics">
+                  <div class="aic-metric">
+                    <div class="aic-metric-row"><span>Relevance</span><strong data-aic-relevance-label></strong></div>
+                    <div class="aic-meter"><span data-aic-relevance-meter></span></div>
+                    <p data-aic-relevance-reason></p>
+                  </div>
+                  <div class="aic-metric">
+                    <div class="aic-metric-row"><span>Answerability</span><strong data-aic-answerability-label></strong></div>
+                    <div class="aic-meter"><span data-aic-answerability-meter></span></div>
+                    <p data-aic-answerability-reason></p>
+                  </div>
+                  <div class="aic-metric">
+                    <div class="aic-metric-row"><span>Inquiry Originality</span><strong data-aic-originality-label></strong></div>
+                    <div class="aic-meter"><span data-aic-originality-meter></span></div>
+                    <p data-aic-originality-reason></p>
+                  </div>
+                </div>
+              </div>
+              <aside class="aic-bin-explanation">
+                <h4 data-aic-bin-heading></h4>
+                <p data-aic-bin-description></p>
+              </aside>
+            </section>
+
+            <article>
               <h3>Answer</h3>
               <div data-aiq-answer></div>
             </article>
@@ -58,7 +102,7 @@
               <p class="aiq-question-type"><strong>Question type:</strong> <span data-aiq-question-type></span></p>
             </article>
 
-            <article>
+            <article data-aiq-refinement-card hidden>
               <h3>A stronger question</h3>
               <div data-aiq-stronger></div>
               <button class="aiq-secondary" type="button" data-aiq-use-refinement>
@@ -66,14 +110,14 @@
               </button>
             </article>
 
-            <article>
-              <h3>Questions to pursue</h3>
-              <ul data-aiq-followups></ul>
-            </article>
-
             <article class="aiq-evidence">
               <h3>Think like a historian</h3>
               <p data-aiq-evidence></p>
+            </article>
+
+            <article>
+              <h3>Questions to pursue</h3>
+              <ul data-aiq-followups></ul>
             </article>
 
             <article class="aiq-module-card" data-aiq-module-card hidden>

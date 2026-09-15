@@ -1,0 +1,26 @@
+<section class="ahm-panel" data-ahm-panel hidden aria-labelledby="ahm-title">
+  <header class="ahm-header">
+    <div>
+      <p class="ahm-kicker">Habitation &amp; Evidence</p>
+      <h3 id="ahm-title" data-ahm-label>Habitation Map</h3>
+      <p data-ahm-date></p>
+    </div>
+    <button type="button" data-ahm-close aria-label="Close habitation map">×</button>
+  </header>
+  <p data-ahm-summary></p>
+  <div class="ahm-map-frame">
+    <div id="archivory-habitation-map" class="ahm-map" role="region" aria-label="Interactive habitation map"></div>
+  </div>
+  <div class="ahm-controls" role="group" aria-label="Map display mode">
+    <button type="button" data-ahm-mode="evidence">Evidence</button>
+    <button type="button" data-ahm-mode="reconstruction">Reconstruction</button>
+    <button type="button" data-ahm-mode="combined" class="is-active">Combined</button>
+  </div>
+  <div class="ahm-legend"><span>● Evidence point</span><span>▧ Reconstructed range</span><span>— Historical network</span></div>
+  <aside class="ahm-question">
+    <p class="ahm-question-label">Investigate</p>
+    <p data-ahm-question></p>
+  </aside>
+  <p class="ahm-note">Reconstructed ranges are interpretations of available evidence, not precise historical borders.</p>
+  <p class="ahm-status" data-ahm-status aria-live="polite"></p>
+</section>

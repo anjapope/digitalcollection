@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "label": "Placeholder fossil locality",
+        "date": "Deep time",
+        "evidenceType": "Paleontological",
+        "note": "Replace with vetted evidence."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [31, 26]
+      }
+    }
+  ]
+}
