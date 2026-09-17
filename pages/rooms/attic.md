@@ -1,6 +1,7 @@
 ---
 title: "Attic Room"
 layout: vestibule
+room_id: attic
 permalink: /pages/rooms/attic.html
 ---
 
@@ -8,7 +9,7 @@ permalink: /pages/rooms/attic.html
   <h1 class="visually-hidden">Attic room</h1>
 
   <div class="house-scene">
-    <div class="house-backdrop attic-hall">
+    <div class="house-backdrop attic-hall" style="background-image:url('{{ '/assets/img/room-edits/attic-board-v1.png' | relative_url }}')">
       <a class="room-cornice-link room-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
       <a class="room-cornice-link room-cornice-link-right" href="{{ '/pages/pathways-overview.html' | relative_url }}">Pathways Overview</a>
       <div class="house-cornice"></div>
@@ -32,7 +33,7 @@ permalink: /pages/rooms/attic.html
       <div class="house-portrait house-portrait-right"></div>
 
       <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Attic room links">
-        <a xlink:href="{{ '/pages/rooms/conservators-office.html' | relative_url }}" aria-label="Descend to the Conservator's Office" target="_self">
+        <a href="{{ '/pages/rooms/conservators-office.html' | relative_url }}" aria-label="Descend to the Conservator's Office" target="_self">
           <polygon class="art-room-hotspot" points="779,802 899,802 919,946 768,946" />
           <text class="art-room-hotspot-label" x="846" text-anchor="middle" font-size="8"><tspan x="846" y="860">Conservator's</tspan><tspan x="846" dy="12">Office</tspan></text>
         </a>

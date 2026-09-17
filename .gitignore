@@ -20,3 +20,7 @@ objects/
 # Ignore Node secrets and dependencies
 .env
 node_modules/
+/utilities/editorial-workbook/__pycache__/
+/outputs/archivory-editorial/preview-*.png
+/outputs/archivory-editorial/source.json
+/outputs/archivory-editorial/*.inspect.ndjson

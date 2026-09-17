@@ -1,6 +1,7 @@
 ---
 title: "Vestibule Welcome"
 layout: vestibule
+room_id: vestibule
 permalink: /pages/vestibule.html
 ---
 
@@ -27,19 +28,19 @@ permalink: /pages/vestibule.html
       </div>
 
       <svg class="vestibule-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Vestibule room links">
-        <a class="vestibule-arch-overlay-group" xlink:href="{{ '/pages/rooms/historical-society.html' | relative_url }}" aria-label="Enter Historical Society room" target="_self">
+        <a class="vestibule-arch-overlay-group" href="{{ '/pages/rooms/historical-society.html' | relative_url }}" aria-label="Enter Historical Society room" target="_self">
           <polygon class="vestibule-hotspot vestibule-arch-overlay" points="118,582 230,568 230,831 118,892" />
           <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="174" text-anchor="middle"><tspan x="174" y="755">Historical</tspan><tspan x="174" dy="12">Society</tspan></text>
         </a>
-        <a class="vestibule-arch-overlay-group" xlink:href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Enter the Art Museum" target="_self">
+        <a class="vestibule-arch-overlay-group" href="{{ '/pages/rooms/gallery.html' | relative_url }}" aria-label="Enter the Art Gallery" target="_self">
           <polygon class="vestibule-hotspot vestibule-arch-overlay" points="360,205 438,244 438,483 360,483" />
           <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="399" text-anchor="middle"><tspan x="399" y="440">Art</tspan><tspan x="399" dy="12">Museum</tspan></text>
         </a>
-        <a class="vestibule-arch-overlay-group" xlink:href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter Attic room" target="_self">
+        <a class="vestibule-arch-overlay-group" href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter Attic room" target="_self">
           <polygon class="vestibule-hotspot vestibule-arch-overlay" points="660,110 745,84 745,309 660,322" />
           <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="700" y="293" text-anchor="middle">Attic</text>
         </a>
-        <a class="vestibule-arch-overlay-group" xlink:href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter The Natural History Museum" target="_self">
+        <a class="vestibule-arch-overlay-group" href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter The Natural History Museum" target="_self">
           <polygon class="vestibule-hotspot vestibule-arch-overlay" points="712,417 808,413 808,671 712,657" />
           <text class="vestibule-hotspot-label vestibule-arch-overlay-label" x="763" text-anchor="middle"><tspan x="763" y="614">Natural</tspan><tspan x="763" dy="12">History</tspan></text>
         </a>
@@ -52,10 +53,6 @@ permalink: /pages/vestibule.html
       <button class="house-console welcome-mantle" type="button" aria-haspopup="dialog" aria-controls="welcome-sequence" aria-label="Open welcome messages">
         <span class="welcome-mantle-label">Welcome</span>
       </button>
-      <a class="floor-library-sign" href="{{ '/pages/rooms/library.html' | relative_url }}" aria-label="Go to Library room">
-        <span class="floor-library-sign-arrow" aria-hidden="true">←</span>
-        <span class="floor-library-sign-text">Library</span>
-      </a>
       <a class="floor-lab-sign" href="{{ '/pages/rooms/lab.html' | relative_url }}" aria-label="Go to Lab room">
         <span class="floor-lab-sign-text">Lab</span>
         <span class="floor-lab-sign-arrow" aria-hidden="true">→</span>

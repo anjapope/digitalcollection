@@ -40,10 +40,10 @@
         window.location.href = "{{ '/naturalhistory/elephant-biology/' | relative_url }}";
       },
       'proboscidean-timeline': () => {
-        if (timelineTrigger) timelineTrigger.click();
+        if (timelineTrigger) timelineTrigger.dispatchEvent(new MouseEvent('click', { bubbles:true, cancelable:true }));
       },
       'habitation-map': () => {
-        if (timelineTrigger) timelineTrigger.click();
+        if (timelineTrigger) timelineTrigger.dispatchEvent(new MouseEvent('click', { bubbles:true, cancelable:true }));
         requestAnimationFrame(() => {
           const currentState = window.ArchIvoryTimeline && typeof window.ArchIvoryTimeline.getState === 'function'
             ? window.ArchIvoryTimeline.getState()

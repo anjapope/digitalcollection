@@ -1,14 +1,15 @@
 ---
-title: "Art Room"
+title: "Conservation Lab"
 layout: vestibule
+room_id: conservation_lab
 permalink: /pages/rooms/art.html
 ---
 
 <section class="atrium-page collection-room-art-hall">
-  <h1 class="visually-hidden">Art room</h1>
+  <h1 class="visually-hidden">Conservation Lab</h1>
 
   <div class="house-scene">
-    <div class="house-backdrop art-hall">
+    <div class="house-backdrop art-hall" style="background-image:url('{{ '/assets/img/room-edits/conservation-lab-poster-v1.png' | relative_url }}')">
       <div class="house-cornice"></div>
       <a class="art-cornice-link art-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
       <a class="art-cornice-link art-cornice-link-right" href="{{ '/pages/rooms/gallery.html' | relative_url }}">Gallery</a>
@@ -27,15 +28,15 @@ permalink: /pages/rooms/art.html
       </div>
 
       <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Art room links">
-        <a xlink:href="{{ '/pages/rooms/gallery.html' | relative_url }}" aria-label="Enter the Gallery" target="_self">
+        <a href="{{ '/pages/rooms/gallery.html' | relative_url }}" aria-label="Enter the Gallery" target="_self">
           <polygon class="art-room-hotspot" points="315,286 418,286 418,613 315,613" />
           <text class="art-room-hotspot-label" x="367" y="570" text-anchor="middle">Enter Gallery</text>
         </a>
-        <a xlink:href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter the Natural History Museum" target="_self">
+        <a href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter the Natural History Museum" target="_self">
           <polygon class="art-room-hotspot" points="35,238 145,270 145,720 35,788" />
             <text class="art-room-hotspot-label" x="90" y="625" text-anchor="middle">Natural History</text>
         </a>
-        <a class="art-table-overlay-trigger" xlink:href="#" aria-label="Open IU Eskenazi ivories information" target="_self">
+        <a class="art-table-overlay-trigger" href="#" aria-label="Open IU Eskenazi ivories information" target="_self">
           <polygon class="art-room-hotspot" points="483,607 731,604 797,681 468,687" />
           <text class="art-room-hotspot-label" x="580" y="657" text-anchor="middle">Eskenazi Ivories</text>
         </a>
@@ -43,7 +44,7 @@ permalink: /pages/rooms/art.html
 
       <div class="art-room-plaque">
         <p class="collection-room-kicker">Collection Room</p>
-        <h2>Art</h2>
+        <h2>Conservation Lab</h2>
         <p class="collection-room-lead">A room for ivory as medium, workmanship, display, and the artistic traditions that make these objects compelling and contested.</p>
       </div>
 

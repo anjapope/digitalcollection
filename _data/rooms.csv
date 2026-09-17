@@ -1,0 +1,9 @@
+room_id,editor_label,route,background_asset,enabled
+vestibule,Vestibule,/pages/vestibule.html,/assets/img/Vestibule12.png,true
+gallery,Gallery,/pages/rooms/gallery.html,/assets/img/room-edits/gallery-door-v1.png,true
+conservation_lab,Conservation Lab,/pages/rooms/art.html,/assets/img/room-edits/conservation-lab-poster-v1.png,true
+historical_society,Historical Society,/pages/rooms/historical-society.html,/assets/img/room-edits/historical-society-poster-v1.png,true
+attic,Attic,/pages/rooms/attic.html,/assets/img/room-edits/attic-board-v1.png,true
+natural_history,Natural History Museum,/pages/rooms/natural-history.html,/assets/img/Natural History Museum Interior12.jpg,true
+conservators_office,Conservator's Office,/pages/rooms/conservators-office.html,/assets/img/Conservator's Office Interior 12.png,true
+lab,Lab,/pages/rooms/lab.html,,true

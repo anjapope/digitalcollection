@@ -1,6 +1,7 @@
 ---
 title: "Gallery Room"
 layout: vestibule
+room_id: gallery
 permalink: /pages/rooms/gallery.html
 ---
 
@@ -8,9 +9,9 @@ permalink: /pages/rooms/gallery.html
   <h1 class="visually-hidden">Gallery room</h1>
 
   <div class="house-scene">
-    <div class="house-backdrop gallery-hall">
+    <div class="house-backdrop gallery-hall" style="background-image:url('{{ '/assets/img/room-edits/gallery-door-v1.png' | relative_url }}')">
       <div class="house-cornice"></div>
-      <a class="art-cornice-link art-cornice-link-left" href="{{ '/pages/rooms/art.html' | relative_url }}">Back to Art</a>
+      <a class="art-cornice-link art-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
       <a class="art-cornice-link art-cornice-link-right" href="{{ '/pages/pathways-overview.html' | relative_url }}">Pathways Overview</a>
       <div class="house-medallion"></div>
       <div class="house-chandelier">
@@ -27,10 +28,13 @@ permalink: /pages/rooms/gallery.html
       </div>
 
       <svg class="art-room-hotspots art-room-hotspots-compact" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Gallery room links">
+        <a href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Enter Conservation Lab">
+          <polygon class="art-room-hotspot" points="600,365 691,365 691,536 600,536" />
+        </a>
         <a class="art-sconce-trigger" aria-label="View the Roman Wall Sconce" target="_self" data-notebook-id="gallery-roman-wall-sconce" data-notebook-title="Roman Wall Sconce evidence case" data-notebook-type="evidence" data-notebook-points="12" data-notebook-description="Visual clues from the object and its underside suggest a bone material rather than ivory.">
           <polygon class="art-room-hotspot" points="326,397 354,397 354,437 326,437" />
         </a>
-        <a xlink:href="{{ '/pages/rooms/conservators-office.html' | relative_url }}" aria-label="Enter the Conservator's Office" target="_self">
+        <a href="{{ '/pages/rooms/conservators-office.html' | relative_url }}" aria-label="Enter the Conservator's Office" target="_self">
           <polygon class="art-room-hotspot" points="873,352 933,339 933,613 873,585" />
           <text class="art-room-hotspot-label" x="903" text-anchor="middle" font-size="8"><tspan x="903" y="496">Conservator's</tspan><tspan x="903" dy="12">Office</tspan></text>
         </a>

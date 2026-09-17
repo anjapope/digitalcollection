@@ -1,0 +1,1937 @@
+[
+  {
+    "anchor_id": "gallery_intro_anchor",
+    "slot_id": "gallery_intro",
+    "room_id": "gallery",
+    "background_asset": "/assets/img/room-edits/gallery-door-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1445,
+      "height": 1089
+    },
+    "mount": ".gallery-hall",
+    "polygon": [
+      [
+        540.43,
+        675.18
+      ],
+      [
+        595.34,
+        675.18
+      ],
+      [
+        595.34,
+        688.248
+      ],
+      [
+        540.43,
+        688.248
+      ]
+    ],
+    "content_bounds": {
+      "x": 540.43,
+      "y": 675.18,
+      "width": 54.91,
+      "height": 13.068
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "conservation_lab_intro_anchor",
+    "slot_id": "conservation_lab_intro",
+    "room_id": "conservation_lab",
+    "background_asset": "/assets/img/room-edits/conservation-lab-poster-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1448,
+      "height": 1086
+    },
+    "mount": ".art-hall",
+    "polygon": [
+      [
+        748.616,
+        194.394
+      ],
+      [
+        1016.496,
+        194.394
+      ],
+      [
+        1016.496,
+        256.296
+      ],
+      [
+        748.616,
+        256.296
+      ]
+    ],
+    "content_bounds": {
+      "x": 748.616,
+      "y": 194.394,
+      "width": 267.88,
+      "height": 61.902
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "historical_society_intro_anchor",
+    "slot_id": "historical_society_intro",
+    "room_id": "historical_society",
+    "background_asset": "/assets/img/room-edits/historical-society-poster-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1441,
+      "height": 1091
+    },
+    "mount": ".local-hall",
+    "polygon": [
+      [
+        609.543,
+        454.947
+      ],
+      [
+        814.165,
+        454.947
+      ],
+      [
+        814.165,
+        514.952
+      ],
+      [
+        609.543,
+        514.952
+      ]
+    ],
+    "content_bounds": {
+      "x": 609.543,
+      "y": 454.947,
+      "width": 204.622,
+      "height": 60.005
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "attic_intro_anchor",
+    "slot_id": "attic_intro",
+    "room_id": "attic",
+    "background_asset": "/assets/img/room-edits/attic-board-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1535,
+      "height": 1024
+    },
+    "mount": ".attic-hall",
+    "polygon": [
+      [
+        409.845,
+        720.896
+      ],
+      [
+        655.445,
+        720.896
+      ],
+      [
+        655.445,
+        802.816
+      ],
+      [
+        409.845,
+        802.816
+      ]
+    ],
+    "content_bounds": {
+      "x": 409.845,
+      "y": 720.896,
+      "width": 245.6,
+      "height": 81.92
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_intro_anchor",
+    "slot_id": "natural_history_intro",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [
+        632.302,
+        645.15
+      ],
+      [
+        787.924,
+        645.15
+      ],
+      [
+        787.924,
+        720.324
+      ],
+      [
+        632.302,
+        720.324
+      ]
+    ],
+    "content_bounds": {
+      "x": 632.302,
+      "y": 645.15,
+      "width": 155.622,
+      "height": 75.174
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "conservators_office_intro_anchor",
+    "slot_id": "conservators_office_intro",
+    "room_id": "conservators_office",
+    "background_asset": "/assets/img/Conservator's Office Interior 12.png",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1122,
+      "height": 1402
+    },
+    "mount": ".conservator-office-hall",
+    "polygon": [
+      [
+        857.208,
+        555.192
+      ],
+      [
+        909.942,
+        555.192
+      ],
+      [
+        909.942,
+        731.844
+      ],
+      [
+        857.208,
+        731.844
+      ]
+    ],
+    "content_bounds": {
+      "x": 857.208,
+      "y": 555.192,
+      "width": 52.734,
+      "height": 176.652
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "lab_intro_anchor",
+    "slot_id": "lab_intro",
+    "room_id": "lab",
+    "background_asset": "",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1000,
+      "height": 1000
+    },
+    "mount": ".collection-room-lab",
+    "polygon": [
+      [
+        460.0,
+        93.0
+      ],
+      [
+        540.0,
+        93.0
+      ],
+      [
+        540.0,
+        143.0
+      ],
+      [
+        460.0,
+        143.0
+      ]
+    ],
+    "content_bounds": {
+      "x": 460.0,
+      "y": 93.0,
+      "width": 80.0,
+      "height": 50.0
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "vestibule_welcome_01_anchor",
+    "slot_id": "vestibule_welcome_01",
+    "room_id": "vestibule",
+    "background_asset": "/assets/img/Vestibule12.png",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1535,
+      "height": 1024
+    },
+    "mount": ".house-backdrop",
+    "polygon": [
+      [
+        153.5,
+        711.68
+      ],
+      [
+        322.35,
+        711.68
+      ],
+      [
+        322.35,
+        773.12
+      ],
+      [
+        153.5,
+        773.12
+      ]
+    ],
+    "content_bounds": {
+      "x": 153.5,
+      "y": 711.68,
+      "width": 168.85,
+      "height": 61.44
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "tool",
+    "selector": ".welcome-mantle",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "gallery_wall_01_anchor",
+    "slot_id": "gallery_wall_01",
+    "room_id": "gallery",
+    "background_asset": "/assets/img/room-edits/gallery-door-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1445,
+      "height": 1089
+    },
+    "mount": ".gallery-hall",
+    "polygon": [
+      [
+        54.91,
+        364.815
+      ],
+      [
+        151.725,
+        364.815
+      ],
+      [
+        151.725,
+        541.233
+      ],
+      [
+        54.91,
+        541.233
+      ]
+    ],
+    "content_bounds": {
+      "x": 54.91,
+      "y": 364.815,
+      "width": 96.815,
+      "height": 176.418
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "gallery_wall_02_anchor",
+    "slot_id": "gallery_wall_02",
+    "room_id": "gallery",
+    "background_asset": "/assets/img/room-edits/gallery-door-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1445,
+      "height": 1089
+    },
+    "mount": ".gallery-hall",
+    "polygon": [
+      [
+        245.65,
+        397.485
+      ],
+      [
+        312.12,
+        397.485
+      ],
+      [
+        312.12,
+        520.542
+      ],
+      [
+        245.65,
+        520.542
+      ]
+    ],
+    "content_bounds": {
+      "x": 245.65,
+      "y": 397.485,
+      "width": 66.47,
+      "height": 123.057
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "gallery_case_01_anchor",
+    "slot_id": "gallery_case_01",
+    "room_id": "gallery",
+    "background_asset": "/assets/img/room-edits/gallery-door-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1445,
+      "height": 1089
+    },
+    "mount": ".gallery-hall",
+    "polygon": [
+      [
+        471.07,
+        701.316
+      ],
+      [
+        958.035,
+        701.316
+      ],
+      [
+        958.035,
+        802.593
+      ],
+      [
+        471.07,
+        802.593
+      ]
+    ],
+    "content_bounds": {
+      "x": 471.07,
+      "y": 701.316,
+      "width": 486.965,
+      "height": 101.277
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "gallery_case_02_anchor",
+    "slot_id": "gallery_case_02",
+    "room_id": "gallery",
+    "background_asset": "/assets/img/room-edits/gallery-door-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1445,
+      "height": 1089
+    },
+    "mount": ".gallery-hall",
+    "polygon": [
+      [
+        635.8,
+        585.882
+      ],
+      [
+        787.525,
+        585.882
+      ],
+      [
+        787.525,
+        616.374
+      ],
+      [
+        635.8,
+        616.374
+      ]
+    ],
+    "content_bounds": {
+      "x": 635.8,
+      "y": 585.882,
+      "width": 151.725,
+      "height": 30.492
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "gallery_wall_03_anchor",
+    "slot_id": "gallery_wall_03",
+    "room_id": "gallery",
+    "background_asset": "/assets/img/room-edits/gallery-door-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1445,
+      "height": 1089
+    },
+    "mount": ".gallery-hall",
+    "polygon": [
+      [
+        472.515,
+        435.6
+      ],
+      [
+        510.085,
+        435.6
+      ],
+      [
+        510.085,
+        474.804
+      ],
+      [
+        472.515,
+        474.804
+      ]
+    ],
+    "content_bounds": {
+      "x": 472.515,
+      "y": 435.6,
+      "width": 37.57,
+      "height": 39.204
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": ".art-sconce-trigger",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "conservation_lab_table_01_anchor",
+    "slot_id": "conservation_lab_table_01",
+    "room_id": "conservation_lab",
+    "background_asset": "/assets/img/room-edits/conservation-lab-poster-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1448,
+      "height": 1086
+    },
+    "mount": ".art-hall",
+    "polygon": [
+      [
+        699.384,
+        659.202
+      ],
+      [
+        1154.056,
+        659.202
+      ],
+      [
+        1154.056,
+        746.082
+      ],
+      [
+        699.384,
+        746.082
+      ]
+    ],
+    "content_bounds": {
+      "x": 699.384,
+      "y": 659.202,
+      "width": 454.672,
+      "height": 86.88
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": ".art-table-overlay-trigger",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "conservation_lab_timeline_01_anchor",
+    "slot_id": "conservation_lab_timeline_01",
+    "room_id": "conservation_lab",
+    "background_asset": "/assets/img/room-edits/conservation-lab-poster-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1448,
+      "height": 1086
+    },
+    "mount": ".art-hall",
+    "polygon": [
+      [
+        248,
+        322
+      ],
+      [
+        388,
+        358
+      ],
+      [
+        388,
+        518
+      ],
+      [
+        248,
+        542
+      ]
+    ],
+    "content_bounds": {
+      "x": 248,
+      "y": 322,
+      "width": 140,
+      "height": 220
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "timeline",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "conservation_lab_media_01_anchor",
+    "slot_id": "conservation_lab_media_01",
+    "room_id": "conservation_lab",
+    "background_asset": "/assets/img/room-edits/conservation-lab-poster-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1448,
+      "height": 1086
+    },
+    "mount": ".art-hall",
+    "polygon": [
+      [
+        1046.904,
+        451.776
+      ],
+      [
+        1152.608,
+        451.776
+      ],
+      [
+        1152.608,
+        584.268
+      ],
+      [
+        1046.904,
+        584.268
+      ]
+    ],
+    "content_bounds": {
+      "x": 1046.904,
+      "y": 451.776,
+      "width": 105.704,
+      "height": 132.492
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "tool",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "historical_society_timeline_01_anchor",
+    "slot_id": "historical_society_timeline_01",
+    "room_id": "historical_society",
+    "background_asset": "/assets/img/room-edits/historical-society-poster-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1441,
+      "height": 1091
+    },
+    "mount": ".local-hall",
+    "polygon": [
+      [
+        402,
+        328
+      ],
+      [
+        539,
+        328
+      ],
+      [
+        539,
+        496
+      ],
+      [
+        402,
+        496
+      ]
+    ],
+    "content_bounds": {
+      "x": 402,
+      "y": 328,
+      "width": 137,
+      "height": 168
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "timeline",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "historical_society_case_01_anchor",
+    "slot_id": "historical_society_case_01",
+    "room_id": "historical_society",
+    "background_asset": "/assets/img/room-edits/historical-society-poster-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1441,
+      "height": 1091
+    },
+    "mount": ".local-hall",
+    "polygon": [
+      [
+        185.889,
+        547.682
+      ],
+      [
+        363.132,
+        547.682
+      ],
+      [
+        363.132,
+        619.688
+      ],
+      [
+        185.889,
+        619.688
+      ]
+    ],
+    "content_bounds": {
+      "x": 185.889,
+      "y": 547.682,
+      "width": 177.243,
+      "height": 72.006
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "historical_society_case_02_anchor",
+    "slot_id": "historical_society_case_02",
+    "room_id": "historical_society",
+    "background_asset": "/assets/img/room-edits/historical-society-poster-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1441,
+      "height": 1091
+    },
+    "mount": ".local-hall",
+    "polygon": [
+      [
+        1119.657,
+        816.068
+      ],
+      [
+        1426.59,
+        816.068
+      ],
+      [
+        1426.59,
+        907.712
+      ],
+      [
+        1119.657,
+        907.712
+      ]
+    ],
+    "content_bounds": {
+      "x": 1119.657,
+      "y": 816.068,
+      "width": 306.933,
+      "height": 91.644
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "historical_society_piano_01_anchor",
+    "slot_id": "historical_society_piano_01",
+    "room_id": "historical_society",
+    "background_asset": "/assets/img/room-edits/historical-society-poster-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1441,
+      "height": 1091
+    },
+    "mount": ".local-hall",
+    "polygon": [
+      [
+        563.431,
+        436.4
+      ],
+      [
+        874.687,
+        436.4
+      ],
+      [
+        874.687,
+        700.422
+      ],
+      [
+        563.431,
+        700.422
+      ]
+    ],
+    "content_bounds": {
+      "x": 563.431,
+      "y": 436.4,
+      "width": 311.256,
+      "height": 264.022
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "historical_society_table_01_anchor",
+    "slot_id": "historical_society_table_01",
+    "room_id": "historical_society",
+    "background_asset": "/assets/img/room-edits/historical-society-poster-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1441,
+      "height": 1091
+    },
+    "mount": ".local-hall",
+    "polygon": [
+      [
+        0.0,
+        774.61
+      ],
+      [
+        244.97,
+        774.61
+      ],
+      [
+        244.97,
+        948.079
+      ],
+      [
+        0.0,
+        948.079
+      ]
+    ],
+    "content_bounds": {
+      "x": 0.0,
+      "y": 774.61,
+      "width": 244.97,
+      "height": 173.469
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "attic_timeline_01_anchor",
+    "slot_id": "attic_timeline_01",
+    "room_id": "attic",
+    "background_asset": "/assets/img/room-edits/attic-board-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1535,
+      "height": 1024
+    },
+    "mount": ".attic-hall",
+    "polygon": [
+      [
+        447,
+        328
+      ],
+      [
+        596,
+        328
+      ],
+      [
+        596,
+        486
+      ],
+      [
+        447,
+        486
+      ]
+    ],
+    "content_bounds": {
+      "x": 447,
+      "y": 328,
+      "width": 149,
+      "height": 158
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "timeline",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "attic_trunk_01_anchor",
+    "slot_id": "attic_trunk_01",
+    "room_id": "attic",
+    "background_asset": "/assets/img/room-edits/attic-board-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1535,
+      "height": 1024
+    },
+    "mount": ".attic-hall",
+    "polygon": [
+      [
+        400.635,
+        653.312
+      ],
+      [
+        661.585,
+        653.312
+      ],
+      [
+        661.585,
+        695.296
+      ],
+      [
+        400.635,
+        695.296
+      ]
+    ],
+    "content_bounds": {
+      "x": 400.635,
+      "y": 653.312,
+      "width": 260.95,
+      "height": 41.984
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "attic_trunk_02_anchor",
+    "slot_id": "attic_trunk_02",
+    "room_id": "attic",
+    "background_asset": "/assets/img/room-edits/attic-board-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1535,
+      "height": 1024
+    },
+    "mount": ".attic-hall",
+    "polygon": [
+      [
+        851.925,
+        644.096
+      ],
+      [
+        1086.78,
+        644.096
+      ],
+      [
+        1086.78,
+        687.104
+      ],
+      [
+        851.925,
+        687.104
+      ]
+    ],
+    "content_bounds": {
+      "x": 851.925,
+      "y": 644.096,
+      "width": 234.855,
+      "height": 43.008
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "attic_shelves_01_anchor",
+    "slot_id": "attic_shelves_01",
+    "room_id": "attic",
+    "background_asset": "/assets/img/room-edits/attic-board-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1535,
+      "height": 1024
+    },
+    "mount": ".attic-hall",
+    "polygon": [
+      [
+        46.05,
+        491.52
+      ],
+      [
+        297.79,
+        491.52
+      ],
+      [
+        297.79,
+        533.504
+      ],
+      [
+        46.05,
+        533.504
+      ]
+    ],
+    "content_bounds": {
+      "x": 46.05,
+      "y": 491.52,
+      "width": 251.74,
+      "height": 41.984
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "attic_table_01_anchor",
+    "slot_id": "attic_table_01",
+    "room_id": "attic",
+    "background_asset": "/assets/img/room-edits/attic-board-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1535,
+      "height": 1024
+    },
+    "mount": ".attic-hall",
+    "polygon": [
+      [
+        18.42,
+        677.888
+      ],
+      [
+        178.06,
+        677.888
+      ],
+      [
+        178.06,
+        714.752
+      ],
+      [
+        18.42,
+        714.752
+      ]
+    ],
+    "content_bounds": {
+      "x": 18.42,
+      "y": 677.888,
+      "width": 159.64,
+      "height": 36.864
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_specimen_01_anchor",
+    "slot_id": "natural_history_specimen_01",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [
+        402.374,
+        498.168
+      ],
+      [
+        1001.028,
+        498.168
+      ],
+      [
+        1001.028,
+        651.882
+      ],
+      [
+        402.374,
+        651.882
+      ]
+    ],
+    "content_bounds": {
+      "x": 402.374,
+      "y": 498.168,
+      "width": 598.654,
+      "height": 153.714
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_specimen_01_label_anchor",
+    "slot_id": "natural_history_specimen_01_label",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [
+        631,
+        657
+      ],
+      [
+        770,
+        657
+      ],
+      [
+        770,
+        686
+      ],
+      [
+        631,
+        686
+      ]
+    ],
+    "content_bounds": {
+      "x": 631,
+      "y": 657,
+      "width": 139,
+      "height": 29
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_panel_01_anchor",
+    "slot_id": "natural_history_panel_01",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [
+        374.334,
+        259.182
+      ],
+      [
+        514.534,
+        259.182
+      ],
+      [
+        514.534,
+        488.07
+      ],
+      [
+        374.334,
+        488.07
+      ]
+    ],
+    "content_bounds": {
+      "x": 374.334,
+      "y": 259.182,
+      "width": 140.2,
+      "height": 228.888
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_panel_02_anchor",
+    "slot_id": "natural_history_panel_02",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [
+        556.594,
+        238.986
+      ],
+      [
+        848.21,
+        238.986
+      ],
+      [
+        848.21,
+        403.92
+      ],
+      [
+        556.594,
+        403.92
+      ]
+    ],
+    "content_bounds": {
+      "x": 556.594,
+      "y": 238.986,
+      "width": 291.616,
+      "height": 164.934
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_map_01_anchor",
+    "slot_id": "natural_history_map_01",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [
+        884.662,
+        250.206
+      ],
+      [
+        1029.068,
+        250.206
+      ],
+      [
+        1029.068,
+        494.802
+      ],
+      [
+        884.662,
+        494.802
+      ]
+    ],
+    "content_bounds": {
+      "x": 884.662,
+      "y": 250.206,
+      "width": 144.406,
+      "height": 244.596
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "tool",
+    "selector": "a[aria-label=\"Open the map\"]",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_timeline_01_anchor",
+    "slot_id": "natural_history_timeline_01",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [
+        1324.89,
+        333.234
+      ],
+      [
+        1393.588,
+        333.234
+      ],
+      [
+        1393.588,
+        562.122
+      ],
+      [
+        1324.89,
+        562.122
+      ]
+    ],
+    "content_bounds": {
+      "x": 1324.89,
+      "y": 333.234,
+      "width": 68.698,
+      "height": 228.888
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "tool",
+    "selector": "[data-open-room-timeline]",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_map_02_anchor",
+    "slot_id": "natural_history_map_02",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "content_bounds": {
+      "x": 0.0,
+      "y": 0.0,
+      "width": 0.0,
+      "height": 0.0
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "tool",
+    "selector": "[data-apt-map-action]",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": true
+  },
+  {
+    "anchor_id": "natural_history_timeline_02_anchor",
+    "slot_id": "natural_history_timeline_02",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [
+        555,
+        433
+      ],
+      [
+        838,
+        433
+      ],
+      [
+        838,
+        505
+      ],
+      [
+        555,
+        505
+      ]
+    ],
+    "content_bounds": {
+      "x": 555,
+      "y": 433,
+      "width": 283,
+      "height": 72
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "timeline",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_inquiry_01_anchor",
+    "slot_id": "natural_history_inquiry_01",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [
+        631,
+        693
+      ],
+      [
+        770,
+        693
+      ],
+      [
+        770,
+        725
+      ],
+      [
+        631,
+        725
+      ]
+    ],
+    "content_bounds": {
+      "x": 631,
+      "y": 693,
+      "width": 139,
+      "height": 32
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "tool",
+    "selector": "[data-hotspot=\"inquiry-tusk\"]",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "conservators_office_terminal_01_anchor",
+    "slot_id": "conservators_office_terminal_01",
+    "room_id": "conservators_office",
+    "background_asset": "/assets/img/Conservator's Office Interior 12.png",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1122,
+      "height": 1402
+    },
+    "mount": ".conservator-office-hall",
+    "polygon": [
+      [
+        333,
+        735
+      ],
+      [
+        441,
+        735
+      ],
+      [
+        441,
+        812
+      ],
+      [
+        333,
+        812
+      ]
+    ],
+    "content_bounds": {
+      "x": 333,
+      "y": 735,
+      "width": 108,
+      "height": 77
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "tool",
+    "selector": ".conservator-terminal-trigger",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "conservators_office_shelves_01_anchor",
+    "slot_id": "conservators_office_shelves_01",
+    "room_id": "conservators_office",
+    "background_asset": "/assets/img/Conservator's Office Interior 12.png",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1122,
+      "height": 1402
+    },
+    "mount": ".conservator-office-hall",
+    "polygon": [
+      [
+        24.684,
+        423.404
+      ],
+      [
+        146.982,
+        423.404
+      ],
+      [
+        146.982,
+        450.042
+      ],
+      [
+        24.684,
+        450.042
+      ]
+    ],
+    "content_bounds": {
+      "x": 24.684,
+      "y": 423.404,
+      "width": 122.298,
+      "height": 26.638
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "conservators_office_shelves_02_anchor",
+    "slot_id": "conservators_office_shelves_02",
+    "room_id": "conservators_office",
+    "background_asset": "/assets/img/Conservator's Office Interior 12.png",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1122,
+      "height": 1402
+    },
+    "mount": ".conservator-office-hall",
+    "polygon": [
+      [
+        330.99,
+        556.594
+      ],
+      [
+        484.704,
+        556.594
+      ],
+      [
+        484.704,
+        584.634
+      ],
+      [
+        330.99,
+        584.634
+      ]
+    ],
+    "content_bounds": {
+      "x": 330.99,
+      "y": 556.594,
+      "width": 153.714,
+      "height": 28.04
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "conservators_office_shelves_03_anchor",
+    "slot_id": "conservators_office_shelves_03",
+    "room_id": "conservators_office",
+    "background_asset": "/assets/img/Conservator's Office Interior 12.png",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1122,
+      "height": 1402
+    },
+    "mount": ".conservator-office-hall",
+    "polygon": [
+      [
+        748.374,
+        553.79
+      ],
+      [
+        829.158,
+        553.79
+      ],
+      [
+        829.158,
+        577.624
+      ],
+      [
+        748.374,
+        577.624
+      ]
+    ],
+    "content_bounds": {
+      "x": 748.374,
+      "y": 553.79,
+      "width": 80.784,
+      "height": 23.834
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "conservators_office_panel_01_anchor",
+    "slot_id": "conservators_office_panel_01",
+    "room_id": "conservators_office",
+    "background_asset": "/assets/img/Conservator's Office Interior 12.png",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1122,
+      "height": 1402
+    },
+    "mount": ".conservator-office-hall",
+    "polygon": [
+      [
+        854.964,
+        556.594
+      ],
+      [
+        908.82,
+        556.594
+      ],
+      [
+        908.82,
+        748.668
+      ],
+      [
+        854.964,
+        748.668
+      ]
+    ],
+    "content_bounds": {
+      "x": 854.964,
+      "y": 556.594,
+      "width": 53.856,
+      "height": 192.074
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "lab_bench_01_anchor",
+    "slot_id": "lab_bench_01",
+    "room_id": "lab",
+    "background_asset": "",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1000,
+      "height": 1000
+    },
+    "mount": ".collection-room-lab",
+    "polygon": [
+      [
+        310.0,
+        675.0
+      ],
+      [
+        690.0,
+        675.0
+      ],
+      [
+        690.0,
+        710.0
+      ],
+      [
+        310.0,
+        710.0
+      ]
+    ],
+    "content_bounds": {
+      "x": 310.0,
+      "y": 675.0,
+      "width": 380.0,
+      "height": 35.0
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": ".lab-bench",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "lab_equipment_01_anchor",
+    "slot_id": "lab_equipment_01",
+    "room_id": "lab",
+    "background_asset": "",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1000,
+      "height": 1000
+    },
+    "mount": ".collection-room-lab",
+    "polygon": [
+      [
+        419.0,
+        570.0
+      ],
+      [
+        589.0,
+        570.0
+      ],
+      [
+        589.0,
+        664.0
+      ],
+      [
+        419.0,
+        664.0
+      ]
+    ],
+    "content_bounds": {
+      "x": 419.0,
+      "y": 570.0,
+      "width": 170.0,
+      "height": 94.0
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": ".lab-equipment",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "lab_cabinet_01_anchor",
+    "slot_id": "lab_cabinet_01",
+    "room_id": "lab",
+    "background_asset": "",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1000,
+      "height": 1000
+    },
+    "mount": ".collection-room-lab",
+    "polygon": [
+      [
+        86.0,
+        205.0
+      ],
+      [
+        143.0,
+        205.0
+      ],
+      [
+        143.0,
+        395.0
+      ],
+      [
+        86.0,
+        395.0
+      ]
+    ],
+    "content_bounds": {
+      "x": 86.0,
+      "y": 205.0,
+      "width": 57.0,
+      "height": 190.0
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": ".lab-cabinet-left",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "lab_cabinet_02_anchor",
+    "slot_id": "lab_cabinet_02",
+    "room_id": "lab",
+    "background_asset": "",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1000,
+      "height": 1000
+    },
+    "mount": ".collection-room-lab",
+    "polygon": [
+      [
+        847.0,
+        205.0
+      ],
+      [
+        904.0,
+        205.0
+      ],
+      [
+        904.0,
+        395.0
+      ],
+      [
+        847.0,
+        395.0
+      ]
+    ],
+    "content_bounds": {
+      "x": 847.0,
+      "y": 205.0,
+      "width": 57.0,
+      "height": 190.0
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": ".lab-cabinet-right",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "lab_attic_context_01_anchor",
+    "slot_id": "lab_attic_context_01",
+    "room_id": "lab",
+    "background_asset": "",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1000,
+      "height": 1000
+    },
+    "mount": ".collection-room-lab",
+    "polygon": [
+      [
+        451.0,
+        92.0
+      ],
+      [
+        552.0,
+        92.0
+      ],
+      [
+        552.0,
+        146.0
+      ],
+      [
+        451.0,
+        146.0
+      ]
+    ],
+    "content_bounds": {
+      "x": 451.0,
+      "y": 92.0,
+      "width": 101.0,
+      "height": 54.0
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "tool",
+    "selector": ".lab-attic-sign",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  }
+]

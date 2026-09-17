@@ -68,7 +68,7 @@ organization-logo-nav: /assets/img/Archivory Logo.png
 # provide a relative path in this repository or full url 
 lib-assets: /assets/lib
 # ignore stuff
-exclude: [docs/, Rakefile, rakelib/, README.md, LICENSE, CITATION.cff, CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md]
+exclude: [docs/, outputs/, utilities/editorial-workbook/, Rakefile, rakelib/, README.md, LICENSE, CITATION.cff, CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md]
 # compress CSS output
 sass:
   style: compressed

@@ -1,0 +1,55 @@
+/* Component rules only. Room size, background positioning and framing remain in the existing stylesheet. */
+.room-placement-layer { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:9; }
+.room-placement-layer [data-slot-id] { pointer-events:auto; cursor:pointer; }
+.room-placement-target { fill:transparent; stroke:transparent; stroke-width:2; vector-effect:non-scaling-stroke; }
+.room-placement-layer [data-slot-id]:hover .room-placement-target,
+.room-placement-layer [data-slot-id]:focus-visible .room-placement-target { fill:rgba(245,227,188,.08); stroke:#e9cb8c; }
+.room-placement-layer [data-slot-id]:focus-visible { outline:none; }
+.room-existing-target:hover .room-placement-target,
+.room-existing-target:focus-visible .room-placement-target { fill:rgba(245,227,188,.08); stroke:#e9cb8c; }
+.room-existing-target:focus-visible { outline:none; }
+.room-placement-layer image { pointer-events:none; }
+.collection-room-lab .art-room-hotspots { pointer-events:none; }
+.collection-room-lab .art-room-hotspots a { pointer-events:auto; }
+.room-placement-debug .room-placement-target { fill:rgba(30,130,180,.12); stroke:#087f9f; }
+.room-placement-debug text { fill:#063c4e; font-size:11px; paint-order:stroke; stroke:white; stroke-width:2px; pointer-events:none; }
+.room-modal { color:#39291a; background:#f5ead5; border:1px solid #947146; border-radius:8px; padding:1.5rem; width:min(850px,calc(100vw - 32px)); max-height:calc(100dvh - 32px); overflow:auto; box-shadow:0 18px 70px #0007; }
+.room-modal::backdrop { background:rgba(25,19,13,.7); }
+.room-modal h2 { font-family:Georgia,serif; margin:0; }
+.room-modal button { border:1px solid #80623c; border-radius:5px; padding:.55rem .85rem; background:#e6d1ab; color:#382b1d; cursor:pointer; }
+.room-modal button:disabled { opacity:.45; cursor:default; }
+.room-modal :focus-visible { outline:3px solid #315f73; outline-offset:3px; }
+.room-modal-header { display:flex; gap:1rem; justify-content:space-between; align-items:flex-start; position:sticky; top:0; z-index:2; padding:.5rem 0 .8rem; background:#f5ead5; border-bottom:1px solid #c5ac88; margin-bottom:1rem; }
+.room-modal-close { flex:none; }
+.room-modal .collection-sequence { position:static; display:block; padding:0; background:none; }
+.room-modal .collection-sequence[hidden] { display:none; }
+.room-modal #welcome-sequence { position:static; padding:0; background:none; }
+.room-modal .welcome-sequence-close { display:none; }
+.room-modal .collection-sequence .welcome-sequence-title { display:none; }
+.room-modal .welcome-sequence-backdrop { display:none; }
+.room-modal .welcome-sequence-dialog { position:static; transform:none; margin:0; width:100%; max-width:none; max-height:none; box-shadow:none; }
+.room-modal .room-legacy-content { position:static; width:100%; max-height:none; transform:none; }
+.room-explorer-dialog { width:min(1060px,calc(100vw - 32px)); }
+.room-explorer-dialog .natural-history-timeline-exhibit { position:static !important; width:100% !important; max-height:none !important; transform:none !important; margin:0 !important; inset:auto !important; }
+.room-explorer-dialog .natural-history-timeline-popup-close { position:sticky; top:0; float:right; }
+.room-inquiry-dialog { width:min(1120px,calc(100vw - 32px)); }
+.room-inquiry-dialog .aiq-shell { position:static; inset:auto; padding:0; }
+.room-inquiry-dialog .aiq-backdrop { display:none; }
+.room-inquiry-dialog .aiq-terminal { position:static; width:100%; max-height:none; margin:0; transform:none; box-shadow:none; }
+.room-chronology ol { padding:0; list-style:none; counter-reset:events; }
+.room-chronology li { counter-increment:events; display:grid; grid-template-columns:2.5rem 1fr; gap:.7rem; border-bottom:1px solid #bba17d; padding:.8rem 0; }
+.room-chronology li.is-correct { border-left:4px solid #477247; padding-left:.6rem; }
+.room-chronology li.is-dragging { background:#ddc69e; }
+.room-chronology-copy strong::before { content:counter(events) '. '; }
+.room-chronology-handle { touch-action:none; align-self:start; padding:.4rem !important; min-height:44px; }
+.room-chronology-date { display:block; font-weight:600; color:#675033; }
+.room-chronology-copy p { margin:.3rem 0; }
+.room-chronology-copy img { max-width:140px; max-height:100px; object-fit:contain; }
+.room-chronology-moves,.room-chronology-actions { display:flex; gap:.6rem; flex-wrap:wrap; }
+.room-chronology-moves { grid-column:2; }
+.room-chronology-position { grid-column:2; font-size:.9rem; }
+.room-chronology-scale { font-weight:600; }
+.room-chronology-status { margin-top:1rem; }
+.room-collection-list { display:grid; gap:.65rem; padding:0; list-style:none; }
+.room-collection-list button { width:100%; text-align:left; }
+@media (max-width:500px) { .room-modal { padding:1rem; } }

@@ -13,6 +13,13 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      validate_shared_content:
+        description: 'Test the Teams workbook and images without deploying'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '17,47 * * * *'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -29,10 +36,19 @@ concurrency:
 jobs:
   # Build job
   build:
+    if: github.event_name != 'schedule' || vars.TEAMS_SYNC_ENABLED == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Import shared Teams content
+        if: vars.TEAMS_SYNC_ENABLED == 'true' || inputs.validate_shared_content == true
+        run: python3 utilities/editorial-workbook/sharepoint_sync.py
+        env:
+          MS_TENANT_ID: ${{ vars.MS_TENANT_ID }}
+          MS_CLIENT_ID: ${{ vars.MS_CLIENT_ID }}
+          SP_DRIVE_ID: ${{ vars.SP_DRIVE_ID }}
+          SP_FOLDER_ID: ${{ vars.SP_FOLDER_ID }}
       - name: Setup Ruby
         # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
@@ -54,6 +70,7 @@ jobs:
 
   # Deployment job
   deploy:
+    if: inputs.validate_shared_content != true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -1,0 +1,13 @@
+---
+layout: null
+---
+{
+    "rooms": {{ site.data.rooms | jsonify }},
+    "slots": {{ site.data.exhibit_slots | jsonify }},
+    "placements": {{ site.data.placements | jsonify }},
+    "content": {{ site.data.room_content | jsonify }},
+    "timelines": {{ site.data.room_timelines | jsonify }},
+    "events": {{ site.data.timeline_events | jsonify }},
+    "anchors": {{ site.data.room_anchors | jsonify }},
+    "objects": {{ site.data[site.metadata] | jsonify }}
+}

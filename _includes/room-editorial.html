@@ -1,0 +1,6 @@
+{% if page.room_id %}
+<link rel="stylesheet" href="{{ '/assets/css/room-placement.css' | relative_url }}">
+<script src="{{ '/assets/js/room-placement-core.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/room-chronology.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/room-placement.js' | relative_url }}" data-room-id="{{ page.room_id }}" data-room-editorial="{{ '/assets/data/room-editorial.json' | relative_url }}" data-baseurl="{{ site.baseurl }}" data-development="{% if jekyll.environment == 'development' %}true{% else %}false{% endif %}"></script>
+{% endif %}

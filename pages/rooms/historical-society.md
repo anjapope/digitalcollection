@@ -1,6 +1,7 @@
 ---
 title: "Historical Society Room"
 layout: vestibule
+room_id: historical_society
 permalink: /pages/rooms/historical-society.html
 ---
 
@@ -8,7 +9,7 @@ permalink: /pages/rooms/historical-society.html
   <h1 class="visually-hidden">Historical Society room</h1>
 
   <div class="house-scene">
-    <div class="house-backdrop local-hall">
+    <div class="house-backdrop local-hall" style="background-image:url('{{ '/assets/img/room-edits/historical-society-poster-v1.png' | relative_url }}')">
       <div class="house-cornice"></div>
       <a class="room-cornice-link room-cornice-link-left" href="{{ '/pages/vestibule.html' | relative_url }}">Back to Hall</a>
       <a class="room-cornice-link room-cornice-link-right" href="{{ '/pages/pathways-overview.html' | relative_url }}">Pathways Overview</a>
@@ -39,7 +40,7 @@ permalink: /pages/rooms/historical-society.html
       </div>
 
       <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Historical Society room links">
-        <a xlink:href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter the Natural History Museum" target="_self">
+        <a href="{{ '/pages/rooms/natural-history.html' | relative_url }}" aria-label="Enter the Natural History Museum" target="_self">
           <polygon class="art-room-hotspot" points="829,322 899,295 899,640 829,603" />
           <text class="art-room-hotspot-label" x="864" text-anchor="middle" font-size="9"><tspan x="864" y="534">Natural</tspan><tspan x="864" dy="13">History</tspan></text>
         </a>

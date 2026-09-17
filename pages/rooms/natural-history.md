@@ -1,6 +1,7 @@
 ---
 title: "The Natural History Museum"
 layout: vestibule
+room_id: natural_history
 permalink: /pages/rooms/natural-history.html
 custom-foot: js/archivory-inquiry-terminal.html
 ---
@@ -41,12 +42,12 @@ custom-foot: js/archivory-inquiry-terminal.html
       </div>
 
       <svg class="natural-history-hotspots" viewBox="0 0 1402 1122" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Natural History room links">
-        <a xlink:href="{{ '/map.html' | relative_url }}" aria-label="Open the map" target="_self" data-notebook-id="natural-history-map" data-notebook-title="Proboscidean world map" data-notebook-type="evidence" data-notebook-points="5" data-notebook-description="A spatial evidence tool for tracking ivory histories, elephant ranges, and trade geographies.">
+        <a href="{{ '/map.html' | relative_url }}" aria-label="Open the map" target="_self" data-notebook-id="natural-history-map" data-notebook-title="Proboscidean world map" data-notebook-type="evidence" data-notebook-points="5" data-notebook-description="A spatial evidence tool for tracking ivory histories, elephant ranges, and trade geographies.">
           <rect class="natural-history-hotspot natural-history-hotspot-map" x="885" y="250" width="144" height="245" rx="20" ry="16" />
           <text class="natural-history-hotspot-label" x="956" y="385" text-anchor="middle">Map</text>
         </a>
 
-        <a xlink:href="#" href="#" aria-label="Open the Ivory Inquiry Terminal" target="_self" data-hotspot="inquiry-tusk" data-notebook-id="natural-history-tusk" data-notebook-title="Ivory Inquiry Terminal" data-notebook-type="tool" data-notebook-points="10" data-notebook-description="Use the inquiry terminal to ask evidence-based questions about the tusk and the natural history of ivory.">
+        <a href="#" aria-label="Open the Ivory Inquiry Terminal" target="_self" data-hotspot="inquiry-tusk" data-notebook-id="natural-history-tusk" data-notebook-title="Ivory Inquiry Terminal" data-notebook-type="tool" data-notebook-points="10" data-notebook-description="Use the inquiry terminal to ask evidence-based questions about the tusk and the natural history of ivory.">
           <rect class="natural-history-hotspot-hitarea" x="336" y="478" width="729" height="289" rx="25" ry="20" />
           <polygon class="natural-history-hotspot natural-history-hotspot-tusk" points="336,478 1066,478 1066,767 336,767" />
           <text class="natural-history-hotspot-label natural-history-hotspot-label-small natural-history-hotspot-label-tusk" x="701" text-anchor="middle"><tspan x="701" y="623">Ask a</tspan><tspan x="701" dy="20">Question</tspan></text>
@@ -57,7 +58,7 @@ custom-foot: js/archivory-inquiry-terminal.html
           <text class="natural-history-hotspot-label natural-history-hotspot-label-small" x="151" y="656" text-anchor="middle">Historical Society</text>
         </a>
 
-        <a href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Go to the Art Museum room" target="_self">
+        <a href="{{ '/pages/rooms/art.html' | relative_url }}" aria-label="Go to Conservation Lab" target="_self">
           <polygon class="natural-history-hotspot natural-history-hotspot-doorway" points="1141,221 1283,176 1283,780 1134,672" />
         </a>
 
@@ -82,110 +83,30 @@ custom-foot: js/archivory-inquiry-terminal.html
 
 <script>
   (() => {
-    const openTimeline = document.querySelector('[data-open-room-timeline]');
+    const trigger = document.querySelector('[data-open-room-timeline]');
     const exhibit = document.querySelector('[data-room-timeline-exhibit]');
-    const closeTimeline = exhibit?.querySelector('[data-room-timeline-close]');
-    if (!openTimeline || !exhibit) return;
-
-    const dragState = {
-      pointerId: null,
-      startX: 0,
-      startY: 0,
-      originX: 0,
-      originY: 0
-    };
-    const TIMELINE_TOP_MARGIN = 24;
-
-    function setDragOffset(x, y) {
-      exhibit.dataset.dragX = String(x);
-      exhibit.dataset.dragY = String(y);
-      exhibit.style.setProperty('--nh-timeline-drag-x', `${x}px`);
-      exhibit.style.setProperty('--nh-timeline-drag-y', `${y}px`);
-    }
-
-    function positionExhibitNearTop() {
-      const rect = exhibit.getBoundingClientRect();
-      const nextX = Number(exhibit.dataset.dragX || 0);
-      const nextY = Number(exhibit.dataset.dragY || 0) + (TIMELINE_TOP_MARGIN - rect.top);
-      setDragOffset(nextX, nextY);
-    }
-
-    function stopDragging() {
-      if (dragState.pointerId === null) return;
-      exhibit.classList.remove('is-dragging');
-      try {
-        exhibit.releasePointerCapture(dragState.pointerId);
-      } catch (_error) {
-        // no-op
-      }
-      dragState.pointerId = null;
-    }
-
-    function openExhibit() {
+    if (!trigger || !exhibit) return;
+    const dialog = document.createElement('dialog');
+    dialog.className = 'room-modal room-explorer-dialog';
+    dialog.setAttribute('aria-label', 'Deep-time explorer');
+    document.body.append(dialog);
+    dialog.append(exhibit);
+    const open = () => {
       exhibit.classList.remove('is-dismissed');
-      requestAnimationFrame(() => {
-        positionExhibitNearTop();
-      });
-    }
-
-    function closeExhibit() {
+      if (!dialog.open) dialog.showModal();
+    };
+    trigger.addEventListener('click', event => { event.preventDefault(); open(); });
+    exhibit.querySelector('[data-room-timeline-close]').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('cancel', event => { event.preventDefault(); event.stopPropagation(); dialog.close(); });
+    dialog.addEventListener('keydown', event => { if (event.key === 'Escape') event.stopPropagation(); });
+    dialog.addEventListener('close', () => {
       exhibit.classList.add('is-dismissed');
-    }
-
-    openTimeline.setAttribute('aria-controls', 'archivory-proboscidean-timeline');
-    openTimeline.setAttribute('aria-haspopup', 'dialog');
-
-    openTimeline.addEventListener('click', (event) => {
-      event.preventDefault();
-      openExhibit();
+      document.querySelector('[data-slot-id="natural_history_timeline_01"]')?.focus();
     });
-
-    closeTimeline?.addEventListener('click', () => {
-      closeExhibit();
-    });
-
-    exhibit.addEventListener('pointerdown', (event) => {
-      if (event.button !== 0) return;
-      if (event.target.closest('button, a, input, textarea, select, option, label')) return;
-
-      dragState.pointerId = event.pointerId;
-      dragState.startX = event.clientX;
-      dragState.startY = event.clientY;
-      dragState.originX = Number(exhibit.dataset.dragX || 0);
-      dragState.originY = Number(exhibit.dataset.dragY || 0);
-
-      exhibit.classList.add('is-dragging');
-      exhibit.setPointerCapture(event.pointerId);
-      event.preventDefault();
-    });
-
-    exhibit.addEventListener('pointermove', (event) => {
-      if (dragState.pointerId !== event.pointerId) return;
-
-      const nextX = dragState.originX + (event.clientX - dragState.startX);
-      const nextY = dragState.originY + (event.clientY - dragState.startY);
-      setDragOffset(nextX, nextY);
-    });
-
-    exhibit.addEventListener('pointerup', (event) => {
-      if (dragState.pointerId !== event.pointerId) return;
-      stopDragging();
-    });
-
-    exhibit.addEventListener('pointercancel', (event) => {
-      if (dragState.pointerId !== event.pointerId) return;
-      stopDragging();
-    });
-
-    if (/^#apt-/.test(window.location.hash)) {
-      openExhibit();
-    }
-
-    window.addEventListener('hashchange', () => {
-      if (/^#apt-/.test(window.location.hash)) {
-        openExhibit();
-      }
-    });
-
+    new MutationObserver(() => {
+      if (exhibit.classList.contains('is-dismissed') && dialog.open) dialog.close();
+    }).observe(exhibit, { attributes:true, attributeFilter:['class'] });
+    if (/^#apt-/.test(location.hash)) open();
+    window.addEventListener('hashchange', () => { if (/^#apt-/.test(location.hash)) open(); });
   })();
 </script>

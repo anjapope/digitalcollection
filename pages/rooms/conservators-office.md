@@ -1,6 +1,7 @@
 ---
 title: "Conservator's Office"
 layout: vestibule
+room_id: conservators_office
 permalink: /pages/rooms/conservators-office.html
 ---
 
@@ -26,18 +27,17 @@ permalink: /pages/rooms/conservators-office.html
         <span class="chandelier-crystal chandelier-crystal-right"></span>
       </div>
 
-      <button class="conservator-terminal-locator" type="button" aria-haspopup="dialog" aria-controls="conservator-terminal-sequence" aria-label="Open the curation terminal" style="position:absolute; left:34.7%; top:56%; transform:translate(-50%, -50%); z-index:12; width:152px; height:90px; padding:0.65rem; border:4px dashed rgba(255,245,220,0.95); border-radius:18px; background:rgba(181, 58, 58, 0.38); color:#fff8ef; font-size:0.76rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; box-shadow:0 0 0 6px rgba(255,245,220,0.2), 0 18px 32px rgba(0,0,0,0.28);">Find the Terminal Here</button>
 
       <svg class="art-room-hotspots" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Conservator's Office room links">
-        <a xlink:href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter the Attic" target="_self">
+        <a href="{{ '/pages/rooms/attic.html' | relative_url }}" aria-label="Enter the Attic" target="_self">
           <polygon class="art-room-hotspot" points="523,109 718,118 635,197 485,191" />
           <text class="art-room-hotspot-label" x="610" text-anchor="middle" font-size="9"><tspan x="610" y="154">Attic</tspan></text>
         </a>
-        <a class="conservator-terminal-trigger" xlink:href="#" aria-label="Open the curation terminal" target="_self" data-notebook-id="conservator-terminal" data-notebook-title="Conservator's Office terminal" data-notebook-type="tool" data-notebook-description="The computer terminal is where visitors will eventually assemble their final curated exhibition." data-notebook-points="0">
-          <polygon class="art-room-hotspot conservator-terminal-hotspot" points="220,455 391,455 391,565 220,565" style="fill-opacity:0.26; stroke-opacity:1;" />
-          <text class="art-room-hotspot-label conservator-terminal-hotspot-label" x="306" text-anchor="middle" font-size="13" style="opacity:1;"><tspan x="306" y="520">Terminal</tspan></text>
+        <a class="conservator-terminal-trigger" href="#" aria-label="Open the curation terminal" target="_self" data-notebook-id="conservator-terminal" data-notebook-title="Conservator's Office terminal" data-notebook-type="tool" data-notebook-description="The computer terminal is where visitors will eventually assemble their final curated exhibition." data-notebook-points="0">
+          <polygon class="art-room-hotspot conservator-terminal-hotspot" points="220,455 391,455 391,565 220,565" />
+          <text class="art-room-hotspot-label conservator-terminal-hotspot-label" x="306" text-anchor="middle" font-size="13"><tspan x="306" y="520">Terminal</tspan></text>
         </a>
-        <a xlink:href="{{ '/pages/rooms/gallery.html' | relative_url }}" aria-label="Enter the Gallery" target="_self">
+        <a href="{{ '/pages/rooms/gallery.html' | relative_url }}" aria-label="Enter the Gallery" target="_self">
           <polygon class="art-room-hotspot" points="835,325 955,292 955,845 835,760" />
           <text class="art-room-hotspot-label" x="895" text-anchor="middle" font-size="8"><tspan x="895" y="620">Gallery</tspan></text>
         </a>
