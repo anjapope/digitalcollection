@@ -13,7 +13,7 @@ for(const name of [...Object.keys(data),'Guide']) wb.worksheets.add(name);
 const widths={description:76,extendedExplanation:76,introduction:76,successText:76,notes:70,display_description:70,citation:66,source:60,title:38,editor_label:38,content_id:44,slot_id:48,placement_id:52,anchor_id:54,image:56,adapter:48,background_asset:58,route:45,displayedDate:38};
 for(const [name,spec] of Object.entries(data)){
  const s=wb.worksheets.getItem(name),headers=[...spec.headers];
- if(name==='Placements')headers.push('Room (automatic)','Location (automatic)','Content title (automatic)');
+ if(name==='Placements')headers.push('Room ID (automatic)','Room name (automatic)','Location (automatic)','Supported type (automatic)','Capacity (automatic)');
  const count=spec.rows.length+15;
  const matrix=[headers,...spec.rows.map(r=>headers.map(h=>numeric.has(h)&&r[h]!==''&&r[h]!==undefined?Number(r[h]):r[h]??''))];
  s.getRangeByIndexes(0,0,matrix.length,headers.length).values=matrix;
@@ -33,29 +33,39 @@ for(const [name,spec] of Object.entries(data)){
   s.tabColor='#806238';
   s.getRange('B2:B501').dataValidation={rule:{type:'list',formula1:"'Slots'!$A$2:$A$501"}};
   s.getRange('C2:C501').dataValidation={rule:{type:'list',formula1:'INDIRECT(IF(D2="timeline","Timelines!$A$2:$A$501","Content!$A$2:$A$501"))'}};
-  s.getRange(`G2:I${count+1}`).setNumberFormat('General');
-  s.getRange(`G2:I${count+1}`).format.fill='#E9ECEF';
-  for(let row=2;row<=count+1;row++)s.getRange(`G${row}:I${row}`).formulas=[[
+  s.getRange(`G2:K${count+1}`).setNumberFormat('General');
+  s.getRange(`G2:K${count+1}`).format.fill='#E9ECEF';
+  for(let row=2;row<=count+1;row++)s.getRange(`G${row}:K${row}`).formulas=[[
    `=IF(B${row}="","",IFNA(VLOOKUP(B${row},Slots!$A$2:$D$501,2,FALSE),"Unknown slot"))`,
+   `=IF(G${row}="","",IFNA(VLOOKUP(G${row},Rooms!$A$2:$B$501,2,FALSE),"Unknown room"))`,
    `=IF(B${row}="","",IFNA(VLOOKUP(B${row},Slots!$A$2:$D$501,4,FALSE),"Unknown slot"))`,
-   `=IF(C${row}="","Choose content",IF(D${row}="timeline",IFNA(VLOOKUP(C${row},Timelines!$A$2:$D$501,3,FALSE),"Unknown timeline"),IFNA(VLOOKUP(C${row},Content!$A$2:$B$501,2,FALSE),"Unknown content")))`]];
+   `=IF(B${row}="","",IFNA(VLOOKUP(B${row},Slots!$A$2:$E$501,5,FALSE),"Unknown slot"))`,
+   `=IF(B${row}="","",IFNA(VLOOKUP(B${row},Slots!$A$2:$F$501,6,FALSE),"Unknown slot"))`]];
   s.getRange(`C2:C${count+1}`).conditionalFormats.addCustom('AND($A2<>"",$C2="")',{fill:'#FFE2A8'});
+  s.getRange(`B2:B${count+1}`).conditionalFormats.addCustom('AND($A2<>"",$B2<>"",COUNTIF(Slots!$A$2:$A$501,$B2)=0)',{fill:'#F4B4B4'});
+  s.getRange(`F2:F${count+1}`).conditionalFormats.addCustom('AND($A2<>"",$F2="true",COUNTIFS($B$2:$B$501,$B2,$E$2:$E$501,$E2,$F$2:$F$501,"true")>1)',{fill:'#F4B4B4'});
+  s.getRange(`E2:E${count+1}`).conditionalFormats.addCustom('AND($A2<>"",$F2="true",$E2<>"",COUNTIFS($B$2:$B$501,$B2,$E$2:$E$501,$E2,$F$2:$F$501,"true")>1)',{fill:'#F4B4B4'});
  } else if(name==='Content')s.tabColor='#AA895D';
  if(name==='Events')s.getRange('A2:A501').dataValidation={rule:{type:'list',formula1:"'Timelines'!$A$2:$A$501"}};
 }
-const guide=wb.worksheets.getItem('Guide');guide.showGridLines=false;guide.tabColor='#B5B5B5';
+const guide=wb.worksheets.getItem('Guide');guide.showGridLines=false;guide.tabColor='#B5B5B5';guide.freezePanes.freezeRows(1);
 const instructions=[
  ['ArchIvory editorial workbook','Team editing copy of the current website data.'],
- ['1. Add material','Content: give each item a stable content_id. Fill title, description, image and citation. New ordinary items use detail and a blank adapter.'],
- ['2. Choose a location','Placements: select slot_id, then content_id. Room and location names appear automatically. Slots lists every prepared access point.'],
- ['3. Set presentation','content_type must match the item. Use sort_order to order items in a collection. Set published to true when ready.'],
+ ['1. Start here','Use this Guide, then work in Content, Placements, Timelines, and Events. Pale amber cells are editable; gray cells are references or calculated context. Do not rename sheets or header rows.'],
+ ['2. Add material','Content: create a new stable content_id only for a new record. Title, description, and content_type are required. Image and citation are optional but recommended for research.'],
+ ['3. Choose a location','Placements: choose a slot_id from the dropdown. The workbook fills Room ID, Room name, Location, Supported type, and Capacity automatically. Do not type a room separately: the slot defines the room.'],
+ ['4. Assign content','Choose content_id from the dropdown after selecting content_type. A timeline placement uses Timelines; other placements use Content. Keep placement_id unique.'],
+ ['5. Set presentation','content_type must match the item and slot. Use sort_order 1, 2, 3... for multiple records in one collection location. Do not reuse the same active sort order or content in one slot.'],
+ ['6. Publish clearly','published=true makes the placement visible on the site; published=false keeps it hidden. An empty unpublished draft row is a workbook prompt, not a site record.'],
  ['Empty locations','Pre-filled draft rows have no content and published=false. They do not create website records until you assign content.'],
  ['Same item in two rooms','Add a second placement with a new placement_id and the same content_id. Do not duplicate the material record.'],
- ['Timeline editing','Timelines contains introductions and success text. Events contains dated items. Equal sortKey values accept either order. displayedDate remains text.'],
+ ['Timeline editing','Timelines contains the activity introduction and success text. Events contains at least two events per timeline. sortKey is numeric ordering; displayedDate is visitor-facing text. Equal sortKey values intentionally accept either order.'],
  ['Existing collection','Collection is the original museum metadata. ChineseUVIvoryCollection draws its description from this sheet. Preserve its exact objectid.'],
  ['Existing adapters','Gray adapter fields preserve existing dialogs and tools. Their built-in text is still in room pages. Content text changes affect ordinary blank-adapter items; legacy dialog copy needs a separate migration.'],
- ['Prepared locations','Rooms and Slots describe existing artwork. Keep IDs, anchors, routes and assets stable. New physical locations require matching geometry.'],
- ['Images','Enter a website path such as /assets/img/example.jpg or an HTTPS image URL. Typing a local file path does not upload an image.'],
+ ['Prepared locations','Slots lists all 45 validated access points with a human-readable editor_label, room, capacity, type, physical notes, and anchor reference. Keep IDs, anchors, routes, and assets stable. New physical locations require matching geometry and are outside this workbook workflow.'],
+ ['Images','Use a site path such as /assets/img/example.jpg or an HTTPS image URL. In the shared Teams workflow, enter a simple PNG/JPG filename and upload that file to the adjacent Images folder. A local computer path does not upload an image.'],
+ ['Citations and links','Use citation for a source or credit, not private notes. Use HTTPS or a repository/site path where appropriate. Check that the citation supports the wording before publishing.'],
+ ['Warnings','Red cells indicate a likely invalid or conflicting entry. Run workbook.py check before sharing the workbook; it rejects unknown slots, duplicate IDs, incompatible types, missing required values, disabled targets, duplicate active ordering, and broken timeline references.'],
  ['Colors','Pale amber: editorial inputs. Gray: reference or calculated values. Dark amber: an empty content assignment.'],
  ['Preserve structure','Keep sheet names and the original header row. Add records in the tables. Never reuse an existing ID for a different record.'],
  ['Draft material','Existing teaching examples and placeholder notices are carried over unchanged. Your team supplies replacements.'],

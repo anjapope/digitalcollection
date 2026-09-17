@@ -19,6 +19,24 @@ class WorkbookChecks(unittest.TestCase):
         self.assertTrue(any('sortKey' in e for e in errors))
         self.assertTrue(any('capacity' in e for e in errors))
         self.assertTrue(any('type' in e or 'content' in e for e in errors))
+
+    def test_reject_conflicting_active_placements_and_disabled_targets(self):
+        first=self.data['Placements'][0]
+        self.data['Placements'].append({**first,'placement_id':'conflict','content_id':self.data['Content'][1]['content_id']})
+        errors=w.validate(self.data)
+        self.assertTrue(any('sort_order' in e for e in errors))
+        self.data['Placements']=[p for p in self.data['Placements'] if p['placement_id']!='conflict']
+        slot=self.data['Slots'][0]
+        slot['enabled']='false'
+        errors=w.validate(self.data)
+        self.assertTrue(any('disabled slot' in e for e in errors))
+
+    def test_reject_missing_required_editor_fields(self):
+        self.data['Content'][0]['title']=''
+        self.data['Events'][0]['displayedDate']=''
+        errors=w.validate(self.data)
+        self.assertTrue(any('title is required' in e for e in errors))
+        self.assertTrue(any('displayedDate is required' in e for e in errors))
     def test_saved_workbook_round_trip_and_stale_guard(self):
         original=w.ROOT
         book=original/'outputs/archivory-editorial/ArchIvory Editorial Workbook.xlsx'

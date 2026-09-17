@@ -72,10 +72,17 @@ def validate(data):
         if slot['slot_type'] not in types: errors.append(f'{sid}: unsupported slot type')
         if not number(slot['capacity']) or float(slot['capacity'])<1 or not float(slot['capacity']).is_integer(): errors.append(f'{sid}: capacity must be a positive integer')
     for content in data['Content']:
-        if content['content_type'] not in types-{'timeline'}: errors.append(f"{content['content_id']}: unsupported content type")
+        ident=content['content_id']
+        for field in ('title','description','content_type'):
+            if not content.get(field,'').strip(): errors.append(f'{ident}: {field} is required')
+        if content['content_type'] not in types-{'timeline'}: errors.append(f"{ident}: unsupported content type")
     counts={}
+    active_order={}
+    active_content={}
     for p in data['Placements']:
         ident=p['placement_id']; boolean(p,'published',ident)
+        for field in ('slot_id','content_id','content_type','sort_order','published'):
+            if not p.get(field,'').strip(): errors.append(f'{ident or "Placement"}: {field} is required')
         slot=idx['Slots'].get(p['slot_id'])
         if not slot: errors.append(f'{ident}: unknown slot'); continue
         content=idx['Timelines' if p['content_type']=='timeline' else 'Content'].get(p['content_id'])
@@ -84,14 +91,32 @@ def validate(data):
         if p['content_type']!='timeline' and content['content_type']!=p['content_type']: errors.append(f'{ident}: record type mismatch')
         if not number(p['sort_order']): errors.append(f'{ident}: numeric sort_order required')
         if p['published']=='true': counts[p['slot_id']]=counts.get(p['slot_id'],0)+1
+        if p['published']=='true' and slot['enabled']!='true': errors.append(f'{ident}: cannot publish to disabled slot {p["slot_id"]}')
+        room=idx['Rooms'].get(slot['room_id'])
+        if p['published']=='true' and room and room['enabled']!='true': errors.append(f'{ident}: cannot publish to disabled room {slot["room_id"]}')
+        if p['published']=='true':
+            order_key=(p['slot_id'],p['sort_order'])
+            active_order.setdefault(order_key,[]).append(ident)
+            content_key=(p['slot_id'],p['content_id'])
+            active_content.setdefault(content_key,[]).append(ident)
     for sid,count in counts.items():
         if number(idx['Slots'][sid]['capacity']) and count>float(idx['Slots'][sid]['capacity']): errors.append(f'{sid}: capacity exceeded')
+    for key,ids in active_order.items():
+        if len(ids)>1: errors.append(f'{key[0]}: active placements share sort_order {key[1]} ({", ".join(ids)})')
+    for key,ids in active_content.items():
+        if len(ids)>1: errors.append(f'{key[0]}: active content is assigned more than once ({", ".join(ids)})')
     for t in data['Timelines']:
-        if t['room_id'] not in idx['Rooms']: errors.append(f'{t["timeline_id"]}: unknown room')
-        if len([e for e in data['Events'] if e['timeline_id']==t['timeline_id']])<2: errors.append(f'{t["timeline_id"]}: needs at least two events')
+        ident=t['timeline_id']
+        for field in ('room_id','roomName','temporalScale','introduction','successText'):
+            if not t.get(field,'').strip(): errors.append(f'{ident}: {field} is required')
+        if t['room_id'] not in idx['Rooms']: errors.append(f'{ident}: unknown room')
+        if len([e for e in data['Events'] if e['timeline_id']==ident])<2: errors.append(f'{ident}: needs at least two events')
     for e in data['Events']:
-        if e['timeline_id'] not in idx['Timelines']: errors.append(f'{e["id"]}: unknown timeline')
-        if not number(e['sortKey']): errors.append(f'{e["id"]}: numeric sortKey required')
+        ident=e['id']
+        for field in ('timeline_id','sortKey','displayedDate','title','description'):
+            if not e.get(field,'').strip(): errors.append(f'{ident or "Event"}: {field} is required')
+        if e['timeline_id'] not in idx['Timelines']: errors.append(f'{ident}: unknown timeline')
+        if not number(e['sortKey']): errors.append(f'{ident}: numeric sortKey required')
     return errors
 
 def main():
