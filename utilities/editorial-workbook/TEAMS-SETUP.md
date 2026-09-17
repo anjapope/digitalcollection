@@ -1,10 +1,15 @@
 # Teams to GitHub Pages setup
 
-Status: prepared locally, not activated or verified against Microsoft Graph.
+Status: experimental and optional. This integration is not required for the
+supported OneDrive-first workflow and has not been verified end to end against
+Microsoft Graph.
 The workbook was visually confirmed in Teams on September 17, 2026.
 The Images folder was created and visually confirmed beside the workbook.
 
-## Team workflow after activation
+## Team workflow after activation (optional)
+
+For the supported workflow, use a normal locally synced OneDrive workbook and
+run `publish_from_shared.py`; no Microsoft Graph or Teams setup is required.
 
 Use the shared copy at **O365-Schlesinger- Ivory → General → Shared → ArchIvory GitHub Site**.
 Keep the exact filename **ArchIvory Editorial Workbook.xlsx**.

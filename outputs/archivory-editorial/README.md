@@ -8,6 +8,11 @@ The workbook is an editing interface for the existing CSVs, not a second live da
 
 Start on the **Guide** sheet. In **Placements**, choose a slot from the dropdown; the room ID, room name, human-readable location, supported type, and capacity are calculated automatically from **Slots**. There is deliberately no separate editable room field: the selected stable slot defines the room and prevents a room/slot mismatch. Red highlighting indicates a likely unknown slot or conflicting active ordering; run `workbook.py check` before sharing the workbook.
 
+For shared publishing from a normal synced OneDrive folder, see
+[`utilities/editorial-workbook/ONEDRIVE-SETUP.md`](../../utilities/editorial-workbook/ONEDRIVE-SETUP.md).
+The workbook does not publish itself; a maintainer runs the documented local
+publishing command after OneDrive finishes syncing.
+
 ## Tables
 
 | Sheet | Purpose | Website source |
