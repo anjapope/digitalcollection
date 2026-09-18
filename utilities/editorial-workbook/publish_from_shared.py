@@ -4,13 +4,16 @@ This command never writes to the workbook and never deploys or pushes changes.
 The existing workbook importer creates a timestamped CSV backup before import.
 """
 import argparse
+import json
 import os
 import subprocess
 import sys
+import tempfile
 import time
 import zipfile
 from pathlib import Path
 
+import shared_media
 import workbook
 
 
@@ -90,7 +93,78 @@ def stable_vocab(data):
         raise ValueError("Workbook changes the established slot ID vocabulary")
 
 
-def run_pipeline(path, *, dry_run=False, settle_seconds=2):
+def workbook_data(sheets):
+    data = {}
+    for sheet, spec in workbook.sources().items():
+        rows = sheets.get(sheet, [])
+        records = []
+        for row in rows[1:]:
+            record = {
+                header: str(row[index] if index < len(row) else "")
+                for index, header in enumerate(spec["headers"])
+            }
+            if any(record.values()):
+                records.append(record)
+        data[sheet] = records
+    return data
+
+
+def media_baseline():
+    return {
+        sheet: spec["rows"]
+        for sheet, spec in workbook.sources().items()
+        if sheet in shared_media.MEDIA_FIELDS
+    }
+
+
+def print_media_summary(plan, *, dry_run):
+    print(
+        "Media validated: "
+        f"{len(plan.mappings)} shared workbook references, "
+        f"{len(plan.files)} referenced files, "
+        f"{plan.current_count} already current, "
+        f"{plan.copy_count} {'would be copied' if dry_run else 'to copy'}, "
+        "0 missing or invalid."
+    )
+    if dry_run:
+        for item in plan.files:
+            action = "would copy" if item.status == "copy" else "already current"
+            print(
+                f"  {item.reference}: {item.source} -> "
+                f"{item.site_reference} ({action})"
+            )
+    if plan.orphans:
+        print(
+            f"NOTICE: {len(plan.orphans)} unreferenced imported editorial media "
+            "file(s) remain in place."
+        )
+
+
+def verify_imported_media(plan):
+    imported = {
+        sheet: {
+            row[shared_media.MEDIA_KEYS[sheet]]: row
+            for row in workbook.sources()[sheet]["rows"]
+        }
+        for sheet in shared_media.MEDIA_FIELDS
+    }
+    for mapping in plan.mappings:
+        actual = imported.get(mapping.sheet, {}).get(mapping.record_id, {}).get(
+            mapping.field, ""
+        )
+        if actual != mapping.replacement:
+            raise RuntimeError(
+                f"Imported media reference mismatch for {mapping.sheet} "
+                f"record {mapping.record_id} field {mapping.field}"
+            )
+    for item in plan.files:
+        if not item.destination.is_file():
+            raise RuntimeError(f"Imported media file is missing: {item.site_reference}")
+
+
+def run_pipeline(
+    path, *, shared_media_root=None, dry_run=False, settle_seconds=2
+):
     wait_for_stable(path, settle_seconds)
     sheets = workbook.read_xlsx(path)
     stable_vocab(
@@ -104,15 +178,41 @@ def run_pipeline(path, *, dry_run=False, settle_seconds=2):
     )
     command = [sys.executable, str(workbook.ROOT / "utilities/editorial-workbook/workbook.py")]
     run(command + ["check", str(path)], "validate")
+    print("Workbook validated.")
+    root = shared_media.configured_root(path, shared_media_root)
+    plan = shared_media.plan_media(
+        workbook_data(sheets),
+        media_baseline(),
+        root,
+        workbook.ROOT,
+    )
+    print_media_summary(plan, dry_run=dry_run)
     if dry_run:
-        print("DRY RUN: validation passed; no CSV files or site output were changed.")
+        print(
+            "DRY RUN: workbook and media validation passed; "
+            "no files or site output were changed."
+        )
         return
+    copied = shared_media.copy_media(plan)
+    print(f"Media prepared: {copied} file(s) copied.")
     before_ids = [row["slot_id"] for row in workbook.sources()["Slots"]["rows"]]
-    run(command + ["apply", str(path)], "import")
-    after_sources = workbook.sources()
-    if [row["slot_id"] for row in after_sources["Slots"]["rows"]] != before_ids:
-        raise RuntimeError("Import changed the established slot ID vocabulary")
-    run(command + ["check", str(path)], "post-check")
+    with tempfile.TemporaryDirectory(prefix="archivory-media-map-") as directory:
+        manifest = Path(directory) / "media-map.json"
+        manifest.write_text(
+            json.dumps(
+                [mapping.manifest_entry() for mapping in plan.mappings],
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+        media_args = ["--media-map", str(manifest)]
+        run(command + ["apply", str(path)] + media_args, "import")
+        after_sources = workbook.sources()
+        if [row["slot_id"] for row in after_sources["Slots"]["rows"]] != before_ids:
+            raise RuntimeError("Import changed the established slot ID vocabulary")
+        run(command + ["check", str(path)] + media_args, "post-check")
+    verify_imported_media(plan)
+    print("Post-import data and media validation passed.")
     run(["node", "utilities/test-room-placement.cjs"], "room tests")
     bundle_command = "bundle.bat" if os.name == "nt" else "bundle"
     run(
@@ -126,7 +226,10 @@ def run_pipeline(path, *, dry_run=False, settle_seconds=2):
         ],
         "site build",
     )
-    print("SUCCESS: workbook imported, room tests passed, and the site is deployment-ready.")
+    print(
+        "SUCCESS: workbook imported, media verified, room tests passed, "
+        "and the site build passed."
+    )
     print("No deployment was performed.")
 
 
@@ -135,6 +238,13 @@ def main(argv=None):
         description="Publish a locally synced OneDrive ArchIvory workbook to a build-ready site"
     )
     parser.add_argument("--workbook", help=f"Path override; otherwise ${DEFAULT_ENV}")
+    parser.add_argument(
+        "--media-root",
+        help=(
+            f"Shared media directory override; otherwise ${shared_media.MEDIA_ENV}, "
+            "then an Images folder beside the workbook"
+        ),
+    )
     parser.add_argument("--dry-run", action="store_true", help="Validate only; do not import or build")
     parser.add_argument(
         "--settle-seconds",
@@ -146,6 +256,7 @@ def main(argv=None):
     try:
         run_pipeline(
             configured_workbook(args.workbook),
+            shared_media_root=args.media_root,
             dry_run=args.dry_run,
             settle_seconds=max(0, args.settle_seconds),
         )

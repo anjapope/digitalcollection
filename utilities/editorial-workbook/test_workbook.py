@@ -59,4 +59,37 @@ class WorkbookChecks(unittest.TestCase):
                     with redirect_stdout(io.StringIO()): w.main()
             finally: sys.argv=previous; w.ROOT=original
 
+    def test_media_map_translates_only_the_named_record_and_field(self):
+        data={
+            'Content':[
+                {'content_id':'one','image':'photo.png'},
+                {'content_id':'two','image':'photo.png'},
+            ]
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            manifest=Path(tmp)/'media.json'
+            manifest.write_text(json.dumps([{
+                'sheet':'Content',
+                'record_id':'one',
+                'field':'image',
+                'expected':'photo.png',
+                'replacement':'/assets/img/editorial/photo-abc123.png',
+            }]),encoding='utf-8')
+            self.assertEqual(w.apply_media_map(data,manifest),[])
+        self.assertEqual(data['Content'][0]['image'],'/assets/img/editorial/photo-abc123.png')
+        self.assertEqual(data['Content'][1]['image'],'photo.png')
+
+    def test_media_map_rejects_unsafe_destination(self):
+        data={'Content':[{'content_id':'one','image':'photo.png'}]}
+        with tempfile.TemporaryDirectory() as tmp:
+            manifest=Path(tmp)/'media.json'
+            manifest.write_text(json.dumps([{
+                'sheet':'Content',
+                'record_id':'one',
+                'field':'image',
+                'expected':'photo.png',
+                'replacement':'/assets/img/editorial/../../outside.png',
+            }]),encoding='utf-8')
+            self.assertTrue(any('unsafe destination' in error for error in w.apply_media_map(data,manifest)))
+
 if __name__=='__main__': unittest.main()

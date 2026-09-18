@@ -9,6 +9,30 @@ TABLES = {'Placements':'placements', 'Content':'room_content', 'Events':'timelin
           'Timelines':'room_timelines', 'Rooms':'rooms', 'Slots':'exhibit_slots', 'Collection':'demo-metadata'}
 KEYS = {'Placements':'placement_id','Content':'content_id','Events':'id','Timelines':'timeline_id','Rooms':'room_id','Slots':'slot_id','Collection':'objectid'}
 
+def apply_media_map(data, path):
+    if not path:
+        return []
+    entries=json.loads(path.read_text(encoding='utf-8'))
+    errors=[]
+    known_fields={sheet:set(spec['headers']) for sheet,spec in sources().items()}
+    for entry in entries:
+        sheet=entry.get('sheet',''); key=KEYS.get(sheet)
+        rows=data.get(sheet,[])
+        field=entry.get('field','')
+        if not key or field not in known_fields.get(sheet,set()):
+            errors.append('Media map contains an unknown sheet or field'); continue
+        replacement=entry.get('replacement','')
+        if not replacement.startswith('/assets/img/editorial/') or '..' in Path(replacement).parts:
+            errors.append('Media map contains an unsafe destination'); continue
+        matches=[row for row in rows if row.get(key)==entry.get('record_id')]
+        if len(matches)!=1:
+            errors.append(f"Media map cannot find {sheet} record {entry.get('record_id','')}"); continue
+        row=matches[0]
+        if row.get(field,'')!=entry.get('expected',''):
+            errors.append(f"Media map no longer matches {sheet} record {entry.get('record_id','')} field {field}"); continue
+        row[field]=replacement
+    return errors
+
 def sources():
     result = {}
     for sheet, name in TABLES.items():
@@ -121,6 +145,7 @@ def validate(data):
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('command',choices=['prepare','check','apply']); parser.add_argument('path',type=Path)
+    parser.add_argument('--media-map',type=Path,help='Validated media reference translations')
     args=parser.parse_args(); src=sources()
     if args.command=='prepare':
         occupied={p['slot_id'] for p in src['Placements']['rows']}
@@ -146,6 +171,7 @@ def main():
                 continue
             records.append(record)
         data[sheet]=records
+    if not errors: errors=apply_media_map(data,args.media_map)
     if not errors: errors=validate(data)
     if errors: raise SystemExit('Import stopped:\n'+'\n'.join(errors))
     print('Valid: '+', '.join(f'{len(rows)} {sheet}' for sheet,rows in data.items()))
