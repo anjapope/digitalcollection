@@ -56,6 +56,7 @@
             const anchor = anchors.get(slot.anchor_id);
             if (!anchor || anchor.slot_id !== slot.slot_id || anchor.room_id !== slot.room_id) diagnostics.push(`Invalid anchor for ${slot.slot_id}`);
             else if (!validGeometry(anchor)) diagnostics.push(`Invalid geometry: ${slot.slot_id}`);
+            else if (!supported.has(anchor.presentation_mode) || anchor.presentation_mode !== slot.slot_type) diagnostics.push(`Invalid presentation mode: ${slot.slot_id}`);
             if (!supported.has(slot.slot_type)) diagnostics.push(`Unsupported slot type: ${slot.slot_id}`);
             if (!Number.isInteger(Number(slot.capacity)) || Number(slot.capacity) < 1) diagnostics.push(`Invalid capacity: ${slot.slot_id}`);
         }
@@ -82,7 +83,7 @@
             items.sort((a, b) => Number(a.placement.sort_order) - Number(b.placement.sort_order));
             if (items.length > Number(slot.capacity)) { diagnostics.push(`Excess capacity: ${id}`); continue; }
             if (!room || !enabled(room.enabled) || slot.room_id !== roomId || !enabled(slot.enabled)) continue;
-            if (!validGeometry(anchor) || anchor.slot_id !== id || anchor.room_id !== roomId || !supported.has(slot.slot_type) || !Number.isInteger(Number(slot.capacity)) || !(Number(slot.capacity) >= 1)) continue;
+            if (!validGeometry(anchor) || anchor.slot_id !== id || anchor.room_id !== roomId || !supported.has(slot.slot_type) || !supported.has(anchor.presentation_mode) || anchor.presentation_mode !== slot.slot_type || !Number.isInteger(Number(slot.capacity)) || !(Number(slot.capacity) >= 1)) continue;
             resolved.push({ slot, anchor, items });
         }
         return { room, slots: resolved, diagnostics };

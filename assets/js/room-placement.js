@@ -114,14 +114,14 @@
             view.dialog.showModal();
         }
         function openSlot(binding, opener) {
-            const { slot, items } = binding;
-            if (slot.slot_type === 'timeline') {
+            const { slot, anchor, items } = binding;
+            if (anchor.presentation_mode === 'timeline') {
                 const record = items[0].content;
                 const view = modal(slot.editor_label, opener);
                 window.ArchIvoryChronology.mount(view.body, record, data.events);
                 view.dialog.addEventListener('close', () => view.dialog.remove(), { once:true });
                 view.dialog.showModal();
-            } else if (slot.slot_type === 'collection') {
+            } else if (anchor.presentation_mode === 'collection') {
                 const view = modal(slot.editor_label, opener);
                 if (slot.display_description) view.body.append(element('p', slot.display_description));
                 view.body.append(element('p', `${items.length} research record${items.length===1?'':'s'} available. Related research does not identify an illustrated object unless the evidence establishes the connection.`));

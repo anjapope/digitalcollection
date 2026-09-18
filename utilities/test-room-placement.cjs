@@ -24,6 +24,7 @@ test('every agreed slot has unique stable geometry and matching artwork version'
         const a=data.anchors.find(a=>a.anchor_id===slot.anchor_id);
         assert.equal(a.slot_id,slot.slot_id);
         assert.equal(a.background_asset || '',data.rooms.find(r=>r.room_id===slot.room_id).background_asset || '');
+        assert.equal(a.presentation_mode,slot.slot_type);
     }
 });
 test('nested habitation map is a component mount',()=>{
