@@ -24,3 +24,6 @@ node_modules/
 /outputs/archivory-editorial/preview-*.png
 /outputs/archivory-editorial/source.json
 /outputs/archivory-editorial/*.inspect.ndjson
+# Local, timestamped pre-import CSV backups created by the workbook importer.
+# Kept on disk for maintainer recovery; not meant for repo history.
+/docs/room-restoration/editorial-backups/

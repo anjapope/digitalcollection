@@ -2,7 +2,7 @@ placement_id,slot_id,content_id,content_type,sort_order,published
 gallery_intro_1,gallery_intro,gallery_intro,detail,1,true
 conservation_lab_intro_1,conservation_lab_intro,conservation_lab_intro,detail,1,true
 vestibule_welcome_01_1,vestibule_welcome_01,welcome-sequence,tool,1,true
-gallery_wall_01_1,gallery_wall_01,gallery-fixed-wall_01,detail,1,true
+gallery_wall_01_1,gallery_wall_01,gallery-fixed-wall_01,detail,1,false
 gallery_wall_01_2,gallery_wall_01,art-susanna-sequence,detail,2,true
 gallery_wall_02_1,gallery_wall_02,gallery-fixed-wall_02,detail,1,true
 gallery_wall_02_2,gallery_wall_02,art-relief-sequence,detail,2,true
@@ -26,3 +26,4 @@ natural_history_inquiry_01_1,natural_history_inquiry_01,natural-history-tusk,too
 conservators_office_terminal_01_1,conservators_office_terminal_01,conservator-terminal,tool,1,true
 conservators_office_panel_01_1,conservators_office_panel_01,conservators_office_intro,detail,1,true
 lab_attic_context_01_1,lab_attic_context_01,lab-attic-sequence,tool,1,true
+geib-flute,gallery_wall_01,geib-flute,detail,1,true

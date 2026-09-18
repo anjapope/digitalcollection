@@ -1,46 +1,46 @@
-"slot_id","room_id","zone_id","editor_label","slot_type","capacity","anchor_id","enabled","notes","display_description"
-"gallery_intro","gallery","intro","Gallery introduction","detail","1","gallery_intro_anchor","true","Interpretation of the existing furnishing or label; no object identity inferred.",""
-"conservation_lab_intro","conservation_lab","intro","Conservation Lab introduction","detail","1","conservation_lab_intro_anchor","true","Interpretation of the existing furnishing or label; no object identity inferred.",""
-"historical_society_intro","historical_society","intro","Historical Society introduction","detail","1","historical_society_intro_anchor","true","Interpretation of the existing furnishing or label; no object identity inferred.",""
-"attic_intro","attic","intro","Attic introduction","detail","1","attic_intro_anchor","true","Interpretation of the existing furnishing or label; no object identity inferred.",""
-"natural_history_intro","natural_history","intro","Natural History Museum introduction","detail","1","natural_history_intro_anchor","true","Interpretation of the existing furnishing or label; no object identity inferred.",""
-"conservators_office_intro","conservators_office","intro","Conservator's Office introduction","detail","1","conservators_office_intro_anchor","true","Interpretation of the existing furnishing or label; no object identity inferred.",""
-"lab_intro","lab","intro","Lab introduction","detail","1","lab_intro_anchor","true","Interpretation of the existing furnishing or label; no object identity inferred.",""
-"vestibule_welcome_01","vestibule","welcome","Welcome and check-in","tool","1","vestibule_welcome_01_anchor","true","",""
-"gallery_wall_01","gallery","wall","Near left-wall relief","collection","8","gallery_wall_01_anchor","true","Fixed illustrated exhibit. Identity unverified; collections are comparative research, not assignments to the painted object.",""
-"gallery_wall_02","gallery","wall","Far left-wall relief","collection","8","gallery_wall_02_anchor","true","Fixed illustrated exhibit. Identity unverified; collections are comparative research, not assignments to the painted object.",""
-"gallery_case_01","gallery","case","Front glass case","collection","8","gallery_case_01_anchor","true","Fixed illustrated exhibit. Identity unverified; collections are comparative research, not assignments to the painted object.",""
-"gallery_case_02","gallery","case","Rear round display","collection","8","gallery_case_02_anchor","true","Fixed illustrated exhibit. Identity unverified; collections are comparative research, not assignments to the painted object.",""
-"gallery_wall_03","gallery","wall","Small rear-wall frame","detail","1","gallery_wall_03_anchor","true","Existing sconce research access point; replaceable photograph inside the empty frame.",""
-"conservation_lab_table_01","conservation_lab","table","Central ivories collection","collection","12","conservation_lab_table_01_anchor","true","Six painted figures; panel capacity is twelve records, not twelve physical figures.","Six figures are painted in this display. The panel links to the existing collection record; its capacity does not describe the number of figures."
-"conservation_lab_timeline_01","conservation_lab","timeline","Ivory Through the Ages","timeline","1","conservation_lab_timeline_01_anchor","true","",""
-"conservation_lab_media_01","conservation_lab","media","Rear analysis workbench","tool","1","conservation_lab_media_01_anchor","true","",""
-"historical_society_timeline_01","historical_society","timeline","Local Lives","timeline","1","historical_society_timeline_01_anchor","true","",""
-"historical_society_case_01","historical_society","case","Window-side case","collection","8","historical_society_case_01_anchor","true","",""
-"historical_society_case_02","historical_society","case","Foreground-right case","collection","8","historical_society_case_02_anchor","true","",""
-"historical_society_piano_01","historical_society","piano","Piano","detail","1","historical_society_piano_01_anchor","true","",""
-"historical_society_table_01","historical_society","table","Billiards table","detail","1","historical_society_table_01_anchor","true","",""
-"attic_timeline_01","attic","timeline","Family Traces","timeline","1","attic_timeline_01_anchor","true","",""
-"attic_trunk_01","attic","trunk","Left open trunk","collection","8","attic_trunk_01_anchor","true","Empty furnishing; unpublished until a supported content placement is assigned.",""
-"attic_trunk_02","attic","trunk","Right open trunk","collection","8","attic_trunk_02_anchor","true","Empty furnishing; unpublished until a supported content placement is assigned.",""
-"attic_shelves_01","attic","shelves","Shelving","collection","8","attic_shelves_01_anchor","true","Empty furnishing; unpublished until a supported content placement is assigned.",""
-"attic_table_01","attic","table","Research table","collection","8","attic_table_01_anchor","true","Empty furnishing; unpublished until a supported content placement is assigned.",""
-"natural_history_specimen_01","natural_history","specimen","Tusk specimen","detail","1","natural_history_specimen_01_anchor","true","",""
-"natural_history_specimen_01_label","natural_history","specimen","Specimen label","detail","1","natural_history_specimen_01_label_anchor","true","",""
-"natural_history_panel_01","natural_history","panel","Elephant interpretation panel","detail","1","natural_history_panel_01_anchor","true","",""
-"natural_history_panel_02","natural_history","panel","Central recessed panel","collection","8","natural_history_panel_02_anchor","true","Reserved empty panel; independent from the smaller chronology display below.",""
-"natural_history_map_01","natural_history","map","Wall map","tool","1","natural_history_map_01_anchor","true","",""
-"natural_history_timeline_01","natural_history","timeline","Deep-time explorer","tool","1","natural_history_timeline_01_anchor","true","",""
-"natural_history_map_02","natural_history","map","Habitation map within explorer","tool","1","natural_history_map_02_anchor","true","",""
-"natural_history_timeline_02","natural_history","timeline","Arrange the evidence","timeline","1","natural_history_timeline_02_anchor","true","",""
-"natural_history_inquiry_01","natural_history","inquiry","Ivory inquiry","tool","1","natural_history_inquiry_01_anchor","true","",""
-"conservators_office_terminal_01","conservators_office","terminal","Desk terminal","tool","1","conservators_office_terminal_01_anchor","true","",""
-"conservators_office_shelves_01","conservators_office","shelves","Left shelving","collection","8","conservators_office_shelves_01_anchor","true","",""
-"conservators_office_shelves_02","conservators_office","shelves","Rear shelving","collection","8","conservators_office_shelves_02_anchor","true","",""
-"conservators_office_shelves_03","conservators_office","shelves","Right shelving","collection","8","conservators_office_shelves_03_anchor","true","",""
-"conservators_office_panel_01","conservators_office","panel","Elephant wall panel","detail","1","conservators_office_panel_01_anchor","true","",""
-"lab_bench_01","lab","bench","Analysis bench","collection","8","lab_bench_01_anchor","true","Baseline CSS furnishing; no illustrated replacement authorized as a redesign.",""
-"lab_equipment_01","lab","equipment","Equipment","collection","8","lab_equipment_01_anchor","true","Baseline CSS furnishing; no illustrated replacement authorized as a redesign.",""
-"lab_cabinet_01","lab","cabinet","Left cabinet","collection","8","lab_cabinet_01_anchor","true","Baseline CSS furnishing; no illustrated replacement authorized as a redesign.",""
-"lab_cabinet_02","lab","cabinet","Right cabinet","collection","8","lab_cabinet_02_anchor","true","Baseline CSS furnishing; no illustrated replacement authorized as a redesign.",""
-"lab_attic_context_01","lab","attic","Attic access context","tool","1","lab_attic_context_01_anchor","true","",""
+slot_id,room_id,zone_id,editor_label,slot_type,capacity,anchor_id,enabled,notes,display_description
+gallery_intro,gallery,intro,Gallery introduction,detail,1,gallery_intro_anchor,true,Interpretation of the existing furnishing or label; no object identity inferred.,
+conservation_lab_intro,conservation_lab,intro,Conservation Lab introduction,detail,1,conservation_lab_intro_anchor,true,Interpretation of the existing furnishing or label; no object identity inferred.,
+historical_society_intro,historical_society,intro,Historical Society introduction,detail,1,historical_society_intro_anchor,true,Interpretation of the existing furnishing or label; no object identity inferred.,
+attic_intro,attic,intro,Attic introduction,detail,1,attic_intro_anchor,true,Interpretation of the existing furnishing or label; no object identity inferred.,
+natural_history_intro,natural_history,intro,Natural History Museum introduction,detail,1,natural_history_intro_anchor,true,Interpretation of the existing furnishing or label; no object identity inferred.,
+conservators_office_intro,conservators_office,intro,Conservator's Office introduction,detail,1,conservators_office_intro_anchor,true,Interpretation of the existing furnishing or label; no object identity inferred.,
+lab_intro,lab,intro,Lab introduction,detail,1,lab_intro_anchor,true,Interpretation of the existing furnishing or label; no object identity inferred.,
+vestibule_welcome_01,vestibule,welcome,Welcome and check-in,tool,1,vestibule_welcome_01_anchor,true,,
+gallery_wall_01,gallery,wall,Near left-wall relief,collection,8,gallery_wall_01_anchor,true,"Fixed illustrated exhibit. Identity unverified; collections are comparative research, not assignments to the painted object.",
+gallery_wall_02,gallery,wall,Far left-wall relief,collection,8,gallery_wall_02_anchor,true,"Fixed illustrated exhibit. Identity unverified; collections are comparative research, not assignments to the painted object.",
+gallery_case_01,gallery,case,Front glass case,collection,8,gallery_case_01_anchor,true,"Fixed illustrated exhibit. Identity unverified; collections are comparative research, not assignments to the painted object.",
+gallery_case_02,gallery,case,Rear round display,collection,8,gallery_case_02_anchor,true,"Fixed illustrated exhibit. Identity unverified; collections are comparative research, not assignments to the painted object.",
+gallery_wall_03,gallery,wall,Small rear-wall frame,detail,1,gallery_wall_03_anchor,true,Existing sconce research access point; replaceable photograph inside the empty frame.,
+conservation_lab_table_01,conservation_lab,table,Central ivories collection,collection,12,conservation_lab_table_01_anchor,true,"Six painted figures; panel capacity is twelve records, not twelve physical figures.",Six figures are painted in this display. The panel links to the existing collection record; its capacity does not describe the number of figures.
+conservation_lab_timeline_01,conservation_lab,timeline,Ivory Through the Ages,timeline,1,conservation_lab_timeline_01_anchor,true,,
+conservation_lab_media_01,conservation_lab,media,Rear analysis workbench,tool,1,conservation_lab_media_01_anchor,true,,
+historical_society_timeline_01,historical_society,timeline,Local Lives,timeline,1,historical_society_timeline_01_anchor,true,,
+historical_society_case_01,historical_society,case,Window-side case,collection,8,historical_society_case_01_anchor,true,,
+historical_society_case_02,historical_society,case,Foreground-right case,collection,8,historical_society_case_02_anchor,true,,
+historical_society_piano_01,historical_society,piano,Piano,detail,1,historical_society_piano_01_anchor,true,,
+historical_society_table_01,historical_society,table,Billiards table,detail,1,historical_society_table_01_anchor,true,,
+attic_timeline_01,attic,timeline,Family Traces,timeline,1,attic_timeline_01_anchor,true,,
+attic_trunk_01,attic,trunk,Left open trunk,collection,8,attic_trunk_01_anchor,true,Empty furnishing; unpublished until a supported content placement is assigned.,
+attic_trunk_02,attic,trunk,Right open trunk,collection,8,attic_trunk_02_anchor,true,Empty furnishing; unpublished until a supported content placement is assigned.,
+attic_shelves_01,attic,shelves,Shelving,collection,8,attic_shelves_01_anchor,true,Empty furnishing; unpublished until a supported content placement is assigned.,
+attic_table_01,attic,table,Research table,collection,8,attic_table_01_anchor,true,Empty furnishing; unpublished until a supported content placement is assigned.,
+natural_history_specimen_01,natural_history,specimen,Tusk specimen,detail,1,natural_history_specimen_01_anchor,true,,
+natural_history_specimen_01_label,natural_history,specimen,Specimen label,detail,1,natural_history_specimen_01_label_anchor,true,,
+natural_history_panel_01,natural_history,panel,Elephant interpretation panel,detail,1,natural_history_panel_01_anchor,true,,
+natural_history_panel_02,natural_history,panel,Central recessed panel,collection,8,natural_history_panel_02_anchor,true,Reserved empty panel; independent from the smaller chronology display below.,
+natural_history_map_01,natural_history,map,Wall map,tool,1,natural_history_map_01_anchor,true,,
+natural_history_timeline_01,natural_history,timeline,Deep-time explorer,tool,1,natural_history_timeline_01_anchor,true,,
+natural_history_map_02,natural_history,map,Habitation map within explorer,tool,1,natural_history_map_02_anchor,true,,
+natural_history_timeline_02,natural_history,timeline,Arrange the evidence,timeline,1,natural_history_timeline_02_anchor,true,,
+natural_history_inquiry_01,natural_history,inquiry,Ivory inquiry,tool,1,natural_history_inquiry_01_anchor,true,,
+conservators_office_terminal_01,conservators_office,terminal,Desk terminal,tool,1,conservators_office_terminal_01_anchor,true,,
+conservators_office_shelves_01,conservators_office,shelves,Left shelving,collection,8,conservators_office_shelves_01_anchor,true,,
+conservators_office_shelves_02,conservators_office,shelves,Rear shelving,collection,8,conservators_office_shelves_02_anchor,true,,
+conservators_office_shelves_03,conservators_office,shelves,Right shelving,collection,8,conservators_office_shelves_03_anchor,true,,
+conservators_office_panel_01,conservators_office,panel,Elephant wall panel,detail,1,conservators_office_panel_01_anchor,true,,
+lab_bench_01,lab,bench,Analysis bench,collection,8,lab_bench_01_anchor,true,Baseline CSS furnishing; no illustrated replacement authorized as a redesign.,
+lab_equipment_01,lab,equipment,Equipment,collection,8,lab_equipment_01_anchor,true,Baseline CSS furnishing; no illustrated replacement authorized as a redesign.,
+lab_cabinet_01,lab,cabinet,Left cabinet,collection,8,lab_cabinet_01_anchor,true,Baseline CSS furnishing; no illustrated replacement authorized as a redesign.,
+lab_cabinet_02,lab,cabinet,Right cabinet,collection,8,lab_cabinet_02_anchor,true,Baseline CSS furnishing; no illustrated replacement authorized as a redesign.,
+lab_attic_context_01,lab,attic,Attic access context,tool,1,lab_attic_context_01_anchor,true,,
