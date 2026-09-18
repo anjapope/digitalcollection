@@ -512,7 +512,7 @@
     "presentation_mode": "collection",
     "selector": "",
     "fit": "contain",
-    "inline_content": false,
+    "inline_content": true,
     "component_mount": false
   },
   {
@@ -1286,7 +1286,7 @@
     "presentation_mode": "collection",
     "selector": "",
     "fit": "contain",
-    "inline_content": false,
+    "inline_content": true,
     "component_mount": false
   },
   {

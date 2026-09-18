@@ -41,6 +41,22 @@ The 45 locations are editorial access points, not 45 rooms. Empty locations are 
 - **Anchor** is the stable geometry key. The anchor's `mount` is the existing room-page element where the placement layer is attached. A non-empty `selector` means the placement reuses an existing authored control instead of creating a new polygon.
 - **Nested component** means the location belongs to an existing tool component. It is not a second wall location.
 
+## Presentation and visual-media semantics
+
+`presentation_mode` and `inline_content` are complementary anchor metadata; neither duplicates the other.
+
+- `presentation_mode` controls interaction: `detail` opens the assigned detail record, `collection` opens the slot's research list, `timeline` opens the chronology activity, and `tool` opens or routes to its authored tool.
+- `inline_content` controls visual rendering. A published placement whose resolved content has an image renders that image in the anchor's `content_bounds` only when `inline_content=true`. `false` leaves the slot interaction-only.
+- `content_bounds`, `mount`, and, where present, `selector` position the visual and its existing clickable target. `fit` controls aspect-ratio behavior.
+
+### Controlled capability audit
+
+The visual editable mounts are `gallery_wall_03`, `gallery_case_02`, `historical_society_case_01`, `historical_society_case_02`, `attic_trunk_01`, `attic_trunk_02`, `attic_shelves_01`, `attic_table_01`, `natural_history_panel_02`, `natural_history_timeline_02`, `conservators_office_shelves_01`, `conservators_office_shelves_02`, and `conservators_office_shelves_03`. Their anchors use `inline_content=true`; an image-bearing placement uses the existing geometry without changing the room background.
+
+The interaction-only hotspots are all seven introduction slots, `vestibule_welcome_01`, `gallery_wall_01`, `gallery_wall_02`, `gallery_case_01`, `conservation_lab_table_01`, `conservation_lab_timeline_01`, `conservation_lab_media_01`, `historical_society_timeline_01`, `historical_society_piano_01`, `historical_society_table_01`, `attic_timeline_01`, `natural_history_specimen_01`, `natural_history_specimen_01_label`, `natural_history_panel_01`, `natural_history_map_01`, `natural_history_timeline_01`, `natural_history_inquiry_01`, `conservators_office_terminal_01`, `conservators_office_panel_01`, `lab_bench_01`, `lab_equipment_01`, `lab_cabinet_01`, `lab_cabinet_02`, and `lab_attic_context_01`. These remain `inline_content=false` because they are interpretation, tools, authored scenery, or existing illustrated furnishings rather than editorial media mounts.
+
+`natural_history_map_02` is the one special-case component mount: it is a nested control inside the deep-time explorer rather than a standalone room surface. It remains interaction-only.
+
 ## Vestibule
 
 | Slot ID | Display name and visual location | Capacity | Supported content | Anchor / mount | Used / current placement | Editor notes and warnings |
@@ -97,7 +113,7 @@ The 45 locations are editorial access points, not 45 rooms. Empty locations are 
 | `natural_history_specimen_01` | Large tusk specimen in the central display | 1 | `detail` | `natural_history_specimen_01_anchor` / `.natural-history-stage` | used; `natural-history-specimen` | The illustration is a specimen presentation, not an accession record. Do not infer an individual animal, locality, or collecting history. |
 | `natural_history_specimen_01_label` | Specimen label immediately associated with the tusk | 1 | `detail` | `natural_history_specimen_01_label_anchor` / `.natural-history-stage` | used; `natural-history-specimen` | Intentionally reuses the specimen interpretation as a separate visible label location. It is not a duplicate physical object slot. |
 | `natural_history_panel_01` | Elephant interpretation panel beside the specimen | 1 | `detail` | `natural_history_panel_01_anchor` / `.natural-history-stage` | used; `natural_history_intro` | Uses the Natural History introduction record. Keep room-level interpretation distinct from claims about the pictured specimen. |
-| `natural_history_panel_02` | Central recessed wall panel | 8 | `collection` or `detail` | `natural_history_panel_02_anchor` / `.natural-history-stage` | reserved; none | Reserved empty panel, independent from the chronology display below. |
+| `natural_history_panel_02` | Central recessed wall panel | 8 | `collection` or `detail` | `natural_history_panel_02_anchor` / `.natural-history-stage` | used; `geib-flute` | Replaceable editorial media mount. The Geib Flute image renders within this existing recessed-panel geometry; the panel remains independent from the chronology display below. |
 | `natural_history_map_01` | Wall map on the right side of the room | 1 | `tool` | `natural_history_map_01_anchor` / `.natural-history-stage`; selector `a[aria-label="Open the map"]` | used; `natural-history-map` | Reuses the authored map link and routes to the existing map page. Preserve that route when editing. |
 | `natural_history_timeline_01` | Deep-time explorer on the right-side timeline display | 1 | `tool` | `natural_history_timeline_01_anchor` / `.natural-history-stage`; selector `[data-open-room-timeline]` | used; `proboscidean-timeline` | Reuses the authored explorer trigger. It is a tool slot, not the separate evidence-ordering chronology slot. |
 | `natural_history_map_02` | Habitation map nested inside the deep-time explorer | 1 | `tool` | `natural_history_map_02_anchor` / `.natural-history-stage`; selector `[data-apt-map-action]`; **nested component** | used; `habitation-map` | This is intentionally a component mount, not a second wall location. Do not count it as another standalone map or move it to a room-level polygon. |

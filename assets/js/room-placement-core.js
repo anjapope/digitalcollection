@@ -12,7 +12,7 @@
     // Single source of truth for "should this resolved slot show an inline image, and which one?"
     // Reused by both the legacy-artwork and mount-based rendering paths in room-placement.js.
     function resolveMedia(anchor, items) {
-        if (!anchor || !anchor.inline_content || !Array.isArray(items) || !items.length) return null;
+        if (!anchor || !enabled(anchor.inline_content) || !Array.isArray(items) || !items.length) return null;
         const image = items[0].content && items[0].content.image;
         if (typeof image !== 'string' || !image.trim()) return null;
         return { image, preserveAspectRatio: FIT_PRESERVE_ASPECT_RATIO[anchor.fit] || FIT_PRESERVE_ASPECT_RATIO.contain };

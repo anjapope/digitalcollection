@@ -92,14 +92,27 @@ test('a placement without an image does not resolve media (no image element shou
     binding.items[0].content.image='';
     assert.equal(core.resolveMedia(binding.anchor,binding.items),null);
 });
-test('anchors not flagged inline_content never resolve media, even with an image and an active placement',()=>{
-    // gallery_wall_01 is a fixed illustrated relief baked into the room background; its
-    // placements stay interaction-only (opening the collection list) rather than visually
-    // overlaying a curator photo on top of the painted artwork.
-    const resolved=core.resolve(data,'gallery');
-    const binding=resolved.slots.find(b=>b.slot.slot_id==='gallery_wall_01');
-    assert.ok(binding,'gallery_wall_01 should still resolve as an active, clickable slot');
-    assert.equal(binding.anchor.inline_content,false);
+test('the Geib Flute resolves visibly at the enabled Natural History panel',()=>{
+    const resolved=core.resolve(data,'natural_history');
+    const binding=resolved.slots.find(b=>b.slot.slot_id==='natural_history_panel_02');
+    assert.ok(binding,'natural_history_panel_02 should resolve as an active slot');
+    assert.equal(binding.items[0].content.content_id,'geib-flute');
+    assert.equal(binding.anchor.inline_content,true);
+    assert.equal(core.resolveMedia(binding.anchor,binding.items).image,'/assets/img/editorial/geib-flute-3ec90b3a3ce8.jpeg');
+});
+test('unpublishing the Geib Flute removes its visual panel binding',()=>{
+    const d=copy();
+    d.placements.find(p=>p.placement_id==='geib-flute').published='false';
+    const resolved=core.resolve(d,'natural_history');
+    assert.ok(!resolved.slots.some(b=>b.slot.slot_id==='natural_history_panel_02'));
+});
+test('interaction-only anchors never resolve media, even with an image and an active placement',()=>{
+    const d=copy();
+    const anchor=d.anchors.find(a=>a.slot_id==='gallery_wall_01');
+    const placement=d.placements.find(p=>p.placement_id==='geib-flute');
+    placement.slot_id='gallery_wall_01';
+    const binding=core.resolve(d,'gallery').slots.find(b=>b.slot.slot_id==='gallery_wall_01');
+    assert.equal(anchor.inline_content,false);
     assert.equal(core.resolveMedia(binding.anchor,binding.items),null);
 });
 test('unpublished placements never reach a resolved slot, so they cannot resolve media',()=>{
@@ -124,6 +137,7 @@ test('resolveMedia is defensive against missing anchors, items or content',()=>{
     assert.equal(core.resolveMedia({inline_content:true},[]),null);
     assert.equal(core.resolveMedia({inline_content:true},[{content:{}}]),null);
     assert.equal(core.resolveMedia({inline_content:false},[{content:{image:'/x.jpg'}}]),null);
+    assert.equal(core.resolveMedia({inline_content:'false'},[{content:{image:'/x.jpg'}}]),null);
 });
 test('multi-item slots resolve only the lowest sort_order item\'s image, matching existing collection anchors (no carousel)',()=>{
     const d=copy();
