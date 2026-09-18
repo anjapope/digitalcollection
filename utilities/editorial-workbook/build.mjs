@@ -36,11 +36,11 @@ for(const [name,spec] of Object.entries(data)){
   s.getRange(`G2:K${count+1}`).setNumberFormat('General');
   s.getRange(`G2:K${count+1}`).format.fill='#E9ECEF';
   for(let row=2;row<=count+1;row++)s.getRange(`G${row}:K${row}`).formulas=[[
-   `=IF(B${row}="","",IFNA(VLOOKUP(B${row},Slots!$A$2:$D$501,2,FALSE),"Unknown slot"))`,
-   `=IF(G${row}="","",IFNA(VLOOKUP(G${row},Rooms!$A$2:$B$501,2,FALSE),"Unknown room"))`,
-   `=IF(B${row}="","",IFNA(VLOOKUP(B${row},Slots!$A$2:$D$501,4,FALSE),"Unknown slot"))`,
-   `=IF(B${row}="","",IFNA(VLOOKUP(B${row},Slots!$A$2:$E$501,5,FALSE),"Unknown slot"))`,
-   `=IF(B${row}="","",IFNA(VLOOKUP(B${row},Slots!$A$2:$F$501,6,FALSE),"Unknown slot"))`]];
+   `=IF(B${row}="","",IFERROR(VLOOKUP(B${row},Slots!$A$2:$D$501,2,FALSE),"Unknown slot"))`,
+   `=IF(G${row}="","",IFERROR(VLOOKUP(G${row},Rooms!$A$2:$B$501,2,FALSE),"Unknown room"))`,
+   `=IF(B${row}="","",IFERROR(VLOOKUP(B${row},Slots!$A$2:$D$501,4,FALSE),"Unknown slot"))`,
+   `=IF(B${row}="","",IFERROR(VLOOKUP(B${row},Slots!$A$2:$E$501,5,FALSE),"Unknown slot"))`,
+   `=IF(B${row}="","",IFERROR(VLOOKUP(B${row},Slots!$A$2:$F$501,6,FALSE),"Unknown slot"))`]];
   s.getRange(`C2:C${count+1}`).conditionalFormats.addCustom('AND($A2<>"",$C2="")',{fill:'#FFE2A8'});
   s.getRange(`B2:B${count+1}`).conditionalFormats.addCustom('AND($A2<>"",$B2<>"",COUNTIF(Slots!$A$2:$A$501,$B2)=0)',{fill:'#F4B4B4'});
   s.getRange(`F2:F${count+1}`).conditionalFormats.addCustom('AND($A2<>"",$F2="true",COUNTIFS($B$2:$B$501,$B2,$E$2:$E$501,$E2,$F$2:$F$501,"true")>1)',{fill:'#F4B4B4'});

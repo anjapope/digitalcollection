@@ -59,6 +59,14 @@ class WorkbookChecks(unittest.TestCase):
                     with redirect_stdout(io.StringIO()): w.main()
             finally: sys.argv=previous; w.ROOT=original
 
+    def test_generated_placement_formulas_use_iferror_not_ifna(self):
+        # IFNA(...) produced #NAME? errors in the target Excel environment; the
+        # automatic Placement lookup formulas must use the widely-supported
+        # IFERROR instead. This guards against IFNA being reintroduced.
+        source = (w.ROOT/'utilities/editorial-workbook/build.mjs').read_text(encoding='utf-8')
+        self.assertNotIn('IFNA(', source)
+        self.assertIn('IFERROR(VLOOKUP(B${row},Slots!$A$2:$D$501,2,FALSE)', source)
+
     def test_media_map_translates_only_the_named_record_and_field(self):
         data={
             'Content':[
