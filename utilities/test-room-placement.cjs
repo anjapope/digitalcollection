@@ -71,6 +71,77 @@ test('uncertain attic papers remain equivalent',()=>{
     assert.equal(events[1].sortKey,events[2].sortKey);
     [events[1],events[2]]=[events[2],events[1]];assert.ok(core.checkTimeline(events).correct);
 });
+
+// In-room media rendering (core.resolveMedia): resolves which image, if any, should be
+// rendered inline at a resolved slot's anchor. Purely data-driven; DOM rendering in
+// room-placement.js reuses this same function, so it is exercised here without a browser.
+test('image-bearing placement resolves the assigned media at its anchor',()=>{
+    const resolved=core.resolve(data,'gallery');
+    const binding=resolved.slots.find(b=>b.slot.slot_id==='gallery_wall_03');
+    assert.ok(binding,'gallery_wall_03 (the replaceable sconce frame) should resolve as an active slot');
+    assert.equal(binding.anchor.slot_id,'gallery_wall_03');
+    assert.equal(binding.slot.room_id,'gallery');
+    const media=core.resolveMedia(binding.anchor,binding.items);
+    assert.ok(media,'an inline_content anchor with an image-bearing placement should resolve media');
+    assert.equal(media.image,binding.items[0].content.image);
+    assert.equal(media.preserveAspectRatio,'xMidYMid meet');
+});
+test('a placement without an image does not resolve media (no image element should be created)',()=>{
+    const d=copy();
+    const binding=core.resolve(d,'gallery').slots.find(b=>b.slot.slot_id==='gallery_wall_03');
+    binding.items[0].content.image='';
+    assert.equal(core.resolveMedia(binding.anchor,binding.items),null);
+});
+test('anchors not flagged inline_content never resolve media, even with an image and an active placement',()=>{
+    // gallery_wall_01 is a fixed illustrated relief baked into the room background; its
+    // placements stay interaction-only (opening the collection list) rather than visually
+    // overlaying a curator photo on top of the painted artwork.
+    const resolved=core.resolve(data,'gallery');
+    const binding=resolved.slots.find(b=>b.slot.slot_id==='gallery_wall_01');
+    assert.ok(binding,'gallery_wall_01 should still resolve as an active, clickable slot');
+    assert.equal(binding.anchor.inline_content,false);
+    assert.equal(core.resolveMedia(binding.anchor,binding.items),null);
+});
+test('unpublished placements never reach a resolved slot, so they cannot resolve media',()=>{
+    const d=copy();
+    d.placements.filter(p=>p.slot_id==='gallery_wall_03').forEach(p=>p.published='false');
+    const resolved=core.resolve(d,'gallery');
+    assert.ok(!resolved.slots.some(b=>b.slot.slot_id==='gallery_wall_03'));
+});
+test('a placement only resolves media in the room it belongs to',()=>{
+    assert.ok(core.resolve(data,'gallery').slots.some(b=>b.slot.slot_id==='gallery_wall_03'));
+    assert.ok(!core.resolve(data,'conservation_lab').slots.some(b=>b.slot.slot_id==='gallery_wall_03'));
+});
+test('resolveMedia honors an anchor fit override, defaulting unknown/missing fit to contain',()=>{
+    const binding=core.resolve(data,'gallery').slots.find(b=>b.slot.slot_id==='gallery_wall_03');
+    assert.equal(core.resolveMedia(binding.anchor,binding.items).preserveAspectRatio,'xMidYMid meet');
+    assert.equal(core.resolveMedia({...binding.anchor,fit:'cover'},binding.items).preserveAspectRatio,'xMidYMid slice');
+    assert.equal(core.resolveMedia({...binding.anchor,fit:undefined},binding.items).preserveAspectRatio,'xMidYMid meet');
+});
+test('resolveMedia is defensive against missing anchors, items or content',()=>{
+    assert.equal(core.resolveMedia(null,[]),null);
+    assert.equal(core.resolveMedia(undefined,[{content:{image:'/x.jpg'}}]),null);
+    assert.equal(core.resolveMedia({inline_content:true},[]),null);
+    assert.equal(core.resolveMedia({inline_content:true},[{content:{}}]),null);
+    assert.equal(core.resolveMedia({inline_content:false},[{content:{image:'/x.jpg'}}]),null);
+});
+test('multi-item slots resolve only the lowest sort_order item\'s image, matching existing collection anchors (no carousel)',()=>{
+    const d=copy();
+    const anchor=d.anchors.find(a=>a.slot_id==='gallery_wall_01');
+    anchor.inline_content=true; // exercised only in this isolated copy; the real data leaves it false (see audit test above)
+    d.content.push(
+        {content_id:'test-multi-a',content_type:'detail',image:'/assets/img/editorial/test-a.jpg'},
+        {content_id:'test-multi-b',content_type:'detail',image:'/assets/img/editorial/test-b.jpg'}
+    );
+    d.placements=d.placements.filter(p=>p.slot_id!=='gallery_wall_01');
+    d.placements.push(
+        {placement_id:'test-multi-1',slot_id:'gallery_wall_01',content_id:'test-multi-b',content_type:'detail',sort_order:2,published:'true'},
+        {placement_id:'test-multi-2',slot_id:'gallery_wall_01',content_id:'test-multi-a',content_type:'detail',sort_order:1,published:'true'}
+    );
+    const binding=core.resolve(d,'gallery').slots.find(b=>b.slot.slot_id==='gallery_wall_01');
+    assert.equal(binding.items.length,2);
+    assert.equal(core.resolveMedia(binding.anchor,binding.items).image,'/assets/img/editorial/test-a.jpg');
+});
 test('shuffle preserves records and avoids an initially solved distinct sequence',()=>{
     const events=[{id:'a',sortKey:-100},{id:'b',sortKey:10},{id:'c',sortKey:20}];
     const before=JSON.stringify(events);

@@ -8,6 +8,15 @@
     const enabled = value => value === true || value === 'true';
     const canonicalRoom = id => id === 'art' ? 'conservation_lab' : id;
     const validSortKey = value => value !== null && value !== undefined && String(value).trim() !== '' && Number.isFinite(Number(value));
+    const FIT_PRESERVE_ASPECT_RATIO = { contain: 'xMidYMid meet', cover: 'xMidYMid slice' };
+    // Single source of truth for "should this resolved slot show an inline image, and which one?"
+    // Reused by both the legacy-artwork and mount-based rendering paths in room-placement.js.
+    function resolveMedia(anchor, items) {
+        if (!anchor || !anchor.inline_content || !Array.isArray(items) || !items.length) return null;
+        const image = items[0].content && items[0].content.image;
+        if (typeof image !== 'string' || !image.trim()) return null;
+        return { image, preserveAspectRatio: FIT_PRESERVE_ASPECT_RATIO[anchor.fit] || FIT_PRESERVE_ASPECT_RATIO.contain };
+    }
     const validGeometry = anchor => anchor && (anchor.component_mount ? typeof anchor.selector==='string' && anchor.selector.length>0 : anchor.coordinate_system?.width > 0 && anchor.coordinate_system?.height > 0 && Array.isArray(anchor.polygon) && anchor.polygon.length >= 3 && anchor.polygon.every(p => Array.isArray(p) && p.length===2 && p.every(Number.isFinite)) && anchor.content_bounds && ['x','y','width','height'].every(key=>Number.isFinite(anchor.content_bounds[key])) && anchor.content_bounds.width>0 && anchor.content_bounds.height>0);
     function index(rows, key, diagnostics) {
         const result = new Map();
@@ -97,5 +106,5 @@
         }
         return shuffled;
     }
-    return { enabled, canonicalRoom, validSortKey, resolve, checkTimeline, shuffle };
+    return { enabled, canonicalRoom, validSortKey, resolve, checkTimeline, shuffle, resolveMedia };
 });

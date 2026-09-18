@@ -168,11 +168,15 @@
                     const polygon=document.createElementNS(ns,'polygon'); polygon.classList.add('room-placement-target');
                     polygon.setAttribute('points',points.map(p=>p.join(',')).join(' ')); trigger.append(polygon);
                     trigger.classList.add('room-existing-target');
-                    if(anchor.inline_content && items[0].content.image) {
+                    const legacyMedia = core.resolveMedia(anchor, items);
+                    if(legacyMedia) {
                         const b=anchor.content_bounds;
                         const image=document.createElementNS(ns,'image'); image.setAttribute('x',b.x*box.width/anchor.coordinate_system.width); image.setAttribute('y',b.y*box.height/anchor.coordinate_system.height);
                         image.setAttribute('width',b.width*box.width/anchor.coordinate_system.width); image.setAttribute('height',b.height*box.height/anchor.coordinate_system.height);
-                        image.setAttribute('href',localUrl(items[0].content.image)); image.setAttribute('preserveAspectRatio','xMidYMid meet'); image.style.pointerEvents='none'; trigger.prepend(image);
+                        image.setAttribute('href',localUrl(legacyMedia.image)); image.setAttribute('preserveAspectRatio',legacyMedia.preserveAspectRatio); image.style.pointerEvents='none';
+                        // A missing/broken asset must not leave a broken-image glyph over the room artwork.
+                        image.addEventListener('error', () => { if(development) console.warn('[ArchIvory editorial] Media failed to load',slot.slot_id,legacyMedia.image); image.remove(); }, { once:true });
+                        trigger.prepend(image);
                     }
                     if(slot.slot_id==='natural_history_inquiry_01') {
                         const text=document.createElementNS(ns,'text'); text.setAttribute('x','700'); text.setAttribute('y','716'); text.setAttribute('text-anchor','middle'); text.setAttribute('font-size','12'); text.setAttribute('fill','#51402b'); text.textContent='Ask a question'; text.style.pointerEvents='none'; trigger.prepend(text);
@@ -193,10 +197,14 @@
                 trigger = document.createElementNS(ns,'a'); trigger.setAttribute('role','button'); trigger.setAttribute('tabindex','0');
                 const polygon = document.createElementNS(ns,'polygon'); polygon.setAttribute('points',anchor.polygon.map(p=>p.join(',')).join(' ')); polygon.classList.add('room-placement-target');
                 const bounds = anchor.content_bounds;
-                if (anchor.inline_content && items[0].content.image) {
+                const media = core.resolveMedia(anchor, items);
+                if (media) {
                     const image = document.createElementNS(ns,'image');
                     for (const [key,value] of Object.entries(bounds)) image.setAttribute(key,value);
-                    image.setAttribute('href',localUrl(items[0].content.image)); image.setAttribute('preserveAspectRatio','xMidYMid meet'); trigger.append(image);
+                    image.setAttribute('href',localUrl(media.image)); image.setAttribute('preserveAspectRatio',media.preserveAspectRatio);
+                    // A missing/broken asset must not leave a broken-image glyph over the room artwork.
+                    image.addEventListener('error', () => { if(development) console.warn('[ArchIvory editorial] Media failed to load',slot.slot_id,media.image); image.remove(); }, { once:true });
+                    trigger.append(image);
                 }
                 // The lower central panel is already a recessed furnishing in Natural History.
                 if (slot.slot_id === 'natural_history_timeline_02') {
