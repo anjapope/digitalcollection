@@ -67,6 +67,11 @@ class WorkbookChecks(unittest.TestCase):
         self.assertNotIn('IFNA(', source)
         self.assertIn('IFERROR(VLOOKUP(B${row},Slots!$A$2:$D$501,2,FALSE)', source)
 
+    def test_workbook_generator_includes_guided_editor_views(self):
+        source = (w.ROOT/'utilities/editorial-workbook/build.mjs').read_text(encoding='utf-8')
+        for sheet in ('Edit Items', 'Timeline Cards', 'Room Overview', 'Publishing'):
+            self.assertIn(f"'{sheet}'", source)
+
     def test_media_map_translates_only_the_named_record_and_field(self):
         data={
             'Content':[

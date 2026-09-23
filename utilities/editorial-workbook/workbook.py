@@ -134,6 +134,13 @@ def validate(data):
         for field in ('room_id','roomName','temporalScale','introduction','successText'):
             if not t.get(field,'').strip(): errors.append(f'{ident}: {field} is required')
         if t['room_id'] not in idx['Rooms']: errors.append(f'{ident}: unknown room')
+        if t.get('published','') and t['published'] not in ('true','false'): errors.append(f'{ident}: published must be true or false')
+        if t.get('scale_mode','') and t['scale_mode'] not in ('linear','segmented','guided'): errors.append(f'{ident}: scale_mode must be linear, segmented, or guided')
+        if t.get('start_date','') and not number(t['start_date']): errors.append(f'{ident}: start_date must be numeric')
+        if t.get('end_date','') and not number(t['end_date']): errors.append(f'{ident}: end_date must be numeric')
+        if t.get('scale_config',''):
+            try: json.loads(t['scale_config'])
+            except json.JSONDecodeError: errors.append(f'{ident}: scale_config must be valid JSON')
         if len([e for e in data['Events'] if e['timeline_id']==ident])<2: errors.append(f'{ident}: needs at least two events')
     for e in data['Events']:
         ident=e['id']
@@ -141,6 +148,7 @@ def validate(data):
             if not e.get(field,'').strip(): errors.append(f'{ident or "Event"}: {field} is required')
         if e['timeline_id'] not in idx['Timelines']: errors.append(f'{ident}: unknown timeline')
         if not number(e['sortKey']): errors.append(f'{ident}: numeric sortKey required')
+        if e.get('published','') and e['published'] not in ('true','false'): errors.append(f'{ident}: published must be true or false')
     return errors
 
 def main():

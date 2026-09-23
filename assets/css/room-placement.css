@@ -39,12 +39,23 @@
 .room-inquiry-dialog .aiq-backdrop { display:none; }
 .room-inquiry-dialog .aiq-terminal { position:static; width:100%; max-height:none; margin:0; transform:none; box-shadow:none; }
 .room-chronology ol { padding:0; list-style:none; counter-reset:events; }
-.room-chronology li { counter-increment:events; display:grid; grid-template-columns:2.5rem 1fr; gap:.7rem; border-bottom:1px solid #bba17d; padding:.8rem 0; }
+.room-chronology-axis { position:relative; height:5.5rem; margin:1.5rem .6rem 1rem; border-bottom:3px solid #80623c; overflow:visible; }
+.room-chronology-axis::before { content:"Earlier"; position:absolute; left:0; bottom:.45rem; font-size:.8rem; }
+.room-chronology-axis::after { content:"Later"; position:absolute; right:0; bottom:.45rem; font-size:.8rem; }
+.room-chronology-axis-marker { position:absolute; left:calc(var(--timeline-position) * 100%); bottom:-.55rem; width:1rem; height:1rem; transform:translateX(-50%); border:2px solid #80623c; border-radius:50%; background:#f5ead5; transition:left .35s ease, background .25s ease, transform .25s ease; }
+.room-chronology-axis-marker.is-solved { background:#477247; transform:translateX(-50%) scale(1.18); }
+.room-chronology-axis-marker span { position:absolute; bottom:1.35rem; left:50%; width:max-content; max-width:10rem; transform:translateX(-50%); font-size:.75rem; font-weight:600; text-align:center; }
+.room-chronology li { counter-increment:events; display:grid; grid-template-columns:2.5rem 1fr; gap:.7rem; border-bottom:1px solid #bba17d; padding:.8rem 0; transition:background-color .25s ease, border-color .25s ease; }
 .room-chronology li.is-correct { border-left:4px solid #477247; padding-left:.6rem; }
+.room-chronology li.is-solved { background:#edf4e8; }
 .room-chronology li.is-dragging { background:#ddc69e; }
 .room-chronology-copy strong::before { content:counter(events) '. '; }
 .room-chronology-handle { touch-action:none; align-self:start; padding:.4rem !important; min-height:44px; }
 .room-chronology-date { display:block; font-weight:600; color:#675033; }
+.room-chronology-reveal { font-weight:600; }
+.room-chronology-prompt { font-style:italic; }
+.room-chronology-question { padding:.75rem 1rem; border-left:4px solid #947146; background:#eee0c8; font-family:Georgia,serif; transition:background-color .25s ease, font-size .25s ease; }
+.room-chronology-question.is-prominent { background:#ddc69e; font-size:1.1rem; }
 .room-chronology-copy p { margin:.3rem 0; }
 .room-chronology-copy img { max-width:140px; max-height:100px; object-fit:contain; }
 .room-chronology-moves,.room-chronology-actions { display:flex; gap:.6rem; flex-wrap:wrap; }
@@ -55,3 +66,4 @@
 .room-collection-list { display:grid; gap:.65rem; padding:0; list-style:none; }
 .room-collection-list button { width:100%; text-align:left; }
 @media (max-width:500px) { .room-modal { padding:1rem; } }
+@media (prefers-reduced-motion: reduce) { .room-chronology-axis-marker,.room-chronology li,.room-chronology-question { transition:none; } }

@@ -8,8 +8,8 @@ const out=path.join(root,'outputs/archivory-editorial');
 const data=JSON.parse(await fs.readFile(path.join(out,'source.json'),'utf8'));
 const wb=Workbook.create();
 const col=n=>{let s='';for(n++;n;n=Math.floor((n-1)/26))s=String.fromCharCode(65+(n-1)%26)+s;return s;};
-const numeric=new Set(['sort_order','sortKey','capacity','latitude','longitude']);
-for(const name of [...Object.keys(data),'Guide']) wb.worksheets.add(name);
+const numeric=new Set(['sort_order','sortKey','capacity','latitude','longitude','start_date','end_date']);
+for(const name of [...Object.keys(data),'Guide','Edit Items','Timeline Cards','Room Overview','Publishing']) wb.worksheets.add(name);
 const widths={description:76,extendedExplanation:76,introduction:76,successText:76,notes:70,display_description:70,citation:66,source:60,title:38,editor_label:38,content_id:44,slot_id:48,placement_id:52,anchor_id:54,image:56,adapter:48,background_asset:58,route:45,displayedDate:38};
 for(const [name,spec] of Object.entries(data)){
  const s=wb.worksheets.getItem(name),headers=[...spec.headers];
@@ -62,7 +62,7 @@ const instructions=[
  ['Timeline editing','Timelines contains the activity introduction and success text. Events contains at least two events per timeline. sortKey is numeric ordering; displayedDate is visitor-facing text. Equal sortKey values intentionally accept either order.'],
  ['Existing collection','Collection is the original museum metadata. ChineseUVIvoryCollection draws its description from this sheet. Preserve its exact objectid.'],
  ['Existing adapters','Gray adapter fields preserve existing dialogs and tools. Their built-in text is still in room pages. Content text changes affect ordinary blank-adapter items; legacy dialog copy needs a separate migration.'],
- ['Prepared locations','Slots lists all 45 validated access points with a human-readable editor_label, room, capacity, type, physical notes, and anchor reference. Keep IDs, anchors, routes, and assets stable. New physical locations require matching geometry and are outside this workbook workflow.'],
+ ['Prepared locations',`Slots lists all ${data.Slots.rows.length} validated access points with a human-readable editor_label, room, capacity, type, physical notes, and anchor reference. Keep IDs, anchors, routes, and assets stable. New physical locations require matching geometry and are outside this workbook workflow.`],
  ['Images','Use a site path such as /assets/img/example.jpg or an HTTPS image URL. In the shared Teams workflow, enter a simple PNG/JPG filename and upload that file to the adjacent Images folder. A local computer path does not upload an image.'],
  ['Citations and links','Use citation for a source or credit, not private notes. Use HTTPS or a repository/site path where appropriate. Check that the citation supports the wording before publishing.'],
  ['Warnings','Red cells indicate a likely invalid or conflicting entry. Run workbook.py check before sharing the workbook; it rejects unknown slots, duplicate IDs, incompatible types, missing required values, disabled targets, duplicate active ordering, and broken timeline references.'],
@@ -77,6 +77,45 @@ guide.getRange(`A1:B${instructions.length}`).values=instructions;
 guide.getRange(`A1:B${instructions.length}`).format={font:{name:'Arial',size:11,color:'#28313B'},wrapText:true,verticalAlignment:'center',rowHeight:58};
 guide.getRange('A1:A30').format.columnWidth=35;guide.getRange('B1:B30').format.columnWidth=115;
 guide.getRange('A1:B1').format.font={bold:true,size:15};
+const createGuidedSheet=(name,instructions,headers,rows)=>{
+ const sheet=wb.worksheets.getItem(name);
+ const values=[[instructions],[],headers,...rows];
+ sheet.getRangeByIndexes(0,0,values.length,headers.length).values=values.map(row=>[...row,...Array(Math.max(0,headers.length-row.length)).fill('')]);
+ sheet.showGridLines=false;sheet.freezePanes.freezeRows(3);
+ sheet.getRange(`A1:${col(headers.length-1)}1`).merge();
+ sheet.getRange('A1').format={font:{name:'Arial',size:13,bold:true,color:'#FFFFFF'},fill:'#473E32',wrapText:true,rowHeight:38};
+ sheet.getRange(`A3:${col(headers.length-1)}3`).format={font:{bold:true,color:'#FFFFFF'},fill:'#806238',wrapText:true,rowHeight:32};
+ sheet.getRange(`A4:${col(headers.length-1)}${values.length}`).format={font:{name:'Arial',size:11,color:'#28313B'},fill:'#FFF8E5',wrapText:true,verticalAlignment:'top',rowHeight:34};
+ for(let i=0;i<headers.length;i++)sheet.getRange(`${col(i)}:${col(i)}`).format.columnWidth=[22,32,30,46,38,24,20,32][i]||28;
+};
+const roomsById=new Map(data.Rooms.rows.map(row=>[row.room_id,row]));
+const slotsById=new Map(data.Slots.rows.map(row=>[row.slot_id,row]));
+const contentById=new Map(data.Content.rows.map(row=>[row.content_id,row]));
+const timelinesById=new Map(data.Timelines.rows.map(row=>[row.timeline_id,row]));
+createGuidedSheet(
+ 'Edit Items',
+ 'Add or update visitor-facing exhibit items. Use this view to understand the current content; make website changes in the backend Content and Placements sheets until the guided import workflow is introduced.',
+ ['Room','Where should it appear?','Item title','Description','Image','Display type','Show to visitors?','Item Name / ID'],
+ data.Placements.rows.filter(row=>row.content_id).map(row=>{const slot=slotsById.get(row.slot_id)||{},content=contentById.get(row.content_id)||{};return [roomsById.get(slot.room_id)?.room_name||slot.room_id,slot.editor_label||row.slot_id,content.title||row.content_id,content.description||'',content.image||'',content.content_type||row.content_type,row.published==='true'?'Yes':'No',row.content_id];})
+);
+createGuidedSheet(
+ 'Timeline Cards',
+ 'Add timeline cards by choosing a timeline, supplying a human-readable historical date, and writing the text that appears after a correct placement. Use Events and Timelines for the normalized records imported by the website.',
+ ['Room','Timeline','Item title','Historical date','Reveal text','Interpretive prompt','Image','Show to visitors?'],
+ data.Events.rows.map(row=>{const timeline=timelinesById.get(row.timeline_id)||{};return [roomsById.get(timeline.room_id)?.room_name||timeline.room_id,timeline.title||timeline.roomName||row.timeline_id,row.title,row.displayedDate,row.revealText||'',row.promptText||'',row.image||'',row.published==='false'?'No':'Yes'];})
+);
+createGuidedSheet(
+ 'Room Overview',
+ 'Use this room-by-room overview to find available locations. Reserved locations become visible only after supported content is assigned and published.',
+ ['Room','Location','What kind of item is this?','Capacity','Ready for editing?','Current visitor content'],
+ data.Slots.rows.map(slot=>{const active=data.Placements.rows.filter(row=>row.slot_id===slot.slot_id&&row.published==='true').map(row=>(contentById.get(row.content_id)||timelinesById.get(row.content_id)||{}).title||row.content_id).join('; ');return [roomsById.get(slot.room_id)?.room_name||slot.room_id,slot.editor_label,slot.slot_type,slot.capacity,slot.enabled==='true'?'Yes':'No',active||'Reserved'];})
+);
+createGuidedSheet(
+ 'Publishing',
+ 'Review what visitors can currently see. Change the backend Placements published field to true or false, then run the workbook check before sharing.',
+ ['Room','Where should it appear?','Item title','What kind of item is this?','Show to visitors?','Placement ID'],
+ data.Placements.rows.map(row=>{const slot=slotsById.get(row.slot_id)||{},item=contentById.get(row.content_id)||timelinesById.get(row.content_id)||{};return [roomsById.get(slot.room_id)?.room_name||slot.room_id,slot.editor_label||row.slot_id,item.title||row.content_id,row.content_type,row.published==='true'?'Yes':'No',row.placement_id];})
+);
 wb.recalculate();
 console.log((await wb.inspect({kind:'table',range:'Placements!A1:I5',include:'values,formulas',tableMaxRows:5,tableMaxCols:9,maxChars:2000})).ndjson);
 console.log((await wb.inspect({kind:'match',searchTerm:'#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A|#NUM!|#NULL!',options:{useRegex:true,maxResults:20},maxChars:1000})).ndjson);
@@ -86,8 +125,8 @@ placements.getRange('B2').values=[['attic_trunk_01']];wb.recalculate();
 if(placements.getRange('G2').values[0][0]!=='attic')throw Error('Placement helper did not update');
 placements.getRange('B2').values=old;wb.recalculate();
 await fs.mkdir(out,{recursive:true});
-for(const name of [...Object.keys(data),'Guide']){
- const range=name==='Guide'?'A1:B9':name==='Placements'?'A1:D6':name==='Content'?'A1:D5':name==='Slots'?'A1:F6':name==='Events'?'A1:F5':name==='Timelines'?'A1:D5':name==='Rooms'?'A1:E5':'A1:F3';
+for(const name of [...Object.keys(data),'Guide','Edit Items','Timeline Cards','Room Overview','Publishing']){
+ const range=name==='Guide'?'A1:B9':name==='Edit Items'?'A1:H6':name==='Timeline Cards'?'A1:H6':name==='Room Overview'?'A1:F6':name==='Publishing'?'A1:F6':name==='Placements'?'A1:D6':name==='Content'?'A1:D5':name==='Slots'?'A1:F6':name==='Events'?'A1:F5':name==='Timelines'?'A1:D5':name==='Rooms'?'A1:E5':'A1:F3';
  const preview=await wb.render({sheetName:name,range,scale:1,format:'png'});
  await fs.writeFile(path.join(out,`preview-${name}.png`),new Uint8Array(await preview.arrayBuffer()));
 }

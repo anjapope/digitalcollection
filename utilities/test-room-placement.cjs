@@ -81,6 +81,22 @@ test('equivalent dates are accepted in either order',()=>{
     [events[0],events[3]]=[events[3],events[0]];assert.equal(core.checkTimeline(events).correct,false);
     assert.deepEqual(core.checkTimeline(events).positions,[false,true,true,false]);
 });
+test('timeline positions use proportional linear and configured guided scales',()=>{
+    const events=[{id:'early',sortKey:-1200},{id:'middle',sortKey:500},{id:'late',sortKey:650}];
+    assert.equal(core.timelinePosition(-1200,{start_date:-1200,end_date:650,scale_mode:'linear'},events),0);
+    assert.equal(core.timelinePosition(650,{start_date:-1200,end_date:650,scale_mode:'linear'},events),1);
+    const linearMiddle=core.timelinePosition(500,{start_date:-1200,end_date:650,scale_mode:'linear'},events);
+    assert.ok(linearMiddle>.9,'500 CE must be visibly distant from 1200 BCE on a linear scale');
+    const guided={scale_mode:'guided',scale_config:JSON.stringify({segments:[{start:-1200,end:500,weight:.75},{start:500,end:650,weight:.25}]})};
+    assert.equal(core.timelinePosition(-1200,guided,events),0);
+    assert.equal(core.timelinePosition(650,guided,events),1);
+    assert.equal(core.timelinePosition(500,guided,events),.75);
+});
+test('invalid scale configuration falls back safely to proportional spacing',()=>{
+    const events=[{id:'first',sortKey:0},{id:'last',sortKey:100}];
+    assert.equal(core.timelinePosition(50,{scale_mode:'guided',scale_config:'invalid'},events),.5);
+    assert.equal(core.timelinePosition('unknown',{},events),null);
+});
 test('uncertain attic papers remain equivalent',()=>{
     const events=data.events.filter(e=>e.timeline_id==='family_traces').sort((a,b)=>+a.sortKey-+b.sortKey);
     assert.equal(events[1].sortKey,events[2].sortKey);

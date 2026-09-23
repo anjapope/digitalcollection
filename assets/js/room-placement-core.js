@@ -108,5 +108,49 @@
         }
         return shuffled;
     }
-    return { enabled, canonicalRoom, validSortKey, resolve, checkTimeline, shuffle, resolveMedia };
+    function scaleConfig(value) {
+        if (!value || typeof value === 'object') return value || {};
+        try {
+            const parsed = JSON.parse(value);
+            return parsed && typeof parsed === 'object' ? parsed : {};
+        } catch {
+            return {};
+        }
+    }
+    function timelineRange(events, config = {}) {
+        const values = events.map(event => Number(event.sortKey)).filter(Number.isFinite);
+        const configuredStart = Number(config.start_date);
+        const configuredEnd = Number(config.end_date);
+        const start = Number.isFinite(configuredStart) ? configuredStart : Math.min(...values);
+        const end = Number.isFinite(configuredEnd) ? configuredEnd : Math.max(...values);
+        return { start, end: end > start ? end : start + 1 };
+    }
+    function timelinePosition(value, config = {}, events = []) {
+        const numericValue = Number(value);
+        if (!Number.isFinite(numericValue)) return null;
+        const range = timelineRange(events, config);
+        const scaleMode = config.scale_mode || 'linear';
+        const options = scaleConfig(config.scale_config);
+        const segments = Array.isArray(options.segments) ? options.segments
+            .map(segment => ({ start: Number(segment.start), end: Number(segment.end), weight: Number(segment.weight) }))
+            .filter(segment => Number.isFinite(segment.start) && Number.isFinite(segment.end) && segment.end > segment.start && Number.isFinite(segment.weight) && segment.weight > 0)
+            .sort((a, b) => a.start - b.start) : [];
+        if ((scaleMode === 'segmented' || scaleMode === 'guided') && segments.length) {
+            const totalWeight = segments.reduce((total, segment) => total + segment.weight, 0);
+            let priorWeight = 0;
+            for (const segment of segments) {
+                if (numericValue <= segment.end) {
+                    const local = Math.max(0, Math.min(1, (numericValue - segment.start) / (segment.end - segment.start)));
+                    return Math.max(0, Math.min(1, (priorWeight + local * segment.weight) / totalWeight));
+                }
+                priorWeight += segment.weight;
+            }
+            return 1;
+        }
+        return Math.max(0, Math.min(1, (numericValue - range.start) / (range.end - range.start)));
+    }
+    function timelinePositions(events, config = {}) {
+        return events.map(event => ({ id: event.id, position: timelinePosition(event.sortKey, config, events) }));
+    }
+    return { enabled, canonicalRoom, validSortKey, resolve, checkTimeline, shuffle, resolveMedia, scaleConfig, timelineRange, timelinePosition, timelinePositions };
 });
