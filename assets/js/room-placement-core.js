@@ -15,7 +15,8 @@
         if (!anchor || !enabled(anchor.inline_content) || !Array.isArray(items) || !items.length) return null;
         const image = items[0].content && items[0].content.image;
         if (typeof image !== 'string' || !image.trim()) return null;
-        return { image, preserveAspectRatio: FIT_PRESERVE_ASPECT_RATIO[anchor.fit] || FIT_PRESERVE_ASPECT_RATIO.contain };
+        const presentation = ['flat', 'mounted', 'soft-edge'].includes(anchor.media_presentation) ? anchor.media_presentation : 'mounted';
+        return { image, preserveAspectRatio: FIT_PRESERVE_ASPECT_RATIO[anchor.fit] || FIT_PRESERVE_ASPECT_RATIO.contain, presentation };
     }
     const validGeometry = anchor => anchor && (anchor.component_mount ? typeof anchor.selector==='string' && anchor.selector.length>0 : anchor.coordinate_system?.width > 0 && anchor.coordinate_system?.height > 0 && Array.isArray(anchor.polygon) && anchor.polygon.length >= 3 && anchor.polygon.every(p => Array.isArray(p) && p.length===2 && p.every(Number.isFinite)) && anchor.content_bounds && ['x','y','width','height'].every(key=>Number.isFinite(anchor.content_bounds[key])) && anchor.content_bounds.width>0 && anchor.content_bounds.height>0);
     function index(rows, key, diagnostics) {

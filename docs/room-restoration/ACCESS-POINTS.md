@@ -8,17 +8,17 @@ This document is the editor-facing vocabulary for the room editorial workbook. I
 
 ## Audit result
 
-- **45 enabled editable access points** are defined.
-- All 45 belong to the eight enabled rooms in `_data/rooms.csv`.
-- All 45 have one unique anchor in `_data/room_anchors.json`.
-- All 45 anchors match their slot and room IDs and have valid geometry, except the intentional nested component mount documented below.
+- **47 enabled editable access points** are defined.
+- All 47 belong to the eight enabled rooms in `_data/rooms.csv`.
+- All 47 have one unique anchor in `_data/room_anchors.json`.
+- All 47 anchors match their slot and room IDs and have valid geometry, except the intentional nested component mount documented below.
 - All active placements reference an existing slot and existing content or timeline.
 - No slot IDs, anchor IDs, or placement IDs are duplicated.
 - No slot is counted twice because of duplicate geometry.
 - Timeline activities are represented by four explicit timeline slots. Their event rows remain separate in `_data/timeline_events.csv`.
 - The restored Vestibule -> Gallery -> Conservation Lab route remains present in the room pages.
 
-The 45 locations are editorial access points, not 45 rooms. Empty locations are reserved and do not create a visitor control until a valid published placement is supplied.
+The 47 locations are editorial access points, not 47 rooms. Empty locations are reserved and do not create a visitor control until a valid published placement is supplied.
 
 ## Count by room
 
@@ -29,10 +29,10 @@ The 45 locations are editorial access points, not 45 rooms. Empty locations are 
 | `conservation_lab` | Conservation Lab | 4 |
 | `historical_society` | Historical Society | 6 |
 | `attic` | Attic | 6 |
-| `natural_history` | Natural History Museum | 10 |
+| `natural_history` | Natural History Museum | 12 |
 | `conservators_office` | Conservator's Office | 6 |
 | `lab` | Lab | 6 |
-| **Total** |  | **45** |
+| **Total** |  | **47** |
 
 ## How to read the tables
 
@@ -47,11 +47,11 @@ The 45 locations are editorial access points, not 45 rooms. Empty locations are 
 
 - `presentation_mode` controls interaction: `detail` opens the assigned detail record, `collection` opens the slot's research list, `timeline` opens the chronology activity, and `tool` opens or routes to its authored tool.
 - `inline_content` controls visual rendering. A published placement whose resolved content has an image renders that image in the anchor's `content_bounds` only when `inline_content=true`. `false` leaves the slot interaction-only.
-- `content_bounds`, `mount`, and, where present, `selector` position the visual and its existing clickable target. `fit` controls aspect-ratio behavior.
+- `content_bounds`, `mount`, and, where present, `selector` position the visual and its existing clickable target. `fit` controls aspect-ratio behavior. `media_presentation` may opt a mount into a subtle shadow treatment; it preserves transparent source assets and does not remove baked-in backgrounds.
 
 ### Controlled capability audit
 
-The visual editable mounts are `gallery_wall_03`, `gallery_case_02`, `historical_society_case_01`, `historical_society_case_02`, `attic_trunk_01`, `attic_trunk_02`, `attic_shelves_01`, `attic_table_01`, `natural_history_panel_02`, `natural_history_timeline_02`, `conservators_office_shelves_01`, `conservators_office_shelves_02`, and `conservators_office_shelves_03`. Their anchors use `inline_content=true`; an image-bearing placement uses the existing geometry without changing the room background.
+The visual editable mounts are `gallery_wall_03`, `gallery_case_02`, `historical_society_case_01`, `historical_society_case_02`, `attic_trunk_01`, `attic_trunk_02`, `attic_shelves_01`, `attic_table_01`, `natural_history_panel_02`, `natural_history_timeline_02`, `natural_history_table_01`, `natural_history_table_02`, `conservators_office_shelves_01`, `conservators_office_shelves_02`, and `conservators_office_shelves_03`. Their anchors use `inline_content=true`; an image-bearing placement uses the existing geometry without changing the room background.
 
 The interaction-only hotspots are all seven introduction slots, `vestibule_welcome_01`, `gallery_wall_01`, `gallery_wall_02`, `gallery_case_01`, `conservation_lab_table_01`, `conservation_lab_timeline_01`, `conservation_lab_media_01`, `historical_society_timeline_01`, `historical_society_piano_01`, `historical_society_table_01`, `attic_timeline_01`, `natural_history_specimen_01`, `natural_history_specimen_01_label`, `natural_history_panel_01`, `natural_history_map_01`, `natural_history_timeline_01`, `natural_history_inquiry_01`, `conservators_office_terminal_01`, `conservators_office_panel_01`, `lab_bench_01`, `lab_equipment_01`, `lab_cabinet_01`, `lab_cabinet_02`, and `lab_attic_context_01`. These remain `inline_content=false` because they are interpretation, tools, authored scenery, or existing illustrated furnishings rather than editorial media mounts.
 
@@ -61,7 +61,7 @@ The interaction-only hotspots are all seven introduction slots, `vestibule_welco
 
 | Slot ID | Display name and visual location | Capacity | Supported content | Anchor / mount | Used / current placement | Editor notes and warnings |
 |---|---|---:|---|---|---|---|
-| `vestibule_welcome_01` | Welcome and check-in mantle at the lower-left of the Vestibule scene | 1 | `tool` | `vestibule_welcome_01_anchor` / `.house-backdrop`; selector `.welcome-mantle` | used; `welcome-sequence` | Reuses the authored welcome control. Preserve the welcome/check-in behavior and its existing visitor-storage identifiers. |
+| `vestibule_welcome_01` | `Est. 1992` area at the lower-left of the Vestibule scene | 1 | `tool` | `vestibule_welcome_01_anchor` / `.house-backdrop`; selector `.vestibule-welcome-trigger` | used; `welcome-sequence` | Reuses the responsive SVG welcome hotspot. Preserve the welcome/check-in behavior and its existing visitor-storage identifiers. |
 
 ## Gallery
 

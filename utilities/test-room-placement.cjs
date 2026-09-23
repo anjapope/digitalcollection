@@ -18,8 +18,8 @@ test('all eight rooms resolve without diagnostics; no Library', () => {
     assert.equal(core.resolve(data,'art').room.room_id,'conservation_lab');
 });
 test('every agreed slot has unique stable geometry and matching artwork version',()=>{
-    assert.equal(data.slots.length,45);
-    assert.equal(new Set(data.slots.map(s=>s.slot_id)).size,45);
+    assert.equal(data.slots.length,47);
+    assert.equal(new Set(data.slots.map(s=>s.slot_id)).size,47);
     for(const slot of data.slots) {
         const a=data.anchors.find(a=>a.anchor_id===slot.anchor_id);
         assert.equal(a.slot_id,slot.slot_id);
@@ -29,6 +29,20 @@ test('every agreed slot has unique stable geometry and matching artwork version'
 });
 test('nested habitation map is a component mount',()=>{
     assert.ok(data.anchors.find(a=>a.slot_id==='natural_history_map_02').component_mount);
+});
+test('Natural History poster hosts the ordering activity and table mounts remain editor-ready',()=>{
+    const poster=data.slots.find(s=>s.slot_id==='natural_history_timeline_01');
+    assert.equal(poster.slot_type,'timeline');
+    assert.equal(data.placements.find(p=>p.slot_id===poster.slot_id).content_id,'deep_time_evidence');
+    const formerActivity=data.slots.find(s=>s.slot_id==='natural_history_timeline_02');
+    assert.equal(formerActivity.slot_type,'collection');
+    assert.ok(!data.placements.some(p=>p.slot_id===formerActivity.slot_id && p.published==='true'));
+    for(const id of ['natural_history_table_01','natural_history_table_02']) {
+        const slot=data.slots.find(s=>s.slot_id===id);
+        assert.equal(slot.slot_type,'collection');
+        assert.equal(slot.enabled,'true');
+        assert.equal(data.anchors.find(a=>a.slot_id===id).inline_content,true);
+    }
 });
 test('published placement changes content without changing slot geometry',()=>{
     const d=copy(),p=d.placements.find(p=>p.slot_id==='gallery_wall_03');
@@ -86,6 +100,7 @@ test('image-bearing placement resolves the assigned media at its anchor',()=>{
     assert.ok(media,'an inline_content anchor with an image-bearing placement should resolve media');
     assert.equal(media.image,binding.items[0].content.image);
     assert.equal(media.preserveAspectRatio,'xMidYMid meet');
+    assert.equal(media.presentation,'mounted');
 });
 test('a placement without an image does not resolve media (no image element should be created)',()=>{
     const d=copy();
@@ -131,6 +146,11 @@ test('resolveMedia honors an anchor fit override, defaulting unknown/missing fit
     assert.equal(core.resolveMedia(binding.anchor,binding.items).preserveAspectRatio,'xMidYMid meet');
     assert.equal(core.resolveMedia({...binding.anchor,fit:'cover'},binding.items).preserveAspectRatio,'xMidYMid slice');
     assert.equal(core.resolveMedia({...binding.anchor,fit:undefined},binding.items).preserveAspectRatio,'xMidYMid meet');
+});
+test('resolveMedia honors safe presentation variants and defaults to mounted',()=>{
+    const binding=core.resolve(data,'gallery').slots.find(b=>b.slot.slot_id==='gallery_wall_03');
+    assert.equal(core.resolveMedia({...binding.anchor,media_presentation:'soft-edge'},binding.items).presentation,'soft-edge');
+    assert.equal(core.resolveMedia({...binding.anchor,media_presentation:'unknown'},binding.items).presentation,'mounted');
 });
 test('resolveMedia is defensive against missing anchors, items or content',()=>{
     assert.equal(core.resolveMedia(null,[]),null);

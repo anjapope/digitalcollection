@@ -173,7 +173,7 @@
                         const b=anchor.content_bounds;
                         const image=document.createElementNS(ns,'image'); image.setAttribute('x',b.x*box.width/anchor.coordinate_system.width); image.setAttribute('y',b.y*box.height/anchor.coordinate_system.height);
                         image.setAttribute('width',b.width*box.width/anchor.coordinate_system.width); image.setAttribute('height',b.height*box.height/anchor.coordinate_system.height);
-                        image.setAttribute('href',localUrl(legacyMedia.image)); image.setAttribute('preserveAspectRatio',legacyMedia.preserveAspectRatio); image.style.pointerEvents='none';
+                        image.setAttribute('href',localUrl(legacyMedia.image)); image.setAttribute('preserveAspectRatio',legacyMedia.preserveAspectRatio); image.setAttribute('class',`room-placement-media room-placement-media-${legacyMedia.presentation}`); image.style.pointerEvents='none';
                         // A missing/broken asset must not leave a broken-image glyph over the room artwork.
                         image.addEventListener('error', () => { if(development) console.warn('[ArchIvory editorial] Media failed to load',slot.slot_id,legacyMedia.image); image.remove(); }, { once:true });
                         trigger.prepend(image);
@@ -201,14 +201,10 @@
                 if (media) {
                     const image = document.createElementNS(ns,'image');
                     for (const [key,value] of Object.entries(bounds)) image.setAttribute(key,value);
-                    image.setAttribute('href',localUrl(media.image)); image.setAttribute('preserveAspectRatio',media.preserveAspectRatio);
+                    image.setAttribute('href',localUrl(media.image)); image.setAttribute('preserveAspectRatio',media.preserveAspectRatio); image.setAttribute('class',`room-placement-media room-placement-media-${media.presentation}`);
                     // A missing/broken asset must not leave a broken-image glyph over the room artwork.
                     image.addEventListener('error', () => { if(development) console.warn('[ArchIvory editorial] Media failed to load',slot.slot_id,media.image); image.remove(); }, { once:true });
                     trigger.append(image);
-                }
-                // The lower central panel is already a recessed furnishing in Natural History.
-                if (slot.slot_id === 'natural_history_timeline_02') {
-                    const title=document.createElementNS(ns,'text'); title.setAttribute('x',bounds.x+bounds.width/2); title.setAttribute('y',bounds.y+bounds.height/2); title.setAttribute('text-anchor','middle'); title.setAttribute('fill','#51402b'); title.setAttribute('font-size','16'); title.setAttribute('font-family','Georgia,serif'); title.textContent='Arrange the evidence'; trigger.append(title);
                 }
                 trigger.append(polygon); layers.get(anchor.mount).append(trigger);
                 if(slot.slot_id==='natural_history_specimen_01_label') {

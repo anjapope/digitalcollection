@@ -6,7 +6,7 @@ attic_intro,Attic Intro,"Inheritance, rediscovery, storage, and documentary gaps
 natural_history_intro,Natural History Intro,"Elephants, ivory as material, and environmental history. Explore deep time, maps, specimen interpretation, and a separate evidence-ordering activity.",detail,,,
 conservators_office_intro,Conservators Office Intro,"Care, repair, research and preservation. Exhibition assembly at the terminal remains a future feature.",detail,,,
 lab_intro,Lab Intro,Technical analysis and material investigation. Lab is distinct from Conservation Lab; its attic context describes the investigation of rediscovered objects.,detail,,,
-welcome-sequence,Welcome to ArchIvory,Welcome and check-in.,tool,trigger:.welcome-mantle,,
+welcome-sequence,Welcome to ArchIvory,Welcome and check-in.,tool,trigger:.vestibule-welcome-trigger,,
 gallery-fixed-wall_01,Illustrated relief — identity unverified,"This carving is part of the room illustration. Its identity has not been verified against a collection record. The research below is comparative, not a provenance claim.",detail,,,
 gallery-fixed-wall_02,Illustrated relief — identity unverified,"This carving is part of the room illustration. Its identity has not been verified against a collection record. The research below is comparative, not a provenance claim.",detail,,,
 gallery-fixed-fan,Illustrated folding fan,The fan is a fixed part of the room artwork. Its identity has not been verified; it is not assigned the New Harmony fan record.,detail,,,

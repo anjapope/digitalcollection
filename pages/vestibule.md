@@ -50,9 +50,11 @@ permalink: /pages/vestibule.html
       <div class="house-sconce house-sconce-right"></div>
       <div class="house-portrait house-portrait-left"></div>
       <div class="house-portrait house-portrait-right"></div>
-      <button class="house-console welcome-mantle" type="button" aria-haspopup="dialog" aria-controls="welcome-sequence" aria-label="Open welcome messages">
-        <span class="welcome-mantle-label">Welcome</span>
-      </button>
+      <svg class="vestibule-welcome-hotspot" viewBox="0 0 1000 1000" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-label="Vestibule welcome">
+        <a class="vestibule-welcome-trigger" href="#welcome-sequence" aria-haspopup="dialog" aria-controls="welcome-sequence" aria-label="Open welcome introduction">
+          <rect x="100" y="710" width="130" height="55" rx="6" />
+        </a>
+      </svg>
       <a class="floor-lab-sign" href="{{ '/pages/rooms/lab.html' | relative_url }}" aria-label="Go to Lab room">
         <span class="floor-lab-sign-text">Lab</span>
         <span class="floor-lab-sign-arrow" aria-hidden="true">→</span>
@@ -75,19 +77,6 @@ permalink: /pages/vestibule.html
       </div>
     </div>
 
-    <div class="collection-sequence" id="collection-sequence" hidden>
-      <div class="welcome-sequence-backdrop" data-collection-close></div>
-      <div class="welcome-sequence-dialog collection-sequence-dialog" role="dialog" aria-modal="true" aria-labelledby="collection-sequence-title">
-        <button class="welcome-sequence-close" type="button" aria-label="Close collection description" data-collection-close>×</button>
-        <p class="welcome-sequence-step">Collection Pathway</p>
-        <h2 class="welcome-sequence-title" id="collection-sequence-title">Collection</h2>
-        <p class="welcome-sequence-message" id="collection-sequence-message"></p>
-        <div class="welcome-sequence-actions">
-          
-          <button class="welcome-sequence-button welcome-sequence-button-primary" type="button" id="collection-close">Close</button>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -116,7 +105,6 @@ permalink: /pages/vestibule.html
       }
     ];
 
-    const triggers = document.querySelectorAll('.welcome-mantle, .vestibule-welcome-trigger');
     const overlay = document.getElementById('welcome-sequence');
     const title = document.getElementById('welcome-sequence-title');
     const message = document.getElementById('welcome-sequence-message');
@@ -126,7 +114,7 @@ permalink: /pages/vestibule.html
     const checkIn = document.getElementById('welcome-checkin');
     const closeButtons = document.querySelectorAll('[data-welcome-close]');
 
-    if (!triggers.length || !overlay || !title || !message || !step || !next || !prev || !checkIn) return;
+    if (!overlay || !title || !message || !step || !next || !prev || !checkIn) return;
 
     let currentIndex = 0;
     let activeTrigger = null;
@@ -167,13 +155,11 @@ permalink: /pages/vestibule.html
       }
     }
 
-    triggers.forEach((trigger) => {
-      trigger.addEventListener('click', (event) => {
-        if (trigger.tagName.toLowerCase() === 'a') {
-          event.preventDefault();
-        }
-        openSequence(trigger);
-      });
+    document.addEventListener('click', (event) => {
+      const trigger = event.target.closest('.vestibule-welcome-trigger');
+      if (!trigger) return;
+      event.preventDefault();
+      openSequence(trigger);
     });
 
     checkIn.addEventListener('click', () => {
@@ -206,69 +192,6 @@ permalink: /pages/vestibule.html
       if (event.key === 'Escape') {
         closeSequence();
       }
-    });
-  })();
-
-  (() => {
-    const collectionContent = {
-      'natural-history': {
-        title: 'The Natural History Museum',
-        text: 'This pathway explores elephants, ivory as a biological material, and the scientific and environmental histories that shape how these objects are understood.'
-      },
-      art: {
-        title: 'Art',
-        text: 'This pathway focuses on ivory as a medium of craftsmanship, design, and display, while asking how beauty and technique are entangled with harder histories.'
-      },
-      local: {
-        title: 'Local',
-        text: 'This pathway follows the local lives of ivory objects through homes, communities, collectors, and regional institutions, tracing how global histories become intimate ones.'
-      },
-      attic: {
-        title: 'Attic',
-        text: 'This pathway approaches ivory through storage, inheritance, rediscovery, and memory, treating the attic as a space where forgotten objects gather new meanings.'
-      },
-      
-    };
-
-    const signButtons = document.querySelectorAll('[data-collection-sign]');
-    const overlay = document.getElementById('collection-sequence');
-    const title = document.getElementById('collection-sequence-title');
-    const message = document.getElementById('collection-sequence-message');
-    const close = document.getElementById('collection-close');
-    
-    const closeButtons = document.querySelectorAll('[data-collection-close]');
-    let activeTrigger = null;
-
-    if (!signButtons.length || !overlay || !title || !message || !close) return;
-
-    function openCollection(key, trigger) {
-      const item = collectionContent[key];
-      if (!item) return;
-      activeTrigger = trigger;
-      title.textContent = item.title;
-      message.textContent = item.text;
-      
-      overlay.hidden = false;
-      document.body.classList.add('welcome-sequence-open');
-      close.focus();
-    }
-
-    function closeCollection() {
-      overlay.hidden = true;
-      document.body.classList.remove('welcome-sequence-open');
-      if (activeTrigger) activeTrigger.focus();
-    }
-
-    signButtons.forEach((button) => {
-      button.addEventListener('click', () => openCollection(button.dataset.collectionSign, button));
-    });
-
-    close.addEventListener('click', closeCollection);
-    closeButtons.forEach((button) => button.addEventListener('click', closeCollection));
-
-    document.addEventListener('keydown', (event) => {
-      if (overlay.hidden) return;
-      if (event.key === 'Escape') closeCollection();
     });
   })();
 </script>

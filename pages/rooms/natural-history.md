@@ -62,9 +62,9 @@ custom-foot: js/archivory-inquiry-terminal.html
           <polygon class="natural-history-hotspot natural-history-hotspot-doorway" points="1141,221 1283,176 1283,780 1134,672" />
         </a>
 
-        <a href="#" aria-label="Open the timeline" data-open-room-timeline data-notebook-id="natural-history-timeline" data-notebook-title="Natural history evidence timeline" data-notebook-type="evidence" data-notebook-points="8" data-notebook-description="A layered timeline linking extinction, habitat change, and expanding ivory extraction.">
+        <a href="#" aria-label="Open the Ivory Through Time poster" data-natural-history-arrangement data-notebook-id="natural-history-timeline" data-notebook-title="Arrange the evidence" data-notebook-type="evidence" data-notebook-points="8" data-notebook-description="Arrange evidence about proboscidean history from earliest to latest.">
           <polygon class="natural-history-hotspot natural-history-hotspot-timeline" points="1325,334 1396,330 1396,579 1325,557" />
-          <text class="natural-history-hotspot-label natural-history-hotspot-label-small" x="1361" y="561" text-anchor="middle" transform="rotate(18 1361 561)">Timeline</text>
+          <text class="natural-history-hotspot-label natural-history-hotspot-label-small" x="1361" y="561" text-anchor="middle" transform="rotate(18 1361 561)">Arrange</text>
         </a>
       </svg>
 
@@ -80,33 +80,3 @@ custom-foot: js/archivory-inquiry-terminal.html
 </section>
 
 {% include archivory-inquiry-terminal.html %}
-
-<script>
-  (() => {
-    const trigger = document.querySelector('[data-open-room-timeline]');
-    const exhibit = document.querySelector('[data-room-timeline-exhibit]');
-    if (!trigger || !exhibit) return;
-    const dialog = document.createElement('dialog');
-    dialog.className = 'room-modal room-explorer-dialog';
-    dialog.setAttribute('aria-label', 'Deep-time explorer');
-    document.body.append(dialog);
-    dialog.append(exhibit);
-    const open = () => {
-      exhibit.classList.remove('is-dismissed');
-      if (!dialog.open) dialog.showModal();
-    };
-    trigger.addEventListener('click', event => { event.preventDefault(); open(); });
-    exhibit.querySelector('[data-room-timeline-close]').addEventListener('click', () => dialog.close());
-    dialog.addEventListener('cancel', event => { event.preventDefault(); event.stopPropagation(); dialog.close(); });
-    dialog.addEventListener('keydown', event => { if (event.key === 'Escape') event.stopPropagation(); });
-    dialog.addEventListener('close', () => {
-      exhibit.classList.add('is-dismissed');
-      document.querySelector('[data-slot-id="natural_history_timeline_01"]')?.focus();
-    });
-    new MutationObserver(() => {
-      if (exhibit.classList.contains('is-dismissed') && dialog.open) dialog.close();
-    }).observe(exhibit, { attributes:true, attributeFilter:['class'] });
-    if (/^#apt-/.test(location.hash)) open();
-    window.addEventListener('hashchange', () => { if (/^#apt-/.test(location.hash)) open(); });
-  })();
-</script>

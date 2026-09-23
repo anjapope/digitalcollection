@@ -338,7 +338,7 @@
     "label_bounds": null,
     "layer": 9,
     "presentation_mode": "tool",
-    "selector": ".welcome-mantle",
+    "selector": ".vestibule-welcome-trigger",
     "fit": "contain",
     "inline_content": false,
     "component_mount": false
@@ -1369,8 +1369,8 @@
     },
     "label_bounds": null,
     "layer": 9,
-    "presentation_mode": "tool",
-    "selector": "[data-open-room-timeline]",
+    "presentation_mode": "timeline",
+    "selector": "[data-natural-history-arrangement]",
     "fit": "contain",
     "inline_content": false,
     "component_mount": false
@@ -1455,7 +1455,7 @@
     },
     "label_bounds": null,
     "layer": 9,
-    "presentation_mode": "timeline",
+    "presentation_mode": "collection",
     "selector": "",
     "fit": "contain",
     "inline_content": true,
@@ -1502,6 +1502,70 @@
     "selector": "[data-hotspot=\"inquiry-tusk\"]",
     "fit": "contain",
     "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_table_01_anchor",
+    "slot_id": "natural_history_table_01",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [276, 810],
+      [579, 810],
+      [579, 928],
+      [276, 928]
+    ],
+    "content_bounds": {
+      "x": 276,
+      "y": 810,
+      "width": 303,
+      "height": 118
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "media_presentation": "mounted",
+    "component_mount": false
+  },
+  {
+    "anchor_id": "natural_history_table_02_anchor",
+    "slot_id": "natural_history_table_02",
+    "room_id": "natural_history",
+    "background_asset": "/assets/img/Natural History Museum Interior12.jpg",
+    "background_version": "baseline",
+    "coordinate_system": {
+      "width": 1402,
+      "height": 1122
+    },
+    "mount": ".natural-history-stage",
+    "polygon": [
+      [823, 810],
+      [1126, 810],
+      [1126, 928],
+      [823, 928]
+    ],
+    "content_bounds": {
+      "x": 823,
+      "y": 810,
+      "width": 303,
+      "height": 118
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "collection",
+    "selector": "",
+    "fit": "contain",
+    "inline_content": true,
+    "media_presentation": "mounted",
     "component_mount": false
   },
   {

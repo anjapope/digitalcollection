@@ -9,6 +9,8 @@
 .room-existing-target:focus-visible .room-placement-target { fill:rgba(245,227,188,.08); stroke:#e9cb8c; }
 .room-existing-target:focus-visible { outline:none; }
 .room-placement-layer image { pointer-events:none; }
+.room-placement-media-mounted { filter:drop-shadow(0 3px 3px rgba(34,24,15,.28)); }
+.room-placement-media-soft-edge { filter:drop-shadow(0 2px 2px rgba(34,24,15,.2)); opacity:.96; }
 .collection-room-lab .art-room-hotspots { pointer-events:none; }
 .collection-room-lab .art-room-hotspots a { pointer-events:auto; }
 .room-placement-debug .room-placement-target { fill:rgba(30,130,180,.12); stroke:#087f9f; }

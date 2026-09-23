@@ -17,6 +17,7 @@
         host.append(el('p', config.introduction));
         host.append(el('p', 'Arrange earliest to latest. Drag a handle, or use Earlier and Later. Events with equivalent dates may appear in either order; uncertain sequences are explained in the evidence.'));
         let order = core.shuffle(events);
+        let complete = false;
         const list = el('ol');
         const status = el('p', '', 'room-chronology-status');
         status.setAttribute('role', 'status');
@@ -68,7 +69,9 @@
                 handle.addEventListener('pointercancel', () => { drag = null; row.classList.remove('is-dragging'); });
                 handle.addEventListener('click', e => { if (suppressClick) { e.preventDefault(); suppressClick = false; } });
                 const copy = el('div', '', 'room-chronology-copy');
-                copy.append(el('strong', event.title), el('span', event.displayedDate, 'room-chronology-date'), el('p', event.description));
+                copy.append(el('strong', event.title));
+                if (complete) copy.append(el('span', event.displayedDate, 'room-chronology-date'));
+                copy.append(el('p', event.description));
                 if (event.image && /^(\/|https:\/\/)/.test(event.image)) {
                     const img = el('img'); img.src = event.image; img.alt = event.title; copy.append(img);
                 }
@@ -95,11 +98,17 @@
                 row.querySelector('.room-chronology-position')?.remove();
                 row.append(el('span', result.positions[i] ? 'Correct position' : 'Reconsider this position', 'room-chronology-position'));
             });
-            status.textContent = result.correct ? `Change the scale, change the history. ${config.successText}` : `${result.positions.filter(Boolean).length} of ${order.length} positions fit the chronology. Compare the displayed dates and evidence, then move events and check again. Equivalent dates can appear in either order.`;
-            if (result.correct) window.dispatchEvent(new CustomEvent('archivory:chronology-complete', { detail: { timeline_id: config.timeline_id, room_id: config.room_id, temporalScale: config.temporalScale } }));
+            if (result.correct) {
+                complete = true;
+                render();
+                status.textContent = `Change the scale, change the history. ${config.successText}`;
+                window.dispatchEvent(new CustomEvent('archivory:chronology-complete', { detail: { timeline_id: config.timeline_id, room_id: config.room_id, temporalScale: config.temporalScale } }));
+            } else {
+                status.textContent = `${result.positions.filter(Boolean).length} of ${order.length} positions fit the chronology. Use the evidence descriptions, then move events and check again. Equivalent dates can appear in either order.`;
+            }
         });
         const retry = el('button', 'Shuffle and retry'); retry.type = 'button';
-        retry.addEventListener('click', () => { order = core.shuffle(events); render(); status.textContent = 'Events reshuffled. Arrange the evidence again.'; });
+        retry.addEventListener('click', () => { complete = false; order = core.shuffle(events); render(); status.textContent = 'Events reshuffled. Arrange the evidence again.'; });
         const actions = el('div', '', 'room-chronology-actions'); actions.append(check, retry);
         host.append(list, actions, status); render();
     }
