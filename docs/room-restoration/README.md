@@ -51,7 +51,9 @@ Supported adapters are an existing dialog element ID, `trigger:<selector>` for a
 
 ## Adding or revising a chronology
 
-`room_timelines.csv` holds `timeline_id, room_id, roomName, temporalScale, introduction, successText`. Its events are the matching rows in `timeline_events.csv`, joined by `timeline_id`; no duplicated events array is stored. Event columns are `id, timeline_id, sortKey, displayedDate, title, description, image, citation, extendedExplanation`.
+`room_timelines.csv` holds the base activity copy plus optional title, deep question, date bounds, `scale_mode`, weighted `scale_config`, publication, and completion reflection. Its events are matching rows in `timeline_events.csv`, joined by `timeline_id`; no duplicated events array is stored. Events retain `sortKey` for normalized chronology and `displayedDate` for visitor-facing BCE/CE, range, or uncertainty labels, with optional post-placement reveal text, prompt, and publication state.
+
+The shared chronology supports two demonstrated scale strategies: **guided/segmented** weighting for Natural History's `deep_time_evidence`, where very large historical intervals need readable compression, and **linear/proportional** spacing for Conservation Lab's `ivory_ages`, where signed numeric BCE/CE values preserve continuous chronological distance. Both use the same chronology engine and workbook data model.
 
 Use at least two events with unique IDs and numeric sort keys. Dates shown to visitors are independent of sort keys. Give equivalent or indistinguishable dates the same key: either relative order is accepted. Explain uncertainty in the displayed date and extended explanation. The Natural History keys represent broad interval onsets for this teaching sequence, not precise dates of individual specimens. Do not imply a total chronology that the evidence cannot support.
 

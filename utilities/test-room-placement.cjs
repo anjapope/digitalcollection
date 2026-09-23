@@ -92,6 +92,20 @@ test('timeline positions use proportional linear and configured guided scales',(
     assert.equal(core.timelinePosition(650,guided,events),1);
     assert.equal(core.timelinePosition(500,guided,events),.75);
 });
+test('Conservation Lab uses a linear BCE-to-CE chronology without changing Natural History guidance',()=>{
+    const lab=data.timelines.find(timeline=>timeline.timeline_id==='ivory_ages');
+    const naturalHistory=data.timelines.find(timeline=>timeline.timeline_id==='deep_time_evidence');
+    assert.equal(lab.scale_mode,'linear');
+    assert.equal(lab.start_date,'-2000');
+    assert.equal(lab.end_date,'1800');
+    assert.equal(naturalHistory.scale_mode,'guided');
+    const events=data.events.filter(event=>event.timeline_id==='ivory_ages');
+    assert.deepEqual(events.map(event=>Number(event.sortKey)),[-2000,500,1200,1800]);
+    const positions=core.timelinePositions(events,lab).map(entry=>entry.position);
+    assert.deepEqual(positions,[0,0.6578947368421053,0.8421052631578947,1]);
+    assert.ok(positions[1]-positions[0] > positions[2]-positions[1]);
+    assert.ok(events.every(event=>event.published==='true'));
+});
 test('invalid scale configuration falls back safely to proportional spacing',()=>{
     const events=[{id:'first',sortKey:0},{id:'last',sortKey:100}];
     assert.equal(core.timelinePosition(50,{scale_mode:'guided',scale_config:'invalid'},events),.5);
