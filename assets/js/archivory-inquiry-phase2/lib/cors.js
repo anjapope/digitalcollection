@@ -4,7 +4,7 @@ function parseAllowedOrigins() {
 export function corsOptions() {
   const allowed = parseAllowedOrigins();
   return {
-    methods: ["GET", "POST", "OPTIONS"],
+    methods: ["GET", "POST", "PUT", "OPTIONS"],
     allowedHeaders: ["Content-Type"],
     maxAge: 86400,
     origin(origin, callback) {

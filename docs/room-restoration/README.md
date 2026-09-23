@@ -49,6 +49,20 @@ Example: `gallery_wall_03_1` assigns `gallery-roman-wall-sconce` to `gallery_wal
 
 Supported adapters are an existing dialog element ID, `trigger:<selector>` for an existing tool, or `route:<local path>`. New ordinary records need no adapter: their title, description, image and citation open in a shared dialog. New tool behavior requires a deliberate adapter; an editorial label does not implement a tool. Generic new placements do not automatically award notebook points.
 
+## Local visual room authoring
+
+The structural source of truth remains `_data/exhibit_slots.csv` and `_data/room_anchors.json`. Slots provide the stable editorial access-point IDs and their type/capacity; anchors provide the matching room geometry. `placements.csv` is not edited by this tool and protects a slot from removal while it is referenced. The generated `assets/data/room-editorial.json`, workbook source bundle, and XLSX are outputs—not authoring sources.
+
+Start the Jekyll preview on port 4010 and the local bridge from `assets/js/archivory-inquiry-phase2` with `ALLOWED_ORIGINS=http://127.0.0.1:4010 npm start`. Open any room with `?author=1`, for example `/pages/rooms/gallery.html?author=1`. The editor only appears with that query parameter; visitor pages retain the normal placement runtime.
+
+The editor overlays the actual room mount and coordinate system. Click a point to inspect its stable ID, type, capacity, coordinates, and editor-facing label. Drag to move; Shift+drag to resize. Bounds are clamped to the real room geometry and retain a minimum size. New points get a collision-safe `room_type_NN` slot ID and a matching immutable-style anchor ID. Labels may change without changing either ID.
+
+Save sends the complete structural set to the localhost-only bridge. It validates slot/anchor matching, unique IDs, supported types, capacities, numeric in-bounds geometry, and existing placement references before atomically writing both source files. Removing a point that has a placement is rejected with its placement IDs; unused prepared points can be removed. Save does not write generated files or content assignments.
+
+After a successful save, regenerate the workbook with `python utilities\editorial-workbook\workbook.py prepare outputs\archivory-editorial\source.json` followed by `node utilities\editorial-workbook\build.mjs`, then rebuild Jekyll. The workbook discovers new slots from its existing Slots table. Use **Preview visitor room** after saving to reload the normal room runtime.
+
+This phase deliberately excludes content assignment, asset management/cropping, timeline authoring, multi-user editing, authentication, cloud hosting, and database migration.
+
 ## Adding or revising a chronology
 
 `room_timelines.csv` holds the base activity copy plus optional title, deep question, date bounds, `scale_mode`, weighted `scale_config`, publication, and completion reflection. Its events are matching rows in `timeline_events.csv`, joined by `timeline_id`; no duplicated events array is stored. Events retain `sortKey` for normalized chronology and `displayedDate` for visitor-facing BCE/CE, range, or uncertainty labels, with optional post-placement reveal text, prompt, and publication state.

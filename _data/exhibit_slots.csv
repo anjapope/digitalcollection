@@ -46,3 +46,4 @@ lab_equipment_01,lab,equipment,Equipment,collection,8,lab_equipment_01_anchor,tr
 lab_cabinet_01,lab,cabinet,Left cabinet,collection,8,lab_cabinet_01_anchor,true,Baseline CSS furnishing; no illustrated replacement authorized as a redesign.,
 lab_cabinet_02,lab,cabinet,Right cabinet,collection,8,lab_cabinet_02_anchor,true,Baseline CSS furnishing; no illustrated replacement authorized as a redesign.,
 lab_attic_context_01,lab,attic,Attic access context,tool,1,lab_attic_context_01_anchor,true,,
+gallery_detail_01,gallery,authoring,New access point,detail,1,gallery_detail_01_anchor,true,Prepared by visual room authoring.,

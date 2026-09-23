@@ -270,27 +270,27 @@
     "mount": ".collection-room-lab",
     "polygon": [
       [
-        460.0,
-        93.0
+        460,
+        93
       ],
       [
-        540.0,
-        93.0
+        540,
+        93
       ],
       [
-        540.0,
-        143.0
+        540,
+        143
       ],
       [
-        460.0,
-        143.0
+        460,
+        143
       ]
     ],
     "content_bounds": {
-      "x": 460.0,
-      "y": 93.0,
-      "width": 80.0,
-      "height": 50.0
+      "x": 460,
+      "y": 93,
+      "width": 80,
+      "height": 50
     },
     "label_bounds": null,
     "layer": 9,
@@ -872,7 +872,7 @@
     "mount": ".local-hall",
     "polygon": [
       [
-        0.0,
+        0,
         774.61
       ],
       [
@@ -884,12 +884,12 @@
         948.079
       ],
       [
-        0.0,
+        0,
         948.079
       ]
     ],
     "content_bounds": {
-      "x": 0.0,
+      "x": 0,
       "y": 774.61,
       "width": 244.97,
       "height": 173.469
@@ -1388,27 +1388,27 @@
     "mount": ".natural-history-stage",
     "polygon": [
       [
-        0.0,
-        0.0
+        0,
+        0
       ],
       [
-        0.0,
-        0.0
+        0,
+        0
       ],
       [
-        0.0,
-        0.0
+        0,
+        0
       ],
       [
-        0.0,
-        0.0
+        0,
+        0
       ]
     ],
     "content_bounds": {
-      "x": 0.0,
-      "y": 0.0,
-      "width": 0.0,
-      "height": 0.0
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
     },
     "label_bounds": null,
     "layer": 9,
@@ -1516,10 +1516,22 @@
     },
     "mount": ".natural-history-stage",
     "polygon": [
-      [276, 810],
-      [579, 810],
-      [579, 928],
-      [276, 928]
+      [
+        276,
+        810
+      ],
+      [
+        579,
+        810
+      ],
+      [
+        579,
+        928
+      ],
+      [
+        276,
+        928
+      ]
     ],
     "content_bounds": {
       "x": 276,
@@ -1548,10 +1560,22 @@
     },
     "mount": ".natural-history-stage",
     "polygon": [
-      [823, 810],
-      [1126, 810],
-      [1126, 928],
-      [823, 928]
+      [
+        823,
+        810
+      ],
+      [
+        1126,
+        810
+      ],
+      [
+        1126,
+        928
+      ],
+      [
+        823,
+        928
+      ]
     ],
     "content_bounds": {
       "x": 823,
@@ -1796,27 +1820,27 @@
     "mount": ".collection-room-lab",
     "polygon": [
       [
-        310.0,
-        675.0
+        310,
+        675
       ],
       [
-        690.0,
-        675.0
+        690,
+        675
       ],
       [
-        690.0,
-        710.0
+        690,
+        710
       ],
       [
-        310.0,
-        710.0
+        310,
+        710
       ]
     ],
     "content_bounds": {
-      "x": 310.0,
-      "y": 675.0,
-      "width": 380.0,
-      "height": 35.0
+      "x": 310,
+      "y": 675,
+      "width": 380,
+      "height": 35
     },
     "label_bounds": null,
     "layer": 9,
@@ -1839,27 +1863,27 @@
     "mount": ".collection-room-lab",
     "polygon": [
       [
-        419.0,
-        570.0
+        419,
+        570
       ],
       [
-        589.0,
-        570.0
+        589,
+        570
       ],
       [
-        589.0,
-        664.0
+        589,
+        664
       ],
       [
-        419.0,
-        664.0
+        419,
+        664
       ]
     ],
     "content_bounds": {
-      "x": 419.0,
-      "y": 570.0,
-      "width": 170.0,
-      "height": 94.0
+      "x": 419,
+      "y": 570,
+      "width": 170,
+      "height": 94
     },
     "label_bounds": null,
     "layer": 9,
@@ -1882,27 +1906,27 @@
     "mount": ".collection-room-lab",
     "polygon": [
       [
-        86.0,
-        205.0
+        86,
+        205
       ],
       [
-        143.0,
-        205.0
+        143,
+        205
       ],
       [
-        143.0,
-        395.0
+        143,
+        395
       ],
       [
-        86.0,
-        395.0
+        86,
+        395
       ]
     ],
     "content_bounds": {
-      "x": 86.0,
-      "y": 205.0,
-      "width": 57.0,
-      "height": 190.0
+      "x": 86,
+      "y": 205,
+      "width": 57,
+      "height": 190
     },
     "label_bounds": null,
     "layer": 9,
@@ -1925,27 +1949,27 @@
     "mount": ".collection-room-lab",
     "polygon": [
       [
-        847.0,
-        205.0
+        847,
+        205
       ],
       [
-        904.0,
-        205.0
+        904,
+        205
       ],
       [
-        904.0,
-        395.0
+        904,
+        395
       ],
       [
-        847.0,
-        395.0
+        847,
+        395
       ]
     ],
     "content_bounds": {
-      "x": 847.0,
-      "y": 205.0,
-      "width": 57.0,
-      "height": 190.0
+      "x": 847,
+      "y": 205,
+      "width": 57,
+      "height": 190
     },
     "label_bounds": null,
     "layer": 9,
@@ -1968,32 +1992,75 @@
     "mount": ".collection-room-lab",
     "polygon": [
       [
-        451.0,
-        92.0
+        451,
+        92
       ],
       [
-        552.0,
-        92.0
+        552,
+        92
       ],
       [
-        552.0,
-        146.0
+        552,
+        146
       ],
       [
-        451.0,
-        146.0
+        451,
+        146
       ]
     ],
     "content_bounds": {
-      "x": 451.0,
-      "y": 92.0,
-      "width": 101.0,
-      "height": 54.0
+      "x": 451,
+      "y": 92,
+      "width": 101,
+      "height": 54
     },
     "label_bounds": null,
     "layer": 9,
     "presentation_mode": "tool",
     "selector": ".lab-attic-sign",
+    "fit": "contain",
+    "inline_content": false,
+    "component_mount": false
+  },
+  {
+    "anchor_id": "gallery_detail_01_anchor",
+    "slot_id": "gallery_detail_01",
+    "room_id": "gallery",
+    "background_asset": "/assets/img/room-edits/gallery-door-v1.png",
+    "background_version": "v1",
+    "coordinate_system": {
+      "width": 1445,
+      "height": 1089
+    },
+    "mount": ".gallery-hall",
+    "polygon": [
+      [
+        650.25,
+        490.05
+      ],
+      [
+        770.25,
+        490.05
+      ],
+      [
+        770.25,
+        570.05
+      ],
+      [
+        650.25,
+        570.05
+      ]
+    ],
+    "content_bounds": {
+      "x": 650.25,
+      "y": 490.05,
+      "width": 120,
+      "height": 80
+    },
+    "label_bounds": null,
+    "layer": 9,
+    "presentation_mode": "detail",
+    "selector": "",
     "fit": "contain",
     "inline_content": false,
     "component_mount": false

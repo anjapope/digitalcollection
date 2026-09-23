@@ -8,31 +8,31 @@ This document is the editor-facing vocabulary for the room editorial workbook. I
 
 ## Audit result
 
-- **47 enabled editable access points** are defined.
-- All 47 belong to the eight enabled rooms in `_data/rooms.csv`.
-- All 47 have one unique anchor in `_data/room_anchors.json`.
-- All 47 anchors match their slot and room IDs and have valid geometry, except the intentional nested component mount documented below.
+- **48 enabled editable access points** are defined.
+- All 48 belong to the eight enabled rooms in `_data/rooms.csv`.
+- All 48 have one unique anchor in `_data/room_anchors.json`.
+- All 48 anchors match their slot and room IDs and have valid geometry, except the intentional nested component mount documented below.
 - All active placements reference an existing slot and existing content or timeline.
 - No slot IDs, anchor IDs, or placement IDs are duplicated.
 - No slot is counted twice because of duplicate geometry.
 - Timeline activities are represented by four explicit timeline slots. Their event rows remain separate in `_data/timeline_events.csv`.
 - The restored Vestibule -> Gallery -> Conservation Lab route remains present in the room pages.
 
-The 47 locations are editorial access points, not 47 rooms. Empty locations are reserved and do not create a visitor control until a valid published placement is supplied.
+The 48 locations are editorial access points, not 48 rooms. Empty locations are reserved and do not create a visitor control until a valid published placement is supplied.
 
 ## Count by room
 
 | `room_id` | Display name | Enabled slots |
 |---|---|---:|
 | `vestibule` | Vestibule | 1 |
-| `gallery` | Gallery | 6 |
+| `gallery` | Gallery | 7 |
 | `conservation_lab` | Conservation Lab | 4 |
 | `historical_society` | Historical Society | 6 |
 | `attic` | Attic | 6 |
 | `natural_history` | Natural History Museum | 12 |
 | `conservators_office` | Conservator's Office | 6 |
 | `lab` | Lab | 6 |
-| **Total** |  | **47** |
+| **Total** |  | **48** |
 
 ## How to read the tables
 

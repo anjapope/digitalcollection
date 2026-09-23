@@ -1,5 +1,14 @@
 /* Component rules only. Room size, background positioning and framing remain in the existing stylesheet. */
 .room-placement-layer { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:9; }
+.room-authoring-layer { z-index:20; pointer-events:auto; }
+.room-authoring-target { fill:rgba(49,95,115,.16); stroke:#315f73; stroke-width:3; vector-effect:non-scaling-stroke; cursor:move; }
+.room-authoring-target.is-selected { fill:rgba(188,124,33,.24); stroke:#714a10; stroke-width:5; }
+.room-authoring-target:focus-visible { outline:none; stroke:#111; }
+.room-authoring-panel { position:fixed; z-index:100; top:1rem; right:1rem; width:min(22rem,calc(100vw - 2rem)); max-height:calc(100dvh - 2rem); overflow:auto; padding:1rem; border:2px solid #315f73; border-radius:8px; background:#f5ead5; box-shadow:0 10px 35px #0007; color:#382b1d; }
+.room-authoring-panel h2,.room-authoring-panel h3 { margin:.1rem 0 .7rem; font-family:Georgia,serif; }
+.room-authoring-panel select,.room-authoring-panel input { display:block; box-sizing:border-box; width:100%; padding:.45rem; margin:.4rem 0 .8rem; }
+.room-authoring-panel button { margin:.2rem .35rem .4rem 0; border:1px solid #80623c; border-radius:4px; padding:.45rem .6rem; background:#e6d1ab; color:#382b1d; cursor:pointer; }
+.room-authoring-status { font-weight:600; }
 .room-placement-layer [data-slot-id] { pointer-events:auto; cursor:pointer; }
 .room-placement-target { fill:transparent; stroke:transparent; stroke-width:2; vector-effect:non-scaling-stroke; }
 .room-placement-layer [data-slot-id]:hover .room-placement-target,

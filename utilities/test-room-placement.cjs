@@ -18,8 +18,8 @@ test('all eight rooms resolve without diagnostics; no Library', () => {
     assert.equal(core.resolve(data,'art').room.room_id,'conservation_lab');
 });
 test('every agreed slot has unique stable geometry and matching artwork version',()=>{
-    assert.equal(data.slots.length,47);
-    assert.equal(new Set(data.slots.map(s=>s.slot_id)).size,47);
+    assert.equal(data.slots.length,48);
+    assert.equal(new Set(data.slots.map(s=>s.slot_id)).size,48);
     for(const slot of data.slots) {
         const a=data.anchors.find(a=>a.anchor_id===slot.anchor_id);
         assert.equal(a.slot_id,slot.slot_id);
