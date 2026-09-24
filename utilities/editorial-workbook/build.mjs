@@ -5,11 +5,13 @@ import {Workbook,SpreadsheetFile} from '@oai/artifact-tool';
 const here=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(here,'../..');
 const out=path.join(root,'outputs/archivory-editorial');
-const data=JSON.parse(await fs.readFile(path.join(out,'source.json'),'utf8'));
+const bundle=JSON.parse(await fs.readFile(path.join(out,'source.json'),'utf8'));
+const {system,...data}=bundle;
+if(!system?.baseline || !system.record_fingerprints || system.protocol!=='unified-publication-model/v1') throw Error('Missing unified publication system baseline');
 const wb=Workbook.create();
 const col=n=>{let s='';for(n++;n;n=Math.floor((n-1)/26))s=String.fromCharCode(65+(n-1)%26)+s;return s;};
 const numeric=new Set(['sort_order','sortKey','capacity','latitude','longitude','start_date','end_date']);
-for(const name of [...Object.keys(data),'Guide','Edit Items','Timeline Cards','Room Overview','Publishing']) wb.worksheets.add(name);
+for(const name of [...Object.keys(data),'Guide','Edit Items','Timeline Cards','Room Overview','Publishing', '_Publication System']) wb.worksheets.add(name);
 const widths={description:76,extendedExplanation:76,introduction:76,successText:76,notes:70,display_description:70,citation:66,source:60,title:38,editor_label:38,content_id:44,slot_id:48,placement_id:52,anchor_id:54,image:56,adapter:48,background_asset:58,route:45,displayedDate:38};
 for(const [name,spec] of Object.entries(data)){
  const s=wb.worksheets.getItem(name),headers=[...spec.headers];
@@ -77,6 +79,19 @@ guide.getRange(`A1:B${instructions.length}`).values=instructions;
 guide.getRange(`A1:B${instructions.length}`).format={font:{name:'Arial',size:11,color:'#28313B'},wrapText:true,verticalAlignment:'center',rowHeight:58};
 guide.getRange('A1:A30').format.columnWidth=35;guide.getRange('B1:B30').format.columnWidth=115;
 guide.getRange('A1:B1').format.font={bold:true,size:15};
+const systemSheet=wb.worksheets.getItem('_Publication System');
+const systemRows=[
+ ['key','value'],
+ ['protocol',system.protocol],
+ ['baseline_fingerprint',system.baseline_fingerprint],
+ ['record_fingerprints',JSON.stringify(system.record_fingerprints)],
+ ['baseline',JSON.stringify(system.baseline)],
+ ['publication_note','System-managed revision baseline. Do not edit.'],
+];
+systemSheet.getRange(`A1:B${systemRows.length}`).values=systemRows;
+systemSheet.getRange(`A1:B${systemRows.length}`).format={font:{name:'Arial',size:10},wrapText:true};
+systemSheet.getRange('A:A').format.columnWidth=30;systemSheet.getRange('B:B').format.columnWidth=120;
+systemSheet.visibility='hidden';
 const createGuidedSheet=(name,instructions,headers,rows)=>{
  const sheet=wb.worksheets.getItem(name);
  const values=[[instructions],[],headers,...rows];

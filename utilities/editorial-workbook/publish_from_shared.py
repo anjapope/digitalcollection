@@ -206,7 +206,8 @@ def run_pipeline(
             encoding="utf-8",
         )
         media_args = ["--media-map", str(manifest)]
-        run(command + ["apply", str(path)] + media_args, "import")
+        audit = workbook.ROOT / "outputs" / "archivory-editorial" / "sync-audit.json"
+        run(command + ["sync", str(path), "--audit", str(audit)] + media_args, "import")
         after_sources = workbook.sources()
         if [row["slot_id"] for row in after_sources["Slots"]["rows"]] != before_ids:
             raise RuntimeError("Import changed the established slot ID vocabulary")

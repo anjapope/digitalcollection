@@ -18,6 +18,12 @@ Baseline screenshots use 1440 × 1000 and 390 × 844 viewports, saved under `scr
 - Preserve: original object dialogs and evidence lightbox, `proboscidean-timeline.js`, habitation map events, inquiry terminal, welcome/check-in and existing notebook storage identifiers.
 - Earlier placement code is absent from this checkout's Git history. The other preview is reference only. No earlier approved Gallery doorway was found in the checkout or targeted nearby project searches.
 
+## Unified publication model
+
+The normalized CSV/JSON tables remain the only authoring authority. `publication_model.py` deterministically projects published placements into `_data/publication_targets.json` and adapts publication-ready records into `_data/publication-metadata.csv` for CollectionBuilder. `demo-metadata.csv` remains intact as legacy metadata; the adapter preserves its fields while adding canonical room/item links. `_data/publication_overrides.csv` is intentionally narrow: each row changes one approved display/routing field for one placement target, without becoming a parallel record store.
+
+Run `python utilities\editorial-workbook\workbook.py refresh` after direct source authoring to regenerate projections, the workbook source bundle, and its revision baseline. The workbook's hidden `_Publication System` sheet fingerprints every normalized record field. `sync --dry-run --audit audit.json` performs a three-way merge preview. Independent field changes merge; concurrent edits to one field produce structured conflicts and no source write.
+
 ## Artwork constraints
 
 Original raster assets stay unchanged. Edited assets must preserve their dimensions and be compared outside an explicitly recorded edit rectangle. Gallery's illustrated fan is fixed scenery: it is not automatically the New Harmony fan. The two wall relief identities need curator verification. Lab has no illustrated room background in the baseline.

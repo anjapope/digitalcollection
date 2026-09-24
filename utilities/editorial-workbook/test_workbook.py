@@ -1,6 +1,7 @@
 import copy, csv, io, json, shutil, sys, tempfile, unittest
 from contextlib import redirect_stdout
 from pathlib import Path
+from unittest.mock import patch
 import workbook as w
 
 class WorkbookChecks(unittest.TestCase):
@@ -48,7 +49,7 @@ class WorkbookChecks(unittest.TestCase):
             previous=sys.argv
             try:
                 sys.argv=['workbook.py','apply',str(book)]
-                with redirect_stdout(io.StringIO()): w.main()
+                with patch.object(w,'refresh',return_value={'targets':0,'metadata':0}), redirect_stdout(io.StringIO()): w.main()
                 actual={s:v['rows'] for s,v in w.sources().items()}
                 self.assertEqual(self.data,actual)
                 (w.ROOT/'_data/room_content.csv').write_text('changed',encoding='utf-8')
@@ -104,5 +105,29 @@ class WorkbookChecks(unittest.TestCase):
                 'replacement':'/assets/img/editorial/../../outside.png',
             }]),encoding='utf-8')
             self.assertTrue(any('unsafe destination' in error for error in w.apply_media_map(data,manifest)))
+
+    def test_field_merge_preserves_independent_source_and_workbook_changes(self):
+        current=copy.deepcopy(w.sources())
+        baseline={sheet:{row[w.KEYS[sheet]]:dict(row) for row in spec['rows']}
+                  for sheet,spec in current.items()}
+        edited={sheet:[dict(row) for row in spec['rows']] for sheet,spec in current.items()}
+        current['Content']['rows'][0]['description']='Maintainer revision'
+        edited['Content'][0]['title']='Curator revision'
+        merged,audit,conflicts=w.merge_workbook(current,edited,baseline)
+        row=next(row for row in merged['Content'] if row['content_id']=='gallery_intro')
+        self.assertEqual(row['title'],'Curator revision')
+        self.assertEqual(row['description'],'Maintainer revision')
+        self.assertFalse(conflicts)
+        self.assertTrue(any(change['field']=='title' for change in audit))
+
+    def test_field_merge_reports_same_field_conflict(self):
+        current=copy.deepcopy(w.sources())
+        baseline={sheet:{row[w.KEYS[sheet]]:dict(row) for row in spec['rows']}
+                  for sheet,spec in current.items()}
+        edited={sheet:[dict(row) for row in spec['rows']] for sheet,spec in current.items()}
+        current['Content']['rows'][0]['title']='Maintainer title'
+        edited['Content'][0]['title']='Curator title'
+        _,_,conflicts=w.merge_workbook(current,edited,baseline)
+        self.assertEqual(conflicts[0]['field'],'title')
 
 if __name__=='__main__': unittest.main()

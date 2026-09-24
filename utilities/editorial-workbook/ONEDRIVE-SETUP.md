@@ -78,8 +78,9 @@ The command performs, in order:
    repository. Missing, unsafe, unreadable, mislabeled, or unsupported media
    stops here.
 6. Copy validated media into `assets/img/editorial/`.
-7. Run `workbook.py apply`; the importer creates a recoverable
-   timestamped CSV backup before writing.
+7. Run the revision-aware `workbook.py sync`; it performs a field-level
+   three-way merge, writes `outputs/archivory-editorial/sync-audit.json`, and
+   creates a recoverable timestamped CSV backup before writing.
 8. Translate curator filenames to their generated site references, confirm slot
    IDs remain unchanged, and run post-import data/media validation.
 9. Run `node utilities/test-room-placement.cjs`.
@@ -113,6 +114,9 @@ place for deliberate maintainer cleanup.
 - An unreadable or changing workbook stops before validation.
 - Import failures are guarded by the existing importer backup and rollback
   behavior.
+- If a maintainer and a curator changed the same field since the workbook was
+  built, synchronization stops without writing sources. The JSON audit names
+  the sheet, record, field, baseline, source, and workbook values.
 - A post-import test or build failure stops before deployment. The imported
   repository CSVs and timestamped backup remain available for review or
   restoration; no deployment is attempted.
@@ -125,6 +129,19 @@ place for deliberate maintainer cleanup.
 located source, intended destination, file that would be copied, file already
 current, and unreferenced imported media count. It does not create directories,
 copy media, import CSV data, run tests, or build the site.
+
+To inspect a merge before publishing outside the wrapper, run:
+
+```powershell
+python utilities/editorial-workbook/workbook.py sync "C:\path\ArchIvory Editorial Workbook.xlsx" --dry-run --audit outputs\archivory-editorial\sync-audit.json
+```
+
+After any direct normalized-data authoring save, refresh the canonical
+publication projection and workbook baseline before sharing the workbook again:
+
+```powershell
+python utilities/editorial-workbook/workbook.py refresh
+```
 
 ## Deployment boundary
 

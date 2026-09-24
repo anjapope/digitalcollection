@@ -9,5 +9,6 @@ layout: null
     "timelines": {{ site.data.room_timelines | jsonify }},
     "events": {{ site.data.timeline_events | jsonify }},
     "anchors": {{ site.data.room_anchors | jsonify }},
-    "objects": {{ site.data[site.metadata] | jsonify }}
+    "objects": {{ site.data[site.metadata] | jsonify }},
+    "publication_targets": {{ site.data.publication_targets.targets | jsonify }}
 }
